@@ -8,6 +8,7 @@ class MainHome extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     return MainContainer(
+      isHome: true,
       body: Container(
         alignment: Alignment.center,
         child: Text('home'),

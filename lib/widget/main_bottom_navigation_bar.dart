@@ -20,7 +20,8 @@ class MainBottomNavigationBar extends ConsumerWidget {
             return GestureDetector(
               onTap: equal ? null : () => context.go(tab['path']),
               child: Container(
-                width: MediaQuery.of(context).size.width / 5,
+                width: MediaQuery.of(context).size.width /
+                    StaticConfig.mainBottomNavigationTab.length,
                 color: equal ? colorScheme.primary : colorScheme.onPrimary,
                 alignment: Alignment.center,
                 child: Column(

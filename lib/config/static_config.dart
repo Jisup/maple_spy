@@ -3,12 +3,6 @@ import 'package:flutter/material.dart';
 class StaticConfig {
   static final List mainBottomNavigationTab = [
     {
-      'path': '/',
-      'name': 'home',
-      'text': '홈',
-      'icon': Icons.home,
-    },
-    {
       'path': '/character',
       'name': 'character',
       'text': '캐릭터',

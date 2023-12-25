@@ -8,6 +8,7 @@ class MainSkill extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     return MainContainer(
+      isHome: false,
       body: Container(
         alignment: Alignment.center,
         child: Text('skill'),

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:maple_app/config/const_config.dart';
+import 'package:maple_app/provider/character_notifier.dart';
 import 'package:maple_app/widget/main_container.dart';
 
 class MainHome extends ConsumerStatefulWidget {
@@ -20,11 +21,6 @@ class _MainHomeState extends ConsumerState<MainHome> {
     _textFieldController = TextEditingController();
   }
 
-  void searchUser() {
-    final String nickName = _textFieldController.text;
-    if (nickName == "") return;
-  }
-
   @override
   Widget build(BuildContext context) {
     ColorScheme colorScheme = Theme.of(context).colorScheme;
@@ -42,12 +38,15 @@ class _MainHomeState extends ConsumerState<MainHome> {
                 child: Container(
                   margin: EdgeInsets.only(left: DimenConfig.commonDimen),
                   child: TextField(
-                    controller: _textFieldController,
-                    decoration: const InputDecoration(
-                      border: OutlineInputBorder(),
-                    ),
-                    onSubmitted: (value) => searchUser(),
-                  ),
+                      controller: _textFieldController,
+                      decoration: const InputDecoration(
+                        border: OutlineInputBorder(),
+                      ),
+                      onSubmitted: (value) => value == ""
+                          ? null
+                          : ref
+                              .watch(characterNameProvider.notifier)
+                              .update((state) => _textFieldController.text)),
                 ),
               ),
               Container(
@@ -63,7 +62,11 @@ class _MainHomeState extends ConsumerState<MainHome> {
                       BorderRadius.circular(RadiusConfig.comminRadius),
                 ),
                 child: GestureDetector(
-                  onTap: () => searchUser(),
+                  onTap: () => _textFieldController.text == ""
+                      ? null
+                      : ref
+                          .watch(characterNameProvider.notifier)
+                          .update((state) => _textFieldController.text),
                   child: Column(
                     children: [
                       Expanded(

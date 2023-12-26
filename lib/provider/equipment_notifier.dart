@@ -49,8 +49,6 @@ class EquipmentNotifier extends Notifier<MainEquipment> {
   }
 
   void addItems(final itemsData) {
-    print(state.item.itemEquipment?.length);
     state = state.copyWith(item: Item.fromJson(itemsData));
-    print(state.item.itemEquipment?.length);
   }
 }

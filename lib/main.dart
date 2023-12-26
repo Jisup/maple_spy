@@ -2,6 +2,7 @@ import 'dart:convert';
 
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:maple_app/config/color_config.dart';
 import 'package:maple_app/provider/character_notifier.dart';
@@ -9,7 +10,9 @@ import 'package:maple_app/provider/equipment_notifier.dart';
 import 'package:maple_app/provider/stat_notifier.dart';
 import 'package:maple_app/util/main_router.dart';
 
-void main() {
+void main() async {
+  await dotenv.load(fileName: '.env');
+
   runApp(const ProviderScope(child: MapleApp()));
 }
 
@@ -62,13 +65,16 @@ void getJsonData(BuildContext context, WidgetRef ref) async {
   // jsonResponse['Ocid']; // ocid
   // jsonResponse['Basic']; // Basic
   // jsonResponse['Popularity']; // Popularity
-  _characterNotifier.addOcid(jsonResponse['Ocid']);
-  _characterNotifier.addBasic(jsonResponse['Basic']);
-  _characterNotifier.addPopularity(jsonResponse['Popularity']);
+
+  // _characterNotifier.addOcid(jsonResponse['Ocid']);
+  // _characterNotifier.addBasic(jsonResponse['Basic']);
+  // _characterNotifier.addPopularity(jsonResponse['Popularity']);
 
   // jsonResponse['Stat']; // Stat
-  _statNotifier.addStat(jsonResponse['Stat']);
+
+  // _statNotifier.addStat(jsonResponse['Stat']);
 
   // jsonResponse['Items']; // Items
-  _equipmentNotifier.addItems(jsonResponse['Items']);
+
+  // _equipmentNotifier.addItems(jsonResponse['Items']);
 }

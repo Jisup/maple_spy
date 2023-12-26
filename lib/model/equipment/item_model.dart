@@ -303,7 +303,7 @@ class ItemTotalOption {
     ignoreMonsterArmor = json['ignore_monster_armor'];
     allStat = json['all_stat'];
     damage = json['damage'];
-    equipmentLevelDecrease = json['equipment_level_decrease'];
+    equipmentLevelDecrease = json['equipment_level_decrease']?.toDouble();
     maxHpRate = json['max_hp_rate'];
     maxMpRate = json['max_mp_rate'];
   }
@@ -387,7 +387,7 @@ class ItemBaseOption {
     allStat = json['all_stat'];
     maxHpRate = json['max_hp_rate'];
     maxMpRate = json['max_mp_rate'];
-    baseEquipmentLevel = json['base_equipment_level'];
+    baseEquipmentLevel = json['base_equipment_level']?.toDouble();
   }
 
   Map<String, dynamic> toJson() {
@@ -507,7 +507,7 @@ class ItemAddOption {
     bossDamage = json['boss_damage'];
     damage = json['damage'];
     allStat = json['all_stat'];
-    equipmentLevelDecrease = json['equipment_level_decrease'];
+    equipmentLevelDecrease = json['equipment_level_decrease']?.toDouble();
   }
 
   Map<String, dynamic> toJson() {

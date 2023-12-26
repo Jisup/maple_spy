@@ -1,4 +1,4 @@
-class beautyItem {
+class BeautyItem {
   String? date;
   String? characterGender;
   String? characterClass;
@@ -9,7 +9,7 @@ class beautyItem {
   CharacterFace? additionalCharacterFace;
   String? additionalCharacterSkinName;
 
-  beautyItem(
+  BeautyItem(
       {this.date,
       this.characterGender,
       this.characterClass,
@@ -20,7 +20,7 @@ class beautyItem {
       this.additionalCharacterFace,
       this.additionalCharacterSkinName});
 
-  beautyItem.fromJson(Map<String, dynamic> json) {
+  BeautyItem.fromJson(Map<String, dynamic> json) {
     date = json['date'];
     characterGender = json['character_gender'];
     characterClass = json['character_class'];

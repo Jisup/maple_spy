@@ -2,7 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:maple_app/config/const_config.dart';
 import 'package:maple_app/provider/character_notifier.dart';
-import 'package:maple_app/widget/main_container.dart';
+import 'package:maple_app/widget/common/loading_spinner.dart';
+import 'package:maple_app/widget/main/main_container.dart';
 
 class MainHome extends ConsumerStatefulWidget {
   const MainHome({super.key});

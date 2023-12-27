@@ -3,7 +3,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import 'package:maple_app/config/const_config.dart';
 import 'package:maple_app/provider/character_notifier.dart';
-import 'package:maple_app/widget/main/main_container.dart';
+import 'package:maple_app/container/main_container.dart';
 
 class MainHome extends ConsumerStatefulWidget {
   const MainHome({super.key});
@@ -25,7 +25,7 @@ class _MainHomeState extends ConsumerState<MainHome> {
     ref
         .watch(characterNameProvider.notifier)
         .update((state) => _textFieldController.text);
-    context.go('/character');
+    context.push('/character');
   }
 
   @override
@@ -54,9 +54,9 @@ class _MainHomeState extends ConsumerState<MainHome> {
               Container(
                 margin: EdgeInsets.fromLTRB(
                     DimenConfig.commonDimen,
-                    DimenConfig.maxDimen,
+                    DimenConfig.commonDimen * 2,
                     DimenConfig.commonDimen,
-                    DimenConfig.maxDimen),
+                    DimenConfig.commonDimen * 2),
                 decoration: BoxDecoration(
                   color: colorScheme.primary,
                   border: Border.all(width: 1),
@@ -77,7 +77,7 @@ class _MainHomeState extends ConsumerState<MainHome> {
                             '검색',
                             style: TextStyle(
                                 color: colorScheme.onPrimary,
-                                letterSpacing: SpacingConfig.comminSpacing),
+                                letterSpacing: SpacingConfig.commonSpacing),
                           ),
                         ),
                       ),

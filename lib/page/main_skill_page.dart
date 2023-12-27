@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:maple_app/widget/main/main_container.dart';
+import 'package:maple_app/container/main_container.dart';
 
 class MainSkill extends ConsumerWidget {
   const MainSkill({super.key});

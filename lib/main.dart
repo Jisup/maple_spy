@@ -58,7 +58,6 @@ void getJsonData(BuildContext context, WidgetRef ref) async {
   String jsonData = await rootBundle.loadString('lib/assets/dummy.json');
   final jsonResponse = jsonDecode(jsonData);
 
-  var _characterNotifier = ref.watch(characterProvider.notifier);
   var _statNotifier = ref.watch(statProvider.notifier);
   var _equipmentNotifier = ref.watch(equipmentListProvider.notifier);
 

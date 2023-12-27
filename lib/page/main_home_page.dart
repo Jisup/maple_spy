@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:go_router/go_router.dart';
 import 'package:maple_app/config/const_config.dart';
 import 'package:maple_app/provider/character_notifier.dart';
-import 'package:maple_app/widget/common/loading_spinner.dart';
 import 'package:maple_app/widget/main/main_container.dart';
 
 class MainHome extends ConsumerStatefulWidget {
@@ -17,15 +17,20 @@ class _MainHomeState extends ConsumerState<MainHome> {
 
   @override
   void initState() {
-    // TODO: implement initState
     super.initState();
     _textFieldController = TextEditingController();
+  }
+
+  void onClickSearchButton() {
+    ref
+        .watch(characterNameProvider.notifier)
+        .update((state) => _textFieldController.text);
+    context.go('/character');
   }
 
   @override
   Widget build(BuildContext context) {
     ColorScheme colorScheme = Theme.of(context).colorScheme;
-
     return MainContainer(
       isHome: true,
       body: Container(
@@ -39,15 +44,11 @@ class _MainHomeState extends ConsumerState<MainHome> {
                 child: Container(
                   margin: EdgeInsets.only(left: DimenConfig.commonDimen),
                   child: TextField(
-                      controller: _textFieldController,
-                      decoration: const InputDecoration(
-                        border: OutlineInputBorder(),
-                      ),
-                      onSubmitted: (value) => value == ""
-                          ? null
-                          : ref
-                              .watch(characterNameProvider.notifier)
-                              .update((state) => _textFieldController.text)),
+                    controller: _textFieldController,
+                    decoration: const InputDecoration(
+                      border: OutlineInputBorder(),
+                    ),
+                  ),
                 ),
               ),
               Container(
@@ -65,9 +66,7 @@ class _MainHomeState extends ConsumerState<MainHome> {
                 child: GestureDetector(
                   onTap: () => _textFieldController.text == ""
                       ? null
-                      : ref
-                          .watch(characterNameProvider.notifier)
-                          .update((state) => _textFieldController.text),
+                      : onClickSearchButton(),
                   child: Column(
                     children: [
                       Expanded(

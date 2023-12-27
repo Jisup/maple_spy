@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:maple_app/config/const_config.dart';
 
-AppBar MainAppBar(BuildContext context, bool isHome) {
+AppBar MainAppBar(BuildContext context, bool isHome, String characterName) {
   ColorScheme colorScheme = Theme.of(context).colorScheme;
 
   return isHome
@@ -32,7 +32,7 @@ AppBar MainAppBar(BuildContext context, bool isHome) {
                 ),
               )),
           title: Text(
-            'User NickName',
+            characterName,
             textAlign: TextAlign.center,
             style: TextStyle(color: colorScheme.onPrimary),
           ),

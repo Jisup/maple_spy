@@ -11,6 +11,7 @@ import 'package:maple_app/model/character/dojang_model.dart';
 import 'package:maple_app/model/character/popularity_model.dart';
 import 'package:maple_app/model/character/propensity_model.dart';
 import 'package:maple_app/model/main_character_model.dart';
+import 'package:maple_app/util/day_instance.dart';
 import 'package:maple_app/util/dio_instance.dart';
 
 final asyncCharacterProvider =
@@ -24,10 +25,7 @@ final ocidProvider = StateProvider((_) => "");
 class CharacterNotifier extends AutoDisposeAsyncNotifier<MainCharacter> {
   Future<MainCharacter> _fetchCharacter() async {
     final dioInstance = DioInstance();
-
-    DateFormat formatter = DateFormat('yyyy-MM-dd');
-    final yesterday =
-        formatter.format(DateTime.now().subtract(const Duration(hours: 25)));
+    final yesterday = DayInstance().yesterday;
 
     final characterName = ref.watch(characterNameProvider.notifier).state;
     dioInstance.dio.options.queryParameters = {'character_name': characterName};

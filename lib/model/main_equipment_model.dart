@@ -7,22 +7,22 @@ import 'package:maple_app/model/equipment/pet_item_model.dart';
 import 'package:maple_app/model/equipment/symbol_item_model.dart';
 
 class MainEquipment {
-  Item item;
-  CashItem cash;
-  BeautyItem beauty;
-  PetItem pet;
-  SymbolItem symbol;
-  AndroidItem android;
-  ItemSetEffect setEffect;
+  Item? item;
+  CashItem? cash;
+  BeautyItem? beauty;
+  PetItem? pet;
+  SymbolItem? symbol;
+  AndroidItem? android;
+  ItemSetEffect? setEffect;
 
   MainEquipment({
-    required this.item,
-    required this.cash,
-    required this.beauty,
-    required this.pet,
-    required this.symbol,
-    required this.android,
-    required this.setEffect,
+    this.item,
+    this.cash,
+    this.beauty,
+    this.pet,
+    this.symbol,
+    this.android,
+    this.setEffect,
   });
 
   MainEquipment copyWith(

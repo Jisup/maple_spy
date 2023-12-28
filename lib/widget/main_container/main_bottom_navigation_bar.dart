@@ -34,6 +34,7 @@ class MainBottomNavigationBar extends ConsumerWidget {
                     Text(
                       tab['text'],
                       style: TextStyle(
+                          fontFamily: 'Maplestory',
                           color: equal
                               ? colorScheme.onPrimary
                               : colorScheme.primary),

@@ -14,13 +14,16 @@ AppBar MainAppBar(BuildContext context, bool isHome, String characterName) {
             ? Image(
                 image: AssetImage('lib/assets/maple_icon.png'),
               )
-            : Icon(Icons.navigate_before_rounded),
+            : Icon(
+                Icons.navigate_before_rounded,
+                color: Colors.white,
+              ),
       ),
     ),
     title: Text(
       isHome ? 'Maple' : characterName,
       textAlign: TextAlign.center,
-      style: TextStyle(color: colorScheme.onPrimary),
+      style: TextStyle(color: colorScheme.onPrimary, fontFamily: 'Maplestory'),
     ),
     backgroundColor: colorScheme.primary,
   );

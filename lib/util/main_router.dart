@@ -16,31 +16,31 @@ GoRouter mainRouter = GoRouter(
       path: '/',
       name: 'home',
       pageBuilder: (context, state) =>
-          const NoTransitionPage(child: MainHome()),
+          const NoTransitionPage(child: MainHomePage()),
     ),
     GoRoute(
       path: '/character',
       name: 'character',
       pageBuilder: (context, state) =>
-          const NoTransitionPage(child: MainCharacter()),
+          const NoTransitionPage(child: MainCharacterPage()),
     ),
     GoRoute(
       path: '/equipment',
       name: 'equipment',
       pageBuilder: (context, state) =>
-          const NoTransitionPage(child: MainEquipment()),
+          const NoTransitionPage(child: MainEquipmentPage()),
     ),
     GoRoute(
       path: '/stat',
       name: 'stat',
       pageBuilder: (context, state) =>
-          const NoTransitionPage(child: MainStat()),
+          const NoTransitionPage(child: MainStatPage()),
     ),
     GoRoute(
       path: '/skill',
       name: 'skill',
       pageBuilder: (context, state) =>
-          const NoTransitionPage(child: MainSkill()),
+          const NoTransitionPage(child: MainSkillPage()),
     ),
   ],
 );

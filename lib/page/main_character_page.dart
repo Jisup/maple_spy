@@ -6,8 +6,8 @@ import 'package:maple_app/widget/common/error_page.dart';
 import 'package:maple_app/widget/common/loading_spinner.dart';
 import 'package:maple_app/container/main_container.dart';
 
-class MainCharacter extends ConsumerWidget {
-  const MainCharacter({super.key});
+class MainCharacterPage extends ConsumerWidget {
+  const MainCharacterPage({super.key});
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {

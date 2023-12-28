@@ -5,14 +5,14 @@ import 'package:maple_app/config/const_config.dart';
 import 'package:maple_app/provider/character_notifier.dart';
 import 'package:maple_app/container/main_container.dart';
 
-class MainHome extends ConsumerStatefulWidget {
-  const MainHome({super.key});
+class MainHomePage extends ConsumerStatefulWidget {
+  const MainHomePage({super.key});
 
   @override
   ConsumerState<ConsumerStatefulWidget> createState() => _MainHomeState();
 }
 
-class _MainHomeState extends ConsumerState<MainHome> {
+class _MainHomeState extends ConsumerState<MainHomePage> {
   late TextEditingController _textFieldController;
 
   @override

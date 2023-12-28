@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:maple_app/container/main_container.dart';
 
-class MainSkill extends ConsumerWidget {
-  const MainSkill({super.key});
+class MainSkillPage extends ConsumerWidget {
+  const MainSkillPage({super.key});
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {

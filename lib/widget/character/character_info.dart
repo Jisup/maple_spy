@@ -3,8 +3,8 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:maple_app/config/const_config.dart';
 import 'package:stroke_text/stroke_text.dart';
 
-class CharacterInfoTab extends ConsumerWidget {
-  const CharacterInfoTab(
+class CharacterInfoWidget extends ConsumerWidget {
+  const CharacterInfoWidget(
       {super.key,
       required this.title,
       required this.value,

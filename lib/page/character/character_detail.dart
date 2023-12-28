@@ -5,7 +5,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:maple_app/config/color_config.dart';
 import 'package:maple_app/config/const_config.dart';
 import 'package:maple_app/model/main_character_model.dart';
-import 'package:maple_app/widget/character/character_info_tab.dart';
+import 'package:maple_app/widget/character/character_info.dart';
 import 'package:stroke_text/stroke_text.dart';
 
 class CharacterDetail extends ConsumerWidget {
@@ -33,7 +33,7 @@ class CharacterDetail extends ConsumerWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               /**-----character`s level with character`s class  */
-              CharacterInfoTab(
+              CharacterInfoWidget(
                   title: 'Lv. ${character.basic!.characterLevel!}',
                   value: character.basic!.characterClass!,
                   type: true),
@@ -74,14 +74,14 @@ class CharacterDetail extends ConsumerWidget {
                 ),
               ),
               /**-----character`s 전투력 */
-              CharacterInfoTab(
+              CharacterInfoWidget(
                   title: '전투력', value: '1억 5235만 1235', type: true),
               /**-----character`s dojang */
-              CharacterInfoTab(title: '무릉도장', value: '60층', type: false),
+              CharacterInfoWidget(title: '무릉도장', value: '60층', type: false),
               /**-----character`s union */
-              CharacterInfoTab(title: '유니온', value: '10582', type: false),
+              CharacterInfoWidget(title: '유니온', value: '10582', type: false),
               /**-----character`s guild */
-              CharacterInfoTab(title: '길드', value: '꿈속', type: false),
+              CharacterInfoWidget(title: '길드', value: '꿈속', type: false),
             ],
           ),
         ),

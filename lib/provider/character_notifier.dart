@@ -30,7 +30,7 @@ class CharacterNotifier extends AutoDisposeAsyncNotifier<MainCharacter> {
         formatter.format(DateTime.now().subtract(const Duration(hours: 25)));
 
     final characterName = ref.watch(characterNameProvider.notifier).state;
-    dioInstance.setQueryParameters({'character_name': characterName});
+    dioInstance.dio.options.queryParameters = {'character_name': characterName};
 
     /**----- get ocid ----- */
     Response ocidResponse =
@@ -39,7 +39,7 @@ class CharacterNotifier extends AutoDisposeAsyncNotifier<MainCharacter> {
 
     ref.watch(ocidProvider.notifier).update((state) => ocid);
 
-    dioInstance.setQueryParameters({'ocid': ocid, 'date': yesterday});
+    dioInstance.dio.options.queryParameters = {'ocid': ocid, 'date': yesterday};
 
     /**----- get basic ----- */
     Response basicResponse =

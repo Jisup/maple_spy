@@ -3,9 +3,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 
 class DioInstance {
-  final dio = Dio();
+  static final DioInstance _instance = DioInstance._internal();
+  late Dio dio;
 
-  DioInstance() {
+  DioInstance._internal() {
+    dio = Dio();
     dio.options.baseUrl = dotenv.get('NEXON_API_URL');
     dio.options.headers = {
       'accept': 'application/json',
@@ -15,7 +17,7 @@ class DioInstance {
         .add(LogInterceptor(logPrint: (o) => debugPrint(o.toString())));
   }
 
-  void setQueryParameters(queryParameter) {
-    dio.options.queryParameters = queryParameter;
+  factory DioInstance() {
+    return _instance;
   }
 }

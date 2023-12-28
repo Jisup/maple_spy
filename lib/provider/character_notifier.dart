@@ -23,15 +23,11 @@ final ocidProvider = StateProvider((_) => "");
 
 class CharacterNotifier extends AutoDisposeAsyncNotifier<MainCharacter> {
   Future<MainCharacter> _fetchCharacter() async {
-    if (ref.watch(characterNameProvider.notifier).state == "") {
-      throw Error();
-    }
-
     final dioInstance = DioInstance();
 
     DateFormat formatter = DateFormat('yyyy-MM-dd');
     final yesterday =
-        formatter.format(DateTime.now().subtract(const Duration(days: 1)));
+        formatter.format(DateTime.now().subtract(const Duration(hours: 25)));
 
     final characterName = ref.watch(characterNameProvider.notifier).state;
     dioInstance.setQueryParameters({'character_name': characterName});

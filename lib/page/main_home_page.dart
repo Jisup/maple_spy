@@ -36,13 +36,15 @@ class _MainHomeState extends ConsumerState<MainHome> {
       body: Container(
         alignment: Alignment.center,
         child: Container(
-          height: MediaQuery.of(context).size.height * 0.125,
-          alignment: Alignment.center,
+          margin: EdgeInsets.only(
+            left: DimenConfig.commonDimen * 2,
+            right: DimenConfig.commonDimen * 2,
+          ),
           child: Row(
             children: [
               Expanded(
                 child: Container(
-                  margin: EdgeInsets.only(left: DimenConfig.commonDimen),
+                  margin: EdgeInsets.only(right: DimenConfig.subDimen),
                   child: TextField(
                     controller: _textFieldController,
                     decoration: const InputDecoration(
@@ -52,36 +54,24 @@ class _MainHomeState extends ConsumerState<MainHome> {
                 ),
               ),
               Container(
-                margin: EdgeInsets.fromLTRB(
-                    DimenConfig.commonDimen,
-                    DimenConfig.commonDimen * 2,
-                    DimenConfig.commonDimen,
-                    DimenConfig.commonDimen * 2),
+                margin: EdgeInsets.only(left: DimenConfig.subDimen),
                 decoration: BoxDecoration(
                   color: colorScheme.primary,
                   border: Border.all(width: 1),
-                  borderRadius:
-                      BorderRadius.circular(RadiusConfig.comminRadius),
+                  borderRadius: BorderRadius.circular(RadiusConfig.subRadius),
                 ),
                 child: GestureDetector(
                   onTap: () => _textFieldController.text == ""
                       ? null
                       : onClickSearchButton(),
-                  child: Column(
-                    children: [
-                      Expanded(
-                        child: Container(
-                          alignment: Alignment.center,
-                          padding: EdgeInsets.all(DimenConfig.commonDimen),
-                          child: Text(
-                            '검색',
-                            style: TextStyle(
-                                color: colorScheme.onPrimary,
-                                letterSpacing: SpacingConfig.commonSpacing),
-                          ),
-                        ),
-                      ),
-                    ],
+                  child: Container(
+                    padding: EdgeInsets.all(DimenConfig.commonDimen),
+                    child: Text(
+                      '검색',
+                      style: TextStyle(
+                          color: colorScheme.onPrimary,
+                          letterSpacing: SpacingConfig.commonSpacing),
+                    ),
                   ),
                 ),
               )

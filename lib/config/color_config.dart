@@ -10,13 +10,20 @@ const lightColorScheme = ColorScheme(
   onTertiary: Color(0xFF3b75d2),
   error: Color(0xFFFF0000),
   onError: Color(0xFFFFFFFF),
-  background: Color(0xFFF0ECE5),
+  background: Color(0xFFF0ECE5), // Container, Widget 등의 backgroundColor 고정값
   onBackground: Color(0xFF161A30),
-  surface: Color(0xFFFFFFFF),
-  onSurface: Color(0xFF000000),
+  surface: Color(0xFF000000), // TextStyle의 color 값
+  onSurface: Color(0xFF000000), // TextFiled 내 Text의 Color 값
 );
 
 // const darkColorscheme = ColorScheme();
+
+class CommonColor {
+  static const Color mainColor = Color(0xFFf68500);
+  static const Color subColor = Color(0xFF3b75d2);
+  static const Color infoMainColor = Color(0xFF3cc1d7);
+  static const Color infoSubColor = Color(0xFFa2cc11);
+}
 
 class ItemColor {
   static const Color background = Color(0xFFeeeeee); // 장비 아이템 배경

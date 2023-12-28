@@ -16,34 +16,15 @@ void main() async {
   runApp(const ProviderScope(child: MapleApp()));
 }
 
-// class MapleApp extends StatelessWidget {
-//   const MapleApp({super.key});
-
-//   @override
-//   Widget build(BuildContext context) {
-//     return MaterialApp.router(
-//       title: "Maple Charactor Information Application",
-//       theme: ThemeData(
-//         useMaterial3: true,
-//         colorScheme: lightColorScheme,
-//       ),
-//       themeMode: ThemeMode.light,
-//       routerConfig: mainRouter,
-//       debugShowCheckedModeBanner: false,
-//     );
-//   } MapleApp
-// MapleApp}
-
 class MapleApp extends ConsumerWidget {
   const MapleApp({super.key});
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    getJsonData(context, ref);
-
     return MaterialApp.router(
       title: "Maple Charactor Information Application",
       theme: ThemeData(
+        fontFamily: 'NotoSansKR',
         useMaterial3: true,
         colorScheme: lightColorScheme,
       ),
@@ -52,28 +33,4 @@ class MapleApp extends ConsumerWidget {
       debugShowCheckedModeBanner: false,
     );
   }
-}
-
-void getJsonData(BuildContext context, WidgetRef ref) async {
-  String jsonData = await rootBundle.loadString('lib/assets/dummy.json');
-  final jsonResponse = jsonDecode(jsonData);
-
-  var _statNotifier = ref.watch(statProvider.notifier);
-  var _equipmentNotifier = ref.watch(equipmentListProvider.notifier);
-
-  // jsonResponse['Ocid']; // ocid
-  // jsonResponse['Basic']; // Basic
-  // jsonResponse['Popularity']; // Popularity
-
-  // _characterNotifier.addOcid(jsonResponse['Ocid']);
-  // _characterNotifier.addBasic(jsonResponse['Basic']);
-  // _characterNotifier.addPopularity(jsonResponse['Popularity']);
-
-  // jsonResponse['Stat']; // Stat
-
-  // _statNotifier.addStat(jsonResponse['Stat']);
-
-  // jsonResponse['Items']; // Items
-
-  // _equipmentNotifier.addItems(jsonResponse['Items']);
 }

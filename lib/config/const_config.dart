@@ -27,6 +27,7 @@ class StrokeConfig {
 
 class FontConfig {
   static double commonSize = 15;
+  static double subSize = 12;
   static double maxSize = 30;
   static double minSize = 10;
 }

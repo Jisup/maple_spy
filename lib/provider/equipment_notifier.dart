@@ -19,6 +19,8 @@ final asyncEquipmentProvider =
     AutoDisposeAsyncNotifierProvider<EquipmentNotifier, MainEquipment>(
         EquipmentNotifier.new);
 
+final equipmentSelectTabProvider = StateProvider((_) => 'item');
+
 class EquipmentNotifier extends AutoDisposeAsyncNotifier<MainEquipment> {
   Future<MainEquipment> _fetchEquipment() async {
     final dioInstance = DioInstance();

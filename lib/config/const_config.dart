@@ -1,3 +1,6 @@
+import 'package:flutter/material.dart';
+
+/**-----padding margin */
 class DimenConfig {
   static double commonDimen = 10;
   static double subDimen = 5;
@@ -6,16 +9,23 @@ class DimenConfig {
   static double minDimen = 3;
 }
 
+/**-----box */
 class RadiusConfig {
   static double commonRadius = 15;
   static double subRadius = 10;
 
   static double minRadius = 5;
+  static double littleRadius = 3;
 }
 
-class SpacingConfig {
-  static double commonSpacing = 1;
-  static double maxSpacing = 4;
+class OffsetConfig {}
+
+/**-----text */
+class FontConfig {
+  static double commonSize = 15;
+  static double subSize = 12;
+  static double maxSize = 30;
+  static double minSize = 9;
 }
 
 class StrokeConfig {
@@ -25,9 +35,8 @@ class StrokeConfig {
   static double minWidth = 1;
 }
 
-class FontConfig {
-  static double commonSize = 15;
-  static double subSize = 12;
-  static double maxSize = 30;
-  static double minSize = 10;
+class SpacingConfig {
+  static double commonSpacing = 1;
+  static double maxSpacing = 4;
+  static double minSpacing = 0.1;
 }

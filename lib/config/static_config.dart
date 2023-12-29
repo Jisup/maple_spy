@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:maple_app/config/color_config.dart';
 import 'package:maple_app/config/const_config.dart';
 import 'package:maple_app/provider/equipment_notifier.dart';
 
 class StaticConfig {
+  /**-----Tab */
   static final List mainBottomNavigationTab = [
     {
       'path': '/character',
@@ -89,6 +91,251 @@ class StaticConfig {
       'text': '링크 스킬',
       'fontSize': FontConfig.commonSize,
       'dimenSize': DimenConfig.commonDimen,
+    },
+  ];
+  /**-----part */
+  static final List equipmentItemList = [
+    {
+      'name': 'RING',
+      'slot': '반지4',
+    },
+    {
+      'name': null,
+      'slot': null,
+    },
+    {
+      'name': 'CAP',
+      'slot': '모자',
+    },
+    {
+      'name': null,
+      'slot': null,
+    },
+    {
+      'name': 'EMBLEM',
+      'slot': '엠블렘',
+    },
+    {
+      'name': 'RING',
+      'slot': '반지3',
+    },
+    {
+      'name': 'PENDANT',
+      'slot': '펜던트2',
+    },
+    {
+      'name': 'FORE\nHEAD',
+      'slot': '얼굴장식',
+    },
+    {
+      'name': null,
+      'slot': null,
+    },
+    {
+      'name': 'BADGE',
+      'slot': '뱃지',
+    },
+    {
+      'name': 'RING',
+      'slot': '반지2',
+    },
+    {
+      'name': 'PENDANT',
+      'slot': '펜던트1',
+    },
+    {
+      'name': 'EYE\nACC',
+      'slot': '눈장식',
+    },
+    {
+      'name': 'EAR\nACC',
+      'slot': '귀고리',
+    },
+    {
+      'name': 'MEDAL',
+      'slot': '훈장',
+    },
+    {
+      'name': 'RING',
+      'slot': '반지1',
+    },
+    {
+      'name': 'WEAPON',
+      'slot': '무기',
+    },
+    {
+      'name': 'CLOTHES',
+      'slot': '상의',
+    },
+    {
+      'name': 'SHOULDER',
+      'slot': '어깨장식',
+    },
+    {
+      'name': 'SUB\nWEAPON',
+      'slot': '보조무기',
+    },
+    {
+      'name': 'POCKET',
+      'slot': '포켓 아이템',
+    },
+    {
+      'name': 'BELT',
+      'slot': '벨트',
+    },
+    {
+      'name': 'PANTS',
+      'slot': '하의',
+    },
+    {
+      'name': 'GLOUES',
+      'slot': '장갑',
+    },
+    {
+      'name': 'CAPE',
+      'slot': '망토',
+    },
+    {
+      'name': null,
+      'slot': null,
+    },
+    {
+      'name': null,
+      'slot': null,
+    },
+    {
+      'name': 'SHOES',
+      'slot': '신발',
+    },
+    {
+      'name': 'ANDROID',
+      'slot': '안드로이드',
+    },
+    {
+      'name': 'HEART',
+      'slot': '기계 심장',
+    },
+  ];
+  static final List equipmentCashList = [
+    {
+      'name': 'RING',
+      'slot': '반지4',
+    },
+    {
+      'name': 'HAIR',
+      'slot': '머리',
+    },
+    {
+      'name': 'CAP',
+      'slot': '모자',
+    },
+    {
+      'name': null,
+      'slot': null,
+    },
+    {
+      'name': null,
+      'slot': null,
+    },
+    {
+      'name': 'RING',
+      'slot': '반지3',
+    },
+    {
+      'name': 'FACE\nEYE',
+      'slot': '눈',
+    },
+    {
+      'name': 'FORE\nHEAD',
+      'slot': '얼굴장식',
+    },
+    {
+      'name': null,
+      'slot': null,
+    },
+    {
+      'name': null,
+      'slot': null,
+    },
+    {
+      'name': 'RING',
+      'slot': '반지2',
+    },
+    {
+      'name': 'FACE\nSKIN',
+      'slot': '피부',
+    },
+    {
+      'name': 'EYE\nACC',
+      'slot': '눈장식',
+    },
+    {
+      'name': 'EAR\nACC',
+      'slot': '귀고리',
+    },
+    {
+      'name': null,
+      'slot': null,
+    },
+    {
+      'name': 'RING',
+      'slot': '반지1',
+    },
+    {
+      'name': 'WEAPON',
+      'slot': '무기',
+    },
+    {
+      'name': 'CLOTHES',
+      'slot': '상의',
+    },
+    {
+      'name': null,
+      'slot': null,
+    },
+    {
+      'name': 'SUB\nWEAPON',
+      'slot': '보조무기',
+    },
+    {
+      'name': null,
+      'slot': null,
+    },
+    {
+      'name': null,
+      'slot': null,
+    },
+    {
+      'name': 'PANTS',
+      'slot': '하의',
+    },
+    {
+      'name': 'GLOUES',
+      'slot': '장갑',
+    },
+    {
+      'name': 'CAPE',
+      'slot': '망토',
+    },
+    {
+      'name': null,
+      'slot': null,
+    },
+    {
+      'name': null,
+      'slot': null,
+    },
+    {
+      'name': 'SHOES',
+      'slot': '신발',
+    },
+    {
+      'name': null,
+      'slot': null,
+    },
+    {
+      'name': null,
+      'slot': null,
     },
   ];
 }

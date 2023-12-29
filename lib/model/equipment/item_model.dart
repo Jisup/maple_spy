@@ -67,7 +67,7 @@ class Item {
 
 class ItemEquipment {
   String? itemEquipmentPart;
-  String? equipmentSlot;
+  String? itemEquipmentSlot;
   String? itemName;
   String? itemIcon;
   String? itemDescription;
@@ -105,7 +105,7 @@ class ItemEquipment {
 
   ItemEquipment(
       {this.itemEquipmentPart,
-      this.equipmentSlot,
+      this.itemEquipmentSlot,
       this.itemName,
       this.itemIcon,
       this.itemDescription,
@@ -143,7 +143,7 @@ class ItemEquipment {
 
   ItemEquipment.fromJson(Map<String, dynamic> json) {
     itemEquipmentPart = json['item_equipment_part'];
-    equipmentSlot = json['equipment_slot'];
+    itemEquipmentSlot = json['item_equipment_slot'];
     itemName = json['item_name'];
     itemIcon = json['item_icon'];
     itemDescription = json['item_description'];
@@ -195,7 +195,7 @@ class ItemEquipment {
   Map<String, dynamic> toJson() {
     final Map<String, dynamic> data = new Map<String, dynamic>();
     data['item_equipment_part'] = this.itemEquipmentPart;
-    data['equipment_slot'] = this.equipmentSlot;
+    data['item_equipment_slot'] = this.itemEquipmentSlot;
     data['item_name'] = this.itemName;
     data['item_icon'] = this.itemIcon;
     data['item_description'] = this.itemDescription;

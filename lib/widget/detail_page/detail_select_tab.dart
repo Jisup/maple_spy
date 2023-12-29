@@ -42,7 +42,7 @@ class DetailSelectTabWidget extends ConsumerWidget {
                     child: Text(
                       tab['text'],
                       style: TextStyle(
-                          color: Colors.white,
+                          color: equal ? Colors.white : colorScheme.primary,
                           fontSize: tab['fontSize'],
                           fontWeight: FontWeight.bold,
                           letterSpacing: SpacingConfig.commonSpacing),

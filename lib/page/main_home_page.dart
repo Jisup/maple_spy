@@ -61,6 +61,7 @@ class _MainHomeState extends ConsumerState<MainHomePage> {
                   borderRadius: BorderRadius.circular(RadiusConfig.subRadius),
                 ),
                 child: GestureDetector(
+                  behavior: HitTestBehavior.translucent,
                   onTap: () => _textFieldController.text == ""
                       ? null
                       : onClickSearchButton(),

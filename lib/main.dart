@@ -1,13 +1,7 @@
-import 'dart:convert';
-
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:maple_app/config/color_config.dart';
-import 'package:maple_app/provider/character_notifier.dart';
-import 'package:maple_app/provider/equipment_notifier.dart';
-import 'package:maple_app/provider/stat_notifier.dart';
 import 'package:maple_app/util/main_router.dart';
 
 void main() async {

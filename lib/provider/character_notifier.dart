@@ -1,11 +1,8 @@
 import 'dart:async';
-import 'dart:convert';
 
 import 'package:dio/dio.dart';
-import 'package:flutter/material.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:intl/intl.dart';
 import 'package:maple_app/model/character/basic_model.dart';
 import 'package:maple_app/model/character/dojang_model.dart';
 import 'package:maple_app/model/character/popularity_model.dart';

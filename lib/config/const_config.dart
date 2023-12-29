@@ -1,5 +1,3 @@
-import 'package:flutter/material.dart';
-
 /**-----padding margin */
 class DimenConfig {
   static double commonDimen = 10;

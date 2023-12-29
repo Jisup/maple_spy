@@ -6,7 +6,6 @@ import 'package:maple_app/config/color_config.dart';
 import 'package:maple_app/config/const_config.dart';
 import 'package:maple_app/model/main_character_model.dart';
 import 'package:maple_app/widget/character/character_info.dart';
-import 'package:stroke_text/stroke_text.dart';
 
 class CharacterDetail extends ConsumerWidget {
   const CharacterDetail({super.key, required this.character});
@@ -15,7 +14,6 @@ class CharacterDetail extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    ColorScheme colorScheme = Theme.of(context).colorScheme;
     return Container(
         /**Is active when provide character custom background of Maplestory API*/
         // decoration: BoxDecoration(

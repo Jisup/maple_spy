@@ -1,13 +1,9 @@
-import 'dart:math';
-
 import 'package:flutter/material.dart' hide BoxDecoration, BoxShadow;
 import 'package:flutter_inset_box_shadow/flutter_inset_box_shadow.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:maple_app/config/color_config.dart';
 import 'package:maple_app/config/const_config.dart';
-import 'package:maple_app/config/static_config.dart';
 import 'package:maple_app/model/equipment/item_model.dart';
-import 'package:maple_app/widget/equipment/equipment_info.dart';
 
 class DetailItemInfo extends ConsumerWidget {
   const DetailItemInfo({super.key, required this.name, required this.item});

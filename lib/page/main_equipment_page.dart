@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:maple_app/container/main_container.dart';
-import 'package:maple_app/model/main_equipment_model.dart';
 import 'package:maple_app/page/equipment/equipment_detail.dart';
 import 'package:maple_app/provider/equipment_notifier.dart';
 import 'package:maple_app/page/main_error_page.dart';

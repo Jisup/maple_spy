@@ -1,10 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:maple_app/config/const_config.dart';
 import 'package:maple_app/config/static_config.dart';
 import 'package:maple_app/model/main_equipment_model.dart';
-import 'package:maple_app/page/equipment/detail_cash_info.dart';
-import 'package:maple_app/page/equipment/detail_item_info.dart';
 import 'package:maple_app/page/equipment/detail_pet_with_symbol_info.dart';
 import 'package:maple_app/page/main_error_page.dart';
 import 'package:maple_app/provider/equipment_notifier.dart';

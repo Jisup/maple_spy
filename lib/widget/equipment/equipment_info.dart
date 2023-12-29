@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_inset_box_shadow/flutter_inset_box_shadow.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:maple_app/config/const_config.dart';
 import 'package:maple_app/model/equipment/cash_item_model.dart';

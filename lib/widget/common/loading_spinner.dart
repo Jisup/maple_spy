@@ -7,7 +7,6 @@ class LoadingSpinner extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    ColorScheme colorScheme = Theme.of(context).colorScheme;
     return Scaffold(
       backgroundColor: Color.fromRGBO(0, 0, 0, 0.25),
       body: Center(

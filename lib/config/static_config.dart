@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:maple_app/config/color_config.dart';
 import 'package:maple_app/config/const_config.dart';
-import 'package:maple_app/provider/equipment_notifier.dart';
 
 class StaticConfig {
   /**-----Tab */

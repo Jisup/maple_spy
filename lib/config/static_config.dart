@@ -51,6 +51,26 @@ class StaticConfig {
       'dimenSize': DimenConfig.commonDimen,
     },
   ];
+  static final List detailEquipmentCashTab = [
+    {
+      'name': 'preset1',
+      'text': '프리셋 1',
+      'fontSize': FontConfig.commonSize,
+      'dimenSize': DimenConfig.commonDimen,
+    },
+    {
+      'name': 'preset2',
+      'text': '프리셋 2',
+      'fontSize': FontConfig.commonSize,
+      'dimenSize': DimenConfig.commonDimen,
+    },
+    {
+      'name': 'preset3',
+      'text': '프리셋 3',
+      'fontSize': FontConfig.commonSize,
+      'dimenSize': DimenConfig.commonDimen,
+    }
+  ];
   static final List detailStatTab = [
     {
       'name': '기본',
@@ -67,7 +87,7 @@ class StaticConfig {
     {
       'name': '기타',
       'text': '어빌리티 /\n하이퍼 스탯',
-      'fontSize': FontConfig.commonSize,
+      'fontSize': FontConfig.minSize,
       'dimenSize': 0.0,
     },
   ];
@@ -75,13 +95,13 @@ class StaticConfig {
     {
       'name': 'HEXAmatrix',
       'text': 'HEXA\n매트릭스',
-      'fontSize': FontConfig.commonSize,
+      'fontSize': FontConfig.minSize,
       'dimenSize': 0.0,
     },
     {
       'name': 'Vmatrix',
       'text': 'V\n매트릭스',
-      'fontSize': FontConfig.commonSize,
+      'fontSize': FontConfig.minSize,
       'dimenSize': 0.0,
     },
     {
@@ -139,7 +159,7 @@ class StaticConfig {
     },
     {
       'name': 'PENDANT',
-      'slot': '펜던트1',
+      'slot': '펜던트',
     },
     {
       'name': 'EYE\nACC',

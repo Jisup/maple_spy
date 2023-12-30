@@ -4,6 +4,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:maple_app/config/color_config.dart';
 import 'package:maple_app/config/const_config.dart';
 import 'package:maple_app/model/equipment/item_model.dart';
+import 'package:maple_app/widget/equipment/equipment_empty_detail.dart';
 
 class DetailItemInfo extends ConsumerWidget {
   const DetailItemInfo({super.key, required this.name, required this.item});
@@ -33,20 +34,10 @@ class DetailItemInfo extends ConsumerWidget {
                         width: 2,
                       )
                     : null,
-                borderRadius: item?.potentialOptionGrade == null
-                    ? BorderRadius.circular(RadiusConfig.subRadius)
-                    : null,
+                borderRadius: item?.potentialOptionGrade == null ? BorderRadius.circular(RadiusConfig.subRadius) : null,
                 boxShadow: [
-                  BoxShadow(
-                      blurRadius: RadiusConfig.subRadius,
-                      offset: Offset(-3, -3),
-                      color: Colors.white,
-                      inset: true),
-                  BoxShadow(
-                      blurRadius: RadiusConfig.subRadius,
-                      offset: Offset(3, 3),
-                      color: Colors.black87,
-                      inset: true),
+                  BoxShadow(blurRadius: RadiusConfig.subRadius, offset: Offset(-3, -3), color: Colors.white, inset: true),
+                  BoxShadow(blurRadius: RadiusConfig.subRadius, offset: Offset(3, 3), color: Colors.black87, inset: true),
                   BoxShadow(
                     blurRadius: RadiusConfig.littleRadius,
                     color: item?.potentialOptionGrade != null
@@ -67,11 +58,7 @@ class DetailItemInfo extends ConsumerWidget {
                   padding: EdgeInsets.all(DimenConfig.subDimen),
                   child: Text(
                     name,
-                    style: TextStyle(
-                        fontSize: FontConfig.minSize,
-                        letterSpacing: SpacingConfig.minSpacing,
-                        color: Colors.white70,
-                        fontWeight: FontWeight.bold),
+                    style: TextStyle(fontSize: FontConfig.minSize, letterSpacing: SpacingConfig.minSpacing, color: Colors.white70, fontWeight: FontWeight.bold),
                   ),
                 ),
                 Container(
@@ -89,34 +76,6 @@ class DetailItemInfo extends ConsumerWidget {
             ),
           )
         //**-----item null은 빈 slot만 보여주기 */
-        : Container(
-            margin: EdgeInsets.all(DimenConfig.subDimen),
-            padding: EdgeInsets.all(DimenConfig.subDimen),
-            decoration: BoxDecoration(
-                color: colorScheme.onSecondary,
-                borderRadius: BorderRadius.circular(RadiusConfig.subRadius),
-                boxShadow: [
-                  BoxShadow(
-                      blurRadius: RadiusConfig.subRadius,
-                      offset: Offset(-3, -3),
-                      color: Colors.white,
-                      inset: true),
-                  BoxShadow(
-                      blurRadius: RadiusConfig.subRadius,
-                      offset: Offset(3, 3),
-                      color: Colors.black87,
-                      inset: true)
-                ]),
-            child: Stack(
-              children: [
-                Text(name,
-                    style: TextStyle(
-                        fontSize: FontConfig.minSize,
-                        letterSpacing: SpacingConfig.minSpacing,
-                        color: Colors.white70,
-                        fontWeight: FontWeight.bold)),
-              ],
-            ),
-          );
+        : EquipmentEmptyDetailWidget(name: name);
   }
 }

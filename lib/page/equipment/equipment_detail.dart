@@ -23,19 +23,14 @@ class EquipmentDetail extends ConsumerWidget {
           provider: equipmentSelectTabProvider,
         ),
         switch (selectTab) {
-          'item' => EquipmentInfoWidget(
-              equipmentList: StaticConfig.equipmentItemList,
-              type: 'item',
-              item: equipment.item,
-              cash: null),
+          'item' => EquipmentInfoWidget(equipmentList: StaticConfig.equipmentItemList, type: 'item', item: equipment.item, cash: null),
           'cash' => EquipmentInfoWidget(
-              equipmentList: StaticConfig.equipmentItemList,
+              equipmentList: StaticConfig.equipmentCashList,
               type: 'cash',
               item: null,
               cash: equipment.cash,
             ),
-          'pet/symbol' => EquipmentDetailPetWithSymbol(
-              pet: equipment.pet!, symbol: equipment.symbol!),
+          'pet/symbol' => DetailPetWithSymbolInfo(pet: equipment.pet!, symbol: equipment.symbol!),
           _ => MainErrorPage(message: 'move Error'),
         },
       ],

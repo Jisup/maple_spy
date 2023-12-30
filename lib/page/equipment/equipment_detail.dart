@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:maple_app/config/static_config.dart';
+import 'package:maple_app/config/static_list_config.dart';
 import 'package:maple_app/model/main_equipment_model.dart';
 import 'package:maple_app/page/equipment/detail_pet_with_symbol_info.dart';
 import 'package:maple_app/page/main_error_page.dart';
@@ -19,13 +19,13 @@ class EquipmentDetail extends ConsumerWidget {
     return Column(
       children: [
         DetailSelectTabWidget(
-          tabList: StaticConfig.detailEquipmentTab,
+          tabList: StaticListConfig.detailEquipmentTabList,
           provider: equipmentSelectTabProvider,
         ),
         switch (selectTab) {
-          'item' => EquipmentInfoWidget(equipmentList: StaticConfig.equipmentItemList, type: 'item', item: equipment.item, cash: null),
+          'item' => EquipmentInfoWidget(equipmentList: StaticListConfig.equipmentItemList, type: 'item', item: equipment.item, cash: null),
           'cash' => EquipmentInfoWidget(
-              equipmentList: StaticConfig.equipmentCashList,
+              equipmentList: StaticListConfig.equipmentCashList,
               type: 'cash',
               item: null,
               cash: equipment.cash,

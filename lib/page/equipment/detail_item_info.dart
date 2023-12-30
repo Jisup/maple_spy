@@ -3,6 +3,7 @@ import 'package:flutter_inset_box_shadow/flutter_inset_box_shadow.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:maple_app/config/color_config.dart';
 import 'package:maple_app/config/const_config.dart';
+import 'package:maple_app/config/static_switch_config.dart';
 import 'package:maple_app/model/equipment/item_model.dart';
 import 'package:maple_app/widget/equipment/equipment_empty_detail.dart';
 
@@ -22,33 +23,17 @@ class DetailItemInfo extends ConsumerWidget {
             margin: EdgeInsets.all(DimenConfig.subDimen),
             decoration: BoxDecoration(
                 color: colorScheme.onSecondary,
-                border: item?.potentialOptionGrade != null
-                    ? Border.all(
-                        color: switch (item?.potentialOptionGrade) {
-                          '레전드리' => ItemColor.legendaryPotentialBorder,
-                          '유니크' => ItemColor.uniquePotentialBorder,
-                          '에픽' => ItemColor.epicPotentialBorder,
-                          '레어' => ItemColor.rarePotentialBorder,
-                          _ => Colors.white,
-                        },
-                        width: 2,
-                      )
-                    : null,
+                border: Border.all(
+                  color: StaticSwitchConfig.potentialGradeColor[item?.potentialOptionGrade]!,
+                  width: item?.potentialOptionGrade == null ? 0 : 2,
+                ),
                 borderRadius: item?.potentialOptionGrade == null ? BorderRadius.circular(RadiusConfig.subRadius) : null,
                 boxShadow: [
                   BoxShadow(blurRadius: RadiusConfig.subRadius, offset: Offset(-3, -3), color: Colors.white, inset: true),
                   BoxShadow(blurRadius: RadiusConfig.subRadius, offset: Offset(3, 3), color: Colors.black87, inset: true),
                   BoxShadow(
                     blurRadius: RadiusConfig.littleRadius,
-                    color: item?.potentialOptionGrade != null
-                        ? switch (item?.potentialOptionGrade) {
-                            '레전드리' => ItemColor.legendaryPotentialBorder,
-                            '유니크' => ItemColor.uniquePotentialBorder,
-                            '에픽' => ItemColor.epicPotentialBorder,
-                            '레어' => ItemColor.rarePotentialBorder,
-                            _ => Colors.white,
-                          }
-                        : Colors.transparent,
+                    color: StaticSwitchConfig.potentialGradeColor[item?.potentialOptionGrade]!,
                     blurStyle: BlurStyle.outer,
                   )
                 ]),

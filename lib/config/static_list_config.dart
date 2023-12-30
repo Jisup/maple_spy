@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:maple_app/config/const_config.dart';
 
-class StaticConfig {
+class StaticListConfig {
   /**-----Tab */
-  static final List mainBottomNavigationTab = [
+  static final List mainBottomNavigationTabList = [
     {
       'path': '/character',
       'name': 'character',
@@ -31,7 +31,7 @@ class StaticConfig {
       'icon': Icons.book_outlined,
     },
   ];
-  static final List detailEquipmentTab = [
+  static final List detailEquipmentTabList = [
     {
       'name': 'item',
       'text': '장비',
@@ -51,7 +51,7 @@ class StaticConfig {
       'dimenSize': DimenConfig.commonDimen,
     },
   ];
-  static final List detailEquipmentCashTab = [
+  static final List equipmentPresetTabList = [
     {
       'name': 'preset1',
       'text': '프리셋 1',
@@ -71,7 +71,7 @@ class StaticConfig {
       'dimenSize': DimenConfig.commonDimen,
     }
   ];
-  static final List detailStatTab = [
+  static final List detailStatTabList = [
     {
       'name': '기본',
       'text': '기본 스탯',
@@ -91,7 +91,7 @@ class StaticConfig {
       'dimenSize': 0.0,
     },
   ];
-  static final List detailSkillTab = [
+  static final List detailSkillTabList = [
     {
       'name': 'HEXAmatrix',
       'text': 'HEXA\n매트릭스',

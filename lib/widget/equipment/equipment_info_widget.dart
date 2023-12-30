@@ -3,8 +3,8 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:maple_app/config/const_config.dart';
 import 'package:maple_app/model/equipment/cash_item_model.dart';
 import 'package:maple_app/model/equipment/item_model.dart';
-import 'package:maple_app/page/equipment/detail_cash_info.dart';
-import 'package:maple_app/page/equipment/detail_item_info.dart';
+import 'package:maple_app/page/equipment/cash_info.dart';
+import 'package:maple_app/page/equipment/item_info.dart';
 import 'package:maple_app/page/main_error_page.dart';
 import 'package:maple_app/provider/equipment_notifier.dart';
 
@@ -40,8 +40,8 @@ class EquipmentInfoWidget extends ConsumerWidget {
                     child: slot['name'] == null
                         ? null
                         : switch (type) {
-                            'item' => DetailItemInfo(name: slot['name'], item: slot['slot'] == null ? null : item!.itemEquipment!.singleWhere((element) => element.itemEquipmentSlot == slot['slot'], orElse: () => ItemEquipment())),
-                            'cash' => DetailCashInfo(slot: slot, preset: preset!),
+                            'item' => ItemInfo(name: slot['name'], item: slot['slot'] == null ? null : item!.itemEquipment!.singleWhere((element) => element.itemEquipmentSlot == slot['slot'], orElse: () => ItemEquipment())),
+                            'cash' => CashInfo(slot: slot, preset: preset!),
                             _ => MainErrorPage(message: 'response equipment is error'),
                           }),
               ),

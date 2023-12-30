@@ -3,8 +3,8 @@ import 'package:flutter_inset_box_shadow/flutter_inset_box_shadow.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:maple_app/config/const_config.dart';
 
-class EquipmentEmptyDetailWidget extends ConsumerWidget {
-  const EquipmentEmptyDetailWidget({super.key, required this.name});
+class EquipmentEmptySlotWidget extends ConsumerWidget {
+  const EquipmentEmptySlotWidget({super.key, required this.name});
 
   final String name;
 

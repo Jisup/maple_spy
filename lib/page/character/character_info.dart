@@ -5,10 +5,10 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:maple_app/config/color_config.dart';
 import 'package:maple_app/config/const_config.dart';
 import 'package:maple_app/model/main_character_model.dart';
-import 'package:maple_app/widget/character/character_info.dart';
+import 'package:maple_app/widget/character/character_info_widget.dart';
 
-class CharacterDetail extends ConsumerWidget {
-  const CharacterDetail({super.key, required this.character});
+class CharacterInfo extends ConsumerWidget {
+  const CharacterInfo({super.key, required this.character});
 
   final MainCharacter character;
 
@@ -25,16 +25,12 @@ class CharacterDetail extends ConsumerWidget {
       child: BackdropFilter(
         filter: ImageFilter.blur(sigmaX: 15, sigmaY: 15),
         child: Container(
-          margin: EdgeInsets.fromLTRB(
-              DimenConfig.maxDimen, 0, DimenConfig.maxDimen, 0),
+          margin: EdgeInsets.fromLTRB(DimenConfig.maxDimen, 0, DimenConfig.maxDimen, 0),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               /**-----character`s level with character`s class  */
-              CharacterInfoWidget(
-                  title: 'Lv. ${character.basic!.characterLevel!}',
-                  value: character.basic!.characterClass!,
-                  type: true),
+              CharacterInfoWidget(title: 'Lv. ${character.basic!.characterLevel!}', value: character.basic!.characterClass!, type: true),
               /**-----image with character`s name */
               Container(
                 margin: EdgeInsets.all(DimenConfig.subDimen),
@@ -72,8 +68,7 @@ class CharacterDetail extends ConsumerWidget {
                 ),
               ),
               /**-----character`s 전투력 */
-              CharacterInfoWidget(
-                  title: '전투력', value: '1억 5235만 1235', type: true),
+              CharacterInfoWidget(title: '전투력', value: '1억 5235만 1235', type: true),
               /**-----character`s dojang */
               CharacterInfoWidget(title: '무릉도장', value: '60층', type: false),
               /**-----character`s union */

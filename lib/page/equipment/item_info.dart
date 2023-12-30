@@ -5,10 +5,10 @@ import 'package:maple_app/config/color_config.dart';
 import 'package:maple_app/config/const_config.dart';
 import 'package:maple_app/config/static_switch_config.dart';
 import 'package:maple_app/model/equipment/item_model.dart';
-import 'package:maple_app/widget/equipment/equipment_empty_detail.dart';
+import 'package:maple_app/widget/equipment/equipment_empty_slot_widget.dart';
 
-class DetailItemInfo extends ConsumerWidget {
-  const DetailItemInfo({super.key, required this.name, required this.item});
+class ItemInfo extends ConsumerWidget {
+  const ItemInfo({super.key, required this.name, required this.item});
 
   final String name;
   final ItemEquipment? item;
@@ -61,6 +61,6 @@ class DetailItemInfo extends ConsumerWidget {
             ),
           )
         //**-----item null은 빈 slot만 보여주기 */
-        : EquipmentEmptyDetailWidget(name: name);
+        : EquipmentEmptySlotWidget(name: name);
   }
 }

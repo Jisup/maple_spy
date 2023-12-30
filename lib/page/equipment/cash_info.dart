@@ -3,10 +3,10 @@ import 'package:flutter_inset_box_shadow/flutter_inset_box_shadow.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:maple_app/config/const_config.dart';
 import 'package:maple_app/model/equipment/cash_item_model.dart';
-import 'package:maple_app/widget/equipment/equipment_empty_detail.dart';
+import 'package:maple_app/widget/equipment/equipment_empty_slot_widget.dart';
 
-class DetailCashInfo extends ConsumerWidget {
-  const DetailCashInfo({super.key, required this.slot, required this.preset});
+class CashInfo extends ConsumerWidget {
+  const CashInfo({super.key, required this.slot, required this.preset});
 
   final dynamic slot;
   final List<CashItemEquipment> preset;
@@ -46,6 +46,6 @@ class DetailCashInfo extends ConsumerWidget {
               ],
             ),
           )
-        : EquipmentEmptyDetailWidget(name: slot['name']);
+        : EquipmentEmptySlotWidget(name: slot['name']);
   }
 }

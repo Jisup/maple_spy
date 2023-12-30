@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:maple_app/page/character/character_detail.dart';
+import 'package:maple_app/page/character/character_info.dart';
 import 'package:maple_app/provider/character_notifier.dart';
 import 'package:maple_app/page/main_error_page.dart';
 import 'package:maple_app/widget/common/loading_spinner.dart';
@@ -19,7 +19,7 @@ class MainCharacterPage extends ConsumerWidget {
         //   child: Text('character'),
         // ),
         body: switch (asyncCharacter) {
-          AsyncData(:final value) => CharacterDetail(character: value),
+          AsyncData(:final value) => CharacterInfo(character: value),
           AsyncError(:final error) => MainErrorPage(message: error),
           _ => const LoadingSpinner(),
         });

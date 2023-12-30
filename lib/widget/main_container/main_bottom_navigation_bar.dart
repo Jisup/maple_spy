@@ -12,7 +12,7 @@ class MainBottomNavigationBar extends ConsumerWidget {
     return BottomAppBar(
       padding: EdgeInsets.zero,
       elevation: 0, // z-index
-      color: Theme.of(context).colorScheme.background,
+      color: colorScheme.background,
       child: Row(
         children: StaticListConfig.mainBottomNavigationTabList.map(
           (tab) {

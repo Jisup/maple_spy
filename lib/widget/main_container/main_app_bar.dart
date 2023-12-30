@@ -9,7 +9,7 @@ AppBar MainAppBar(BuildContext context, bool isHome, String characterName) {
     leading: GestureDetector(
       onTap: () => context.go("/"),
       child: Container(
-        padding: EdgeInsets.all(DimenConfig.commonDimen),
+        padding: isHome ? EdgeInsets.all(DimenConfig.commonDimen) : null,
         child: isHome
             ? Image(
                 image: AssetImage('assets/maple_icon.png'),

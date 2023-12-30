@@ -12,7 +12,7 @@ AppBar MainAppBar(BuildContext context, bool isHome, String characterName) {
         padding: EdgeInsets.all(DimenConfig.commonDimen),
         child: isHome
             ? Image(
-                image: AssetImage('lib/assets/maple_icon.png'),
+                image: AssetImage('assets/maple_icon.png'),
               )
             : Icon(
                 Icons.navigate_before_rounded,

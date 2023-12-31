@@ -9,4 +9,20 @@ class StaticSwitchConfig {
     '레어': ItemColor.rarePotentialBorder,
     null: Colors.transparent,
   };
+
+  static final potentialGradeDetailColor = {
+    '레전드리': ItemColor.legendaryPotentialDetailBorder,
+    '유니크': ItemColor.uniquePotentialDetailBorder,
+    '에픽': ItemColor.epicPotentialDetailBorder,
+    '레어': ItemColor.rarePotentialDetailBorder,
+    null: Colors.transparent,
+  };
+
+  static final potentialGradeCircleText = {
+    '레전드리': 'L',
+    '유니크': 'U',
+    '에픽': 'E',
+    '레어': 'R',
+    null: '',
+  };
 }

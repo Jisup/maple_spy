@@ -18,6 +18,30 @@ class StaticSwitchConfig {
     null: Colors.transparent,
   };
 
+  static final potentialGradeIconBackgroundColor = {
+    '레전드리': ItemColor.epicIconBackground,
+    '유니크': ItemColor.uniqueIconBackground,
+    '에픽': ItemColor.epicIconBackground,
+    '레어': ItemColor.rareIconBackground,
+    null: Colors.transparent,
+  };
+
+  static final potentialGradeIconBorderColor = {
+    '레전드리': ItemColor.legendaryIconBorder,
+    '유니크': ItemColor.uniqueIconBorder,
+    '에픽': ItemColor.epicIconBorder,
+    '레어': ItemColor.rareIconBorder,
+    null: Colors.transparent,
+  };
+
+  static final potentialGradeIconTextShadowColor = {
+    '레전드리': ItemColor.legendaryIconTextShadow,
+    '유니크': ItemColor.uniqueIconTextShadow,
+    '에픽': ItemColor.epicIconTextShadow,
+    '레어': ItemColor.rareIconTextShadow,
+    null: Colors.transparent,
+  };
+
   static final potentialGradeCircleText = {
     '레전드리': 'L',
     '유니크': 'U',

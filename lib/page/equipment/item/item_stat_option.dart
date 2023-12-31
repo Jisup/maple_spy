@@ -25,19 +25,53 @@ class ItemStatOption extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     return total != '0'
         ? Text.rich(TextSpan(children: [
-            TextSpan(text: '${stat} : ', style: TextStyle(color: ItemColor.commonInfoText)),
-            TextSpan(text: '+${total}', style: TextStyle(color: ItemColor.totalOptionText)),
+            TextSpan(
+                text: '${stat} : ',
+                style: TextStyle(
+                    color: ItemColor.commonInfoText, fontFamily: 'Maplestory')),
+            TextSpan(
+                text: '+${total}',
+                style: TextStyle(color: ItemColor.totalOptionText)),
             TextSpan(text: ' '),
-            TextSpan(text: '(', style: TextStyle(color: ItemColor.commonInfoText)),
-            TextSpan(text: '${base}', style: TextStyle(color: ItemColor.baseOptionText)),
-            add != '0' ? TextSpan(children: [TextSpan(text: ' '), TextSpan(text: '+${add}', style: TextStyle(color: ItemColor.addOptionText))]) : TextSpan(),
+            TextSpan(
+                text: '(', style: TextStyle(color: ItemColor.commonInfoText)),
+            TextSpan(
+                text: '${base}',
+                style: TextStyle(color: ItemColor.baseOptionText)),
+            add != '0'
+                ? TextSpan(children: [
+                    TextSpan(text: ' '),
+                    TextSpan(
+                        text: '+${add}',
+                        style: TextStyle(color: ItemColor.addOptionText))
+                  ])
+                : TextSpan(),
             int.parse(etc) > 0
-                ? TextSpan(children: [TextSpan(text: ' '), TextSpan(text: '+${etc}', style: TextStyle(color: ItemColor.etcOptionText))])
+                ? TextSpan(children: [
+                    TextSpan(text: ' '),
+                    TextSpan(
+                        text: '+${etc}',
+                        style: TextStyle(color: ItemColor.etcOptionText))
+                  ])
                 : int.parse(etc) < 0
-                    ? TextSpan(children: [TextSpan(text: ' '), TextSpan(text: '-${etc}', style: TextStyle(color: ItemColor.etcDownOptionText))])
+                    ? TextSpan(children: [
+                        TextSpan(text: ' '),
+                        TextSpan(
+                            text: '-${etc}',
+                            style:
+                                TextStyle(color: ItemColor.etcDownOptionText))
+                      ])
                     : TextSpan(),
-            starforce != '0' ? TextSpan(children: [TextSpan(text: ' '), TextSpan(text: '+${starforce}', style: TextStyle(color: ItemColor.starforceOptionText))]) : TextSpan(),
-            TextSpan(text: ')', style: TextStyle(color: ItemColor.commonInfoText)),
+            starforce != '0'
+                ? TextSpan(children: [
+                    TextSpan(text: ' '),
+                    TextSpan(
+                        text: '+${starforce}',
+                        style: TextStyle(color: ItemColor.starforceOptionText))
+                  ])
+                : TextSpan(),
+            TextSpan(
+                text: ')', style: TextStyle(color: ItemColor.commonInfoText)),
           ]))
         : SizedBox.shrink();
   }

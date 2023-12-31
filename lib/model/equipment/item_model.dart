@@ -7,14 +7,7 @@ class Item {
   List<DragonEquipment>? dragonEquipment;
   List<MechanicEquipment>? mechanicEquipment;
 
-  Item(
-      {this.date,
-      this.characterGender,
-      this.characterClass,
-      this.itemEquipment,
-      this.title,
-      this.dragonEquipment,
-      this.mechanicEquipment});
+  Item({this.date, this.characterGender, this.characterClass, this.itemEquipment, this.title, this.dragonEquipment, this.mechanicEquipment});
 
   Item.fromJson(Map<String, dynamic> json) {
     date = json['date'];
@@ -47,19 +40,16 @@ class Item {
     data['character_gender'] = this.characterGender;
     data['character_class'] = this.characterClass;
     if (this.itemEquipment != null) {
-      data['item_equipment'] =
-          this.itemEquipment!.map((v) => v.toJson()).toList();
+      data['item_equipment'] = this.itemEquipment!.map((v) => v.toJson()).toList();
     }
     if (this.title != null) {
       data['title'] = this.title!.toJson();
     }
     if (this.dragonEquipment != null) {
-      data['dragon_equipment'] =
-          this.dragonEquipment!.map((v) => v.toJson()).toList();
+      data['dragon_equipment'] = this.dragonEquipment!.map((v) => v.toJson()).toList();
     }
     if (this.mechanicEquipment != null) {
-      data['mechanic_equipment'] =
-          this.mechanicEquipment!.map((v) => v.toJson()).toList();
+      data['mechanic_equipment'] = this.mechanicEquipment!.map((v) => v.toJson()).toList();
     }
     return data;
   }
@@ -99,7 +89,7 @@ class ItemEquipment {
   ItemEtcOption? itemEtcOption;
   String? starforce;
   String? starforceScrollFlag;
-  ItemEtcOption? itemStarforceOption;
+  ItemStarforceOption? itemStarforceOption;
   int? specialRingLevel;
   String? dateExpire;
 
@@ -150,12 +140,8 @@ class ItemEquipment {
     itemShapeName = json['item_shape_name'];
     itemShapeIcon = json['item_shape_icon'];
     gender = json['gender'];
-    itemTotalOption = json['item_total_option'] != null
-        ? new ItemTotalOption.fromJson(json['item_total_option'])
-        : null;
-    itemBaseOption = json['item_base_option'] != null
-        ? new ItemBaseOption.fromJson(json['item_base_option'])
-        : null;
+    itemTotalOption = json['item_total_option'] != null ? new ItemTotalOption.fromJson(json['item_total_option']) : null;
+    itemBaseOption = json['item_base_option'] != null ? new ItemBaseOption.fromJson(json['item_base_option']) : null;
     potentialOptionGrade = json['potential_option_grade'];
     additionalPotentialOptionGrade = json['additional_potential_option_grade'];
     potentialOption1 = json['potential_option_1'];
@@ -165,12 +151,8 @@ class ItemEquipment {
     additionalPotentialOption2 = json['additional_potential_option_2'];
     additionalPotentialOption3 = json['additional_potential_option_3'];
     equipmentLevelIncrease = json['equipment_level_increase'];
-    itemExceptionalOption = json['item_exceptional_option'] != null
-        ? new ItemExceptionalOption.fromJson(json['item_exceptional_option'])
-        : null;
-    itemAddOption = json['item_add_option'] != null
-        ? new ItemAddOption.fromJson(json['item_add_option'])
-        : null;
+    itemExceptionalOption = json['item_exceptional_option'] != null ? new ItemExceptionalOption.fromJson(json['item_exceptional_option']) : null;
+    itemAddOption = json['item_add_option'] != null ? new ItemAddOption.fromJson(json['item_add_option']) : null;
     growthExp = json['growth_exp'];
     growthLevel = json['growth_level'];
     scrollUpgrade = json['scroll_upgrade'];
@@ -180,14 +162,10 @@ class ItemEquipment {
     scrollUpgradeableCount = json['scroll_upgradeable_count'];
     soulName = json['soul_name'];
     soulOption = json['soul_option'];
-    itemEtcOption = json['item_etc_option'] != null
-        ? new ItemEtcOption.fromJson(json['item_etc_option'])
-        : null;
+    itemEtcOption = json['item_etc_option'] != null ? new ItemEtcOption.fromJson(json['item_etc_option']) : null;
     starforce = json['starforce'];
     starforceScrollFlag = json['starforce_scroll_flag'];
-    itemStarforceOption = json['item_starforce_option'] != null
-        ? new ItemEtcOption.fromJson(json['item_starforce_option'])
-        : null;
+    itemStarforceOption = json['item_starforce_option'] != null ? new ItemStarforceOption.fromJson(json['item_starforce_option']) : null;
     specialRingLevel = json['special_ring_level'];
     dateExpire = json['date_expire'];
   }
@@ -209,8 +187,7 @@ class ItemEquipment {
       data['item_base_option'] = this.itemBaseOption!.toJson();
     }
     data['potential_option_grade'] = this.potentialOptionGrade;
-    data['additional_potential_option_grade'] =
-        this.additionalPotentialOptionGrade;
+    data['additional_potential_option_grade'] = this.additionalPotentialOptionGrade;
     data['potential_option_1'] = this.potentialOption1;
     data['potential_option_2'] = this.potentialOption2;
     data['potential_option_3'] = this.potentialOption3;
@@ -267,25 +244,7 @@ class ItemTotalOption {
   String? maxHpRate;
   String? maxMpRate;
 
-  ItemTotalOption(
-      {this.str,
-      this.dex,
-      this.int,
-      this.luk,
-      this.maxHp,
-      this.maxMp,
-      this.attackPower,
-      this.magicPower,
-      this.armor,
-      this.speed,
-      this.jump,
-      this.bossDamage,
-      this.ignoreMonsterArmor,
-      this.allStat,
-      this.damage,
-      this.equipmentLevelDecrease,
-      this.maxHpRate,
-      this.maxMpRate});
+  ItemTotalOption({this.str, this.dex, this.int, this.luk, this.maxHp, this.maxMp, this.attackPower, this.magicPower, this.armor, this.speed, this.jump, this.bossDamage, this.ignoreMonsterArmor, this.allStat, this.damage, this.equipmentLevelDecrease, this.maxHpRate, this.maxMpRate});
 
   ItemTotalOption.fromJson(Map<String, dynamic> json) {
     str = json['str'];
@@ -351,24 +310,7 @@ class ItemBaseOption {
   String? maxMpRate;
   double? baseEquipmentLevel;
 
-  ItemBaseOption(
-      {this.str,
-      this.dex,
-      this.int,
-      this.luk,
-      this.maxHp,
-      this.maxMp,
-      this.attackPower,
-      this.magicPower,
-      this.armor,
-      this.speed,
-      this.jump,
-      this.bossDamage,
-      this.ignoreMonsterArmor,
-      this.allStat,
-      this.maxHpRate,
-      this.maxMpRate,
-      this.baseEquipmentLevel});
+  ItemBaseOption({this.str, this.dex, this.int, this.luk, this.maxHp, this.maxMp, this.attackPower, this.magicPower, this.armor, this.speed, this.jump, this.bossDamage, this.ignoreMonsterArmor, this.allStat, this.maxHpRate, this.maxMpRate, this.baseEquipmentLevel});
 
   ItemBaseOption.fromJson(Map<String, dynamic> json) {
     str = json['str'];
@@ -423,15 +365,7 @@ class ItemExceptionalOption {
   String? attackPower;
   String? magicPower;
 
-  ItemExceptionalOption(
-      {this.str,
-      this.dex,
-      this.int,
-      this.luk,
-      this.maxHp,
-      this.maxMp,
-      this.attackPower,
-      this.magicPower});
+  ItemExceptionalOption({this.str, this.dex, this.int, this.luk, this.maxHp, this.maxMp, this.attackPower, this.magicPower});
 
   ItemExceptionalOption.fromJson(Map<String, dynamic> json) {
     str = json['str'];
@@ -475,22 +409,7 @@ class ItemAddOption {
   String? allStat;
   double? equipmentLevelDecrease;
 
-  ItemAddOption(
-      {this.str,
-      this.dex,
-      this.int,
-      this.luk,
-      this.maxHp,
-      this.maxMp,
-      this.attackPower,
-      this.magicPower,
-      this.armor,
-      this.speed,
-      this.jump,
-      this.bossDamage,
-      this.damage,
-      this.allStat,
-      this.equipmentLevelDecrease});
+  ItemAddOption({this.str, this.dex, this.int, this.luk, this.maxHp, this.maxMp, this.attackPower, this.magicPower, this.armor, this.speed, this.jump, this.bossDamage, this.damage, this.allStat, this.equipmentLevelDecrease});
 
   ItemAddOption.fromJson(Map<String, dynamic> json) {
     str = json['str'];
@@ -544,20 +463,55 @@ class ItemEtcOption {
   String? speed;
   String? jump;
 
-  ItemEtcOption(
-      {this.str,
-      this.dex,
-      this.int,
-      this.luk,
-      this.maxHp,
-      this.maxMp,
-      this.attackPower,
-      this.magicPower,
-      this.armor,
-      this.speed,
-      this.jump});
+  ItemEtcOption({this.str, this.dex, this.int, this.luk, this.maxHp, this.maxMp, this.attackPower, this.magicPower, this.armor, this.speed, this.jump});
 
   ItemEtcOption.fromJson(Map<String, dynamic> json) {
+    str = json['str'];
+    dex = json['dex'];
+    int = json['int'];
+    luk = json['luk'];
+    maxHp = json['max_hp'];
+    maxMp = json['max_mp'];
+    attackPower = json['attack_power'];
+    magicPower = json['magic_power'];
+    armor = json['armor'];
+    speed = json['speed'];
+    jump = json['jump'];
+  }
+
+  Map<String, dynamic> toJson() {
+    final Map<String, dynamic> data = new Map<String, dynamic>();
+    data['str'] = this.str;
+    data['dex'] = this.dex;
+    data['int'] = this.int;
+    data['luk'] = this.luk;
+    data['max_hp'] = this.maxHp;
+    data['max_mp'] = this.maxMp;
+    data['attack_power'] = this.attackPower;
+    data['magic_power'] = this.magicPower;
+    data['armor'] = this.armor;
+    data['speed'] = this.speed;
+    data['jump'] = this.jump;
+    return data;
+  }
+}
+
+class ItemStarforceOption {
+  String? str;
+  String? dex;
+  String? int;
+  String? luk;
+  String? maxHp;
+  String? maxMp;
+  String? attackPower;
+  String? magicPower;
+  String? armor;
+  String? speed;
+  String? jump;
+
+  ItemStarforceOption({this.str, this.dex, this.int, this.luk, this.maxHp, this.maxMp, this.attackPower, this.magicPower, this.armor, this.speed, this.jump});
+
+  ItemStarforceOption.fromJson(Map<String, dynamic> json) {
     str = json['str'];
     dex = json['dex'];
     int = json['int'];
@@ -595,12 +549,7 @@ class Title {
   String? dateExpire;
   String? dateOptionExpire;
 
-  Title(
-      {this.titleName,
-      this.titleIcon,
-      this.titleDescription,
-      this.dateExpire,
-      this.dateOptionExpire});
+  Title({this.titleName, this.titleIcon, this.titleDescription, this.dateExpire, this.dateOptionExpire});
 
   Title.fromJson(Map<String, dynamic> json) {
     titleName = json['title_name'];
@@ -647,7 +596,7 @@ class DragonEquipment {
   ItemEtcOption? itemEtcOption;
   String? starforce;
   String? starforceScrollFlag;
-  ItemEtcOption? itemStarforceOption;
+  ItemStarforceOption? itemStarforceOption;
   int? specialRingLevel;
   String? dateExpire;
 
@@ -690,19 +639,11 @@ class DragonEquipment {
     itemShapeName = json['item_shape_name'];
     itemShapeIcon = json['item_shape_icon'];
     gender = json['gender'];
-    itemTotalOption = json['item_total_option'] != null
-        ? new ItemTotalOption.fromJson(json['item_total_option'])
-        : null;
-    itemBaseOption = json['item_base_option'] != null
-        ? new ItemBaseOption.fromJson(json['item_base_option'])
-        : null;
+    itemTotalOption = json['item_total_option'] != null ? new ItemTotalOption.fromJson(json['item_total_option']) : null;
+    itemBaseOption = json['item_base_option'] != null ? new ItemBaseOption.fromJson(json['item_base_option']) : null;
     equipmentLevelIncrease = json['equipment_level_increase'];
-    itemExceptionalOption = json['item_exceptional_option'] != null
-        ? new ItemExceptionalOption.fromJson(json['item_exceptional_option'])
-        : null;
-    itemAddOption = json['item_add_option'] != null
-        ? new ItemAddOption.fromJson(json['item_add_option'])
-        : null;
+    itemExceptionalOption = json['item_exceptional_option'] != null ? new ItemExceptionalOption.fromJson(json['item_exceptional_option']) : null;
+    itemAddOption = json['item_add_option'] != null ? new ItemAddOption.fromJson(json['item_add_option']) : null;
     growthExp = json['growth_exp'];
     growthLevel = json['growth_level'];
     scrollUpgrade = json['scroll_upgrade'];
@@ -712,14 +653,10 @@ class DragonEquipment {
     scrollUpgradeableCount = json['scroll_upgradeable_count'];
     soulName = json['soul_name'];
     soulOption = json['soul_option'];
-    itemEtcOption = json['item_etc_option'] != null
-        ? new ItemEtcOption.fromJson(json['item_etc_option'])
-        : null;
+    itemEtcOption = json['item_etc_option'] != null ? new ItemEtcOption.fromJson(json['item_etc_option']) : null;
     starforce = json['starforce'];
     starforceScrollFlag = json['starforce_scroll_flag'];
-    itemStarforceOption = json['item_starforce_option'] != null
-        ? new ItemEtcOption.fromJson(json['item_starforce_option'])
-        : null;
+    itemStarforceOption = json['item_starforce_option'] != null ? new ItemStarforceOption.fromJson(json['item_starforce_option']) : null;
     specialRingLevel = json['special_ring_level'];
     dateExpire = json['date_expire'];
   }
@@ -796,7 +733,7 @@ class MechanicEquipment {
   ItemEtcOption? itemEtcOption;
   String? starforce;
   String? starforceScrollFlag;
-  ItemEtcOption? itemStarforceOption;
+  ItemStarforceOption? itemStarforceOption;
   int? specialRingLevel;
   String? dateExpire;
 
@@ -839,19 +776,11 @@ class MechanicEquipment {
     itemShapeName = json['item_shape_name'];
     itemShapeIcon = json['item_shape_icon'];
     gender = json['gender'];
-    itemTotalOption = json['item_total_option'] != null
-        ? new ItemTotalOption.fromJson(json['item_total_option'])
-        : null;
-    itemBaseOption = json['item_base_option'] != null
-        ? new ItemBaseOption.fromJson(json['item_base_option'])
-        : null;
+    itemTotalOption = json['item_total_option'] != null ? new ItemTotalOption.fromJson(json['item_total_option']) : null;
+    itemBaseOption = json['item_base_option'] != null ? new ItemBaseOption.fromJson(json['item_base_option']) : null;
     equipmentLevelIncrease = json['equipment_level_increase'];
-    itemExceptionalOption = json['item_exceptional_option'] != null
-        ? new ItemExceptionalOption.fromJson(json['item_exceptional_option'])
-        : null;
-    itemAddOption = json['item_add_option'] != null
-        ? new ItemAddOption.fromJson(json['item_add_option'])
-        : null;
+    itemExceptionalOption = json['item_exceptional_option'] != null ? new ItemExceptionalOption.fromJson(json['item_exceptional_option']) : null;
+    itemAddOption = json['item_add_option'] != null ? new ItemAddOption.fromJson(json['item_add_option']) : null;
     growthExp = json['growth_exp'];
     growthLevel = json['growth_level'];
     scrollUpgrade = json['scroll_upgrade'];
@@ -861,14 +790,10 @@ class MechanicEquipment {
     scrollUpgradeableCount = json['scroll_upgradeable_count'];
     soulName = json['soul_name'];
     soulOption = json['soul_option'];
-    itemEtcOption = json['item_etc_option'] != null
-        ? new ItemEtcOption.fromJson(json['item_etc_option'])
-        : null;
+    itemEtcOption = json['item_etc_option'] != null ? new ItemEtcOption.fromJson(json['item_etc_option']) : null;
     starforce = json['starforce'];
     starforceScrollFlag = json['starforce_scroll_flag'];
-    itemStarforceOption = json['item_starforce_option'] != null
-        ? new ItemEtcOption.fromJson(json['item_starforce_option'])
-        : null;
+    itemStarforceOption = json['item_starforce_option'] != null ? new ItemStarforceOption.fromJson(json['item_starforce_option']) : null;
     specialRingLevel = json['special_ring_level'];
     dateExpire = json['date_expire'];
   }

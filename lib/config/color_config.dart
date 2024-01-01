@@ -29,6 +29,10 @@ class ItemColor {
   static const Color background = Color(0xFFeeeeee); // 장비 아이템 배경
   static const Color detailBackground = Color(0xFF121318); // 장비 디테일 배경
   static const Color detailClassBackground = Color(0xFF222222); // 장비 디테일 직업 배경
+  static const Color detailItemStartBackground =
+      Color(0xFF666666); // 장비 디테일 아이템 시작 배경
+  static const Color detailItemEndBackground =
+      Color(0xFFbbbbbb); // 장비 디테일 아이템 끝 배경
 
   static const Color equipmentActiveBackground =
       Color(0xFFcacaca); // 장착 활성화 칸 배경

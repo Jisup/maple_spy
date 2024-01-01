@@ -2,18 +2,28 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:maple_app/config/const_config.dart';
 
-class ItemStarforce extends ConsumerWidget {
-  const ItemStarforce({super.key, required this.level, required this.starforce});
+class StarforceWidget extends ConsumerWidget {
+  const StarforceWidget(
+      {super.key, required this.level, required this.starforce});
 
   final int level;
   final int starforce;
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    if (starforce == 0) return SizedBox.shrink();
-
     List<Widget> makeStarforceImage(int start, int end) {
-      return [for (var i = start; i < end; i++) Container(margin: i % 5 == 0 ? EdgeInsets.only(left: DimenConfig.commonDimen) : EdgeInsets.zero, child: FractionallySizedBox(widthFactor: 0.05, child: Image.asset(i <= starforce ? 'assets/star_icon.png' : 'assets/star_deactive_icon.png')))];
+      return [
+        for (var i = start; i < end; i++)
+          Container(
+              margin: i % 5 == 0
+                  ? EdgeInsets.only(left: DimenConfig.commonDimen)
+                  : EdgeInsets.zero,
+              child: FractionallySizedBox(
+                  widthFactor: 0.05,
+                  child: Image.asset(i < starforce
+                      ? 'assets/star_icon.png'
+                      : 'assets/star_deactive_icon.png')))
+      ];
     }
 
     Widget makeStarforce(int len) {

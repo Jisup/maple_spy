@@ -86,5 +86,6 @@ class ItemColor {
   static const Color etcOptionText = Color(0xFFaaaaff); // 기타(주문서) 옵션 텍스트
   static const Color etcDownOptionText = Color(0xFFff0066); // 능력치 감소 텍스트
   static const Color starforceOptionText = Color(0xFFffcc00); // 스타포스 옵션 텍스트
+  static const Color soulOptionText = Color(0xFFffff44); // 소울 옵션 텍스트
   // static const Color exceptionalOptionText = Color(0xFF); // 익셉셔널 옵션 텍스트
 }

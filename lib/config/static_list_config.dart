@@ -356,4 +356,12 @@ class StaticListConfig {
       'slot': null,
     },
   ];
+  static final List equipmentClassList = [
+    '초보자',
+    '전사',
+    '마법사',
+    '궁수',
+    '도적',
+    '해적',
+  ];
 }

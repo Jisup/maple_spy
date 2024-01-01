@@ -157,7 +157,7 @@ class ItemDetailPage extends ConsumerWidget {
                           /**-----item image */
                           ItemDetailImagePage(
                               imageUrl: item.itemIcon!,
-                              grade: item.potentialOptionGrade!),
+                              grade: item.potentialOptionGrade),
                           ItemDetailRequiredLevelPage(
                               level: item.itemBaseOption!.baseEquipmentLevel!
                                   .toInt()
@@ -199,7 +199,7 @@ class ItemDetailPage extends ConsumerWidget {
                     item.additionalPotentialOptionGrade != null
                         ? DashedDividerWidget()
                         : SizedBox.shrink(),
-                    item.potentialOptionGrade != null
+                    item.additionalPotentialOptionGrade != null
                         ? ItemDetailPotentialOptionPage(
                             type: false,
                             potentialOption: ItemDetailPotentialOption(

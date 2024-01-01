@@ -12,7 +12,7 @@ class ItemDetailImagePage extends ConsumerWidget {
       {super.key, required this.imageUrl, required this.grade});
 
   final String imageUrl;
-  final String grade;
+  final String? grade;
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
@@ -21,18 +21,22 @@ class ItemDetailImagePage extends ConsumerWidget {
       aspectRatio: 1,
       child: Container(
         decoration: BoxDecoration(
-          border: Border.all(
-            width: 3,
-            color: StaticSwitchConfig.potentialGradeDetailColor[grade]!,
-          ),
+          border: grade != null
+              ? Border.all(
+                  width: 3,
+                  color: StaticSwitchConfig.potentialGradeDetailColor[grade]!,
+                )
+              : null,
           borderRadius: BorderRadius.circular(RadiusConfig.subRadius),
-          boxShadow: [
-            BoxShadow(
-              blurRadius: RadiusConfig.littleRadius,
-              color: StaticSwitchConfig.potentialGradeDetailColor[grade]!,
-              blurStyle: BlurStyle.outer,
-            )
-          ],
+          boxShadow: grade != null
+              ? [
+                  BoxShadow(
+                    blurRadius: RadiusConfig.littleRadius,
+                    color: StaticSwitchConfig.potentialGradeDetailColor[grade]!,
+                    blurStyle: BlurStyle.outer,
+                  ),
+                ]
+              : null,
         ),
         child: Container(
             padding: EdgeInsets.all(DimenConfig.minDimen),

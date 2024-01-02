@@ -6,12 +6,12 @@ import 'package:maple_app/config/static_list_config.dart';
 import 'package:maple_app/config/static_switch_config.dart';
 import 'package:maple_app/model/equipment/symbol/symbol_detail_model.dart';
 import 'package:maple_app/model/equipment/symbol_item_model.dart';
-import 'package:maple_app/provider/equipment_notifier.dart';
-import 'package:maple_app/widget/equipment/symbol/symbol_icon_info_widget.dart';
-import 'package:maple_app/widget/equipment/symbol/symbol_info_widget.dart';
+import 'package:maple_app/page/equipment/pet_symbol/detail/symbol_detail_icon.dart';
+import 'package:maple_app/page/equipment/pet_symbol/detail/symbol_detail_info.dart';
+import 'package:maple_app/provider/equipment_pet_symbol_notifier.dart';
 
-class SymbolDetailPage extends ConsumerWidget {
-  const SymbolDetailPage({super.key, required this.symbolItem});
+class SymbolInfo extends ConsumerWidget {
+  const SymbolInfo({super.key, required this.symbolItem});
 
   final SymbolItem symbolItem;
 

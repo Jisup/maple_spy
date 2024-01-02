@@ -6,13 +6,13 @@ import 'package:maple_app/config/const_config.dart';
 import 'package:maple_app/model/equipment/item/item_detail_option_model.dart';
 import 'package:maple_app/model/equipment/item/item_detail_potential_option_model.dart';
 import 'package:maple_app/model/equipment/item_model.dart';
-import 'package:maple_app/page/equipment/item/Item_detail_required_class_page.dart';
-import 'package:maple_app/page/equipment/item/item_detail_image_page.dart';
-import 'package:maple_app/page/equipment/item/item_detail_potential_option_page.dart';
-import 'package:maple_app/page/equipment/item/item_detail_required_level_page.dart';
+import 'package:maple_app/page/equipment/item/detail/Item_detail_required_class_page.dart';
+import 'package:maple_app/page/equipment/item/detail/item_detail_image_page.dart';
+import 'package:maple_app/page/equipment/item/detail/item_detail_potential_option_page.dart';
+import 'package:maple_app/page/equipment/item/detail/item_detail_required_level_page.dart';
 import 'package:maple_app/widget/common/dashed_divider_widget.dart';
-import 'package:maple_app/widget/equipment/item/starforce_widget.dart';
-import 'package:maple_app/page/equipment/item/item_detail_option_page.dart';
+import 'package:maple_app/page/equipment/item/detail/item_detail_starforce_page.dart';
+import 'package:maple_app/page/equipment/item/detail/item_detail_option_page.dart';
 
 class ItemDetailPage extends ConsumerWidget {
   const ItemDetailPage({super.key, required this.item});
@@ -73,7 +73,7 @@ class ItemDetailPage extends ConsumerWidget {
                         children: [
                           /**-----starforce */
                           item.starforce != '0'
-                              ? StarforceWidget(
+                              ? ItemDetailStarforcePage(
                                   level: item
                                       .itemBaseOption!.baseEquipmentLevel!
                                       .toInt(),

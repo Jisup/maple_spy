@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:maple_app/config/color_config.dart';
 import 'package:maple_app/model/equipment/item/item_detail_option_model.dart';
-import 'package:maple_app/page/equipment/item/item_detail_option_stat_page.dart';
+import 'package:maple_app/page/equipment/item/detail/item_detail_option_stat_page.dart';
 
 class ItemDetailOptionPage extends ConsumerWidget {
   const ItemDetailOptionPage({super.key, required this.detailOption});

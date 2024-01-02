@@ -5,7 +5,6 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:maple_app/config/color_config.dart';
 import 'package:maple_app/config/const_config.dart';
 import 'package:maple_app/config/static_switch_config.dart';
-import 'package:maple_app/util/make_list.dart';
 
 class ItemDetailImagePage extends ConsumerWidget {
   const ItemDetailImagePage(
@@ -16,7 +15,6 @@ class ItemDetailImagePage extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    ColorScheme colorScheme = Theme.of(context).colorScheme;
     return AspectRatio(
       aspectRatio: 1,
       child: Container(

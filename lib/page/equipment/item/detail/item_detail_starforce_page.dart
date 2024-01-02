@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:maple_app/config/const_config.dart';
 
-class StarforceWidget extends ConsumerWidget {
-  const StarforceWidget(
+class ItemDetailStarforcePage extends ConsumerWidget {
+  const ItemDetailStarforcePage(
       {super.key, required this.level, required this.starforce});
 
   final int level;

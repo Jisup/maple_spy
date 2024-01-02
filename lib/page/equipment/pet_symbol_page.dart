@@ -5,14 +5,14 @@ import 'package:maple_app/config/static_list_config.dart';
 import 'package:maple_app/model/equipment/pet/pet_detail_model.dart';
 import 'package:maple_app/model/equipment/pet_item_model.dart';
 import 'package:maple_app/model/equipment/symbol_item_model.dart';
-import 'package:maple_app/page/equipment/pet_with_symbol/pet_detail_info_page.dart';
-import 'package:maple_app/page/equipment/pet_with_symbol/pet_detail_skill_page.dart';
-import 'package:maple_app/page/equipment/pet_with_symbol/symbol_detail_page.dart';
-import 'package:maple_app/provider/equipment_notifier.dart';
+import 'package:maple_app/page/equipment/pet_symbol/detail/pet_detail_info_page.dart';
+import 'package:maple_app/page/equipment/pet_symbol/detail/pet_detail_skill_page.dart';
+import 'package:maple_app/page/equipment/pet_symbol/symbol_info.dart';
+import 'package:maple_app/provider/equipment_pet_symbol_notifier.dart';
 import 'package:maple_app/widget/detail_page/detail_select_sub_tab.dart';
 
-class PetWithSymbolInfo extends ConsumerWidget {
-  const PetWithSymbolInfo({super.key, required this.pet, required this.symbol});
+class PetSymbolPage extends ConsumerWidget {
+  const PetSymbolPage({super.key, required this.pet, required this.symbol});
 
   final PetItem pet;
   final SymbolItem symbol;
@@ -65,7 +65,7 @@ class PetWithSymbolInfo extends ConsumerWidget {
             ],
           ),
           Expanded(
-            child: SymbolDetailPage(symbolItem: symbol),
+            child: SymbolInfo(symbolItem: symbol),
           ),
         ],
       ),

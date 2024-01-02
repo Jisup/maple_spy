@@ -28,10 +28,12 @@ class DetailSelectSubTab extends ConsumerWidget {
         alignment: Alignment.center,
         padding: EdgeInsets.all(DimenConfig.subDimen),
         child: CustomTextWidget(
-            text: tab['text'],
-            size: FontConfig.subSize,
-            color: equal ? Colors.white : colorScheme.primary,
-            subColor: equal ? Colors.black26 : Colors.white24),
+          text: tab['text'],
+          size: FontConfig.subSize,
+          color: equal ? Colors.white : colorScheme.primary,
+          subColor: equal ? Colors.black26 : Colors.white24,
+          shadowSize: 2,
+        ),
       ),
     );
   }

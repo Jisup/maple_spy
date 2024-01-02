@@ -18,23 +18,29 @@ class SymbolInfoWidget extends ConsumerWidget {
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           CustomTextWidget(
-              text: title,
-              size: FontConfig.middleDownSize,
-              color: Colors.white,
-              subColor: Colors.black26),
+            text: title,
+            size: FontConfig.middleDownSize,
+            color: Colors.white,
+            subColor: Colors.black26,
+            shadowSize: 2,
+          ),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               CustomTextWidget(
-                  text: '+',
-                  size: FontConfig.middleDownSize,
-                  color: Colors.white,
-                  subColor: Colors.black26),
+                text: '+',
+                size: FontConfig.middleDownSize,
+                color: Colors.white,
+                subColor: Colors.black26,
+                shadowSize: 2,
+              ),
               CustomTextWidget(
-                  text: stat,
-                  size: FontConfig.middleDownSize,
-                  color: Colors.white,
-                  subColor: Colors.black26),
+                text: stat,
+                size: FontConfig.middleDownSize,
+                color: Colors.white,
+                subColor: Colors.black26,
+                shadowSize: 2,
+              ),
             ],
           )
         ],

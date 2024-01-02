@@ -56,7 +56,9 @@ class SymbolIconInfoWidget extends ConsumerWidget {
                         text: 'Lv.${level}',
                         size: FontConfig.commonSize,
                         color: Colors.white,
-                        subColor: Colors.black26)
+                        subColor: Colors.black26,
+                        shadowSize: 2,
+                      )
                     : SizedBox.shrink(),
               ],
             ),

@@ -27,6 +27,7 @@ class PetDetailSkillPage extends ConsumerWidget {
               size: FontConfig.minSize,
               color: Colors.black,
               subColor: Colors.white70,
+              shadowSize: 2,
             ),
           ),
           FractionallySizedBox(

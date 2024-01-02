@@ -112,3 +112,12 @@ class SymbolColor {
   static const Color authenticStartBackground = Color(0xFF6a96cb); // 어센틱 시작 배경
   static const Color authenticEndBackground = Color(0xFF8d8fd8); // 어센틱 끝 배경
 }
+
+class SkillColor {
+  static const Color startBackground = Color(0xFFd2d5d7); // 공통 시작 배경
+  static const Color endBackground = Color(0xFFbec5c9); // 공통 끝 배경
+  static const Color background = Color(0xFF9099a3); // 공통 배경
+
+  static const Color border = Color(0xFF9aa3a7); // 공통 테두리
+  static const Color subBorder = Color(0xFFe8e9ea); // 공통 서브 테두리
+}

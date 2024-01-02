@@ -99,22 +99,22 @@ class StaticListConfig {
     {
       'name': 'else',
       'text': '어빌리티 /\n하이퍼 스탯',
-      'fontSize': FontConfig.minSize,
+      'fontSize': FontConfig.subSize,
       'dimenSize': 0.0,
     },
   ];
   static final List detailSkillTabList = [
     {
       'name': 'hexa',
-      'text': 'HEXA\n매트릭스',
+      'text': 'HEXA 코어',
       'fontSize': FontConfig.commonSize,
-      'dimenSize': 0.0,
+      'dimenSize': DimenConfig.commonDimen,
     },
     {
       'name': 'v',
-      'text': 'V\n매트릭스',
+      'text': 'V 코어',
       'fontSize': FontConfig.commonSize,
-      'dimenSize': 0.0,
+      'dimenSize': DimenConfig.commonDimen,
     },
     {
       'name': 'link',

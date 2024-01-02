@@ -25,10 +25,6 @@ class SkillNotifier extends AutoDisposeAsyncNotifier<MainSkill> {
 
     dioInstance.dio.options.queryParameters = {'ocid': ocid, 'date': yesterday};
 
-    /**-----skill */
-    // Response skillResponse =
-    //     await dioInstance.dio.get(dotenv.get('MAPLESTORY_SKILL_PATH'));
-    // Skill skill = Skill.fromJson(skillResponse.data);
     /**-----link skill */
     Response linkSkillResponse =
         await dioInstance.dio.get(dotenv.get('MAPLESTORY_LINKSKILL_PATH'));
@@ -43,11 +39,33 @@ class SkillNotifier extends AutoDisposeAsyncNotifier<MainSkill> {
     HexamatrixSkill hexamatrixSkill =
         HexamatrixSkill.fromJson(hexamatrixResponse.data);
 
+    /**-----v skill */
+    dioInstance.dio.options.queryParameters = {
+      'ocid': ocid,
+      'date': yesterday,
+      'character_skill_grade': 5
+    };
+    Response vSkillResponse =
+        await dioInstance.dio.get(dotenv.get('MAPLESTORY_SKILL_PATH'));
+    Skill vSkill = Skill.fromJson(vSkillResponse.data);
+
+    /**-----hexa skill */
+    dioInstance.dio.options.queryParameters = {
+      'ocid': ocid,
+      'date': yesterday,
+      'character_skill_grade': 6
+    };
+    Response hexaSkillResponse =
+        await dioInstance.dio.get(dotenv.get('MAPLESTORY_SKILL_PATH'));
+    Skill hexaSkill = Skill.fromJson(hexaSkillResponse.data);
+
     return MainSkill(
       skill: Skill(),
       // skill: skill,
       link: linkSkill,
+      vSkill: vSkill,
       vmatrix: vmatrixSkill,
+      hexaSkill: hexaSkill,
       hexamatrix: hexamatrixSkill,
     );
   }

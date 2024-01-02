@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:maple_app/config/const_config.dart';
-import 'package:maple_app/widget/equipment/symbol/symbol_text_widget.dart';
+import 'package:maple_app/widget/common/custom_text_widget.dart';
 
 class DetailSelectSubTab extends ConsumerWidget {
   const DetailSelectSubTab(
@@ -27,7 +27,7 @@ class DetailSelectSubTab extends ConsumerWidget {
         ),
         alignment: Alignment.center,
         padding: EdgeInsets.all(DimenConfig.subDimen),
-        child: SymbolTextWidget(
+        child: CustomTextWidget(
             text: tab['text'],
             size: FontConfig.subSize,
             color: equal ? Colors.white : colorScheme.primary,

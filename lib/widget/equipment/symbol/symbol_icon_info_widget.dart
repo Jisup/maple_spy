@@ -3,7 +3,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:gradient_borders/box_borders/gradient_box_border.dart';
 import 'package:maple_app/config/color_config.dart';
 import 'package:maple_app/config/const_config.dart';
-import 'package:maple_app/widget/equipment/symbol/symbol_text_widget.dart';
+import 'package:maple_app/widget/common/custom_text_widget.dart';
 
 class SymbolIconInfoWidget extends ConsumerWidget {
   const SymbolIconInfoWidget(
@@ -52,7 +52,7 @@ class SymbolIconInfoWidget extends ConsumerWidget {
                   ),
                 ),
                 level != null
-                    ? SymbolTextWidget(
+                    ? CustomTextWidget(
                         text: 'Lv.${level}',
                         size: FontConfig.commonSize,
                         color: Colors.white,

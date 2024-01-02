@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:maple_app/config/const_config.dart';
-import 'package:maple_app/widget/equipment/symbol/symbol_text_widget.dart';
+import 'package:maple_app/widget/common/custom_text_widget.dart';
 
 class SymbolInfoWidget extends ConsumerWidget {
   const SymbolInfoWidget({super.key, required this.title, required this.stat});
@@ -17,7 +17,7 @@ class SymbolInfoWidget extends ConsumerWidget {
         mainAxisAlignment: MainAxisAlignment.spaceAround,
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
-          SymbolTextWidget(
+          CustomTextWidget(
               text: title,
               size: FontConfig.middleDownSize,
               color: Colors.white,
@@ -25,12 +25,12 @@ class SymbolInfoWidget extends ConsumerWidget {
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              SymbolTextWidget(
+              CustomTextWidget(
                   text: '+',
                   size: FontConfig.middleDownSize,
                   color: Colors.white,
                   subColor: Colors.black26),
-              SymbolTextWidget(
+              CustomTextWidget(
                   text: stat,
                   size: FontConfig.middleDownSize,
                   color: Colors.white,

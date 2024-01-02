@@ -13,7 +13,7 @@ class EquipmentSlotWidget extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     ColorScheme colorScheme = Theme.of(context).colorScheme;
     return Container(
-      margin: EdgeInsets.all(DimenConfig.subDimen),
+      margin: EdgeInsets.all(DimenConfig.minDimen),
       padding: EdgeInsets.all(DimenConfig.subDimen),
       decoration: BoxDecoration(
           color: colorScheme.onSecondary,

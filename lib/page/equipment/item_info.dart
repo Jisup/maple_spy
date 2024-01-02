@@ -22,7 +22,8 @@ class ItemInfo extends ConsumerWidget {
         ? GestureDetector(
             onTap: () => context.push('/equipment/item/detail', extra: item),
             child: Container(
-              margin: EdgeInsets.all(DimenConfig.subDimen),
+              margin: EdgeInsets.all(DimenConfig.minDimen),
+              padding: EdgeInsets.all(DimenConfig.subDimen),
               decoration: BoxDecoration(
                   color: colorScheme.onSecondary,
                   border: Border.all(
@@ -53,26 +54,20 @@ class ItemInfo extends ConsumerWidget {
                   ]),
               child: Stack(
                 children: [
-                  Container(
-                    padding: EdgeInsets.all(DimenConfig.subDimen),
-                    child: Text(
-                      name,
-                      style: TextStyle(
-                          fontSize: FontConfig.minSize,
-                          letterSpacing: SpacingConfig.minSpacing,
-                          color: Colors.white70,
-                          fontWeight: FontWeight.bold),
-                    ),
+                  Text(
+                    name,
+                    style: TextStyle(
+                        fontSize: FontConfig.minSize,
+                        letterSpacing: SpacingConfig.minSpacing,
+                        color: Colors.white70,
+                        fontWeight: FontWeight.bold),
                   ),
-                  Container(
-                    padding: EdgeInsets.all(DimenConfig.subDimen),
-                    child: SizedBox(
-                      width: double.infinity,
-                      height: double.infinity,
-                      child: Image(
-                        image: NetworkImage(item!.itemIcon!),
-                        fit: BoxFit.contain,
-                      ),
+                  SizedBox(
+                    width: double.infinity,
+                    height: double.infinity,
+                    child: Image(
+                      image: NetworkImage(item!.itemIcon!),
+                      fit: BoxFit.contain,
                     ),
                   ),
                 ],

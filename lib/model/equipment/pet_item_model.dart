@@ -4,8 +4,8 @@ class PetItem {
   String? pet1Nickname;
   String? pet1Icon;
   String? pet1Description;
-  Pet1Equipment? pet1Equipment;
-  Pet1AutoSkill? pet1AutoSkill;
+  PetEquipment? pet1Equipment;
+  PetAutoSkill? pet1AutoSkill;
   String? pet1PetType;
   List<String>? pet1Skill;
   String? pet1DateExpire;
@@ -13,8 +13,8 @@ class PetItem {
   String? pet2Nickname;
   String? pet2Icon;
   String? pet2Description;
-  Pet1Equipment? pet2Equipment;
-  Pet1AutoSkill? pet2AutoSkill;
+  PetEquipment? pet2Equipment;
+  PetAutoSkill? pet2AutoSkill;
   String? pet2PetType;
   List<String>? pet2Skill;
   String? pet2DateExpire;
@@ -22,8 +22,8 @@ class PetItem {
   String? pet3Nickname;
   String? pet3Icon;
   String? pet3Description;
-  Pet1Equipment? pet3Equipment;
-  Pet1AutoSkill? pet3AutoSkill;
+  PetEquipment? pet3Equipment;
+  PetAutoSkill? pet3AutoSkill;
   String? pet3PetType;
   List<String>? pet3Skill;
   String? pet3DateExpire;
@@ -65,10 +65,10 @@ class PetItem {
     pet1Icon = json['pet_1_icon'];
     pet1Description = json['pet_1_description'];
     pet1Equipment = json['pet_1_equipment'] != null
-        ? new Pet1Equipment.fromJson(json['pet_1_equipment'])
+        ? new PetEquipment.fromJson(json['pet_1_equipment'])
         : null;
     pet1AutoSkill = json['pet_1_auto_skill'] != null
-        ? new Pet1AutoSkill.fromJson(json['pet_1_auto_skill'])
+        ? new PetAutoSkill.fromJson(json['pet_1_auto_skill'])
         : null;
     pet1PetType = json['pet_1_pet_type'];
     pet1Skill = json['pet_1_skill'].cast<String>();
@@ -78,10 +78,10 @@ class PetItem {
     pet2Icon = json['pet_2_icon'];
     pet2Description = json['pet_2_description'];
     pet2Equipment = json['pet_2_equipment'] != null
-        ? new Pet1Equipment.fromJson(json['pet_2_equipment'])
+        ? new PetEquipment.fromJson(json['pet_2_equipment'])
         : null;
     pet2AutoSkill = json['pet_2_auto_skill'] != null
-        ? new Pet1AutoSkill.fromJson(json['pet_2_auto_skill'])
+        ? new PetAutoSkill.fromJson(json['pet_2_auto_skill'])
         : null;
     pet2PetType = json['pet_2_pet_type'];
     pet2Skill = json['pet_2_skill'].cast<String>();
@@ -91,10 +91,10 @@ class PetItem {
     pet3Icon = json['pet_3_icon'];
     pet3Description = json['pet_3_description'];
     pet3Equipment = json['pet_3_equipment'] != null
-        ? new Pet1Equipment.fromJson(json['pet_3_equipment'])
+        ? new PetEquipment.fromJson(json['pet_3_equipment'])
         : null;
     pet3AutoSkill = json['pet_3_auto_skill'] != null
-        ? new Pet1AutoSkill.fromJson(json['pet_3_auto_skill'])
+        ? new PetAutoSkill.fromJson(json['pet_3_auto_skill'])
         : null;
     pet3PetType = json['pet_3_pet_type'];
     pet3Skill = json['pet_3_skill'].cast<String>();
@@ -147,7 +147,7 @@ class PetItem {
   }
 }
 
-class Pet1Equipment {
+class PetEquipment {
   String? itemName;
   String? itemIcon;
   String? itemDescription;
@@ -155,7 +155,7 @@ class Pet1Equipment {
   int? scrollUpgrade;
   int? scrollUpgradeable;
 
-  Pet1Equipment(
+  PetEquipment(
       {this.itemName,
       this.itemIcon,
       this.itemDescription,
@@ -163,7 +163,7 @@ class Pet1Equipment {
       this.scrollUpgrade,
       this.scrollUpgradeable});
 
-  Pet1Equipment.fromJson(Map<String, dynamic> json) {
+  PetEquipment.fromJson(Map<String, dynamic> json) {
     itemName = json['item_name'];
     itemIcon = json['item_icon'];
     itemDescription = json['item_description'];
@@ -210,15 +210,15 @@ class ItemOption {
   }
 }
 
-class Pet1AutoSkill {
+class PetAutoSkill {
   String? skill1;
   String? skill1Icon;
   String? skill2;
   String? skill2Icon;
 
-  Pet1AutoSkill({this.skill1, this.skill1Icon, this.skill2, this.skill2Icon});
+  PetAutoSkill({this.skill1, this.skill1Icon, this.skill2, this.skill2Icon});
 
-  Pet1AutoSkill.fromJson(Map<String, dynamic> json) {
+  PetAutoSkill.fromJson(Map<String, dynamic> json) {
     skill1 = json['skill_1'];
     skill1Icon = json['skill_1_icon'];
     skill2 = json['skill_2'];

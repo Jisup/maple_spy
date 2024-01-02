@@ -5,7 +5,7 @@ import 'package:go_router/go_router.dart';
 import 'package:maple_app/config/const_config.dart';
 import 'package:maple_app/config/static_switch_config.dart';
 import 'package:maple_app/model/equipment/item_model.dart';
-import 'package:maple_app/widget/equipment/equipment_empty_slot_widget.dart';
+import 'package:maple_app/widget/equipment/equipment_slot_widget.dart';
 
 class ItemInfo extends ConsumerWidget {
   const ItemInfo({super.key, required this.name, required this.item});
@@ -26,16 +26,28 @@ class ItemInfo extends ConsumerWidget {
               decoration: BoxDecoration(
                   color: colorScheme.onSecondary,
                   border: Border.all(
-                    color: StaticSwitchConfig.potentialGradeColor[item?.potentialOptionGrade]!,
+                    color: StaticSwitchConfig
+                        .potentialGradeColor[item?.potentialOptionGrade]!,
                     width: item?.potentialOptionGrade == null ? 0 : 2,
                   ),
-                  borderRadius: item?.potentialOptionGrade == null ? BorderRadius.circular(RadiusConfig.subRadius) : null,
+                  borderRadius: item?.potentialOptionGrade == null
+                      ? BorderRadius.circular(RadiusConfig.subRadius)
+                      : null,
                   boxShadow: [
-                    BoxShadow(blurRadius: RadiusConfig.subRadius, offset: Offset(-3, -3), color: Colors.white, inset: true),
-                    BoxShadow(blurRadius: RadiusConfig.subRadius, offset: Offset(3, 3), color: Colors.black87, inset: true),
+                    BoxShadow(
+                        blurRadius: RadiusConfig.subRadius,
+                        offset: Offset(-3, -3),
+                        color: Colors.white,
+                        inset: true),
+                    BoxShadow(
+                        blurRadius: RadiusConfig.subRadius,
+                        offset: Offset(3, 3),
+                        color: Colors.black87,
+                        inset: true),
                     BoxShadow(
                       blurRadius: RadiusConfig.littleRadius,
-                      color: StaticSwitchConfig.potentialGradeColor[item?.potentialOptionGrade]!,
+                      color: StaticSwitchConfig
+                          .potentialGradeColor[item?.potentialOptionGrade]!,
                       blurStyle: BlurStyle.outer,
                     )
                   ]),
@@ -45,7 +57,11 @@ class ItemInfo extends ConsumerWidget {
                     padding: EdgeInsets.all(DimenConfig.subDimen),
                     child: Text(
                       name,
-                      style: TextStyle(fontSize: FontConfig.minSize, letterSpacing: SpacingConfig.minSpacing, color: Colors.white70, fontWeight: FontWeight.bold),
+                      style: TextStyle(
+                          fontSize: FontConfig.minSize,
+                          letterSpacing: SpacingConfig.minSpacing,
+                          color: Colors.white70,
+                          fontWeight: FontWeight.bold),
                     ),
                   ),
                   Container(
@@ -64,6 +80,6 @@ class ItemInfo extends ConsumerWidget {
             ),
           )
         //**-----item null은 빈 slot만 보여주기 */
-        : EquipmentEmptySlotWidget(name: name);
+        : EquipmentSlotWidget(name: name);
   }
 }

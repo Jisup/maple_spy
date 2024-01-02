@@ -22,17 +22,24 @@ class EquipmentInfo extends ConsumerWidget {
           tabList: StaticListConfig.detailEquipmentTabList,
           provider: equipmentSelectTabProvider,
         ),
-        switch (selectTab) {
-          'item' => EquipmentInfoWidget(equipmentList: StaticListConfig.equipmentItemList, type: 'item', item: equipment.item, cash: null),
-          'cash' => EquipmentInfoWidget(
-              equipmentList: StaticListConfig.equipmentCashList,
-              type: 'cash',
-              item: null,
-              cash: equipment.cash,
-            ),
-          'pet/symbol' => PetWithSymbolInfo(pet: equipment.pet!, symbol: equipment.symbol!),
-          _ => MainErrorPage(message: 'move Error'),
-        },
+        Expanded(
+          child: switch (selectTab) {
+            'item' => EquipmentInfoWidget(
+                equipmentList: StaticListConfig.equipmentItemList,
+                type: 'item',
+                item: equipment.item,
+                cash: null),
+            'cash' => EquipmentInfoWidget(
+                equipmentList: StaticListConfig.equipmentCashList,
+                type: 'cash',
+                item: null,
+                cash: equipment.cash,
+              ),
+            'pet/symbol' =>
+              PetWithSymbolInfo(pet: equipment.pet!, symbol: equipment.symbol!),
+            _ => MainErrorPage(message: 'move Error'),
+          },
+        ),
       ],
     );
   }

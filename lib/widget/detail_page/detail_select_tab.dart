@@ -3,8 +3,11 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:maple_app/config/const_config.dart';
 
 class DetailSelectTabWidget extends ConsumerWidget {
-  const DetailSelectTabWidget(
-      {super.key, required this.tabList, required this.provider});
+  const DetailSelectTabWidget({
+    super.key,
+    required this.tabList,
+    required this.provider,
+  });
 
   final List tabList;
   final StateProvider<String> provider;

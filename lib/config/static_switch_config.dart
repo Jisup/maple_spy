@@ -9,7 +9,6 @@ class StaticSwitchConfig {
     '레어': ItemColor.rarePotentialBorder,
     null: Colors.transparent,
   };
-
   static final potentialGradeDetailColor = {
     '레전드리': ItemColor.legendaryPotentialDetailBorder,
     '유니크': ItemColor.uniquePotentialDetailBorder,
@@ -17,15 +16,6 @@ class StaticSwitchConfig {
     '레어': ItemColor.rarePotentialDetailBorder,
     null: Colors.transparent,
   };
-
-  static final potentialGradeIconBackgroundColor = {
-    '레전드리': ItemColor.epicIconBackground,
-    '유니크': ItemColor.uniqueIconBackground,
-    '에픽': ItemColor.epicIconBackground,
-    '레어': ItemColor.rareIconBackground,
-    null: Colors.transparent,
-  };
-
   static final potentialGradeIconBorderColor = {
     '레전드리': ItemColor.legendaryIconBorder,
     '유니크': ItemColor.uniqueIconBorder,
@@ -33,7 +23,6 @@ class StaticSwitchConfig {
     '레어': ItemColor.rareIconBorder,
     null: Colors.transparent,
   };
-
   static final potentialGradeIconTextShadowColor = {
     '레전드리': ItemColor.legendaryIconTextShadow,
     '유니크': ItemColor.uniqueIconTextShadow,
@@ -41,7 +30,6 @@ class StaticSwitchConfig {
     '레어': ItemColor.rareIconTextShadow,
     null: Colors.transparent,
   };
-
   static final potentialGradeCircleText = {
     '레전드리': 'L',
     '유니크': 'U',
@@ -49,4 +37,14 @@ class StaticSwitchConfig {
     '레어': 'R',
     null: '',
   };
+
+  static String switchClassMainStat(String className) {
+    return switch (className) {
+      '히어로' => 'STR',
+      '보우마스터' || '사수' => 'DEX',
+      '아크메이지(불,독)' => 'INT',
+      '나이트로드' => 'LUK',
+      _ => 'ALL',
+    };
+  }
 }

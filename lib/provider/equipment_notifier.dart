@@ -15,11 +15,15 @@ import 'package:maple_app/provider/character_notifier.dart';
 import 'package:maple_app/util/day_instance.dart';
 import 'package:maple_app/util/dio_instance.dart';
 
-final asyncEquipmentProvider = AutoDisposeAsyncNotifierProvider<EquipmentNotifier, MainEquipment>(EquipmentNotifier.new);
+final asyncEquipmentProvider =
+    AutoDisposeAsyncNotifierProvider<EquipmentNotifier, MainEquipment>(
+        EquipmentNotifier.new);
 
 final equipmentSelectTabProvider = StateProvider((_) => 'item');
 
 final equipmentSelectCashTabProvider = StateProvider((_) => 'preset1');
+
+final equipmentSelectSymbolTabProvider = StateProvider((_) => 'ARC');
 
 class EquipmentNotifier extends AutoDisposeAsyncNotifier<MainEquipment> {
   Future<MainEquipment> _fetchEquipment() async {
@@ -31,32 +35,49 @@ class EquipmentNotifier extends AutoDisposeAsyncNotifier<MainEquipment> {
     dioInstance.dio.options.queryParameters = {'ocid': ocid, 'date': yesterday};
 
     /**item equipment */
-    Response itemResponse = await dioInstance.dio.get(dotenv.get('MAPLESTORY_ITEM_PATH'));
+    Response itemResponse =
+        await dioInstance.dio.get(dotenv.get('MAPLESTORY_ITEM_PATH'));
     Item item = Item.fromJson(itemResponse.data);
+    /**set effect equipment */
+    Response itemSetEffectResponse =
+        await dioInstance.dio.get(dotenv.get('MAPLESTORY_SETEFFECT_PATH'));
+    ItemSetEffect itemSetEffect =
+        ItemSetEffect.fromJson(itemSetEffectResponse.data);
+
     /**cash item equipment */
-    Response cashItemResponse = await dioInstance.dio.get(dotenv.get('MAPLESTORY_CASHITEM_PATH'));
+    Response cashItemResponse =
+        await dioInstance.dio.get(dotenv.get('MAPLESTORY_CASHITEM_PATH'));
     CashItem cashItem = CashItem.fromJson(cashItemResponse.data);
+    /**android equipment */
+    Response androidItemResponse =
+        await dioInstance.dio.get(dotenv.get('MAPLESTORY_ANDROID_PATH'));
+    AndroidItem androidItem = AndroidItem.fromJson(androidItemResponse.data);
     /**beauty equipment */
-    Response beautyItemResponse = await dioInstance.dio.get(dotenv.get('MAPLESTORY_BEAUTY_PATH'));
+    Response beautyItemResponse =
+        await dioInstance.dio.get(dotenv.get('MAPLESTORY_BEAUTY_PATH'));
     BeautyItem beautyItem = BeautyItem.fromJson(beautyItemResponse.data);
+
     /**pet equipment */
-    Response petItemResponse = await dioInstance.dio.get(dotenv.get('MAPLESTORY_PET_PATH'));
+    Response petItemResponse =
+        await dioInstance.dio.get(dotenv.get('MAPLESTORY_PET_PATH'));
     PetItem petItem = PetItem.fromJson(petItemResponse.data);
     /**symbol equipment */
-    Response symbolItemResponse = await dioInstance.dio.get(dotenv.get('MAPLESTORY_SYMBOL_PATH'));
+    Response symbolItemResponse =
+        await dioInstance.dio.get(dotenv.get('MAPLESTORY_SYMBOL_PATH'));
     SymbolItem symbolItem = SymbolItem.fromJson(symbolItemResponse.data);
-    /**android equipment */
-    Response androidItemResponse = await dioInstance.dio.get(dotenv.get('MAPLESTORY_ANDROID_PATH'));
-    AndroidItem androidItem = AndroidItem.fromJson(androidItemResponse.data);
-    /**set effect equipment */
-    Response itemSetEffectResponse = await dioInstance.dio.get(dotenv.get('MAPLESTORY_SETEFFECT_PATH'));
-    ItemSetEffect itemSetEffect = ItemSetEffect.fromJson(itemSetEffectResponse.data);
 
-    return MainEquipment(item: item, cash: cashItem, beauty: beautyItem, pet: petItem, symbol: symbolItem, android: androidItem, setEffect: itemSetEffect);
+    return MainEquipment(
+        item: item,
+        cash: cashItem,
+        beauty: beautyItem,
+        pet: petItem,
+        symbol: symbolItem,
+        android: androidItem,
+        setEffect: itemSetEffect);
   }
 
   @override
-  FutureOr<MainEquipment> build() {
+  Future<MainEquipment> build() {
     return _fetchEquipment();
   }
 }

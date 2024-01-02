@@ -24,6 +24,7 @@ class FontConfig {
   static double subSize = 12;
   static double maxSize = 30;
   static double middleSize = 20;
+  static double middleDownSize = 18;
   static double minSize = 9;
 }
 

@@ -71,6 +71,18 @@ class StaticListConfig {
       'dimenSize': DimenConfig.commonDimen,
     }
   ];
+  static final List equipmentSymbolTabList = [
+    {
+      'title': 'ARC',
+      'name': '아케인심볼',
+      'text': 'ARCANE',
+    },
+    {
+      'title': 'AUT',
+      'name': '어센틱심볼',
+      'text': 'AUTHENTIC',
+    },
+  ];
   static final List detailStatTabList = [
     {
       'name': '기본',
@@ -363,5 +375,45 @@ class StaticListConfig {
     '궁수',
     '도적',
     '해적',
+  ];
+  static final List equipmentArcaneSymbolList = [
+    {
+      'name': '아케인심볼 : 소멸의 여로',
+    },
+    {
+      'name': '아케인심볼 : 츄츄 아일랜드',
+    },
+    {
+      'name': '아케인심볼 : 레헬른',
+    },
+    {
+      'name': '아케인심볼 : 아르카나',
+    },
+    {
+      'name': '아케인심볼 : 모라스',
+    },
+    {
+      'name': '아케인심볼 : 에스페라',
+    },
+  ];
+  static final List equipmentAuthenticSymbolList = [
+    {
+      'name': '어센틱심볼 : 세르니움',
+    },
+    {
+      'name': '어센틱심볼 : 아르크스',
+    },
+    {
+      'name': '어센틱심볼 : 오디움',
+    },
+    {
+      'name': '어센틱심볼 : 도원경',
+    },
+    {
+      'name': '어센틱심볼 : 아르테리아',
+    },
+    {
+      'name': '어센틱심볼 : 카르시온',
+    },
   ];
 }

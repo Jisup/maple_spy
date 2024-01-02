@@ -93,3 +93,22 @@ class ItemColor {
   static const Color soulOptionText = Color(0xFFffff44); // 소울 옵션 텍스트
   // static const Color exceptionalOptionText = Color(0xFF); // 익셉셔널 옵션 텍스트
 }
+
+class SymbolColor {
+  static const Color startBorder = Color(0xFFf1e2a7); // 공통 장착 시작 테두리
+  static const Color endBorder = Color(0xFFd9b47d); // 공통 장착 끝 테두리
+
+  static const Color arcaneStartBackground = Color(0xFF5a5a92); // 아케인 시작 배경
+  static const Color arcaneEndBackground = Color(0xFF707ab7); // 아케인 끝 배경
+
+  static const Color authenticLeftStartBackground =
+      Color(0xFF8acaf4); // 어센틱 왼쪽 시작 배경
+  static const Color authenticLeftEndBackground =
+      Color(0xFF79afe0); // 어센틱 왼쪽 끝 배경
+  static const Color authenticRightStartBackground =
+      Color(0xFF73a6db); // 어센틱 오른쪽 시작 배경
+  static const Color authenticRightEndBackground =
+      Color(0xFF638fd7); // 어센틱 오른쪽 끝 배경
+  static const Color authenticStartBackground = Color(0xFF6a96cb); // 어센틱 시작 배경
+  static const Color authenticEndBackground = Color(0xFF8d8fd8); // 어센틱 끝 배경
+}

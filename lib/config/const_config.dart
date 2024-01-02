@@ -12,6 +12,7 @@ class RadiusConfig {
   static double commonRadius = 15;
   static double subRadius = 10;
 
+  static double maxRadius = 100;
   static double minRadius = 5;
   static double littleRadius = 3;
 }

@@ -5,6 +5,8 @@ import 'package:maple_app/container/main_container.dart';
 import 'package:maple_app/page/async/async_skill_page.dart';
 import 'package:maple_app/widget/detail_page/detail_select_tab.dart';
 
+final skillSelectTabProvider = StateProvider((_) => 'hexa');
+
 class MainSkillPage extends ConsumerWidget {
   const MainSkillPage({super.key});
 

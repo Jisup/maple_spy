@@ -24,7 +24,7 @@ class CharacterNotifier extends AutoDisposeAsyncNotifier<MainCharacter> {
     final dioInstance = DioInstance();
     final yesterday = DayInstance().yesterday;
 
-    final characterName = ref.watch(characterNameProvider.notifier).state;
+    final characterName = ref.read(characterNameProvider.notifier).state;
     dioInstance.dio.options.queryParameters = {'character_name': characterName};
 
     /**----- get ocid ----- */
@@ -32,30 +32,25 @@ class CharacterNotifier extends AutoDisposeAsyncNotifier<MainCharacter> {
         await dioInstance.dio.get(dotenv.get('MAPLESTORY_OCID_PATH'));
     String ocid = ocidResponse.data['ocid'];
 
-    ref.watch(ocidProvider.notifier).update((state) => ocid);
+    ref.read(ocidProvider.notifier).update((state) => ocid);
 
     dioInstance.dio.options.queryParameters = {'ocid': ocid, 'date': yesterday};
-
     /**----- get basic ----- */
     Response basicResponse =
         await dioInstance.dio.get(dotenv.get('MAPLESTORY_BASIC_PATH'));
     Basic basic = Basic.fromJson(basicResponse.data);
-
     /**----- get dojang ----- */
     Response dojangResponse =
         await dioInstance.dio.get(dotenv.get('MAPLESTORY_DOJANG_PATH'));
     Dojang dojang = Dojang.fromJson(dojangResponse.data);
-
     /**----- get popularity ----- */
     Response popularityResponse =
         await dioInstance.dio.get(dotenv.get('MAPLESTORY_POPULARITY_PATH'));
     Popularity popularity = Popularity.fromJson(popularityResponse.data);
-
     /**----- get propensity ----- */
     Response propensityResponse =
         await dioInstance.dio.get(dotenv.get('MAPLESTORY_PROPENSITY_PATH'));
     Propensity propensity = Propensity.fromJson(propensityResponse.data);
-
     return MainCharacter(
       ocid: ocid,
       basic: basic,
@@ -70,31 +65,3 @@ class CharacterNotifier extends AutoDisposeAsyncNotifier<MainCharacter> {
     return _fetchCharacter();
   }
 }
-
-// final characterProvider =
-//     NotifierProvider<CharacterNotifier, MainCharacter>(CharacterNotifier.new);
-
-// class CharacterNotifier extends Notifier<MainCharacter> {
-//   @override
-//   MainCharacter build() {
-//     return MainCharacter(
-//       ocid: "",
-//       basic: Basic(),
-//       dojang: Dojang(),
-//       popularity: Popularity(),
-//       propensity: Propensity(),
-//     );
-//   }
-
-//   void addOcid(final ocidData) {
-//     state = state.copyWith(ocid: ocidData);
-//   }
-
-//   void addBasic(final basicData) {
-//     state = state.copyWith(basic: Basic.fromJson(basicData));
-//   }
-
-//   void addPopularity(final popularityData) {
-//     state = state.copyWith(popularity: Popularity.fromJson(popularityData));
-//   }
-// }

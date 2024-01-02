@@ -17,7 +17,7 @@ class DetailSelectSubTab extends ConsumerWidget {
     return GestureDetector(
       onTap: () => equal
           ? null
-          : ref.watch(provider.notifier).update((state) => tab['title']),
+          : ref.read(provider.notifier).update((state) => tab['title']),
       child: Container(
         margin: EdgeInsets.only(
             left: DimenConfig.commonDimen, right: DimenConfig.commonDimen),

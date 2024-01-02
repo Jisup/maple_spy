@@ -21,7 +21,7 @@ class EquipmentPetSymbolNotifier
   Future<MainEquipmentPetSymbol> _fetchPetSymbol() async {
     final dioInstance = DioInstance();
 
-    final ocid = ref.watch(ocidProvider.notifier).state;
+    final ocid = ref.read(ocidProvider.notifier).state;
     final yesterday = DayInstance().yesterday;
 
     dioInstance.dio.options.queryParameters = {'ocid': ocid, 'date': yesterday};

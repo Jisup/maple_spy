@@ -26,7 +26,7 @@ class DetailSelectTabWidget extends ConsumerWidget {
                 onTap: () => equal
                     ? null
                     : ref
-                        .watch(provider.notifier)
+                        .read(provider.notifier)
                         .update((state) => tab['name']),
                 child: Container(
                   margin: EdgeInsets.all(DimenConfig.commonDimen),

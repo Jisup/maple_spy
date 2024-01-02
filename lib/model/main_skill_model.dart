@@ -4,10 +4,10 @@ import 'package:maple_app/model/skill/skill_model.dart';
 import 'package:maple_app/model/skill/vmatrix_skill_model.dart';
 
 class MainSkill {
-  Skill skill;
-  LinkSkill link;
-  VmatrixSkill vmatrix;
-  HexamatrixSkill hexamatrix;
+  Skill? skill;
+  LinkSkill? link;
+  VmatrixSkill? vmatrix;
+  HexamatrixSkill? hexamatrix;
 
   MainSkill({
     required this.skill,

@@ -1,7 +1,7 @@
 class LinkSkill {
   String? date;
   String? characterClass;
-  CharacterLinkSkill? characterLinkSkill;
+  List<CharacterLinkSkill>? characterLinkSkill;
   CharacterLinkSkill? characterOwnedLinkSkill;
 
   LinkSkill(
@@ -13,9 +13,12 @@ class LinkSkill {
   LinkSkill.fromJson(Map<String, dynamic> json) {
     date = json['date'];
     characterClass = json['character_class'];
-    characterLinkSkill = json['character_link_skill'] != null
-        ? new CharacterLinkSkill.fromJson(json['character_link_skill'])
-        : null;
+    if (json['character_link_skill'] != null) {
+      characterLinkSkill = <CharacterLinkSkill>[];
+      json['character_link_skill'].forEach((v) {
+        characterLinkSkill!.add(new CharacterLinkSkill.fromJson(v));
+      });
+    }
     characterOwnedLinkSkill = json['character_owned_link_skill'] != null
         ? new CharacterLinkSkill.fromJson(json['character_owned_link_skill'])
         : null;
@@ -26,7 +29,8 @@ class LinkSkill {
     data['date'] = this.date;
     data['character_class'] = this.characterClass;
     if (this.characterLinkSkill != null) {
-      data['character_link_skill'] = this.characterLinkSkill!.toJson();
+      data['character_link_skill'] =
+          this.characterLinkSkill!.map((v) => v.toJson()).toList();
     }
     if (this.characterOwnedLinkSkill != null) {
       data['character_owned_link_skill'] =

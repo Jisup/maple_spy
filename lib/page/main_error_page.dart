@@ -9,7 +9,7 @@ class MainErrorPage extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     return Container(
-      child: Text('something`s error'),
+      child: Text(message),
     );
   }
 }

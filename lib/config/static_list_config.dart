@@ -85,19 +85,19 @@ class StaticListConfig {
   ];
   static final List detailStatTabList = [
     {
-      'name': '기본',
+      'name': 'base',
       'text': '기본 스탯',
       'fontSize': FontConfig.commonSize,
       'dimenSize': DimenConfig.commonDimen,
     },
     {
-      'name': 'HEAX',
+      'name': 'hexa',
       'text': 'HEXA 스탯',
       'fontSize': FontConfig.commonSize,
       'dimenSize': DimenConfig.commonDimen,
     },
     {
-      'name': '기타',
+      'name': 'else',
       'text': '어빌리티 /\n하이퍼 스탯',
       'fontSize': FontConfig.minSize,
       'dimenSize': 0.0,
@@ -105,15 +105,15 @@ class StaticListConfig {
   ];
   static final List detailSkillTabList = [
     {
-      'name': 'HEXAmatrix',
+      'name': 'hexa',
       'text': 'HEXA\n매트릭스',
-      'fontSize': FontConfig.minSize,
+      'fontSize': FontConfig.commonSize,
       'dimenSize': 0.0,
     },
     {
-      'name': 'Vmatrix',
+      'name': 'v',
       'text': 'V\n매트릭스',
-      'fontSize': FontConfig.minSize,
+      'fontSize': FontConfig.commonSize,
       'dimenSize': 0.0,
     },
     {

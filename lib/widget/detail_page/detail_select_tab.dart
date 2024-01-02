@@ -43,6 +43,7 @@ class DetailSelectTabWidget extends ConsumerWidget {
                     padding: EdgeInsets.all(tab['dimenSize']),
                     child: Text(
                       tab['text'],
+                      textAlign: TextAlign.center,
                       style: TextStyle(
                           color: equal ? Colors.white : colorScheme.primary,
                           fontSize: tab['fontSize'],

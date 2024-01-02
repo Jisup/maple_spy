@@ -16,13 +16,10 @@ final asyncEquipmentItemProvider =
 
 class EquipmentItemNotifier
     extends AutoDisposeAsyncNotifier<MainEquipmentItem> {
-  bool isLoading = false;
-
   Future<MainEquipmentItem> _fetchItem() async {
-    isLoading = true;
     final dioInstance = DioInstance();
 
-    final ocid = ref.read(ocidProvider.notifier).state;
+    final ocid = ref.read(ocidProvider);
     final yesterday = DayInstance().yesterday;
 
     dioInstance.dio.options.queryParameters = {'ocid': ocid, 'date': yesterday};
@@ -37,8 +34,10 @@ class EquipmentItemNotifier
     ItemSetEffect itemSetEffect =
         ItemSetEffect.fromJson(itemSetEffectResponse.data);
 
-    isLoading = false;
-    return MainEquipmentItem(item: item, setEffect: itemSetEffect);
+    return MainEquipmentItem(
+      item: item,
+      setEffect: itemSetEffect,
+    );
   }
 
   @override

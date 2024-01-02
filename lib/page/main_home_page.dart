@@ -23,7 +23,7 @@ class _MainHomeState extends ConsumerState<MainHomePage> {
 
   void onClickSearchButton() {
     ref
-        .watch(characterNameProvider.notifier)
+        .read(characterNameProvider.notifier)
         .update((state) => _textFieldController.text);
     context.push('/character');
   }

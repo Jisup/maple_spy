@@ -20,7 +20,7 @@ class EquipmentCashNotifier
   Future<MainEquipmentCash> _fetchCash() async {
     final dioInstance = DioInstance();
 
-    final ocid = ref.read(ocidProvider.notifier).state;
+    final ocid = ref.read(ocidProvider);
     final yesterday = DayInstance().yesterday;
 
     dioInstance.dio.options.queryParameters = {'ocid': ocid, 'date': yesterday};

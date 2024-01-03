@@ -1,16 +1,23 @@
-class VmatrixSkill {
+class VDetail {
+  int slotLevel;
+  String skillType;
+
+  VDetail({required this.slotLevel, required this.skillType});
+}
+
+class VMatrix {
   String? date;
   String? characterClass;
   List<CharacterVCoreEquipment>? characterVCoreEquipment;
   int? characterVMatrixRemainSlotUpgradePoint;
 
-  VmatrixSkill(
+  VMatrix(
       {this.date,
       this.characterClass,
       this.characterVCoreEquipment,
       this.characterVMatrixRemainSlotUpgradePoint});
 
-  VmatrixSkill.fromJson(Map<String, dynamic> json) {
+  VMatrix.fromJson(Map<String, dynamic> json) {
     date = json['date'];
     characterClass = json['character_class'];
     if (json['character_v_core_equipment'] != null) {

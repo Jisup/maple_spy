@@ -1,10 +1,10 @@
-class HexamatrixSkill {
+class HexaMatrix {
   String? date;
   List<CharacterHexaCoreEquipment>? characterHexaCoreEquipment;
 
-  HexamatrixSkill({this.date, this.characterHexaCoreEquipment});
+  HexaMatrix({this.date, this.characterHexaCoreEquipment});
 
-  HexamatrixSkill.fromJson(Map<String, dynamic> json) {
+  HexaMatrix.fromJson(Map<String, dynamic> json) {
     date = json['date'];
     if (json['character_hexa_core_equipment'] != null) {
       characterHexaCoreEquipment = <CharacterHexaCoreEquipment>[];

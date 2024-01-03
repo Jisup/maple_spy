@@ -35,11 +35,13 @@ class SkillDetailPage extends ConsumerWidget {
             child: switch (skillTab) {
               'hexa' => HexaPage(
                   hexaSkill: mainSkill.hexaSkill,
-                  hexamatrix: mainSkill.hexamatrix,
+                  hexaDetail: mainSkill.hexaDetail,
+                  hexaMatrix: mainSkill.hexaMatrix,
                 ),
               'v' => VPage(
                   vSkill: mainSkill.vSkill,
-                  vmatrix: mainSkill.vmatrix,
+                  vDetail: mainSkill.vDetail,
+                  vMatrix: mainSkill.vMatrix,
                 ),
               'link' => LinkPage(link: mainSkill.link),
               _ =>

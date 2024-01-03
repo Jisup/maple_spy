@@ -4,10 +4,10 @@ import 'package:dio/dio.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:maple_app/model/main_skill_model.dart';
-import 'package:maple_app/model/skill/hexamatrix_skill_model.dart';
+import 'package:maple_app/model/skill/hexa_matrix_model.dart';
 import 'package:maple_app/model/skill/link_skill_model.dart';
 import 'package:maple_app/model/skill/skill_model.dart';
-import 'package:maple_app/model/skill/vmatrix_skill_model.dart';
+import 'package:maple_app/model/skill/v_matrix_model.dart';
 import 'package:maple_app/provider/character_notifier.dart';
 import 'package:maple_app/util/day_instance.dart';
 import 'package:maple_app/util/dio_instance.dart';
@@ -29,15 +29,14 @@ class SkillNotifier extends AutoDisposeAsyncNotifier<MainSkill> {
     Response linkSkillResponse =
         await dioInstance.dio.get(dotenv.get('MAPLESTORY_LINKSKILL_PATH'));
     LinkSkill linkSkill = LinkSkill.fromJson(linkSkillResponse.data);
-    /**-----v matrix skill */
-    Response vmatrixResponse =
+    /**-----v matrix */
+    Response vMatrixResponse =
         await dioInstance.dio.get(dotenv.get('MAPLESTORY_VMATRIX_PATH'));
-    VmatrixSkill vmatrixSkill = VmatrixSkill.fromJson(vmatrixResponse.data);
-    /**-----hexa matrix skill */
-    Response hexamatrixResponse =
+    VMatrix vMatrix = VMatrix.fromJson(vMatrixResponse.data);
+    /**-----hexa matrix */
+    Response hexaMatrixResponse =
         await dioInstance.dio.get(dotenv.get('MAPLESTORY_HEXAMATRIX_PATH'));
-    HexamatrixSkill hexamatrixSkill =
-        HexamatrixSkill.fromJson(hexamatrixResponse.data);
+    HexaMatrix hexaMatrix = HexaMatrix.fromJson(hexaMatrixResponse.data);
 
     /**-----v skill */
     dioInstance.dio.options.queryParameters = {
@@ -64,9 +63,9 @@ class SkillNotifier extends AutoDisposeAsyncNotifier<MainSkill> {
       // skill: skill,
       link: linkSkill,
       vSkill: vSkill,
-      vmatrix: vmatrixSkill,
+      vMatrix: vMatrix,
       hexaSkill: hexaSkill,
-      hexamatrix: hexamatrixSkill,
+      hexaMatrix: hexaMatrix,
     );
   }
 

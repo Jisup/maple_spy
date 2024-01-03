@@ -2,6 +2,15 @@ import 'package:flutter/material.dart';
 import 'package:maple_app/config/const_config.dart';
 
 class StaticListConfig {
+  /**-----value */
+  static final List<double> threeDivideBackgroundList = [
+    0.0,
+    0.33,
+    0.33,
+    0.66,
+    0.66,
+    1.0,
+  ];
   /**-----Tab */
   static final List mainBottomNavigationTabList = [
     {

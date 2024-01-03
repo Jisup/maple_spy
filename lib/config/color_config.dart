@@ -120,4 +120,38 @@ class SkillColor {
 
   static const Color border = Color(0xFF9aa3a7); // 공통 테두리
   static const Color subBorder = Color(0xFFe8e9ea); // 공통 서브 테두리
+
+  static const Color hexaCoreStartBackground =
+      Color(0xFF666699); // 공용(6차) 코어 배경 시작 색상
+  static const Color hexaCoreEndBackground =
+      Color(0xFF99aadd); // 공용(6차) 코어 배경 끝 색상
+  static const Color hexaSkillCoreStartBackground =
+      Color(0xFF5522cc); // 스킬(6차) 코어 배경 시작 색상
+  static const Color hexaSkillCoreEndBackground =
+      Color(0xFFbb88ee); // 스킬(6차) 코어 배경 끝 색상
+  static const Color hexaEnhanceCoreStartBackground =
+      Color(0xFF882266); // 강화(6차의 5차) 코어 배경 시작 색상
+  static const Color hexaEnhanceCoreEndBackground =
+      Color(0xFFdd77cc); // 강화(6차의 5차) 코어 배경 끝 색상
+  static const Color hexaMasteryCoreStartBackground =
+      Color(0xFF336699); // 마스터리(6차의 4차) 코어 배경 시작 색상
+  static const Color hexaMasteryCoreEndBackground =
+      Color(0xFF77ccdd); // 마스터리(6차의 4차) 코어 배경 끝 색상
+
+  static const Color hexaCoreBorder = Color(0xFF556699); // 공용(6차) 코어 테두리 색상
+  static const Color hexaSkillCoreBorder =
+      Color(0xFF6622cc); // 스킬(6차) 코어 테두리 색상
+  static const Color hexaEnhanceCoreBorder =
+      Color(0xFF772255); // 강화(6차의 5차) 코어 테두리 색상
+  static const Color hexaMasteryCoreBorder =
+      Color(0xFF226699); // 마스터리(6차의 4차) 코어 테두리 색상
+
+  static const Color vSkillCoreStartBackground =
+      Color(0xFF115577); // 스킬(5차) 코어 배경 시작 색상
+  static const Color vSkillCoreEndBackground =
+      Color(0xFF227799); // 스킬(5차) 코어 배경 끝 색상
+  static const Color vMasteryCoreStartBackground =
+      Color(0xFF334444); // 강화(4차) 코어 배경 시작 색상
+  static const Color vMasteryCoreEndBackground =
+      Color(0xFF556677); // 강화(4차) 코어 배경 끝 색상
 }

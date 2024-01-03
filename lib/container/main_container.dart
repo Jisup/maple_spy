@@ -15,7 +15,8 @@ class MainContainer extends ConsumerWidget {
     final characterName = ref.watch(characterNameProvider.notifier).state;
     return SafeArea(
       child: Scaffold(
-        appBar: MainAppBar(context, isHome, characterName),
+        appBar: mainAppBar(
+            context: context, isHome: isHome, characterName: characterName),
         body: body,
         bottomNavigationBar: isHome ? null : const MainBottomNavigationBar(),
       ),

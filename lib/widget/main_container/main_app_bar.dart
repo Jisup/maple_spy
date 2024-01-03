@@ -2,7 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:maple_app/config/const_config.dart';
 
-AppBar MainAppBar(BuildContext context, bool isHome, String characterName) {
+AppBar mainAppBar(
+    {required BuildContext context,
+    required bool isHome,
+    required String characterName}) {
   ColorScheme colorScheme = Theme.of(context).colorScheme;
 
   return AppBar(

@@ -1,16 +1,16 @@
-class HexamatrixStat {
+class HexaMatrixStat {
   String? date;
   String? characterClass;
   List<CharacterHexaStatCore>? characterHexaStatCore;
   List<PresetHexaStatCore>? presetHexaStatCore;
 
-  HexamatrixStat(
+  HexaMatrixStat(
       {this.date,
       this.characterClass,
       this.characterHexaStatCore,
       this.presetHexaStatCore});
 
-  HexamatrixStat.fromJson(Map<String, dynamic> json) {
+  HexaMatrixStat.fromJson(Map<String, dynamic> json) {
     date = json['date'];
     characterClass = json['character_class'];
     if (json['character_hexa_stat_core'] != null) {

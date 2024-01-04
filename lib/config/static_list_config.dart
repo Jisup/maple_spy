@@ -94,7 +94,7 @@ class StaticListConfig {
   ];
   static final List detailStatTabList = [
     {
-      'name': 'base',
+      'name': 'basic',
       'text': '기본 스탯',
       'fontSize': FontConfig.commonSize,
       'dimenSize': DimenConfig.commonDimen,
@@ -106,9 +106,9 @@ class StaticListConfig {
       'dimenSize': DimenConfig.commonDimen,
     },
     {
-      'name': 'else',
+      'name': 'ability_hyper',
       'text': '어빌리티 /\n하이퍼 스탯',
-      'fontSize': FontConfig.subSize,
+      'fontSize': FontConfig.commonSize,
       'dimenSize': 0.0,
     },
   ];

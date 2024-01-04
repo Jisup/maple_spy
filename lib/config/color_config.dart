@@ -158,6 +158,7 @@ class SkillColor {
 
 class StatColor {
   static const Color statTitleColor = Color(0xFFDDFF00); // 스탯 제목 색상
+  static const Color statBackgroundColor = Color(0xFF6B7785); // 스텟 배경 색상
 
   static const Color statRareBackgroundColor = Color(0xFF36b8d0); // 스텟 레어 배경 색상
 

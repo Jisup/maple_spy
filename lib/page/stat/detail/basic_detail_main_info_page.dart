@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:intl/intl.dart';
 import 'package:maple_app/config/color_config.dart';
 import 'package:maple_app/config/const_config.dart';
 import 'package:maple_app/config/static_list_config.dart';
@@ -28,7 +27,6 @@ class BasicDetailInfoPage extends ConsumerWidget {
       children: [
         Container(
           padding: EdgeInsets.only(
-            top: DimenConfig.commonDimen,
             left: DimenConfig.maxDimen,
             right: DimenConfig.maxDimen,
           ),
@@ -61,7 +59,7 @@ class BasicDetailInfoPage extends ConsumerWidget {
           ),
         ),
         Divider(
-          color: SymbolColor.startBorder,
+          color: StatColor.dividerColor,
           height: DimenConfig.commonDimen * 2,
           thickness: 2,
           indent: DimenConfig.commonDimen * 2,

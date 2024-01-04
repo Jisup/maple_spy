@@ -1,11 +1,8 @@
-import 'dart:math';
-
 import 'package:flutter/material.dart' hide BoxDecoration, BoxShadow;
 import 'package:flutter_inset_box_shadow/flutter_inset_box_shadow.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:maple_app/config/color_config.dart';
 import 'package:maple_app/config/const_config.dart';
-import 'package:maple_app/config/static_list_config.dart';
 import 'package:maple_app/config/static_switch_config.dart';
 import 'package:maple_app/model/skill/hexa_matrix_model.dart';
 import 'package:maple_app/model/skill/skill_model.dart';
@@ -13,8 +10,8 @@ import 'package:maple_app/page/main_error_page.dart';
 import 'package:maple_app/widget/common/custom_box_decoration_widget.dart';
 import 'package:maple_app/widget/common/custom_text_widget.dart';
 
-class HexaPage extends ConsumerWidget {
-  const HexaPage(
+class HexaSkillPage extends ConsumerWidget {
+  const HexaSkillPage(
       {super.key,
       required this.hexaSkill,
       required this.hexaDetail,

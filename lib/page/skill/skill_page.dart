@@ -4,12 +4,12 @@ import 'package:maple_app/config/const_config.dart';
 import 'package:maple_app/model/main_skill_model.dart';
 import 'package:maple_app/page/main_error_page.dart';
 import 'package:maple_app/page/main_skill_page.dart';
-import 'package:maple_app/page/skill/hexa_page.dart';
-import 'package:maple_app/page/skill/link_page.dart';
-import 'package:maple_app/page/skill/v_page.dart';
+import 'package:maple_app/page/skill/hexa_skill_page.dart';
+import 'package:maple_app/page/skill/link_skill_page.dart';
+import 'package:maple_app/page/skill/v_skill_page.dart';
 
-class SkillDetailPage extends ConsumerWidget {
-  const SkillDetailPage({super.key, required this.mainSkill});
+class SkillPage extends ConsumerWidget {
+  const SkillPage({super.key, required this.mainSkill});
 
   final MainSkill mainSkill;
 
@@ -33,17 +33,17 @@ class SkillDetailPage extends ConsumerWidget {
             constraints:
                 BoxConstraints(minHeight: viewportConstraints.maxHeight),
             child: switch (skillTab) {
-              'hexa' => HexaPage(
+              'hexa' => HexaSkillPage(
                   hexaSkill: mainSkill.hexaSkill,
                   hexaDetail: mainSkill.hexaDetail,
                   hexaMatrix: mainSkill.hexaMatrix,
                 ),
-              'v' => VPage(
+              'v' => VSkillPage(
                   vSkill: mainSkill.vSkill,
                   vDetail: mainSkill.vDetail,
                   vMatrix: mainSkill.vMatrix,
                 ),
-              'link' => LinkPage(link: mainSkill.link),
+              'link' => LinkSkillPage(link: mainSkill.link),
               _ =>
                 MainErrorPage(message: 'skill select tab\nhas something error'),
             },

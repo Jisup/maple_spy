@@ -10,8 +10,8 @@ import 'package:maple_app/page/main_error_page.dart';
 import 'package:maple_app/widget/common/custom_box_decoration_widget.dart';
 import 'package:maple_app/widget/common/custom_text_widget.dart';
 
-class VPage extends ConsumerWidget {
-  const VPage(
+class VSkillPage extends ConsumerWidget {
+  const VSkillPage(
       {super.key,
       required this.vSkill,
       required this.vDetail,

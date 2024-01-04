@@ -8,8 +8,8 @@ import 'package:maple_app/page/main_error_page.dart';
 import 'package:maple_app/widget/common/custom_box_decoration_widget.dart';
 import 'package:maple_app/widget/common/custom_text_widget.dart';
 
-class LinkPage extends ConsumerWidget {
-  const LinkPage({super.key, required this.link});
+class LinkSkillPage extends ConsumerWidget {
+  const LinkSkillPage({super.key, required this.link});
 
   final LinkSkill? link;
 

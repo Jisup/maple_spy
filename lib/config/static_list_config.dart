@@ -40,7 +40,7 @@ class StaticListConfig {
       'icon': Icons.book_outlined,
     },
   ];
-  static final List detailEquipmentTabList = [
+  static final List<dynamic> detailEquipmentTabList = [
     {
       'name': 'item',
       'text': '장비',
@@ -60,7 +60,7 @@ class StaticListConfig {
       'dimenSize': DimenConfig.commonDimen,
     },
   ];
-  static final List equipmentPresetTabList = [
+  static final List<dynamic> equipmentPresetTabList = [
     {
       'name': 'preset1',
       'text': '프리셋 1',
@@ -80,7 +80,7 @@ class StaticListConfig {
       'dimenSize': DimenConfig.commonDimen,
     }
   ];
-  static final List equipmentSymbolTabList = [
+  static final List<dynamic> equipmentSymbolTabList = [
     {
       'title': 'ARC',
       'name': '아케인심볼',
@@ -92,7 +92,7 @@ class StaticListConfig {
       'text': 'AUTHENTIC',
     },
   ];
-  static final List detailStatTabList = [
+  static final List<dynamic> detailStatTabList = [
     {
       'name': 'basic',
       'text': '기본 스탯',
@@ -112,7 +112,7 @@ class StaticListConfig {
       'dimenSize': 0.0,
     },
   ];
-  static final List detailSkillTabList = [
+  static final List<dynamic> detailSkillTabList = [
     {
       'name': 'hexa',
       'text': 'HEXA 코어',
@@ -133,7 +133,7 @@ class StaticListConfig {
     },
   ];
   /**-----part */
-  static final List equipmentItemList = [
+  static final List<dynamic> equipmentItemList = [
     {
       'name': 'RING',
       'slot': '반지4',
@@ -377,7 +377,7 @@ class StaticListConfig {
       'slot': null,
     },
   ];
-  static final List equipmentClassList = [
+  static final List<String> equipmentClassList = [
     '초보자',
     '전사',
     '마법사',
@@ -385,7 +385,7 @@ class StaticListConfig {
     '도적',
     '해적',
   ];
-  static final List equipmentArcaneSymbolList = [
+  static final List<dynamic> equipmentArcaneSymbolList = [
     {
       'name': '아케인심볼 : 소멸의 여로',
     },
@@ -405,7 +405,7 @@ class StaticListConfig {
       'name': '아케인심볼 : 에스페라',
     },
   ];
-  static final List equipmentAuthenticSymbolList = [
+  static final List<dynamic> equipmentAuthenticSymbolList = [
     {
       'name': '어센틱심볼 : 세르니움',
     },
@@ -425,13 +425,13 @@ class StaticListConfig {
       'name': '어센틱심볼 : 카르시온',
     },
   ];
-  static final List statMainList = [
+  static final List<String> statMainList = [
     'STR',
-    'INT',
     'DEX',
+    'INT',
     'LUK',
   ];
-  static final List statAllList = [
+  static final List<List<dynamic>> statAllList = [
     [
       '보스 몬스터 데미지',
       '방어율 무시',
@@ -473,7 +473,7 @@ class StaticListConfig {
       '공격속도',
     ],
   ];
-  static final List statHyperList = [
+  static final List<String> statHyperList = [
     'STR',
     'DEX',
     'INT',

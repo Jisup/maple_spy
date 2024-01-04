@@ -155,3 +155,33 @@ class SkillColor {
   static const Color vMasteryCoreEndBackground =
       Color(0xFF556677); // 강화(4차) 코어 배경 끝 색상
 }
+
+class StatColor {
+  static const Color statTitleColor = Color(0xFFDDFF00); // 스탯 제목 색상
+
+  static const Color statRareBackgroundColor = Color(0xFF36b8d0); // 스텟 레어 배경 색상
+
+  static const Color statEpicBackgroundColor = Color(0xFF7f66d3); // 스텟 에픽 배경 색상
+  static const Color statEpicStartBackgroundColor =
+      Color(0xFF7D64D0); // 스텟 에픽 시작 배경 색상
+  static const Color statEpicEndBackgroundColor =
+      Color(0xFF6751B3); // 스텟 에픽 끝 배경 색상
+  static const Color statEpicBorderColor = Color(0xFF55419B); // 스텟 에픽 그림자 색상
+
+  static const Color statUniqueBackgroundColor =
+      Color(0xFFe89c09); // 스텟 유니크 배경 색상
+  static const Color statUniqueStartBackgroundColor =
+      Color(0xFFf2b40e); // 스텟 유니크 시작 배경 색상
+  static const Color statUniqueEndBackgroundColor =
+      Color(0xFFe89d09); // 스텟 유니크 끝 배경 색상
+  static const Color statUniqueBorderColor = Color(0xFFBA7C04); // 스텟 유니크 그림자 색상
+
+  static const Color statLegendaryBackgroundColor =
+      Color(0xFFa4c700); // 스텟 레전드리 색상
+  static const Color statLegendaryStartBackgroundColor =
+      Color(0xFFA4C206); // 스텟 레전드리 시작 배경 색상
+  static const Color statLegendaryEndBackgroundColor =
+      Color(0xFF84A811); // 스텟 레전드리 끝 배경 색상
+  static const Color statLegendaryBorderColor =
+      Color(0xFF5D8D0A); // 스텟 레전드리 그림자 색상
+}

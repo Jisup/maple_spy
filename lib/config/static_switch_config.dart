@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:maple_app/config/color_config.dart';
 
 class StaticSwitchConfig {
-  /**-----color */
-  /**----------potential */
+  /**----------color */
+  /**-----potential */
   static final potentialGradeColor = {
     '레전드리': ItemColor.legendaryPotentialBorder,
     '유니크': ItemColor.uniquePotentialBorder,
@@ -32,7 +32,7 @@ class StaticSwitchConfig {
     '레어': ItemColor.rareIconTextShadow,
     null: Colors.transparent,
   };
-  /**----------core */
+  /**-----core */
   static final hexaCoreStartBackgroundColor = {
     '공용 코어': SkillColor.hexaCoreStartBackground,
     '스킬 코어': SkillColor.hexaSkillCoreStartBackground,
@@ -64,9 +64,35 @@ class StaticSwitchConfig {
     '강화코어': SkillColor.vMasteryCoreEndBackground,
     null: Colors.transparent,
   };
+  /**-----stat */
+  static final statBackgroundColor = {
+    '레전드리': StatColor.statLegendaryBackgroundColor,
+    '유니크': StatColor.statUniqueBackgroundColor,
+    '에픽': StatColor.statEpicBackgroundColor,
+    '레어': StatColor.statRareBackgroundColor,
+    null: Colors.transparent,
+  };
+  static final statStartBackgroundColor = {
+    '레전드리': StatColor.statLegendaryStartBackgroundColor,
+    '유니크': StatColor.statUniqueStartBackgroundColor,
+    '에픽': StatColor.statEpicStartBackgroundColor,
+    null: Colors.transparent,
+  };
+  static final statEndBackgroundColor = {
+    '레전드리': StatColor.statLegendaryEndBackgroundColor,
+    '유니크': StatColor.statUniqueEndBackgroundColor,
+    '에픽': StatColor.statEpicEndBackgroundColor,
+    null: Colors.transparent,
+  };
+  static final statBorderColor = {
+    '레전드리': StatColor.statLegendaryBorderColor,
+    '유니크': StatColor.statUniqueBorderColor,
+    '에픽': StatColor.statEpicBorderColor,
+    null: Colors.transparent,
+  };
 
-  /**-----text */
-  /**----------potential */
+  /**----------text */
+  /**-----potential */
   static final potentialGradeCircleText = {
     '레전드리': 'L',
     '유니크': 'U',
@@ -75,8 +101,8 @@ class StaticSwitchConfig {
     null: '',
   };
 
-  /**-----function */
-  /**----------stat */
+  /**----------function */
+  /**-----stat */
   static String switchClassMainStat(String className) {
     return switch (className) {
       '히어로' => 'STR',

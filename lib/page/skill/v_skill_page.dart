@@ -134,7 +134,6 @@ class VSkillPage extends ConsumerWidget {
                                           size: FontConfig.commonSize,
                                           color: Colors.white,
                                           subColor: colorScheme.primary,
-                                          shadowSize: 1,
                                         ),
                                       ),
                                     ),
@@ -152,7 +151,6 @@ class VSkillPage extends ConsumerWidget {
                                             size: FontConfig.middleSize,
                                             color: Colors.white,
                                             subColor: colorScheme.primary,
-                                            shadowSize: 1,
                                           ),
 
                                           /**-----skill slot total level */
@@ -161,7 +159,6 @@ class VSkillPage extends ConsumerWidget {
                                                 '${vDetail[skill.skillName] == null || vDetail[skill.skillName]!.slotLevel == 0 ? '' : ' (+${vDetail[skill.skillName]!.slotLevel})'}',
                                             size: FontConfig.middleSize,
                                             color: SkillColor.background,
-                                            shadowSize: 1,
                                           ),
                                         ],
                                       ),

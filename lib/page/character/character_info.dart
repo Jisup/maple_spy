@@ -15,15 +15,16 @@ class CharacterInfo extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     return Container(
-        /**Is active when provide character custom background of Maplestory API*/
-        // decoration: BoxDecoration(
-        //   image: DecorationImage(
-        //       fit: BoxFit.cover,
-        //       image: NetworkImage(character.basic!.characterImage!)),
-        // ),
-        child: ClipRect(
-      child: BackdropFilter(
-        filter: ImageFilter.blur(sigmaX: 15, sigmaY: 15),
+      /**Is active when provide character custom background of Maplestory API*/
+      // decoration: BoxDecoration(
+      //   image: DecorationImage(
+      //     fit: BoxFit.fitHeight,
+      //     image: AssetImage('assets/maple_mschristmas.jpg'),
+      //   ),
+      // ),
+      child: ClipRect(
+        // child: BackdropFilter(
+        //   filter: ImageFilter.blur(sigmaX: 5, sigmaY: 5),
         child: Container(
           margin: EdgeInsets.fromLTRB(
               DimenConfig.maxDimen, 0, DimenConfig.maxDimen, 0),
@@ -99,6 +100,7 @@ class CharacterInfo extends ConsumerWidget {
           ),
         ),
       ),
-    ));
+      // ),
+    );
   }
 }

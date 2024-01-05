@@ -70,6 +70,7 @@ flutter:
   assets:
     - .env
     - assets/maple_icon.png
+    - assets/maple_mschristmas.jpg
     - assets/star_icon.png
     - assets/star_deactive_icon.png
     - assets/space_background.png

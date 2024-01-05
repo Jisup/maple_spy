@@ -31,4 +31,10 @@ class StatController {
             .statValue ??
         '';
   }
+
+  static AbilityInfo findAbilityInfo(int no) {
+    return abilityStat.abilityInfo!.singleWhere(
+        (element) => element.abilityNo == no.toString(),
+        orElse: () => AbilityInfo());
+  }
 }

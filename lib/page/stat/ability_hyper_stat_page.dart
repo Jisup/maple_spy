@@ -5,7 +5,7 @@ import 'package:maple_app/page/stat/detail/ability_detail_info_page.dart';
 import 'package:maple_app/page/stat/detail/hyper_detail_info_page.dart';
 
 class AbilityHyperStatPage extends ConsumerWidget {
-  const AbilityHyperStatPage();
+  const AbilityHyperStatPage({super.key});
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
@@ -26,6 +26,5 @@ class AbilityHyperStatPage extends ConsumerWidget {
         ),
       ),
     );
-    ;
   }
 }

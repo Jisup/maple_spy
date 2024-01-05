@@ -2,14 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:maple_app/config/color_config.dart';
 import 'package:maple_app/config/const_config.dart';
-import 'package:maple_app/model/stat/stat_model.dart';
 import 'package:maple_app/page/stat/detail/basic_detail_main_info_page.dart';
 import 'package:maple_app/page/stat/detail/basic_detail_sub_info_page.dart';
 
 class BasicStatPage extends ConsumerWidget {
-  const BasicStatPage({super.key, required this.basicStat});
-
-  final Stat basicStat;
+  const BasicStatPage({super.key});
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {

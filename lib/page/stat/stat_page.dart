@@ -20,14 +20,9 @@ class StatPage extends ConsumerWidget {
     StatController(mainStat: mainStat);
 
     return switch (statTab) {
-      'basic' => BasicStatPage(
-          basicStat: mainStat.stat,
-        ),
-      'hexa' => HexaStatPage(hexaStat: mainStat.hexaMatrixStat),
-      'ability_hyper' => AbilityHyperStatPage(
-          abilityStat: mainStat.abilityStat,
-          hyperStat: mainStat.hyperStat,
-        ),
+      'basic' => BasicStatPage(),
+      'hexa' => HexaStatPage(),
+      'ability_hyper' => AbilityHyperStatPage(),
       _ => MainErrorPage(message: 'stat select tab\nhas something error'),
     };
   }

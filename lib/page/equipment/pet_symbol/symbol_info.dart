@@ -71,7 +71,8 @@ class SymbolInfo extends ConsumerWidget {
                     Expanded(
                       child: SymbolInfoWidget(
                           title: StaticSwitchConfig.switchClassMainStat(
-                              symbolItem.characterClass!),
+                            className: symbolItem.characterClass!,
+                          ),
                           stat: symbolTab == 'ARC'
                               ? symbolDetail.arcaneStat.statMain.toString()
                               : symbolDetail.authenticStat.statMain.toString()),

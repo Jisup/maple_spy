@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:hexagon/hexagon.dart';
-import 'package:maple_app/config/color_config.dart';
 import 'package:maple_app/config/const_config.dart';
 import 'package:maple_app/controller/stat_controller.dart';
 import 'package:maple_app/page/stat/detail/hexa_detail_info_page.dart';

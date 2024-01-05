@@ -20,7 +20,8 @@ class StatController {
   }
 
   static bool isEqualCharacterClass(String stat) {
-    return StaticSwitchConfig.switchClassMainStat(basicStat.characterClass!) ==
+    return StaticSwitchConfig.switchClassMainStat(
+            className: basicStat.characterClass!) ==
         stat;
   }
 

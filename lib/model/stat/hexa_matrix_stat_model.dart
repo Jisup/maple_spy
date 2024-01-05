@@ -1,3 +1,5 @@
+import 'package:maple_app/config/static_switch_config.dart';
+
 class HexaMatrixStat {
   String? date;
   String? characterClass;
@@ -51,9 +53,9 @@ class CharacterHexaStatCore {
   int? mainStatLevel;
   int? subStatLevel1;
   int? subStatLevel2;
-  int? mainStatValue;
-  int? subStatValue1;
-  int? subStatValue2;
+  double? mainStatValue;
+  double? subStatValue1;
+  double? subStatValue2;
   int? statGrade;
 
   CharacterHexaStatCore(
@@ -64,15 +66,7 @@ class CharacterHexaStatCore {
       this.mainStatLevel,
       this.subStatLevel1,
       this.subStatLevel2,
-      this.statGrade}) {
-    mainStatName = mainStatName?.replaceAll('증가', '');
-    subStatName1 = subStatName1?.replaceAll('증가', '');
-    subStatName2 = subStatName2?.replaceAll('증가', '');
-
-    mainStatValue = 0;
-    subStatValue1 = 0;
-    subStatValue2 = 0;
-  }
+      this.statGrade});
 
   CharacterHexaStatCore.fromJson(Map<String, dynamic> json) {
     slotId = json['slot_id'];
@@ -83,6 +77,17 @@ class CharacterHexaStatCore {
     subStatLevel1 = json['sub_stat_level_1'];
     subStatLevel2 = json['sub_stat_level_2'];
     statGrade = json['stat_grade'];
+
+    mainStatName = mainStatName?.replaceAll(' 증가', '');
+    subStatName1 = subStatName1?.replaceAll(' 증가', '');
+    subStatName2 = subStatName2?.replaceAll(' 증가', '');
+
+    mainStatValue = StaticSwitchConfig.switchHexaStatMainValue(
+        name: mainStatName ?? '', level: mainStatLevel ?? 0);
+    subStatValue1 = StaticSwitchConfig.switchHexaStatAdditionalValue(
+        name: subStatName1 ?? '', level: subStatLevel1 ?? 0);
+    subStatValue2 = StaticSwitchConfig.switchHexaStatAdditionalValue(
+        name: subStatName2 ?? '', level: subStatLevel2 ?? 0);
   }
 
   Map<String, dynamic> toJson() {

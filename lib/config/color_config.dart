@@ -201,4 +201,10 @@ class StatColor {
   static const Color statHexaBorderColor = Color(0xFF112233); // 헥사 스텟 테두리 색상
   static const Color statHexaSubBorderColor =
       Color(0xFF3B7B9B); // 헥사 스텟 서브 테두리 색상
+
+  static const Color statHexaTextcolor = Color(0xFF7799AA); // 스텟 외부 텍스트 색상
+  static const Color statHexaMainTextColor =
+      Color(0xFFeeddff); // 헥사 스텟 메인 텍스트 색상
+  static const Color statHexaAdditionalTextColor =
+      Color(0xFFccffff); // 헥사 스텟 에디셔널 텍스트 색상
 }

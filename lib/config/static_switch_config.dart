@@ -103,7 +103,7 @@ class StaticSwitchConfig {
 
   /**----------function */
   /**-----stat */
-  static String switchClassMainStat(String className) {
+  static String switchClassMainStat({required String className}) {
     return switch (className) {
       '히어로' ||
       '팔라딘' ||
@@ -116,7 +116,8 @@ class StaticSwitchConfig {
       '카이저' ||
       '제로' ||
       '바이퍼' ||
-      '캐논슈터' ||
+      // '캐논슈터' ||
+      '캐논마스터' ||
       '스트라이커' ||
       '은월' ||
       '아크' =>
@@ -154,6 +155,56 @@ class StaticSwitchConfig {
         'LUK',
       '데몬 어벤져' => 'HP',
       '제논' => 'ALL',
+      _ => '',
+    };
+  }
+
+  static double switchHexaStatValue({required String? name}) {
+    return switch (name) {
+      '크리티컬 데미지' => 0.35,
+      '보스 데미지' || '방어율 무시' => 1,
+      '데미지' => 0.75,
+      '공격력' || '마력' => 5,
+      '주력 스탯' => 100,
+      _ => 0,
+    };
+  }
+
+  static double switchHexaStatMainValue(
+      {required String? name, required int level}) {
+    double value = switchHexaStatValue(name: name);
+    double result = 0;
+
+    //4렙까지 1배율
+    if (level < 5) return value * level;
+    result += value * 4;
+
+    //5렙부터 2배율
+    if (level < 8) return result + value * 2 * (level - 4);
+    result += value * 2 * 3;
+
+    //8랩부터 3배율
+    if (level < 10) return result + value * 3 * (level - 7);
+    result += value * 3 * 2;
+
+    //10렙에 4배율
+    return result + value * 4;
+  }
+
+  static double switchHexaStatAdditionalValue(
+      {required String? name, required int level}) {
+    return switchHexaStatValue(name: name) * level;
+  }
+
+  static String switchHexaStatValueToString(
+      {required String? name, required double value}) {
+    return switch (name) {
+      '크리티컬 데미지' ||
+      '보스 데미지' ||
+      '방어율 무시' ||
+      '데미지' =>
+        '+${value.toStringAsFixed(2)}%',
+      '공격력' || '마력' || 'STR' || 'DEX' || 'INT' || 'LUK' => '+${value.toInt()}',
       _ => '',
     };
   }

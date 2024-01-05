@@ -1,8 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:maple_app/config/color_config.dart';
 import 'package:maple_app/config/const_config.dart';
+import 'package:maple_app/config/static_switch_config.dart';
+import 'package:maple_app/controller/stat_controller.dart';
 import 'package:maple_app/model/stat/hexa_matrix_stat_model.dart';
 import 'package:maple_app/page/stat/detail/hexa_detail_level_page.dart';
+import 'package:maple_app/page/stat/detail/hexa_detail_option_page.dart';
 import 'package:maple_app/widget/common/custom_text_widget.dart';
 
 class HexaDetailInfoPage extends ConsumerWidget {
@@ -12,9 +16,31 @@ class HexaDetailInfoPage extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
+    if (hexaStatCore.mainStatName == '주력 스탯')
+      hexaStatCore.mainStatName = StaticSwitchConfig.switchClassMainStat(
+          className: StatController.hexaMatrixStat.characterClass!);
+    if (hexaStatCore.subStatName1 == '주력 스탯')
+      hexaStatCore.subStatName1 = StaticSwitchConfig.switchClassMainStat(
+          className: StatController.hexaMatrixStat.characterClass!);
+    if (hexaStatCore.subStatName2 == '주력 스탯')
+      hexaStatCore.subStatName2 = StaticSwitchConfig.switchClassMainStat(
+          className: StatController.hexaMatrixStat.characterClass!);
+
     return Wrap(
       runSpacing: DimenConfig.commonDimen * 2,
       children: [
+        Container(
+          margin: EdgeInsets.only(
+            left: DimenConfig.maxDimen,
+            right: DimenConfig.maxDimen,
+          ),
+          child: CustomTextWidget(
+            text: 'MAIN STAT',
+            size: FontConfig.commonSize,
+            color: StatColor.statHexaTextcolor,
+            subColor: Colors.white,
+          ),
+        ),
         /**-----main */
         Container(
           margin: EdgeInsets.only(
@@ -27,19 +53,26 @@ class HexaDetailInfoPage extends ConsumerWidget {
                 level: hexaStatCore.mainStatLevel!,
               ),
               Expanded(
-                child: Container(
-                  margin: EdgeInsets.only(
-                    left: DimenConfig.commonDimen * 2,
-                  ),
-                  child: CustomTextWidget(
-                    text: hexaStatCore.mainStatName ?? '',
-                    size: FontConfig.middleSize,
-                    color: Colors.white,
-                    subColor: Colors.black26,
-                  ),
-                ),
-              ),
+                  child: HexaDetailOptionPage(
+                statName: hexaStatCore.mainStatName ?? '',
+                statValue: StaticSwitchConfig.switchHexaStatValueToString(
+                    name: hexaStatCore.mainStatName,
+                    value: hexaStatCore.mainStatValue!),
+                textColor: StatColor.statHexaMainTextColor,
+              )),
             ],
+          ),
+        ),
+        Container(
+          margin: EdgeInsets.only(
+            left: DimenConfig.maxDimen,
+            right: DimenConfig.maxDimen,
+          ),
+          child: CustomTextWidget(
+            text: 'ADDITIONAL STAT',
+            size: FontConfig.commonSize,
+            color: StatColor.statHexaTextcolor,
+            subColor: Colors.white,
           ),
         ),
         /**-----sub 1 */
@@ -54,18 +87,13 @@ class HexaDetailInfoPage extends ConsumerWidget {
                 level: hexaStatCore.subStatLevel1!,
               ),
               Expanded(
-                child: Container(
-                  margin: EdgeInsets.only(
-                    left: DimenConfig.commonDimen * 2,
-                  ),
-                  child: CustomTextWidget(
-                    text: hexaStatCore.subStatName1 ?? '',
-                    size: FontConfig.middleSize,
-                    color: Colors.white,
-                    subColor: Colors.black26,
-                  ),
-                ),
-              ),
+                  child: HexaDetailOptionPage(
+                statName: hexaStatCore.subStatName1 ?? '',
+                statValue: StaticSwitchConfig.switchHexaStatValueToString(
+                    name: hexaStatCore.subStatName1,
+                    value: hexaStatCore.subStatValue1!),
+                textColor: StatColor.statHexaAdditionalTextColor,
+              )),
             ],
           ),
         ),
@@ -81,18 +109,13 @@ class HexaDetailInfoPage extends ConsumerWidget {
                 level: hexaStatCore.subStatLevel2!,
               ),
               Expanded(
-                child: Container(
-                  margin: EdgeInsets.only(
-                    left: DimenConfig.commonDimen * 2,
-                  ),
-                  child: CustomTextWidget(
-                    text: hexaStatCore.subStatName2 ?? '',
-                    size: FontConfig.middleSize,
-                    color: Colors.white,
-                    subColor: Colors.black26,
-                  ),
-                ),
-              ),
+                  child: HexaDetailOptionPage(
+                statName: hexaStatCore.subStatName2 ?? '',
+                statValue: StaticSwitchConfig.switchHexaStatValueToString(
+                    name: hexaStatCore.subStatName2,
+                    value: hexaStatCore.subStatValue2!),
+                textColor: StatColor.statHexaAdditionalTextColor,
+              )),
             ],
           ),
         ),

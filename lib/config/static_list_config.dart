@@ -426,6 +426,8 @@ class StaticListConfig {
     },
   ];
   static final List<String> statMainList = [
+    'HP',
+    'MP',
     'STR',
     'DEX',
     'INT',

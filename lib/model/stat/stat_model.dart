@@ -74,7 +74,14 @@ class FinalStat {
       case '속성 내성 무시':
       case '상태이상 추가 데미지':
       case '추가 경험치 획득':
+      case '이동속도':
+      case '점프력':
         statValue = '${statValue!}%';
+        break;
+      case '재사용 대기시간 감소 (초)':
+        statValue = '${statValue}초';
+      case '공격 속도':
+        statValue = '${statValue}단계';
         break;
       default:
         statValue = mainFormatter.format(int.parse(statValue!)).toString();

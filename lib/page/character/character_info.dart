@@ -25,12 +25,16 @@ class CharacterInfo extends ConsumerWidget {
       child: BackdropFilter(
         filter: ImageFilter.blur(sigmaX: 15, sigmaY: 15),
         child: Container(
-          margin: EdgeInsets.fromLTRB(DimenConfig.maxDimen, 0, DimenConfig.maxDimen, 0),
+          margin: EdgeInsets.fromLTRB(
+              DimenConfig.maxDimen, 0, DimenConfig.maxDimen, 0),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               /**-----character`s level with character`s class  */
-              CharacterInfoWidget(title: 'Lv. ${character.basic!.characterLevel!}', value: character.basic!.characterClass!, type: true),
+              CharacterInfoWidget(
+                  title: 'Lv. ${character.basic!.characterLevel!}',
+                  value: character.basic!.characterClass!,
+                  type: true),
               /**-----image with character`s name */
               Container(
                 margin: EdgeInsets.all(DimenConfig.subDimen),
@@ -68,13 +72,29 @@ class CharacterInfo extends ConsumerWidget {
                 ),
               ),
               /**-----character`s 전투력 */
-              CharacterInfoWidget(title: '전투력', value: '1억 5235만 1235', type: true),
+              CharacterInfoWidget(
+                  title: '전투력',
+                  value: character.stat?.finalStat
+                          ?.singleWhere((element) => element.statName == '전투력')
+                          .statValue ??
+                      '',
+                  type: true),
               /**-----character`s dojang */
-              CharacterInfoWidget(title: '무릉도장', value: '60층', type: false),
+              CharacterInfoWidget(
+                  title: '무릉도장',
+                  value:
+                      '${character.dojang?.dojangBestFloor.toString() ?? ''}층',
+                  type: false),
               /**-----character`s union */
-              CharacterInfoWidget(title: '유니온', value: '10582', type: false),
+              CharacterInfoWidget(
+                  title: '유니온',
+                  value: '${character.union?.unionLevel ?? ''}',
+                  type: false),
               /**-----character`s guild */
-              CharacterInfoWidget(title: '길드', value: '꿈속', type: false),
+              CharacterInfoWidget(
+                  title: '길드',
+                  value: character.basic?.characterGuildName ?? '',
+                  type: false),
             ],
           ),
         ),

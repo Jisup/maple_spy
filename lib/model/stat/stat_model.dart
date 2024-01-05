@@ -56,7 +56,8 @@ class FinalStat {
         var len = measure.length - value.length;
         statValue = '';
         for (var i = 0; i < value.length; i++) {
-          statValue = '${statValue!} ${value[i]}${measure[len + i]}';
+          statValue =
+              '${statValue!}${i != 0 ? ' ' : ''}${value[i]}${measure[len + i]}';
         }
         break;
       case '데미지':

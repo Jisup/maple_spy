@@ -8,6 +8,8 @@ import 'package:maple_app/model/character/dojang_model.dart';
 import 'package:maple_app/model/character/popularity_model.dart';
 import 'package:maple_app/model/character/propensity_model.dart';
 import 'package:maple_app/model/main_character_model.dart';
+import 'package:maple_app/model/stat/stat_model.dart';
+import 'package:maple_app/model/union/union_model.dart';
 import 'package:maple_app/util/day_instance.dart';
 import 'package:maple_app/util/dio_instance.dart';
 
@@ -35,28 +37,39 @@ class CharacterNotifier extends AutoDisposeAsyncNotifier<MainCharacter> {
     ref.read(ocidProvider.notifier).update((state) => ocid);
 
     dioInstance.dio.options.queryParameters = {'ocid': ocid, 'date': yesterday};
-    /**----- get basic ----- */
+    /**-----basic*/
     Response basicResponse =
         await dioInstance.dio.get(dotenv.get('MAPLESTORY_BASIC_PATH'));
     Basic basic = Basic.fromJson(basicResponse.data);
-    /**----- get dojang ----- */
+    /**-----dojang*/
     Response dojangResponse =
         await dioInstance.dio.get(dotenv.get('MAPLESTORY_DOJANG_PATH'));
     Dojang dojang = Dojang.fromJson(dojangResponse.data);
-    /**----- get popularity ----- */
-    Response popularityResponse =
-        await dioInstance.dio.get(dotenv.get('MAPLESTORY_POPULARITY_PATH'));
-    Popularity popularity = Popularity.fromJson(popularityResponse.data);
-    /**----- get propensity ----- */
-    Response propensityResponse =
-        await dioInstance.dio.get(dotenv.get('MAPLESTORY_PROPENSITY_PATH'));
-    Propensity propensity = Propensity.fromJson(propensityResponse.data);
+    /**-----popularity*/
+    // Response popularityResponse =
+    //     await dioInstance.dio.get(dotenv.get('MAPLESTORY_POPULARITY_PATH'));
+    // Popularity popularity = Popularity.fromJson(popularityResponse.data);
+    /**-----propensity*/
+    // Response propensityResponse =
+    //     await dioInstance.dio.get(dotenv.get('MAPLESTORY_PROPENSITY_PATH'));
+    // Propensity propensity = Propensity.fromJson(propensityResponse.data);
+    /**-----stat */
+    Response statResponse =
+        await dioInstance.dio.get(dotenv.get('MAPLESTORY_STAT_PATH'));
+    Stat stat = Stat.fromJson(statResponse.data);
+    /**-----union */
+    Response unionResponse =
+        await dioInstance.dio.get(dotenv.get('MAPLESTORY_UNION_PATH'));
+    Union union = Union.fromJson(unionResponse.data);
+
     return MainCharacter(
       ocid: ocid,
       basic: basic,
       dojang: dojang,
-      popularity: popularity,
-      propensity: propensity,
+      // popularity: popularity,
+      // propensity: propensity,
+      stat: stat,
+      union: union,
     );
   }
 

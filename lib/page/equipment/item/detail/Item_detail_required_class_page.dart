@@ -23,7 +23,8 @@ class ItemDetailRequiredClassPage extends ConsumerWidget {
           ),
           borderRadius:
               BorderRadius.all(Radius.circular(RadiusConfig.minRadius)),
-          boxShadow: fourDirectionBoxShadow(1, Colors.black, true),
+          boxShadow:
+              fourDirectionBoxShadow(d: 1, color: Colors.black, diagonal: true),
         ),
         child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceAround,

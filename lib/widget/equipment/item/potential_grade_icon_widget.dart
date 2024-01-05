@@ -20,7 +20,7 @@ class PotentialGradeIconWidget extends ConsumerWidget {
             color: StaticSwitchConfig
                 .potentialGradeIconBorderColor[potentialGrade]!),
         borderRadius: BorderRadius.circular(DimenConfig.subDimen),
-        boxShadow: fourDirectionBoxShadow(1, ItemColor.iconBoxShadow, false),
+        boxShadow: fourDirectionBoxShadow(d: 1, color: ItemColor.iconBoxShadow),
       ),
       child: SizedBox(
         width: FontConfig.minSize * 1.5,
@@ -33,8 +33,8 @@ class PotentialGradeIconWidget extends ConsumerWidget {
                 fontSize: FontConfig.minSize,
                 fontWeight: FontWeight.bold,
                 shadows: eightDirectionShadow(
-                    2,
-                    StaticSwitchConfig
+                    d: 2,
+                    color: StaticSwitchConfig
                         .potentialGradeIconTextShadowColor[potentialGrade]!)),
           ),
         ),

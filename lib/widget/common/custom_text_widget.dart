@@ -8,6 +8,7 @@ class CustomTextWidget extends ConsumerWidget {
       required this.text,
       this.textAlign,
       required this.size,
+      this.weight,
       required this.color,
       this.subColor,
       this.shadowSize});
@@ -15,6 +16,7 @@ class CustomTextWidget extends ConsumerWidget {
   final String text;
   final TextAlign? textAlign;
   final double size;
+  final FontWeight? weight;
   final Color color;
   final Color? subColor;
   final double? shadowSize;
@@ -27,9 +29,9 @@ class CustomTextWidget extends ConsumerWidget {
       style: TextStyle(
         color: color,
         fontSize: size,
-        fontWeight: FontWeight.bold,
+        fontWeight: weight ?? FontWeight.bold,
         shadows: subColor != null
-            ? eightDirectionShadow(shadowSize ?? 1, subColor)
+            ? eightDirectionShadow(d: shadowSize ?? 1, color: subColor)
             : null,
       ),
     );

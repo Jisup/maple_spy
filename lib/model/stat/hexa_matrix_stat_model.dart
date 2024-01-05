@@ -51,6 +51,9 @@ class CharacterHexaStatCore {
   int? mainStatLevel;
   int? subStatLevel1;
   int? subStatLevel2;
+  int? mainStatValue;
+  int? subStatValue1;
+  int? subStatValue2;
   int? statGrade;
 
   CharacterHexaStatCore(
@@ -61,7 +64,15 @@ class CharacterHexaStatCore {
       this.mainStatLevel,
       this.subStatLevel1,
       this.subStatLevel2,
-      this.statGrade});
+      this.statGrade}) {
+    mainStatName = mainStatName?.replaceAll('증가', '');
+    subStatName1 = subStatName1?.replaceAll('증가', '');
+    subStatName2 = subStatName2?.replaceAll('증가', '');
+
+    mainStatValue = 0;
+    subStatValue1 = 0;
+    subStatValue2 = 0;
+  }
 
   CharacterHexaStatCore.fromJson(Map<String, dynamic> json) {
     slotId = json['slot_id'];

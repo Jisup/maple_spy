@@ -186,4 +186,19 @@ class StatColor {
       Color(0xFF84A811); // 스텟 레전드리 끝 배경 색상
   static const Color statLegendaryBorderColor =
       Color(0xFF5D8D0A); // 스텟 레전드리 그림자 색상
+
+  static const Color statHexaStartBackgroundColor =
+      Color(0xFF182848); // 헥사 스텟 시작 배경 색상
+  static const Color statHexaMiddleBackgroundColor =
+      Color(0xFF373577); // 헥사 스텟 중간 배경 색상
+  static const Color statHexaEndBackgroundColor =
+      Color(0xFF224466); // 헥사 스텟 끝 배경 색상
+
+  static const Color statHexaStartTextColor =
+      Color(0xFF51859C); // 헥사 스텟 시작 텍스트 색상
+  static const Color statHexaEndTextColor = Color(0xFF6969AA); // 헥사 스텟 끝 텍스트 색상
+
+  static const Color statHexaBorderColor = Color(0xFF112233); // 헥사 스텟 테두리 색상
+  static const Color statHexaSubBorderColor =
+      Color(0xFF3B7B9B); // 헥사 스텟 서브 테두리 색상
 }

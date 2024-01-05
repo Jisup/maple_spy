@@ -37,4 +37,17 @@ class StatController {
         (element) => element.abilityNo == no.toString(),
         orElse: () => AbilityInfo());
   }
+
+  static List<HyperStatPreset>? hyperStatPresetInfo(String preset) {
+    switch (preset) {
+      case 'preset1':
+        return hyperStat.hyperStatPreset1;
+      case 'preset2':
+        return hyperStat.hyperStatPreset2;
+      case 'preset3':
+        return hyperStat.hyperStatPreset3;
+      default:
+        return [];
+    }
+  }
 }

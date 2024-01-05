@@ -60,26 +60,6 @@ class StaticListConfig {
       'dimenSize': DimenConfig.commonDimen,
     },
   ];
-  static final List<dynamic> equipmentPresetTabList = [
-    {
-      'name': 'preset1',
-      'text': '프리셋 1',
-      'fontSize': FontConfig.commonSize,
-      'dimenSize': DimenConfig.commonDimen,
-    },
-    {
-      'name': 'preset2',
-      'text': '프리셋 2',
-      'fontSize': FontConfig.commonSize,
-      'dimenSize': DimenConfig.commonDimen,
-    },
-    {
-      'name': 'preset3',
-      'text': '프리셋 3',
-      'fontSize': FontConfig.commonSize,
-      'dimenSize': DimenConfig.commonDimen,
-    }
-  ];
   static final List<dynamic> equipmentSymbolTabList = [
     {
       'title': 'ARC',
@@ -130,6 +110,24 @@ class StaticListConfig {
       'text': '링크 스킬',
       'fontSize': FontConfig.commonSize,
       'dimenSize': DimenConfig.commonDimen,
+    },
+  ];
+  /**-----preset */
+  static final List<dynamic> basicPresetTabList = [
+    {
+      'name': 'preset1',
+      'text': '1',
+      'fontSize': FontConfig.commonSize,
+    },
+    {
+      'name': 'preset2',
+      'text': '2',
+      'fontSize': FontConfig.commonSize,
+    },
+    {
+      'name': 'preset3',
+      'text': '3',
+      'fontSize': FontConfig.commonSize,
     },
   ];
   /**-----part */
@@ -474,24 +472,5 @@ class StaticListConfig {
       '스탠스',
       '공격 속도',
     ],
-  ];
-  static final List<String> statHyperList = [
-    'STR',
-    'DEX',
-    'INT',
-    'LUK',
-    'HP',
-    'MP',
-    'DF/TF/PP',
-    '크리티컬 확률',
-    '크리 데미지',
-    '방어율 무시',
-    '데미지',
-    '보스 데미지',
-    '일반 데미지',
-    '상태 이상 내성',
-    '공격력 / 마력',
-    '획득 경험치',
-    '아케인포스',
   ];
 }

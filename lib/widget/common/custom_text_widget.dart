@@ -30,6 +30,7 @@ class CustomTextWidget extends ConsumerWidget {
         color: color,
         fontSize: size,
         fontWeight: weight ?? FontWeight.bold,
+        overflow: TextOverflow.ellipsis,
         shadows: subColor != null
             ? eightDirectionShadow(d: shadowSize ?? 1, color: subColor)
             : null,

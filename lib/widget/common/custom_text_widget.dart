@@ -6,12 +6,14 @@ class CustomTextWidget extends ConsumerWidget {
   const CustomTextWidget(
       {super.key,
       required this.text,
+      this.textAlign,
       required this.size,
       required this.color,
       this.subColor,
       this.shadowSize});
 
   final String text;
+  final TextAlign? textAlign;
   final double size;
   final Color color;
   final Color? subColor;
@@ -21,6 +23,7 @@ class CustomTextWidget extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     return Text(
       text,
+      textAlign: textAlign,
       style: TextStyle(
         color: color,
         fontSize: size,

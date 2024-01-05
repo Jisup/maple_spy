@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:maple_app/controller/stat_controller.dart';
 import 'package:maple_app/model/main_stat_model.dart';
 import 'package:maple_app/page/main_error_page.dart';
 import 'package:maple_app/page/main_stat_page.dart';
@@ -15,6 +16,8 @@ class StatPage extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final statTab = ref.watch(statSelectTabProvider);
+
+    StatController(mainStat: mainStat);
 
     return switch (statTab) {
       'basic' => BasicStatPage(

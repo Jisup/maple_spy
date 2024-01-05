@@ -3,23 +3,11 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:maple_app/config/color_config.dart';
 import 'package:maple_app/config/const_config.dart';
 import 'package:maple_app/config/static_list_config.dart';
-import 'package:maple_app/config/static_switch_config.dart';
+import 'package:maple_app/controller/stat_controller.dart';
 import 'package:maple_app/widget/common/custom_text_widget.dart';
 
-class BasicDetailInfoPage extends ConsumerWidget {
-  const BasicDetailInfoPage({
-    super.key,
-    required this.fightingPower,
-    required this.minStatPower,
-    required this.maxStatPower,
-    required this.stats,
-    required this.characterClass,
-  });
-
-  final String fightingPower;
-  final String minStatPower, maxStatPower;
-  final dynamic stats;
-  final String characterClass;
+class BasicDetailMainInfoPage extends ConsumerWidget {
+  const BasicDetailMainInfoPage({super.key});
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
@@ -48,7 +36,7 @@ class BasicDetailInfoPage extends ConsumerWidget {
                 child: Container(
                   alignment: Alignment.centerRight,
                   child: CustomTextWidget(
-                    text: fightingPower,
+                    text: StatController.findStatValue('전투력'),
                     size: FontConfig.middleSize,
                     color: Colors.yellow,
                     subColor: Colors.black87,
@@ -86,9 +74,7 @@ class BasicDetailInfoPage extends ConsumerWidget {
                       child: CustomTextWidget(
                         text: stat,
                         size: FontConfig.commonSize,
-                        color: StaticSwitchConfig.switchClassMainStat(
-                                    characterClass) ==
-                                stat
+                        color: StatController.isEqualCharacterClass(stat)
                             ? Colors.yellow
                             : Colors.white,
                         subColor: Colors.black26,
@@ -99,11 +85,9 @@ class BasicDetailInfoPage extends ConsumerWidget {
                           ? EdgeInsets.only(right: DimenConfig.commonDimen)
                           : null,
                       child: Text(
-                        stats[stat],
+                        StatController.findStatValue(stat),
                         style: TextStyle(
-                            color: StaticSwitchConfig.switchClassMainStat(
-                                        characterClass) ==
-                                    stat
+                            color: StatController.isEqualCharacterClass(stat)
                                 ? Colors.yellow
                                 : Colors.white,
                             fontSize: FontConfig.commonSize,

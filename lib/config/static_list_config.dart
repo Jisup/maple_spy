@@ -441,7 +441,7 @@ class StaticListConfig {
       '마력',
     ],
     [
-      '스탯 공격력',
+      '스탯 공격력\n',
       '크리티컬 확률',
       '크리티컬 데미지',
       '버프 지속시간',
@@ -472,7 +472,7 @@ class StaticListConfig {
       '이동속도',
       '점프력',
       '스탠스',
-      '공격속도',
+      '공격 속도',
     ],
   ];
   static final List<String> statHyperList = [

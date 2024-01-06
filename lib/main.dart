@@ -5,6 +5,7 @@ import 'package:maple_app/config/color_config.dart';
 import 'package:maple_app/util/main_router.dart';
 
 void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
   await dotenv.load(fileName: '.env');
 
   runApp(const ProviderScope(child: MapleApp()));

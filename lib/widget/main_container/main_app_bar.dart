@@ -2,15 +2,17 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:maplespy/config/const_config.dart';
 
-AppBar mainAppBar(
-    {required BuildContext context,
-    required bool isHome,
-    required String characterName}) {
+AppBar mainAppBar({
+  required BuildContext context,
+  required bool isHome,
+  required String characterName,
+}) {
   ColorScheme colorScheme = Theme.of(context).colorScheme;
 
   return AppBar(
     leading: GestureDetector(
-      onTap: () => context.go("/"),
+      behavior: HitTestBehavior.translucent,
+      onTap: isHome ? null : () => context.go("/"),
       child: Container(
         padding: isHome ? EdgeInsets.all(DimenConfig.commonDimen) : null,
         child: isHome
@@ -24,7 +26,7 @@ AppBar mainAppBar(
       ),
     ),
     title: Text(
-      isHome ? 'Maple' : characterName,
+      isHome ? 'MapleSpy' : characterName,
       textAlign: TextAlign.center,
       style: TextStyle(color: colorScheme.onPrimary, fontFamily: 'Maplestory'),
     ),

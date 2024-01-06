@@ -14,18 +14,27 @@ class MainHomePage extends ConsumerStatefulWidget {
 
 class _MainHomeState extends ConsumerState<MainHomePage> {
   late TextEditingController _textFieldController;
+  late FocusNode _focusNode;
 
   @override
   void initState() {
     super.initState();
     _textFieldController = TextEditingController();
+    _focusNode = FocusNode();
   }
 
   void onClickSearchButton() {
     ref
         .read(characterNameProvider.notifier)
         .update((state) => _textFieldController.text);
-    context.push('/character');
+    context.go('/character');
+  }
+
+  @override
+  void dispose() {
+    _textFieldController.dispose();
+    _focusNode.dispose();
+    super.dispose();
   }
 
   @override
@@ -47,6 +56,8 @@ class _MainHomeState extends ConsumerState<MainHomePage> {
                   margin: EdgeInsets.only(right: DimenConfig.subDimen),
                   child: TextField(
                     controller: _textFieldController,
+                    autofocus: true,
+                    focusNode: _focusNode,
                     decoration: const InputDecoration(
                       border: OutlineInputBorder(),
                     ),
@@ -63,7 +74,7 @@ class _MainHomeState extends ConsumerState<MainHomePage> {
                 child: GestureDetector(
                   behavior: HitTestBehavior.translucent,
                   onTap: () => _textFieldController.text == ""
-                      ? null
+                      ? _focusNode.requestFocus()
                       : onClickSearchButton(),
                   child: Container(
                     padding: EdgeInsets.all(DimenConfig.commonDimen),

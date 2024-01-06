@@ -12,6 +12,8 @@ class MainHomePage extends ConsumerStatefulWidget {
   ConsumerState<ConsumerStatefulWidget> createState() => _MainHomeState();
 }
 
+GlobalKey<FormFieldState> textFormFieldKey = GlobalKey<FormFieldState>();
+
 class _MainHomeState extends ConsumerState<MainHomePage> {
   late TextEditingController _textFieldController;
   late FocusNode _focusNode;
@@ -40,27 +42,39 @@ class _MainHomeState extends ConsumerState<MainHomePage> {
   @override
   Widget build(BuildContext context) {
     ColorScheme colorScheme = Theme.of(context).colorScheme;
-    return MainContainer(
-      isHome: true,
-      body: Container(
-        alignment: Alignment.center,
-        child: Container(
-          margin: EdgeInsets.only(
-            left: DimenConfig.commonDimen * 2,
-            right: DimenConfig.commonDimen * 2,
-          ),
+
+    return GestureDetector(
+      onTap: () => FocusScope.of(context).unfocus(),
+      excludeFromSemantics: true,
+      child: MainContainer(
+        isHome: true,
+        body: Container(
+          padding: EdgeInsets.only(
+              left: DimenConfig.commonDimen * 2,
+              right: DimenConfig.commonDimen * 2),
+          alignment: Alignment.center,
           child: Row(
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Expanded(
                 child: Container(
                   margin: EdgeInsets.only(right: DimenConfig.subDimen),
-                  child: TextField(
-                    controller: _textFieldController,
-                    autofocus: true,
+                  child: TextFormField(
+                    key: textFormFieldKey,
                     focusNode: _focusNode,
+                    controller: _textFieldController,
                     decoration: const InputDecoration(
                       border: OutlineInputBorder(),
+                      labelText: '닉네임',
                     ),
+                    validator: (value) {
+                      if (value == null || value.isEmpty) {
+                        return '닉네임을 입력해주세요.';
+                      } else if (value.contains(RegExp(r'[^0-9a-zA-Z가-힣]'))) {
+                        return '올바른 닉네임을 입력해주세요.';
+                      }
+                      return null;
+                    },
                   ),
                 ),
               ),
@@ -73,11 +87,17 @@ class _MainHomeState extends ConsumerState<MainHomePage> {
                 ),
                 child: GestureDetector(
                   behavior: HitTestBehavior.translucent,
-                  onTap: () => _textFieldController.text == ""
-                      ? _focusNode.requestFocus()
-                      : onClickSearchButton(),
+                  onTap: () =>
+                      textFormFieldKey.currentState?.validate() ?? false
+                          ? onClickSearchButton()
+                          : _focusNode.requestFocus(),
                   child: Container(
-                    padding: EdgeInsets.all(DimenConfig.commonDimen),
+                    padding: EdgeInsets.only(
+                      top: DimenConfig.commonDimen * 2,
+                      bottom: DimenConfig.commonDimen * 2,
+                      left: DimenConfig.commonDimen,
+                      right: DimenConfig.commonDimen,
+                    ),
                     child: Text(
                       '검색',
                       style: TextStyle(
@@ -86,7 +106,7 @@ class _MainHomeState extends ConsumerState<MainHomePage> {
                     ),
                   ),
                 ),
-              )
+              ),
             ],
           ),
         ),

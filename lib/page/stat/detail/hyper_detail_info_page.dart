@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:maple_app/config/color_config.dart';
-import 'package:maple_app/config/const_config.dart';
-import 'package:maple_app/config/static_list_config.dart';
-import 'package:maple_app/page/stat/detail/hyper_detail_option_page.dart';
-import 'package:maple_app/widget/common/custom_text_widget.dart';
-import 'package:maple_app/widget/detail_page/detail_preset_tab.dart';
+import 'package:maplespy/config/color_config.dart';
+import 'package:maplespy/config/const_config.dart';
+import 'package:maplespy/config/static_list_config.dart';
+import 'package:maplespy/page/stat/detail/hyper_detail_option_page.dart';
+import 'package:maplespy/widget/common/custom_text_widget.dart';
+import 'package:maplespy/widget/detail_page/detail_preset_tab.dart';
 
 final hyperStatPresetProvider = StateProvider((_) => 'preset1');
 

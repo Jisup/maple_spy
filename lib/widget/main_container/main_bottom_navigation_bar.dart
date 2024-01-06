@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
-import 'package:maple_app/config/static_list_config.dart';
+import 'package:maplespy/config/static_list_config.dart';
 
 class MainBottomNavigationBar extends ConsumerWidget {
   const MainBottomNavigationBar({super.key});
@@ -20,16 +20,24 @@ class MainBottomNavigationBar extends ConsumerWidget {
             return GestureDetector(
               onTap: equal ? null : () => context.go(tab['path']),
               child: Container(
-                width: MediaQuery.of(context).size.width / StaticListConfig.mainBottomNavigationTabList.length,
+                width: MediaQuery.of(context).size.width /
+                    StaticListConfig.mainBottomNavigationTabList.length,
                 color: equal ? colorScheme.primary : colorScheme.onPrimary,
                 alignment: Alignment.center,
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    Icon(tab['icon'], color: equal ? colorScheme.onPrimary : colorScheme.primary),
+                    Icon(tab['icon'],
+                        color: equal
+                            ? colorScheme.onPrimary
+                            : colorScheme.primary),
                     Text(
                       tab['text'],
-                      style: TextStyle(fontFamily: 'Maplestory', color: equal ? colorScheme.onPrimary : colorScheme.primary),
+                      style: TextStyle(
+                          fontFamily: 'Maplestory',
+                          color: equal
+                              ? colorScheme.onPrimary
+                              : colorScheme.primary),
                     ),
                   ],
                 ),

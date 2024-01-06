@@ -2,10 +2,10 @@ import 'dart:ui';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:maple_app/config/color_config.dart';
-import 'package:maple_app/config/const_config.dart';
-import 'package:maple_app/model/main_character_model.dart';
-import 'package:maple_app/widget/character/character_info_widget.dart';
+import 'package:maplespy/config/color_config.dart';
+import 'package:maplespy/config/const_config.dart';
+import 'package:maplespy/model/main_character_model.dart';
+import 'package:maplespy/widget/character/character_info_widget.dart';
 
 class CharacterInfo extends ConsumerWidget {
   const CharacterInfo({super.key, required this.character});

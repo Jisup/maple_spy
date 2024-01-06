@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart' hide BoxDecoration, BoxShadow;
 import 'package:flutter_inset_box_shadow/flutter_inset_box_shadow.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:maple_app/config/const_config.dart';
+import 'package:maplespy/config/const_config.dart';
 
 class EquipmentSlotWidget extends ConsumerWidget {
   const EquipmentSlotWidget({super.key, required this.name, this.imageUrl});

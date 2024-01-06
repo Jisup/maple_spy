@@ -1,18 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:maple_app/config/color_config.dart';
-import 'package:maple_app/util/main_router.dart';
+import 'package:maplespy/config/color_config.dart';
+import 'package:maplespy/util/main_router.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await dotenv.load(fileName: '.env');
 
-  runApp(const ProviderScope(child: MapleApp()));
+  runApp(const ProviderScope(child: MaplespyApp()));
 }
 
-class MapleApp extends ConsumerWidget {
-  const MapleApp({super.key});
+class MaplespyApp extends ConsumerWidget {
+  const MaplespyApp({super.key});
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import 'package:maple_app/config/const_config.dart';
+import 'package:maplespy/config/const_config.dart';
 
 AppBar mainAppBar(
     {required BuildContext context,
@@ -15,7 +15,7 @@ AppBar mainAppBar(
         padding: isHome ? EdgeInsets.all(DimenConfig.commonDimen) : null,
         child: isHome
             ? Image(
-                image: AssetImage('assets/maple_icon.png'),
+                image: AssetImage('assets/maplespy_icon.png'),
               )
             : Icon(
                 Icons.navigate_before_rounded,

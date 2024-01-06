@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:maple_app/config/const_config.dart';
+import 'package:maplespy/config/const_config.dart';
 
 class DetailSelectTabWidget extends ConsumerWidget {
   const DetailSelectTabWidget({

@@ -1,9 +1,9 @@
-import 'package:maple_app/model/character/basic_model.dart';
-import 'package:maple_app/model/character/dojang_model.dart';
-import 'package:maple_app/model/character/popularity_model.dart';
-import 'package:maple_app/model/character/propensity_model.dart';
-import 'package:maple_app/model/stat/stat_model.dart';
-import 'package:maple_app/model/union/union_model.dart';
+import 'package:maplespy/model/character/basic_model.dart';
+import 'package:maplespy/model/character/dojang_model.dart';
+import 'package:maplespy/model/character/popularity_model.dart';
+import 'package:maplespy/model/character/propensity_model.dart';
+import 'package:maplespy/model/stat/stat_model.dart';
+import 'package:maplespy/model/union/union_model.dart';
 
 class MainCharacter {
   String? ocid;

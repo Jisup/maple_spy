@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:maple_app/config/color_config.dart';
-import 'package:maple_app/config/const_config.dart';
-import 'package:maple_app/config/static_list_config.dart';
-import 'package:maple_app/config/static_switch_config.dart';
-import 'package:maple_app/model/equipment/symbol/symbol_detail_model.dart';
-import 'package:maple_app/model/equipment/symbol_item_model.dart';
-import 'package:maple_app/page/equipment/pet_symbol/detail/symbol_detail_icon.dart';
-import 'package:maple_app/page/equipment/pet_symbol/detail/symbol_detail_info.dart';
-import 'package:maple_app/provider/equipment_pet_symbol_notifier.dart';
+import 'package:maplespy/config/color_config.dart';
+import 'package:maplespy/config/const_config.dart';
+import 'package:maplespy/config/static_list_config.dart';
+import 'package:maplespy/config/static_switch_config.dart';
+import 'package:maplespy/model/equipment/symbol/symbol_detail_model.dart';
+import 'package:maplespy/model/equipment/symbol_item_model.dart';
+import 'package:maplespy/page/equipment/pet_symbol/detail/symbol_detail_icon.dart';
+import 'package:maplespy/page/equipment/pet_symbol/detail/symbol_detail_info.dart';
+import 'package:maplespy/provider/equipment_pet_symbol_notifier.dart';
 
 class SymbolInfo extends ConsumerWidget {
   const SymbolInfo({super.key, required this.symbolItem});

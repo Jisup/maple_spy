@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import 'package:maple_app/model/equipment/item_model.dart';
-import 'package:maple_app/page/equipment/item/detail/item_detail_page.dart';
-import 'package:maple_app/page/main_character_page.dart';
-import 'package:maple_app/page/main_equipment_page.dart';
-import 'package:maple_app/page/main_home_page.dart';
-import 'package:maple_app/page/main_skill_page.dart';
-import 'package:maple_app/page/main_stat_page.dart';
+import 'package:maplespy/model/equipment/item_model.dart';
+import 'package:maplespy/page/equipment/item/detail/item_detail_page.dart';
+import 'package:maplespy/page/main_character_page.dart';
+import 'package:maplespy/page/main_equipment_page.dart';
+import 'package:maplespy/page/main_home_page.dart';
+import 'package:maplespy/page/main_skill_page.dart';
+import 'package:maplespy/page/main_stat_page.dart';
 
 GlobalKey<NavigatorState> navigatorkey = GlobalKey<NavigatorState>();
 

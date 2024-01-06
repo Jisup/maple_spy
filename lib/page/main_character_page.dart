@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:maple_app/page/character/character_info.dart';
-import 'package:maple_app/provider/character_notifier.dart';
-import 'package:maple_app/page/main_error_page.dart';
-import 'package:maple_app/widget/common/loading_spinner.dart';
-import 'package:maple_app/container/main_container.dart';
+import 'package:maplespy/page/character/character_info.dart';
+import 'package:maplespy/provider/character_notifier.dart';
+import 'package:maplespy/page/main_error_page.dart';
+import 'package:maplespy/widget/common/loading_spinner.dart';
+import 'package:maplespy/container/main_container.dart';
 
 class MainCharacterPage extends ConsumerWidget {
   const MainCharacterPage({super.key});

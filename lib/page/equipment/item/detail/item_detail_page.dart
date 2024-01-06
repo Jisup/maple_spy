@@ -1,18 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
-import 'package:maple_app/config/color_config.dart';
-import 'package:maple_app/config/const_config.dart';
-import 'package:maple_app/model/equipment/item/item_detail_option_model.dart';
-import 'package:maple_app/model/equipment/item/item_detail_potential_option_model.dart';
-import 'package:maple_app/model/equipment/item_model.dart';
-import 'package:maple_app/page/equipment/item/detail/Item_detail_required_class_page.dart';
-import 'package:maple_app/page/equipment/item/detail/item_detail_image_page.dart';
-import 'package:maple_app/page/equipment/item/detail/item_detail_potential_option_page.dart';
-import 'package:maple_app/page/equipment/item/detail/item_detail_required_level_page.dart';
-import 'package:maple_app/widget/common/dashed_divider_widget.dart';
-import 'package:maple_app/page/equipment/item/detail/item_detail_starforce_page.dart';
-import 'package:maple_app/page/equipment/item/detail/item_detail_option_page.dart';
+import 'package:maplespy/config/color_config.dart';
+import 'package:maplespy/config/const_config.dart';
+import 'package:maplespy/model/equipment/item/item_detail_option_model.dart';
+import 'package:maplespy/model/equipment/item/item_detail_potential_option_model.dart';
+import 'package:maplespy/model/equipment/item_model.dart';
+import 'package:maplespy/page/equipment/item/detail/Item_detail_required_class_page.dart';
+import 'package:maplespy/page/equipment/item/detail/item_detail_image_page.dart';
+import 'package:maplespy/page/equipment/item/detail/item_detail_potential_option_page.dart';
+import 'package:maplespy/page/equipment/item/detail/item_detail_required_level_page.dart';
+import 'package:maplespy/widget/common/dashed_divider_widget.dart';
+import 'package:maplespy/page/equipment/item/detail/item_detail_starforce_page.dart';
+import 'package:maplespy/page/equipment/item/detail/item_detail_option_page.dart';
 
 class ItemDetailPage extends ConsumerWidget {
   const ItemDetailPage({super.key, required this.item});

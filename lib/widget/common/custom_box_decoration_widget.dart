@@ -2,9 +2,9 @@ import 'dart:math';
 
 import 'package:flutter/material.dart' hide BoxDecoration, BoxShadow;
 import 'package:flutter_inset_box_shadow/flutter_inset_box_shadow.dart';
-import 'package:maple_app/config/color_config.dart';
-import 'package:maple_app/config/const_config.dart';
-import 'package:maple_app/config/static_list_config.dart';
+import 'package:maplespy/config/color_config.dart';
+import 'package:maplespy/config/const_config.dart';
+import 'package:maplespy/config/static_list_config.dart';
 
 /*
  * no

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:maple_app/config/color_config.dart';
+import 'package:maplespy/config/color_config.dart';
 
 class StaticSwitchConfig {
   /**----------color */

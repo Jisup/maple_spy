@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:maple_app/config/const_config.dart';
-import 'package:maple_app/model/equipment/pet/pet_detail_model.dart';
-import 'package:maple_app/widget/equipment/equipment_slot_widget.dart';
+import 'package:maplespy/config/const_config.dart';
+import 'package:maplespy/model/equipment/pet/pet_detail_model.dart';
+import 'package:maplespy/widget/equipment/equipment_slot_widget.dart';
 
 class PetDetailInfoPage extends ConsumerWidget {
   const PetDetailInfoPage({super.key, required this.pet});

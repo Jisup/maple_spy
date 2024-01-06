@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:maple_app/config/const_config.dart';
+import 'package:maplespy/config/const_config.dart';
 
 class StaticListConfig {
   /**-----value */

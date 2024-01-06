@@ -3,14 +3,14 @@ import 'dart:async';
 import 'package:dio/dio.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:maple_app/model/main_stat_model.dart';
-import 'package:maple_app/model/stat/ability_stat_model.dart';
-import 'package:maple_app/model/stat/hexa_matrix_stat_model.dart';
-import 'package:maple_app/model/stat/hyper_stat_model.dart';
-import 'package:maple_app/model/stat/stat_model.dart';
-import 'package:maple_app/provider/character_notifier.dart';
-import 'package:maple_app/util/day_instance.dart';
-import 'package:maple_app/util/dio_instance.dart';
+import 'package:maplespy/model/main_stat_model.dart';
+import 'package:maplespy/model/stat/ability_stat_model.dart';
+import 'package:maplespy/model/stat/hexa_matrix_stat_model.dart';
+import 'package:maplespy/model/stat/hyper_stat_model.dart';
+import 'package:maplespy/model/stat/stat_model.dart';
+import 'package:maplespy/provider/character_notifier.dart';
+import 'package:maplespy/util/day_instance.dart';
+import 'package:maplespy/util/dio_instance.dart';
 
 final asyncStatProvider =
     AutoDisposeAsyncNotifierProvider<StatNotifier, MainStat>(StatNotifier.new);

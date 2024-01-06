@@ -1,4 +1,4 @@
-import 'package:maple_app/config/static_switch_config.dart';
+import 'package:maplespy/config/static_switch_config.dart';
 
 class HexaMatrixStat {
   String? date;

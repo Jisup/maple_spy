@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:maple_app/config/color_config.dart';
-import 'package:maple_app/page/stat/detail/ability_detail_info_page.dart';
-import 'package:maple_app/page/stat/detail/hyper_detail_info_page.dart';
+import 'package:maplespy/config/color_config.dart';
+import 'package:maplespy/page/stat/detail/ability_detail_info_page.dart';
+import 'package:maplespy/page/stat/detail/hyper_detail_info_page.dart';
 
 class AbilityHyperStatPage extends ConsumerWidget {
   const AbilityHyperStatPage({super.key});

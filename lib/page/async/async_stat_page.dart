@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:maple_app/page/main_error_page.dart';
-import 'package:maple_app/page/stat/stat_page.dart';
-import 'package:maple_app/provider/stat_notifier.dart';
-import 'package:maple_app/widget/common/loading_spinner.dart';
+import 'package:maplespy/page/main_error_page.dart';
+import 'package:maplespy/page/stat/stat_page.dart';
+import 'package:maplespy/provider/stat_notifier.dart';
+import 'package:maplespy/widget/common/loading_spinner.dart';
 
 class AsyncStatPage extends ConsumerWidget {
   const AsyncStatPage({super.key});

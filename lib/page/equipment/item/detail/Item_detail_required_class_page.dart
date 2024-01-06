@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:maple_app/config/color_config.dart';
-import 'package:maple_app/config/const_config.dart';
-import 'package:maple_app/config/static_list_config.dart';
-import 'package:maple_app/util/make_list.dart';
+import 'package:maplespy/config/color_config.dart';
+import 'package:maplespy/config/const_config.dart';
+import 'package:maplespy/config/static_list_config.dart';
+import 'package:maplespy/util/make_list.dart';
 
 class ItemDetailRequiredClassPage extends ConsumerWidget {
   const ItemDetailRequiredClassPage({super.key});

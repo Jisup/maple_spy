@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart' hide BoxDecoration, BoxShadow;
 import 'package:flutter_inset_box_shadow/flutter_inset_box_shadow.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:maple_app/config/color_config.dart';
-import 'package:maple_app/config/const_config.dart';
-import 'package:maple_app/model/skill/link_skill_model.dart';
-import 'package:maple_app/page/main_error_page.dart';
-import 'package:maple_app/widget/common/custom_box_decoration_widget.dart';
-import 'package:maple_app/widget/common/custom_text_widget.dart';
+import 'package:maplespy/config/color_config.dart';
+import 'package:maplespy/config/const_config.dart';
+import 'package:maplespy/model/skill/link_skill_model.dart';
+import 'package:maplespy/page/main_error_page.dart';
+import 'package:maplespy/widget/common/custom_box_decoration_widget.dart';
+import 'package:maplespy/widget/common/custom_text_widget.dart';
 
 class LinkSkillPage extends ConsumerWidget {
   const LinkSkillPage({super.key, required this.link});

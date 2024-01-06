@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:maple_app/config/const_config.dart';
-import 'package:maple_app/config/static_list_config.dart';
-import 'package:maple_app/model/equipment/item_model.dart';
-import 'package:maple_app/page/equipment/item/item_info.dart';
+import 'package:maplespy/config/const_config.dart';
+import 'package:maplespy/config/static_list_config.dart';
+import 'package:maplespy/model/equipment/item_model.dart';
+import 'package:maplespy/page/equipment/item/item_info.dart';
 
 class ItemPage extends ConsumerWidget {
   const ItemPage({super.key, required this.item});

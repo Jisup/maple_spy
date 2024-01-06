@@ -3,12 +3,12 @@ import 'dart:async';
 import 'package:dio/dio.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:maple_app/model/equipment/pet_item_model.dart';
-import 'package:maple_app/model/equipment/symbol_item_model.dart';
-import 'package:maple_app/model/main_equipment_pet_symbol_model.dart';
-import 'package:maple_app/provider/character_notifier.dart';
-import 'package:maple_app/util/day_instance.dart';
-import 'package:maple_app/util/dio_instance.dart';
+import 'package:maplespy/model/equipment/pet_item_model.dart';
+import 'package:maplespy/model/equipment/symbol_item_model.dart';
+import 'package:maplespy/model/main_equipment_pet_symbol_model.dart';
+import 'package:maplespy/provider/character_notifier.dart';
+import 'package:maplespy/util/day_instance.dart';
+import 'package:maplespy/util/dio_instance.dart';
 
 final asyncEquipmentPetSymbolProvider = AutoDisposeAsyncNotifierProvider<
     EquipmentPetSymbolNotifier,

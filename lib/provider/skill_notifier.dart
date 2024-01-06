@@ -3,14 +3,14 @@ import 'dart:async';
 import 'package:dio/dio.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:maple_app/model/main_skill_model.dart';
-import 'package:maple_app/model/skill/hexa_matrix_model.dart';
-import 'package:maple_app/model/skill/link_skill_model.dart';
-import 'package:maple_app/model/skill/skill_model.dart';
-import 'package:maple_app/model/skill/v_matrix_model.dart';
-import 'package:maple_app/provider/character_notifier.dart';
-import 'package:maple_app/util/day_instance.dart';
-import 'package:maple_app/util/dio_instance.dart';
+import 'package:maplespy/model/main_skill_model.dart';
+import 'package:maplespy/model/skill/hexa_matrix_model.dart';
+import 'package:maplespy/model/skill/link_skill_model.dart';
+import 'package:maplespy/model/skill/skill_model.dart';
+import 'package:maplespy/model/skill/v_matrix_model.dart';
+import 'package:maplespy/provider/character_notifier.dart';
+import 'package:maplespy/util/day_instance.dart';
+import 'package:maplespy/util/dio_instance.dart';
 
 final asyncSkillProvider =
     AutoDisposeAsyncNotifierProvider<SkillNotifier, MainSkill>(

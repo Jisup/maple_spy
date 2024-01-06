@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:maple_app/config/color_config.dart';
-import 'package:maple_app/config/const_config.dart';
-import 'package:maple_app/config/static_switch_config.dart';
-import 'package:maple_app/model/equipment/item/item_detail_potential_option_model.dart';
-import 'package:maple_app/widget/equipment/item/potential_grade_icon_widget.dart';
+import 'package:maplespy/config/color_config.dart';
+import 'package:maplespy/config/const_config.dart';
+import 'package:maplespy/config/static_switch_config.dart';
+import 'package:maplespy/model/equipment/item/item_detail_potential_option_model.dart';
+import 'package:maplespy/widget/equipment/item/potential_grade_icon_widget.dart';
 
 class ItemDetailPotentialOptionPage extends ConsumerWidget {
   const ItemDetailPotentialOptionPage(

@@ -1,4 +1,4 @@
-import 'package:maple_app/model/equipment/pet_item_model.dart';
+import 'package:maplespy/model/equipment/pet_item_model.dart';
 
 class PetDetail {
   List<Pet> petList = [];

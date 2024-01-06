@@ -1,15 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:maple_app/config/const_config.dart';
-import 'package:maple_app/config/static_list_config.dart';
-import 'package:maple_app/model/equipment/pet/pet_detail_model.dart';
-import 'package:maple_app/model/equipment/pet_item_model.dart';
-import 'package:maple_app/model/equipment/symbol_item_model.dart';
-import 'package:maple_app/page/equipment/pet_symbol/detail/pet_detail_info_page.dart';
-import 'package:maple_app/page/equipment/pet_symbol/detail/pet_detail_skill_page.dart';
-import 'package:maple_app/page/equipment/pet_symbol/symbol_info.dart';
-import 'package:maple_app/provider/equipment_pet_symbol_notifier.dart';
-import 'package:maple_app/widget/detail_page/detail_select_sub_tab.dart';
+import 'package:maplespy/config/const_config.dart';
+import 'package:maplespy/config/static_list_config.dart';
+import 'package:maplespy/model/equipment/pet/pet_detail_model.dart';
+import 'package:maplespy/model/equipment/pet_item_model.dart';
+import 'package:maplespy/model/equipment/symbol_item_model.dart';
+import 'package:maplespy/page/equipment/pet_symbol/detail/pet_detail_info_page.dart';
+import 'package:maplespy/page/equipment/pet_symbol/detail/pet_detail_skill_page.dart';
+import 'package:maplespy/page/equipment/pet_symbol/symbol_info.dart';
+import 'package:maplespy/provider/equipment_pet_symbol_notifier.dart';
+import 'package:maplespy/widget/detail_page/detail_select_sub_tab.dart';
 
 class PetSymbolPage extends ConsumerWidget {
   const PetSymbolPage({super.key, required this.pet, required this.symbol});

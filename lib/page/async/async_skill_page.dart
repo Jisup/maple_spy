@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:maple_app/page/main_error_page.dart';
-import 'package:maple_app/page/skill/skill_page.dart';
-import 'package:maple_app/provider/skill_notifier.dart';
-import 'package:maple_app/widget/common/loading_spinner.dart';
+import 'package:maplespy/page/main_error_page.dart';
+import 'package:maplespy/page/skill/skill_page.dart';
+import 'package:maplespy/provider/skill_notifier.dart';
+import 'package:maplespy/widget/common/loading_spinner.dart';
 
 class AsyncSkillPage extends ConsumerWidget {
   const AsyncSkillPage({super.key});

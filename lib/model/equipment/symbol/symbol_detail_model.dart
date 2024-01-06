@@ -1,4 +1,4 @@
-import 'package:maple_app/model/equipment/symbol_item_model.dart';
+import 'package:maplespy/model/equipment/symbol_item_model.dart';
 
 class SymbolDetail {
   List<Symbol> arcane = [];

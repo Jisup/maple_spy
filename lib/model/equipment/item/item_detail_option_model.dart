@@ -1,5 +1,5 @@
-import 'package:maple_app/model/equipment/item/item_detail_stat_model.dart';
-import 'package:maple_app/model/equipment/item_model.dart';
+import 'package:maplespy/model/equipment/item/item_detail_stat_model.dart';
+import 'package:maplespy/model/equipment/item_model.dart';
 
 class ItemDetailOption {
   String? part;

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:maple_app/model/equipment/cash_item_model.dart';
-import 'package:maple_app/widget/equipment/equipment_slot_widget.dart';
+import 'package:maplespy/model/equipment/cash_item_model.dart';
+import 'package:maplespy/widget/equipment/equipment_slot_widget.dart';
 
 class CashInfo extends ConsumerWidget {
   const CashInfo({super.key, required this.name, required this.cashItem});

@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
-import 'package:maple_app/config/const_config.dart';
-import 'package:maple_app/provider/character_notifier.dart';
-import 'package:maple_app/container/main_container.dart';
+import 'package:maplespy/config/const_config.dart';
+import 'package:maplespy/provider/character_notifier.dart';
+import 'package:maplespy/container/main_container.dart';
 
 class MainHomePage extends ConsumerStatefulWidget {
   const MainHomePage({super.key});

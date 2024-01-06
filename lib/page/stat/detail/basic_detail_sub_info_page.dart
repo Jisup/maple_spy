@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:maple_app/config/color_config.dart';
-import 'package:maple_app/config/const_config.dart';
-import 'package:maple_app/config/static_list_config.dart';
-import 'package:maple_app/controller/stat_controller.dart';
-import 'package:maple_app/widget/common/custom_text_widget.dart';
+import 'package:maplespy/config/color_config.dart';
+import 'package:maplespy/config/const_config.dart';
+import 'package:maplespy/config/static_list_config.dart';
+import 'package:maplespy/controller/stat_controller.dart';
+import 'package:maplespy/widget/common/custom_text_widget.dart';
 
 class BasicDetailSubInfoPage extends ConsumerWidget {
   const BasicDetailSubInfoPage({super.key});

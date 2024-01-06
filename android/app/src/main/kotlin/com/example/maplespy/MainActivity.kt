@@ -1,4 +1,4 @@
-package com.example.maple_app
+package com.example.maplespy
 
 import io.flutter.embedding.android.FlutterActivity
 

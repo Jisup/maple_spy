@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:maple_app/config/const_config.dart';
-import 'package:maple_app/model/main_skill_model.dart';
-import 'package:maple_app/page/main_error_page.dart';
-import 'package:maple_app/page/main_skill_page.dart';
-import 'package:maple_app/page/skill/hexa_skill_page.dart';
-import 'package:maple_app/page/skill/link_skill_page.dart';
-import 'package:maple_app/page/skill/v_skill_page.dart';
+import 'package:maplespy/config/const_config.dart';
+import 'package:maplespy/model/main_skill_model.dart';
+import 'package:maplespy/page/main_error_page.dart';
+import 'package:maplespy/page/main_skill_page.dart';
+import 'package:maplespy/page/skill/hexa_skill_page.dart';
+import 'package:maplespy/page/skill/link_skill_page.dart';
+import 'package:maplespy/page/skill/v_skill_page.dart';
 
 class SkillPage extends ConsumerWidget {
   const SkillPage({super.key, required this.mainSkill});

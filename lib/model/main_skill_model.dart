@@ -1,9 +1,9 @@
 import 'dart:collection';
 
-import 'package:maple_app/model/skill/hexa_matrix_model.dart';
-import 'package:maple_app/model/skill/link_skill_model.dart';
-import 'package:maple_app/model/skill/skill_model.dart';
-import 'package:maple_app/model/skill/v_matrix_model.dart';
+import 'package:maplespy/model/skill/hexa_matrix_model.dart';
+import 'package:maplespy/model/skill/link_skill_model.dart';
+import 'package:maplespy/model/skill/skill_model.dart';
+import 'package:maplespy/model/skill/v_matrix_model.dart';
 
 class MainSkill {
   Skill? skill;

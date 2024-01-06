@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:maple_app/provider/character_notifier.dart';
-import 'package:maple_app/widget/main_container/main_app_bar.dart';
-import 'package:maple_app/widget/main_container/main_bottom_navigation_bar.dart';
+import 'package:maplespy/provider/character_notifier.dart';
+import 'package:maplespy/widget/main_container/main_app_bar.dart';
+import 'package:maplespy/widget/main_container/main_bottom_navigation_bar.dart';
 
 class MainContainer extends ConsumerWidget {
   const MainContainer({super.key, required this.isHome, required this.body});

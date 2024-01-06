@@ -3,15 +3,15 @@ import 'dart:async';
 import 'package:dio/dio.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:maple_app/model/character/basic_model.dart';
-import 'package:maple_app/model/character/dojang_model.dart';
-import 'package:maple_app/model/character/popularity_model.dart';
-import 'package:maple_app/model/character/propensity_model.dart';
-import 'package:maple_app/model/main_character_model.dart';
-import 'package:maple_app/model/stat/stat_model.dart';
-import 'package:maple_app/model/union/union_model.dart';
-import 'package:maple_app/util/day_instance.dart';
-import 'package:maple_app/util/dio_instance.dart';
+import 'package:maplespy/model/character/basic_model.dart';
+import 'package:maplespy/model/character/dojang_model.dart';
+import 'package:maplespy/model/character/popularity_model.dart';
+import 'package:maplespy/model/character/propensity_model.dart';
+import 'package:maplespy/model/main_character_model.dart';
+import 'package:maplespy/model/stat/stat_model.dart';
+import 'package:maplespy/model/union/union_model.dart';
+import 'package:maplespy/util/day_instance.dart';
+import 'package:maplespy/util/dio_instance.dart';
 
 final asyncCharacterProvider =
     AutoDisposeAsyncNotifierProvider<CharacterNotifier, MainCharacter>(

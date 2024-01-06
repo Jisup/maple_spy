@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:maple_app/util/make_list.dart';
+import 'package:maplespy/util/make_list.dart';
 
 class CustomTextWidget extends ConsumerWidget {
   const CustomTextWidget(

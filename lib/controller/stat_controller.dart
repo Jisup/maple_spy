@@ -1,9 +1,9 @@
-import 'package:maple_app/config/static_switch_config.dart';
-import 'package:maple_app/model/main_stat_model.dart';
-import 'package:maple_app/model/stat/ability_stat_model.dart';
-import 'package:maple_app/model/stat/hexa_matrix_stat_model.dart';
-import 'package:maple_app/model/stat/hyper_stat_model.dart';
-import 'package:maple_app/model/stat/stat_model.dart';
+import 'package:maplespy/config/static_switch_config.dart';
+import 'package:maplespy/model/main_stat_model.dart';
+import 'package:maplespy/model/stat/ability_stat_model.dart';
+import 'package:maplespy/model/stat/hexa_matrix_stat_model.dart';
+import 'package:maplespy/model/stat/hyper_stat_model.dart';
+import 'package:maplespy/model/stat/stat_model.dart';
 
 class StatController {
   late MainStat mainStat;

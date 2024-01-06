@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:maple_app/config/const_config.dart';
-import 'package:maple_app/config/static_list_config.dart';
-import 'package:maple_app/model/equipment/android_item_model.dart';
-import 'package:maple_app/model/equipment/beauty_item_model.dart';
-import 'package:maple_app/model/equipment/cash_item_model.dart';
-import 'package:maple_app/page/equipment/cash/cash_info.dart';
+import 'package:maplespy/config/const_config.dart';
+import 'package:maplespy/config/static_list_config.dart';
+import 'package:maplespy/model/equipment/android_item_model.dart';
+import 'package:maplespy/model/equipment/beauty_item_model.dart';
+import 'package:maplespy/model/equipment/cash_item_model.dart';
+import 'package:maplespy/page/equipment/cash/cash_info.dart';
 
 final equipmentSelectCashTabProvider = StateProvider((_) => 'preset1');
 

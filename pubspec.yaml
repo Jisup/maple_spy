@@ -74,7 +74,6 @@ flutter:
     - assets/star_icon.png
     - assets/star_deactive_icon.png
     - assets/space_background.png
-    - assets/dummy.json
   #   - images/a_dot_burr.jpeg
   #   - images/a_dot_ham.jpeg
 

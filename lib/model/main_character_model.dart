@@ -6,7 +6,6 @@ import 'package:maplespy/model/stat/stat_model.dart';
 import 'package:maplespy/model/union/union_model.dart';
 
 class MainCharacter {
-  String? ocid;
   Basic? basic;
   Dojang? dojang;
   Popularity? popularity;
@@ -15,12 +14,5 @@ class MainCharacter {
   Stat? stat;
   Union? union;
 
-  MainCharacter(
-      {this.ocid,
-      this.basic,
-      this.dojang,
-      this.popularity,
-      this.propensity,
-      this.stat,
-      this.union});
+  MainCharacter({this.basic, this.dojang, this.popularity, this.propensity, this.stat, this.union});
 }

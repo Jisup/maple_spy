@@ -1,3 +1,5 @@
+import 'dart:typed_data';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
@@ -26,9 +28,7 @@ class _MainHomeState extends ConsumerState<MainHomePage> {
   }
 
   void onClickSearchButton() {
-    ref
-        .read(characterNameProvider.notifier)
-        .update((state) => _textFieldController.text);
+    ref.read(characterNameProvider.notifier).update((state) => _textFieldController.text);
     context.go('/character');
   }
 
@@ -44,14 +44,17 @@ class _MainHomeState extends ConsumerState<MainHomePage> {
     ColorScheme colorScheme = Theme.of(context).colorScheme;
 
     return GestureDetector(
-      onTap: () => FocusScope.of(context).unfocus(),
+      onTap: () {
+        FocusScope.of(context).unfocus();
+        if (!(textFormFieldKey.currentState?.validate() ?? true)) {
+          _focusNode.requestFocus();
+        }
+      },
       excludeFromSemantics: true,
       child: MainContainer(
         isHome: true,
         body: Container(
-          padding: EdgeInsets.only(
-              left: DimenConfig.commonDimen * 2,
-              right: DimenConfig.commonDimen * 2),
+          padding: EdgeInsets.only(left: DimenConfig.commonDimen * 2, right: DimenConfig.commonDimen * 2),
           alignment: Alignment.center,
           child: Row(
             crossAxisAlignment: CrossAxisAlignment.start,
@@ -72,6 +75,12 @@ class _MainHomeState extends ConsumerState<MainHomePage> {
                         return '닉네임을 입력해주세요.';
                       } else if (value.contains(RegExp(r'[^0-9a-zA-Z가-힣]'))) {
                         return '올바른 닉네임을 입력해주세요.';
+                      } else if (value.contains(RegExp(r'[0-9a-zA-Z]')) && !value.contains(RegExp(r'[가-힣]')) && value.characters.length < 4) {
+                        return '영문과 숫자조합 닉네임은 4글자 이상 입력해주세요.';
+                      } else if (value.contains(RegExp(r'[0-9a-zA-Z]')) && value.contains(RegExp(r'[가-힣]')) && value.characters.length < 3) {
+                        return '조합된 닉네임은 3글자 이상 입력해주세요.';
+                      } else if (value.length < 2) {
+                        return '닉네임은 2글자 이상 입력해주세요.';
                       }
                       return null;
                     },
@@ -87,10 +96,7 @@ class _MainHomeState extends ConsumerState<MainHomePage> {
                 ),
                 child: GestureDetector(
                   behavior: HitTestBehavior.translucent,
-                  onTap: () =>
-                      textFormFieldKey.currentState?.validate() ?? false
-                          ? onClickSearchButton()
-                          : _focusNode.requestFocus(),
+                  onTap: () => textFormFieldKey.currentState?.validate() ?? false ? onClickSearchButton() : _focusNode.requestFocus(),
                   child: Container(
                     padding: EdgeInsets.only(
                       top: DimenConfig.commonDimen * 2,
@@ -100,9 +106,7 @@ class _MainHomeState extends ConsumerState<MainHomePage> {
                     ),
                     child: Text(
                       '검색',
-                      style: TextStyle(
-                          color: colorScheme.onPrimary,
-                          letterSpacing: SpacingConfig.commonSpacing),
+                      style: TextStyle(color: colorScheme.onPrimary, letterSpacing: SpacingConfig.commonSpacing),
                     ),
                   ),
                 ),

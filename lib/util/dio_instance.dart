@@ -1,5 +1,7 @@
 import 'package:dio/dio.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
+import 'package:maplespy/util/dio_error_interceptor.dart';
 
 class DioInstance {
   static final DioInstance _instance = DioInstance._internal();
@@ -12,8 +14,8 @@ class DioInstance {
       'accept': 'application/json',
       'x-nxopen-api-key': dotenv.get('NEXON_API_KEY'),
     };
-    // dio.interceptors
-    //     .add(LogInterceptor(logPrint: (o) => debugPrint(o.toString())));
+    dio.options.validateStatus = (status) => status != null;
+    dio.interceptors.addAll([DioErrorInterceptor(), LogInterceptor(logPrint: (o) => debugPrint(o.toString()))]);
   }
 
   factory DioInstance() {

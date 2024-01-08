@@ -7,16 +7,13 @@ import 'package:maplespy/model/equipment/android_item_model.dart';
 import 'package:maplespy/model/equipment/beauty_item_model.dart';
 import 'package:maplespy/model/equipment/cash_item_model.dart';
 import 'package:maplespy/model/main_equipment_cash_model.dart';
-import 'package:maplespy/provider/character_notifier.dart';
+import 'package:maplespy/provider/common_provider.dart';
 import 'package:maplespy/util/day_instance.dart';
 import 'package:maplespy/util/dio_instance.dart';
 
-final asyncEquipmentCashProvider =
-    AutoDisposeAsyncNotifierProvider<EquipmentCashNotifier, MainEquipmentCash>(
-        EquipmentCashNotifier.new);
+final asyncEquipmentCashProvider = AutoDisposeAsyncNotifierProvider<EquipmentCashNotifier, MainEquipmentCash>(EquipmentCashNotifier.new);
 
-class EquipmentCashNotifier
-    extends AutoDisposeAsyncNotifier<MainEquipmentCash> {
+class EquipmentCashNotifier extends AutoDisposeAsyncNotifier<MainEquipmentCash> {
   Future<MainEquipmentCash> _fetchCash() async {
     final dioInstance = DioInstance();
 
@@ -26,16 +23,13 @@ class EquipmentCashNotifier
     dioInstance.dio.options.queryParameters = {'ocid': ocid, 'date': yesterday};
 
     /**cash item equipment */
-    Response cashItemResponse =
-        await dioInstance.dio.get(dotenv.get('MAPLESTORY_CASHITEM_PATH'));
+    Response cashItemResponse = await dioInstance.dio.get(dotenv.get('MAPLESTORY_CASHITEM_PATH'));
     CashItem cashItem = CashItem.fromJson(cashItemResponse.data);
     /**android equipment */
-    Response androidItemResponse =
-        await dioInstance.dio.get(dotenv.get('MAPLESTORY_ANDROID_PATH'));
+    Response androidItemResponse = await dioInstance.dio.get(dotenv.get('MAPLESTORY_ANDROID_PATH'));
     AndroidItem androidItem = AndroidItem.fromJson(androidItemResponse.data);
     /**beauty equipment */
-    Response beautyItemResponse =
-        await dioInstance.dio.get(dotenv.get('MAPLESTORY_BEAUTY_PATH'));
+    Response beautyItemResponse = await dioInstance.dio.get(dotenv.get('MAPLESTORY_BEAUTY_PATH'));
     BeautyItem beautyItem = BeautyItem.fromJson(beautyItemResponse.data);
 
     return MainEquipmentCash(

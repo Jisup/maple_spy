@@ -8,12 +8,11 @@ import 'package:maplespy/model/stat/ability_stat_model.dart';
 import 'package:maplespy/model/stat/hexa_matrix_stat_model.dart';
 import 'package:maplespy/model/stat/hyper_stat_model.dart';
 import 'package:maplespy/model/stat/stat_model.dart';
-import 'package:maplespy/provider/character_notifier.dart';
+import 'package:maplespy/provider/common_provider.dart';
 import 'package:maplespy/util/day_instance.dart';
 import 'package:maplespy/util/dio_instance.dart';
 
-final asyncStatProvider =
-    AutoDisposeAsyncNotifierProvider<StatNotifier, MainStat>(StatNotifier.new);
+final asyncStatProvider = AutoDisposeAsyncNotifierProvider<StatNotifier, MainStat>(StatNotifier.new);
 
 class StatNotifier extends AutoDisposeAsyncNotifier<MainStat> {
   Future<MainStat> _fetchStat() async {
@@ -25,30 +24,22 @@ class StatNotifier extends AutoDisposeAsyncNotifier<MainStat> {
     dioInstance.dio.options.queryParameters = {'ocid': ocid, 'date': yesterday};
 
     /**-----basic stat */
-    Response basicResponse =
-        await dioInstance.dio.get(dotenv.get('MAPLESTORY_STAT_PATH'));
+    Response basicResponse = await dioInstance.dio.get(dotenv.get('MAPLESTORY_STAT_PATH'));
     final basicStat = Stat.fromJson(basicResponse.data);
 
     /**-----hyper stat */
-    Response hyperResponse =
-        await dioInstance.dio.get(dotenv.get('MAPLESTORY_HYPERSTAT_PATH'));
+    Response hyperResponse = await dioInstance.dio.get(dotenv.get('MAPLESTORY_HYPERSTAT_PATH'));
     final hyperStat = HyperStat.fromJson(hyperResponse.data);
 
     /**-----ability stat */
-    Response abilityResponse =
-        await dioInstance.dio.get(dotenv.get('MAPLESTORY_ABILITY_PATH'));
+    Response abilityResponse = await dioInstance.dio.get(dotenv.get('MAPLESTORY_ABILITY_PATH'));
     final abilityStat = AbilityStat.fromJson(abilityResponse.data);
 
     /**-----hexa matrix stat */
-    Response hexaMatrixResponse =
-        await dioInstance.dio.get(dotenv.get('MAPLESTORY_HEXAMATRIXSTAT_PATH'));
+    Response hexaMatrixResponse = await dioInstance.dio.get(dotenv.get('MAPLESTORY_HEXAMATRIXSTAT_PATH'));
     final hexaMatrixStat = HexaMatrixStat.fromJson(hexaMatrixResponse.data);
 
-    return MainStat(
-        stat: basicStat,
-        hyperStat: hyperStat,
-        abilityStat: abilityStat,
-        hexaMatrixStat: hexaMatrixStat);
+    return MainStat(stat: basicStat, hyperStat: hyperStat, abilityStat: abilityStat, hexaMatrixStat: hexaMatrixStat);
   }
 
   @override

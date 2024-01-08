@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:maplespy/provider/character_notifier.dart';
+import 'package:maplespy/provider/common_provider.dart';
 import 'package:maplespy/widget/main_container/main_app_bar.dart';
 import 'package:maplespy/widget/main_container/main_bottom_navigation_bar.dart';
 

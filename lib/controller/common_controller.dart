@@ -33,7 +33,7 @@ class MainController extends Notifier {
       ocid = ocidResponse.data['ocid'];
     } on DioException catch (e) {
       ref.read(hasError.notifier).update((state) => true);
-      ref.read(errorMessage.notifier).update((state) => '${characterName}님을 찾을 수 없어요!ㅠㅠ');
+      ref.read(errorMessage.notifier).update((state) => '[ ${characterName} ]님을 찾을 수 없어요!ㅠㅠ');
     }
 
     if (!ref.read(hasError)) {

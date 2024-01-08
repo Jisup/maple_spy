@@ -6,7 +6,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:maplespy/model/equipment/pet_item_model.dart';
 import 'package:maplespy/model/equipment/symbol_item_model.dart';
 import 'package:maplespy/model/main_equipment_pet_symbol_model.dart';
-import 'package:maplespy/provider/character_notifier.dart';
+import 'package:maplespy/provider/common_provider.dart';
 import 'package:maplespy/util/day_instance.dart';
 import 'package:maplespy/util/dio_instance.dart';
 
@@ -18,7 +18,7 @@ class EquipmentPetSymbolNotifier extends AutoDisposeAsyncNotifier<MainEquipmentP
   Future<MainEquipmentPetSymbol> _fetchPetSymbol() async {
     final dioInstance = DioInstance();
 
-    final ocid = ref.read(asyncCharacterProvider).value;
+    final ocid = ref.read(ocidProvider);
     final yesterday = DayInstance().yesterday;
 
     dioInstance.dio.options.queryParameters = {'ocid': ocid, 'date': yesterday};

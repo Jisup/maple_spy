@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:maplespy/config/const_config.dart';
-import 'package:maplespy/model/equipment/pet_item_model.dart';
+import 'package:maplespy/model/equipment/pet/pet_detail_model.dart';
 import 'package:maplespy/widget/common/custom_text_widget.dart';
 import 'package:maplespy/widget/equipment/equipment_slot_widget.dart';
 
 class PetDetailSkillPage extends ConsumerWidget {
   const PetDetailSkillPage({super.key, required this.petSkill});
 
-  final PetAutoSkill petSkill;
+  final List<PetSkill> petSkill;
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
@@ -35,34 +35,23 @@ class PetDetailSkillPage extends ConsumerWidget {
             child: Wrap(
               alignment: WrapAlignment.center,
               runSpacing: DimenConfig.subDimen,
-              children: [
-                FractionallySizedBox(
-                  widthFactor: 0.5,
-                  child: AspectRatio(
-                    aspectRatio: 1 / 1,
-                    child: Container(
-                      padding: EdgeInsets.all(DimenConfig.minDimen),
-                      child: EquipmentSlotWidget(
-                        name: 'PET',
-                        imageUrl: petSkill.skill1Icon,
+              children: petSkill
+                  .map(
+                    (skill) => FractionallySizedBox(
+                      widthFactor: 0.5,
+                      child: AspectRatio(
+                        aspectRatio: 1 / 1,
+                        child: Container(
+                          padding: EdgeInsets.all(DimenConfig.minDimen),
+                          child: EquipmentSlotWidget(
+                            name: 'PET\nSKILL',
+                            imageUrl: skill.icon,
+                          ),
+                        ),
                       ),
                     ),
-                  ),
-                ),
-                FractionallySizedBox(
-                  widthFactor: 0.5,
-                  child: AspectRatio(
-                    aspectRatio: 1 / 1,
-                    child: Container(
-                      padding: EdgeInsets.all(DimenConfig.minDimen),
-                      child: EquipmentSlotWidget(
-                        name: 'PET',
-                        imageUrl: petSkill.skill2Icon,
-                      ),
-                    ),
-                  ),
-                ),
-              ],
+                  )
+                  .toList(),
             ),
           )
         ],

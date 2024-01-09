@@ -7,10 +7,12 @@ class DetailSelectTabWidget extends ConsumerWidget {
     super.key,
     required this.tabList,
     required this.provider,
+    this.scrollController,
   });
 
   final List tabList;
   final StateProvider<String> provider;
+  final ScrollController? scrollController;
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
@@ -23,11 +25,14 @@ class DetailSelectTabWidget extends ConsumerWidget {
             var equal = ref.watch(provider) == tab['name'];
             return Expanded(
               child: GestureDetector(
-                onTap: () => equal
+                onTap: equal
                     ? null
-                    : ref
-                        .read(provider.notifier)
-                        .update((state) => tab['name']),
+                    : () {
+                        ref
+                            .read(provider.notifier)
+                            .update((state) => tab['name']);
+                        scrollController?.jumpTo(0);
+                      },
                 child: Container(
                   margin: EdgeInsets.all(DimenConfig.commonDimen),
                   alignment: Alignment.center,

@@ -13,7 +13,9 @@ class AsyncSkillPage extends ConsumerWidget {
     final asyncSkill = ref.watch(asyncSkillProvider);
 
     return switch (asyncSkill) {
-      AsyncData(:final value) => SkillPage(mainSkill: value),
+      AsyncData(:final value) => SkillPage(
+          mainSkill: value,
+        ),
       AsyncError(:final error) =>
         MainErrorPage(message: 'skill request\nhas something error'),
       _ => LoadingSpinner(),

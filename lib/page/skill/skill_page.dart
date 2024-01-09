@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:maplespy/config/const_config.dart';
+import 'package:maplespy/controller/skill_controller.dart';
 import 'package:maplespy/model/main_skill_model.dart';
 import 'package:maplespy/page/main_error_page.dart';
 import 'package:maplespy/page/main_skill_page.dart';
@@ -9,7 +10,10 @@ import 'package:maplespy/page/skill/link_skill_page.dart';
 import 'package:maplespy/page/skill/v_skill_page.dart';
 
 class SkillPage extends ConsumerWidget {
-  const SkillPage({super.key, required this.mainSkill});
+  const SkillPage({
+    super.key,
+    required this.mainSkill,
+  });
 
   final MainSkill mainSkill;
 
@@ -29,6 +33,8 @@ class SkillPage extends ConsumerWidget {
       child: LayoutBuilder(
         builder: (BuildContext context, BoxConstraints viewportConstraints) =>
             SingleChildScrollView(
+          controller:
+              ref.read(skillControllerProvider.notifier).scrollController,
           child: ConstrainedBox(
             constraints:
                 BoxConstraints(minHeight: viewportConstraints.maxHeight),

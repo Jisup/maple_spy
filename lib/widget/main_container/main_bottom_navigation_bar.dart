@@ -10,6 +10,7 @@ class MainBottomNavigationBar extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     var colorScheme = Theme.of(context).colorScheme;
     return BottomAppBar(
+      height: MediaQuery.of(context).size.height / 12.5,
       padding: EdgeInsets.zero,
       elevation: 0, // z-index
       color: colorScheme.background,

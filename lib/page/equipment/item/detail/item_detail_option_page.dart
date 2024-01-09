@@ -22,8 +22,14 @@ class ItemDetailOptionPage extends ConsumerWidget {
         ItemDetailOptionStatPage(detailStat: detailOption.luk!),
         ItemDetailOptionStatPage(detailStat: detailOption.max_hp!),
         ItemDetailOptionStatPage(detailStat: detailOption.max_mp!),
-        ItemDetailOptionStatPage(detailStat: detailOption.max_hp_rate!),
-        ItemDetailOptionStatPage(detailStat: detailOption.max_mp_rate!),
+        ItemDetailOptionStatPage(
+          detailStat: detailOption.max_hp_rate!,
+          percentOption: false,
+        ),
+        ItemDetailOptionStatPage(
+          detailStat: detailOption.max_mp_rate!,
+          percentOption: false,
+        ),
         ItemDetailOptionStatPage(detailStat: detailOption.attack_power!),
         ItemDetailOptionStatPage(detailStat: detailOption.magic_power!),
         ItemDetailOptionStatPage(detailStat: detailOption.armor!),

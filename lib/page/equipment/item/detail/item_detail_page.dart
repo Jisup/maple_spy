@@ -98,7 +98,7 @@ class ItemDetailPage extends ConsumerWidget {
                                   ))
                               : SizedBox.shrink(),
 
-                          /**-----item name with scroll upgrade */
+                          /**-----item name + scroll upgrade */
                           Container(
                             margin: item.starforce != '0'
                                 ? EdgeInsets.only(
@@ -111,12 +111,14 @@ class ItemDetailPage extends ConsumerWidget {
                                     fontSize: FontConfig.middleSize,
                                     fontWeight: FontWeight.bold),
                                 children: [
+                                  /**-----item name */
                                   TextSpan(
                                       text: '${item.itemName}',
                                       style: TextStyle(
                                           color: item.scrollUpgrade != '0'
                                               ? ItemColor.upgradeOptionText
                                               : ItemColor.commonInfoText)),
+                                  /**-----scroll upgrade */
                                   TextSpan(
                                       text: item.scrollUpgrade! != '0'
                                           ? ' (+${item.scrollUpgrade})'

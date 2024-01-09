@@ -34,12 +34,18 @@ class ItemDetailPotentialOptionPage extends ConsumerWidget {
                             .potentialGradeColor[potentialOption.grade]))
               ],
             ),
-            Text(potentialOption.option1!,
-                style: TextStyle(color: ItemColor.commonInfoText)),
-            Text(potentialOption.option2!,
-                style: TextStyle(color: ItemColor.commonInfoText)),
-            Text(potentialOption.option3!,
-                style: TextStyle(color: ItemColor.commonInfoText)),
+            potentialOption.option1 != null
+                ? Text(potentialOption.option1!,
+                    style: TextStyle(color: ItemColor.commonInfoText))
+                : SizedBox.shrink(),
+            potentialOption.option2 != null
+                ? Text(potentialOption.option2!,
+                    style: TextStyle(color: ItemColor.commonInfoText))
+                : SizedBox.shrink(),
+            potentialOption.option3 != null
+                ? Text(potentialOption.option3!,
+                    style: TextStyle(color: ItemColor.commonInfoText))
+                : SizedBox.shrink(),
           ],
         ),
       ),

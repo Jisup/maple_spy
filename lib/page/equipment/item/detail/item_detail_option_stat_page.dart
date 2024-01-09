@@ -4,9 +4,11 @@ import 'package:maplespy/config/color_config.dart';
 import 'package:maplespy/model/equipment/item/item_detail_stat_model.dart';
 
 class ItemDetailOptionStatPage extends ConsumerWidget {
-  const ItemDetailOptionStatPage({super.key, required this.detailStat});
+  const ItemDetailOptionStatPage(
+      {super.key, required this.detailStat, this.percentOption});
 
   final ItemDetailStat detailStat;
+  final bool? percentOption;
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
@@ -18,25 +20,28 @@ class ItemDetailOptionStatPage extends ConsumerWidget {
                 TextSpan(
                     text: '${detailStat.stat} : ',
                     style: TextStyle(
-                        color: detailStat.total == detailStat.base
-                            ? ItemColor.commonInfoText
-                            : ItemColor.totalOptionText)),
+                        color: detailStat.total != detailStat.base &&
+                                (percentOption ?? true)
+                            ? ItemColor.totalOptionText
+                            : ItemColor.commonInfoText)),
 
                 /**-----total */
                 TextSpan(
                     text:
                         '+${detailStat.total}${detailStat.percent! ? '%' : ''}',
                     style: TextStyle(
-                        color: detailStat.total == detailStat.base
-                            ? ItemColor.commonInfoText
-                            : ItemColor.totalOptionText)),
+                        color: detailStat.total != detailStat.base &&
+                                (percentOption ?? true)
+                            ? ItemColor.totalOptionText
+                            : ItemColor.commonInfoText)),
 
                 /**-----open bracket */
                 detailStat.total != detailStat.base &&
-                        (detailStat.add != '0' || detailStat.add != null) &&
-                        (detailStat.etc != '0' || detailStat.etc != null) &&
-                        (detailStat.starforce != '0' ||
-                            detailStat.starforce != null)
+                        (percentOption ?? true) &&
+                        (detailStat.add != null || detailStat.add != '0') &&
+                        (detailStat.etc != null || detailStat.etc != '0') &&
+                        (detailStat.starforce != null ||
+                            detailStat.starforce != '0')
                     ? TextSpan(children: [
                         TextSpan(text: ' '),
                         TextSpan(
@@ -46,7 +51,7 @@ class ItemDetailOptionStatPage extends ConsumerWidget {
                     : TextSpan(),
 
                 /**-----base */
-                detailStat.total != detailStat.base
+                detailStat.total != detailStat.base && (percentOption ?? true)
                     ? TextSpan(children: [
                         TextSpan(
                             text:
@@ -56,7 +61,7 @@ class ItemDetailOptionStatPage extends ConsumerWidget {
                     : TextSpan(),
 
                 /**-----add */
-                detailStat.add != '0' && detailStat.add != null
+                detailStat.add != null && detailStat.add != '0'
                     ? TextSpan(children: [
                         TextSpan(text: ' '),
                         TextSpan(
@@ -67,7 +72,7 @@ class ItemDetailOptionStatPage extends ConsumerWidget {
                     : TextSpan(),
 
                 /**-----etc */
-                detailStat.etc != '0' && detailStat.etc != null
+                detailStat.etc != null && detailStat.etc != '0'
                     ? TextSpan(children: [
                         TextSpan(text: ' '),
                         TextSpan(
@@ -81,7 +86,7 @@ class ItemDetailOptionStatPage extends ConsumerWidget {
                     : TextSpan(),
 
                 /**-----starforce */
-                detailStat.starforce != '0' && detailStat.starforce != null
+                detailStat.starforce != null && detailStat.starforce != '0'
                     ? TextSpan(children: [
                         TextSpan(text: ' '),
                         TextSpan(
@@ -93,10 +98,11 @@ class ItemDetailOptionStatPage extends ConsumerWidget {
 
                 /**-----close bracket */
                 detailStat.total != detailStat.base &&
-                        (detailStat.add != '0' || detailStat.add != null) &&
-                        (detailStat.etc != '0' || detailStat.etc != null) &&
-                        (detailStat.starforce != '0' ||
-                            detailStat.starforce != null)
+                        (percentOption ?? true) &&
+                        (detailStat.add != null || detailStat.add != '0') &&
+                        (detailStat.etc != null || detailStat.etc != '0') &&
+                        (detailStat.starforce != null ||
+                            detailStat.starforce != '0')
                     ? TextSpan(children: [
                         TextSpan(
                             text: ')',
@@ -109,6 +115,3 @@ class ItemDetailOptionStatPage extends ConsumerWidget {
         : Container();
   }
 }
-
- // Text.rich(TextSpan(children: [
-        //    

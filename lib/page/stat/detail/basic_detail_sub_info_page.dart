@@ -41,13 +41,7 @@ class BasicDetailSubInfoPage extends ConsumerWidget {
                                 child: Container(
                                   alignment: Alignment.centerRight,
                                   child: CustomTextWidget(
-                                    text: switch (stat) {
-                                      '스탯 공격력\n' =>
-                                        '${StatController.findStatValue('최소 스탯공격력')}\n~ ${StatController.findStatValue('최대 스탯공격력')}',
-                                      '재사용 대기시간 감소' =>
-                                        '${StatController.findStatValue('재사용 대기시간 감소 (초)')} / ${StatController.findStatValue('재사용 대기시간 감소 (%)')}',
-                                      _ => StatController.findStatValue(stat),
-                                    },
+                                    text: StatController.getStatValue(stat),
                                     textAlign: TextAlign.right,
                                     size: FontConfig.commonSize,
                                     color: Colors.white,

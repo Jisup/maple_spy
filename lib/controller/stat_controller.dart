@@ -33,6 +33,16 @@ class StatController {
         '';
   }
 
+  static String getStatValue(String stat) {
+    return switch (stat) {
+      '스탯 공격력\n' =>
+        '${findStatValue('최소 스탯공격력')}\n~ ${findStatValue('최대 스탯공격력')}',
+      '재사용 대기시간 감소' =>
+        '${findStatValue('재사용 대기시간 감소 (초)')} / ${findStatValue('재사용 대기시간 감소 (%)')}',
+      _ => findStatValue(stat),
+    };
+  }
+
   static AbilityInfo findAbilityInfo(int no) {
     return abilityStat.abilityInfo!.singleWhere(
         (element) => element.abilityNo == no.toString(),

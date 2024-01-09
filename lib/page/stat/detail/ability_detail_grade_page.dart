@@ -19,70 +19,61 @@ class AbilityDetailGradePage extends ConsumerWidget {
         bottom: DimenConfig.commonDimen,
       ),
       padding: EdgeInsets.all(DimenConfig.commonDimen),
-      decoration: grade != null
-          ? BoxDecoration(
-              gradient: LinearGradient(
-                  begin: Alignment.topCenter,
-                  end: Alignment.bottomCenter,
-                  colors: [
+      decoration: BoxDecoration(
+        gradient: grade != null
+            ? LinearGradient(
+                begin: Alignment.topCenter,
+                end: Alignment.bottomCenter,
+                colors: [
                     StaticSwitchConfig.statStartBackgroundColor[grade]!,
                     StaticSwitchConfig.statEndBackgroundColor[grade]!,
-                  ]),
-              border:
-                  Border.all(color: StaticSwitchConfig.statBorderColor[grade]!),
-              borderRadius: BorderRadius.circular(RadiusConfig.subRadius),
-              boxShadow: [
+                  ])
+            : null,
+        color: grade == null ? StatColor.statBackgroundColor : null,
+        border: grade != null
+            ? Border.all(color: StaticSwitchConfig.statBorderColor[grade]!)
+            : null,
+        borderRadius: BorderRadius.circular(RadiusConfig.subRadius),
+        boxShadow: grade != null
+            ? [
                 BoxShadow(
                   blurStyle: BlurStyle.solid,
                   offset: Offset(0, 2),
                   color: StaticSwitchConfig.statBackgroundColor[grade]!,
                 )
-              ],
-            )
-          : BoxDecoration(
-              color: StatColor.statBackgroundColor,
-              borderRadius: BorderRadius.circular(RadiusConfig.subRadius),
-            ),
+              ]
+            : null,
+      ),
       child: Row(
         children: [
           Container(
-            margin: EdgeInsets.only(right: DimenConfig.subDimen),
-            child: grade != null
-                ? Icon(
-                    Icons.bookmark_sharp,
-                    color: Colors.white,
-                    shadows: customDirectionShadow(
-                      direction: 'top_left',
-                      d: 2,
-                      color: StaticSwitchConfig.statBorderColor[grade]!,
-                    ),
-                  )
-                : Icon(
-                    Icons.lock,
-                    color: Colors.white,
-                  ),
-          ),
-          grade != null
-              ? Text(
-                  '${grade} 어빌리티',
-                  style: TextStyle(
-                    fontSize: FontConfig.commonSize + 1,
-                    color: Colors.white,
-                    shadows: [
+              margin: EdgeInsets.only(right: DimenConfig.subDimen),
+              child: Icon(
+                grade != null ? Icons.bookmark_sharp : Icons.lock,
+                color: Colors.white,
+                shadows: grade != null
+                    ? customDirectionShadow(
+                        direction: 'top_left',
+                        d: 2,
+                        color: StaticSwitchConfig.statBorderColor[grade]!,
+                      )
+                    : null,
+              )),
+          Text(
+            grade != null ? '${grade} 어빌리티' : '어빌리티가 활성화되지 않았습니다.',
+            style: TextStyle(
+              fontSize: FontConfig.commonSize + 1,
+              color: Colors.white,
+              shadows: grade != null
+                  ? [
                       Shadow(
                         offset: Offset(0, -1),
                         color: StaticSwitchConfig.statBorderColor[grade]!,
                       )
-                    ],
-                  ),
-                )
-              : Text(
-                  '어빌리티가 활성화되지 않았습니다.',
-                  style: TextStyle(
-                    fontSize: FontConfig.commonSize + 1,
-                    color: Colors.white,
-                  ),
-                )
+                    ]
+                  : null,
+            ),
+          )
         ],
       ),
     );

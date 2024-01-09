@@ -8,7 +8,7 @@ import 'package:maplespy/model/equipment/symbol/symbol_detail_model.dart';
 import 'package:maplespy/model/equipment/symbol_item_model.dart';
 import 'package:maplespy/page/equipment/pet_symbol/detail/symbol_detail_icon.dart';
 import 'package:maplespy/page/equipment/pet_symbol/detail/symbol_detail_info.dart';
-import 'package:maplespy/provider/equipment_pet_symbol_notifier.dart';
+import 'package:maplespy/provider/common_provider.dart';
 
 class SymbolInfo extends ConsumerWidget {
   const SymbolInfo({super.key, required this.symbolItem});

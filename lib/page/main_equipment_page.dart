@@ -6,9 +6,8 @@ import 'package:maplespy/page/main_error_page.dart';
 import 'package:maplespy/page/async/async_cash_page.dart';
 import 'package:maplespy/page/async/async_item_page.dart';
 import 'package:maplespy/page/async/async_pet_symbol_page.dart';
+import 'package:maplespy/provider/common_provider.dart';
 import 'package:maplespy/widget/detail_page/detail_select_tab.dart';
-
-final equipmentSelectTabProvider = StateProvider((_) => 'item');
 
 class MainEquipmentPage extends ConsumerWidget {
   const MainEquipmentPage({super.key});

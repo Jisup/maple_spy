@@ -29,16 +29,33 @@ class MainController extends Notifier {
     dioInstance.dio.options.queryParameters = {'character_name': characterName};
 
     try {
-      final ocidResponse = await dioInstance.dio.get(dotenv.get('MAPLESTORY_OCID_PATH'));
+      final ocidResponse =
+          await dioInstance.dio.get(dotenv.get('MAPLESTORY_OCID_PATH'));
       ocid = ocidResponse.data['ocid'];
     } on DioException catch (e) {
       ref.read(hasError.notifier).update((state) => true);
-      ref.read(errorMessage.notifier).update((state) => '[ ${characterName} ]님을 찾을 수 없어요!ㅠㅠ');
+      ref
+          .read(errorMessage.notifier)
+          .update((state) => '[ ${characterName} ]님을 찾을 수 없어요!ㅠㅠ');
     }
 
     if (!ref.read(hasError)) {
       ref.read(characterNameProvider.notifier).update((state) => characterName);
       ref.read(ocidProvider.notifier).update((state) => ocid);
+
+      ref.read(equipmentSelectTabProvider.notifier).update((state) => 'item');
+      ref
+          .read(equipmentSelectCashTabProvider.notifier)
+          .update((state) => 'preset1');
+      ref
+          .read(equipmentSelectSymbolTabProvider.notifier)
+          .update((state) => 'ARC');
+
+      ref.read(statSelectTabProvider.notifier).update((state) => 'basic');
+      ref.read(hyperStatPresetProvider.notifier).update((state) => 'preset1');
+
+      ref.read(skillSelectTabProvider.notifier).update((state) => 'hexa');
+
       context.go('/character');
     }
 

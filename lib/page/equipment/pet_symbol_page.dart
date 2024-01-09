@@ -8,7 +8,7 @@ import 'package:maplespy/model/equipment/symbol_item_model.dart';
 import 'package:maplespy/page/equipment/pet_symbol/detail/pet_detail_info_page.dart';
 import 'package:maplespy/page/equipment/pet_symbol/detail/pet_detail_skill_page.dart';
 import 'package:maplespy/page/equipment/pet_symbol/symbol_info.dart';
-import 'package:maplespy/provider/equipment_pet_symbol_notifier.dart';
+import 'package:maplespy/provider/common_provider.dart';
 import 'package:maplespy/widget/detail_page/detail_select_sub_tab.dart';
 
 class PetSymbolPage extends ConsumerWidget {

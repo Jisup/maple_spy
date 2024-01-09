@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:maplespy/config/const_config.dart';
 import 'package:maplespy/container/main_container.dart';
-import 'package:maplespy/controller/common_controller.dart';
+import 'package:maplespy/controller/main_controller.dart';
 import 'package:maplespy/page/main_error_page.dart';
 import 'package:maplespy/widget/common/loading_spinner.dart';
 
@@ -42,7 +42,8 @@ class _MainHomeState extends ConsumerState<MainHomePage> {
     return GestureDetector(
       onTap: () {
         FocusScope.of(context).unfocus();
-        if (_textFieldController.text != '' && !(textFormFieldKey.currentState?.validate() ?? true)) {
+        if (_textFieldController.text != '' &&
+            !(textFormFieldKey.currentState?.validate() ?? true)) {
           _focusNode.requestFocus();
         }
       },
@@ -52,13 +53,18 @@ class _MainHomeState extends ConsumerState<MainHomePage> {
         body: Stack(
           children: [
             Container(
-              padding: EdgeInsets.only(left: DimenConfig.commonDimen * 2, right: DimenConfig.commonDimen * 2),
+              padding: EdgeInsets.only(
+                  left: DimenConfig.commonDimen * 2,
+                  right: DimenConfig.commonDimen * 2),
               child: Column(
                 children: [
                   Expanded(
                     child: Container(
                       alignment: Alignment.center,
-                      child: ref.watch(mainController.hasError) ? MainErrorPage(message: ref.watch(mainController.errorMessage)) : SizedBox.shrink(),
+                      child: ref.watch(mainController.hasError)
+                          ? MainErrorPage(
+                              message: ref.watch(mainController.errorMessage))
+                          : SizedBox.shrink(),
                     ),
                   ),
                   Expanded(
@@ -67,7 +73,8 @@ class _MainHomeState extends ConsumerState<MainHomePage> {
                       children: [
                         Expanded(
                           child: Container(
-                            margin: EdgeInsets.only(right: DimenConfig.subDimen),
+                            margin:
+                                EdgeInsets.only(right: DimenConfig.subDimen),
                             child: TextFormField(
                               key: textFormFieldKey,
                               focusNode: _focusNode,
@@ -79,11 +86,18 @@ class _MainHomeState extends ConsumerState<MainHomePage> {
                               validator: (value) {
                                 if (value == null || value.isEmpty) {
                                   return '닉네임을 입력해주세요.';
-                                } else if (value.contains(RegExp(r'[^0-9a-zA-Z가-힣]'))) {
+                                } else if (value
+                                    .contains(RegExp(r'[^0-9a-zA-Z가-힣]'))) {
                                   return '올바른 닉네임을 입력해주세요.';
-                                } else if (value.contains(RegExp(r'[0-9a-zA-Z]')) && !value.contains(RegExp(r'[가-힣]')) && value.characters.length < 4) {
+                                } else if (value
+                                        .contains(RegExp(r'[0-9a-zA-Z]')) &&
+                                    !value.contains(RegExp(r'[가-힣]')) &&
+                                    value.characters.length < 4) {
                                   return '영문과 숫자조합 닉네임은 4글자 이상 입력해주세요.';
-                                } else if (value.contains(RegExp(r'[0-9a-zA-Z]')) && value.contains(RegExp(r'[가-힣]')) && value.characters.length < 3) {
+                                } else if (value
+                                        .contains(RegExp(r'[0-9a-zA-Z]')) &&
+                                    value.contains(RegExp(r'[가-힣]')) &&
+                                    value.characters.length < 3) {
                                   return '조합된 닉네임은 3글자 이상 입력해주세요.';
                                 } else if (value.length < 2) {
                                   return '닉네임은 2글자 이상 입력해주세요.';
@@ -98,11 +112,21 @@ class _MainHomeState extends ConsumerState<MainHomePage> {
                           decoration: BoxDecoration(
                             color: colorScheme.primary,
                             border: Border.all(width: 1),
-                            borderRadius: BorderRadius.circular(RadiusConfig.subRadius),
+                            borderRadius:
+                                BorderRadius.circular(RadiusConfig.subRadius),
                           ),
                           child: GestureDetector(
                             behavior: HitTestBehavior.translucent,
-                            onTap: () => textFormFieldKey.currentState?.validate() ?? false ? {mainController.onClickSearchButton(characterName: _textFieldController.text), FocusScope.of(context).unfocus()} : _focusNode.requestFocus(),
+                            onTap: () =>
+                                textFormFieldKey.currentState?.validate() ??
+                                        false
+                                    ? {
+                                        mainController.onClickSearchButton(
+                                            characterName:
+                                                _textFieldController.text),
+                                        FocusScope.of(context).unfocus()
+                                      }
+                                    : _focusNode.requestFocus(),
                             child: Container(
                               padding: EdgeInsets.only(
                                 top: DimenConfig.commonDimen * 2,
@@ -112,7 +136,9 @@ class _MainHomeState extends ConsumerState<MainHomePage> {
                               ),
                               child: Text(
                                 '검색',
-                                style: TextStyle(color: colorScheme.onPrimary, letterSpacing: SpacingConfig.commonSpacing),
+                                style: TextStyle(
+                                    color: colorScheme.onPrimary,
+                                    letterSpacing: SpacingConfig.commonSpacing),
                               ),
                             ),
                           ),
@@ -123,7 +149,9 @@ class _MainHomeState extends ConsumerState<MainHomePage> {
                 ],
               ),
             ),
-            ref.watch(mainController.isLoading) ? LoadingSpinner() : SizedBox.shrink(),
+            ref.watch(mainController.isLoading)
+                ? LoadingSpinner()
+                : SizedBox.shrink(),
           ],
         ),
       ),

@@ -4,9 +4,8 @@ import 'package:maplespy/config/static_list_config.dart';
 import 'package:maplespy/container/main_container.dart';
 import 'package:maplespy/controller/skill_controller.dart';
 import 'package:maplespy/page/async/async_skill_page.dart';
+import 'package:maplespy/provider/common_provider.dart';
 import 'package:maplespy/widget/detail_page/detail_select_tab.dart';
-
-final skillSelectTabProvider = StateProvider((_) => 'hexa');
 
 class MainSkillPage extends ConsumerStatefulWidget {
   const MainSkillPage({super.key});

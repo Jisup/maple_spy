@@ -3,10 +3,10 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:maplespy/controller/stat_controller.dart';
 import 'package:maplespy/model/main_stat_model.dart';
 import 'package:maplespy/page/main_error_page.dart';
-import 'package:maplespy/page/main_stat_page.dart';
 import 'package:maplespy/page/stat/ability_hyper_stat_page.dart';
 import 'package:maplespy/page/stat/basic_stat_page.dart';
 import 'package:maplespy/page/stat/hexa_stat_page.dart';
+import 'package:maplespy/provider/common_provider.dart';
 
 class StatPage extends ConsumerWidget {
   const StatPage({super.key, required this.mainStat});

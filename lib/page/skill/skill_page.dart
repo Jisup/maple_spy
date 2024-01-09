@@ -4,10 +4,10 @@ import 'package:maplespy/config/const_config.dart';
 import 'package:maplespy/controller/skill_controller.dart';
 import 'package:maplespy/model/main_skill_model.dart';
 import 'package:maplespy/page/main_error_page.dart';
-import 'package:maplespy/page/main_skill_page.dart';
 import 'package:maplespy/page/skill/hexa_skill_page.dart';
 import 'package:maplespy/page/skill/link_skill_page.dart';
 import 'package:maplespy/page/skill/v_skill_page.dart';
+import 'package:maplespy/provider/common_provider.dart';
 
 class SkillPage extends ConsumerWidget {
   const SkillPage({

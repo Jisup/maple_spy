@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:maplespy/config/const_config.dart';
 import 'package:maplespy/controller/stat_controller.dart';
-import 'package:maplespy/page/stat/detail/hyper_detail_info_page.dart';
+import 'package:maplespy/provider/common_provider.dart';
 import 'package:maplespy/widget/common/custom_text_widget.dart';
 
 class HyperDetailOptionPage extends ConsumerWidget {

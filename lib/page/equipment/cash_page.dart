@@ -6,8 +6,7 @@ import 'package:maplespy/model/equipment/android_item_model.dart';
 import 'package:maplespy/model/equipment/beauty_item_model.dart';
 import 'package:maplespy/model/equipment/cash_item_model.dart';
 import 'package:maplespy/page/equipment/cash/cash_info.dart';
-
-final equipmentSelectCashTabProvider = StateProvider((_) => 'preset1');
+import 'package:maplespy/provider/common_provider.dart';
 
 class CashPage extends ConsumerWidget {
   const CashPage(

@@ -34,26 +34,40 @@ class CashPage extends ConsumerWidget {
     return Container(
       margin: EdgeInsets.only(
           left: DimenConfig.commonDimen, right: DimenConfig.commonDimen),
-      padding: EdgeInsets.only(
-          left: DimenConfig.subDimen, right: DimenConfig.subDimen),
-      child: Wrap(
-        runAlignment: WrapAlignment.center,
-        children: StaticListConfig.equipmentCashList.map((slot) {
-          return FractionallySizedBox(
-            widthFactor: 1 / 5,
-            child: AspectRatio(
-              aspectRatio: 1 / 1,
-              child: slot['name'] != null
-                  ? CashInfo(
-                      name: slot['name'],
-                      cashItem: cashList!.singleWhere(
-                          (element) =>
-                              element.cashItemEquipmentSlot == slot['slot'],
-                          orElse: () => CashItemEquipment()))
-                  : null,
+      child: LayoutBuilder(
+        builder:
+            (BuildContext childContext, BoxConstraints viewportConstraints) {
+          return ConstrainedBox(
+            constraints: BoxConstraints(
+                minWidth: viewportConstraints.maxWidth,
+                minHeight: viewportConstraints.maxHeight),
+            child: Container(
+              alignment: Alignment.center,
+              child: SingleChildScrollView(
+                child: Wrap(
+                  runAlignment: WrapAlignment.center,
+                  children: StaticListConfig.equipmentCashList.map((slot) {
+                    return FractionallySizedBox(
+                      widthFactor: 1 / 5.0125,
+                      child: AspectRatio(
+                        aspectRatio: 1 / 1,
+                        child: slot['name'] != null
+                            ? CashInfo(
+                                name: slot['name'],
+                                cashItem: cashList!.singleWhere(
+                                    (element) =>
+                                        element.cashItemEquipmentSlot ==
+                                        slot['slot'],
+                                    orElse: () => CashItemEquipment()))
+                            : null,
+                      ),
+                    );
+                  }).toList(),
+                ),
+              ),
             ),
           );
-        }).toList(),
+        },
       ),
     );
   }

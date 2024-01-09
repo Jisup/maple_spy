@@ -22,28 +22,23 @@ class CharacterInfo extends ConsumerWidget {
       //     image: AssetImage('assets/maple_mschristmas.jpg'),
       //   ),
       // ),
-      child: ClipRect(
-        // child: BackdropFilter(
-        //   filter: ImageFilter.blur(sigmaX: 5, sigmaY: 5),
-        child: Container(
-          margin: EdgeInsets.fromLTRB(
-              DimenConfig.maxDimen, 0, DimenConfig.maxDimen, 0),
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              /**-----character`s level with character`s class  */
-              CharacterInfoWidget(
-                  title: 'Lv. ${character.basic!.characterLevel!}',
-                  value: character.basic!.characterClass!,
-                  type: true),
-              /**-----image with character`s name */
-              Container(
+      child: Container(
+        margin: EdgeInsets.all(DimenConfig.maxDimen),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            /**-----character`s level with character`s class  */
+            CharacterInfoWidget(
+                title: 'Lv. ${character.basic!.characterLevel!}',
+                value: character.basic!.characterClass!,
+                type: true),
+            /**-----image with character`s name */
+            Expanded(
+              child: Container(
                 margin: EdgeInsets.all(DimenConfig.subDimen),
-                width: double.maxFinite,
                 child: Column(
                   children: [
-                    Container(
-                      width: double.maxFinite,
+                    Expanded(
                       child: Image(
                         image: NetworkImage(character.basic!.characterImage!),
                         fit: BoxFit.contain,
@@ -72,32 +67,31 @@ class CharacterInfo extends ConsumerWidget {
                   ],
                 ),
               ),
-              /**-----character`s 전투력 */
-              CharacterInfoWidget(
-                  title: '전투력',
-                  value: character.stat?.finalStat
-                          ?.singleWhere((element) => element.statName == '전투력')
-                          .statValue ??
-                      '',
-                  type: true),
-              /**-----character`s dojang */
-              CharacterInfoWidget(
-                  title: '무릉도장',
-                  value:
-                      '${character.dojang?.dojangBestFloor.toString() ?? ''}층',
-                  type: false),
-              /**-----character`s union */
-              CharacterInfoWidget(
-                  title: '유니온',
-                  value: '${character.union?.unionLevel ?? ''}',
-                  type: false),
-              /**-----character`s guild */
-              CharacterInfoWidget(
-                  title: '길드',
-                  value: character.basic?.characterGuildName ?? '',
-                  type: false),
-            ],
-          ),
+            ),
+            /**-----character`s 전투력 */
+            CharacterInfoWidget(
+                title: '전투력',
+                value: character.stat?.finalStat
+                        ?.singleWhere((element) => element.statName == '전투력')
+                        .statValue ??
+                    '',
+                type: true),
+            /**-----character`s dojang */
+            CharacterInfoWidget(
+                title: '무릉도장',
+                value: '${character.dojang?.dojangBestFloor.toString() ?? ''}층',
+                type: false),
+            /**-----character`s union */
+            CharacterInfoWidget(
+                title: '유니온',
+                value: '${character.union?.unionLevel ?? ''}',
+                type: false),
+            /**-----character`s guild */
+            CharacterInfoWidget(
+                title: '길드',
+                value: character.basic?.characterGuildName ?? '',
+                type: false),
+          ],
         ),
       ),
       // ),

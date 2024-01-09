@@ -54,13 +54,11 @@ class SymbolInfo extends ConsumerWidget {
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.spaceAround,
                   children: [
-                    Expanded(
-                      child: SymbolInfoWidget(
-                          title: symbolTab,
-                          stat: symbolTab == 'ARC'
-                              ? symbolDetail.arcaneStat.force.toString()
-                              : symbolDetail.authenticStat.force.toString()),
-                    ),
+                    SymbolInfoWidget(
+                        title: symbolTab,
+                        stat: symbolTab == 'ARC'
+                            ? symbolDetail.arcaneStat.force.toString()
+                            : symbolDetail.authenticStat.force.toString()),
                     Divider(
                       color: SymbolColor.startBorder,
                       height: DimenConfig.subDimen * 2,
@@ -68,15 +66,13 @@ class SymbolInfo extends ConsumerWidget {
                       indent: DimenConfig.subDimen * 2,
                       endIndent: DimenConfig.subDimen,
                     ),
-                    Expanded(
-                      child: SymbolInfoWidget(
-                          title: StaticSwitchConfig.switchClassMainStat(
-                            className: symbolItem.characterClass!,
-                          ),
-                          stat: symbolTab == 'ARC'
-                              ? symbolDetail.arcaneStat.statMain.toString()
-                              : symbolDetail.authenticStat.statMain.toString()),
-                    ),
+                    SymbolInfoWidget(
+                        title: StaticSwitchConfig.switchClassMainStat(
+                          className: symbolItem.characterClass!,
+                        ),
+                        stat: symbolTab == 'ARC'
+                            ? symbolDetail.arcaneStat.statMain.toString()
+                            : symbolDetail.authenticStat.statMain.toString()),
                   ],
                 ),
               ),

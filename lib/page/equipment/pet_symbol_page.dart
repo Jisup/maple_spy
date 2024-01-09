@@ -28,46 +28,58 @@ class PetSymbolPage extends ConsumerWidget {
         left: DimenConfig.commonDimen,
         right: DimenConfig.commonDimen,
       ),
-      child: Column(
-        children: [
-          /**-----pet detail info*/
-          Row(
-            children: petDetail.petList
-                .map((pet) => Expanded(child: PetDetailInfoPage(pet: pet)))
-                .toList(),
-          ),
+      child: LayoutBuilder(
+        builder:
+            (BuildContext childContext, BoxConstraints viewportConstraints) =>
+                ConstrainedBox(
+          constraints: BoxConstraints(
+              minWidth: viewportConstraints.maxWidth,
+              minHeight: viewportConstraints.maxHeight),
+          child: SingleChildScrollView(
+            child: Column(
+              children: [
+                /**-----pet detail info*/
+                Row(
+                  children: petDetail.petList
+                      .map(
+                          (pet) => Expanded(child: PetDetailInfoPage(pet: pet)))
+                      .toList(),
+                ),
 
-          /**-----pet detail skill */
-          Row(
-            children: petDetail.petList
-                .map((pet) => Expanded(
-                    child: PetDetailSkillPage(petSkill: pet.petAutoSkill!)))
-                .toList(),
-          ),
+                /**-----pet detail skill */
+                Row(
+                  children: petDetail.petList
+                      .map((pet) => Expanded(
+                          child:
+                              PetDetailSkillPage(petSkill: pet.petAutoSkill!)))
+                      .toList(),
+                ),
 
-          /**-----devider */
-          Divider(
-              height: DimenConfig.commonDimen * 2,
-              thickness: 2,
-              indent: DimenConfig.commonDimen,
-              endIndent: DimenConfig.commonDimen,
-              color: colorScheme.primary),
+                /**-----devider */
+                Divider(
+                    height: DimenConfig.commonDimen * 2,
+                    thickness: 2,
+                    indent: DimenConfig.commonDimen,
+                    endIndent: DimenConfig.commonDimen,
+                    color: colorScheme.primary),
 
-          /**-----symbol detail */
-          Table(
-            children: [
-              TableRow(
-                children: StaticListConfig.equipmentSymbolTabList
-                    .map((tab) => DetailSelectSubTab(
-                        tab: tab, provider: equipmentSelectSymbolTabProvider))
-                    .toList(),
-              ),
-            ],
+                /**-----symbol detail */
+                Table(
+                  children: [
+                    TableRow(
+                      children: StaticListConfig.equipmentSymbolTabList
+                          .map((tab) => DetailSelectSubTab(
+                              tab: tab,
+                              provider: equipmentSelectSymbolTabProvider))
+                          .toList(),
+                    ),
+                  ],
+                ),
+                SymbolInfo(symbolItem: symbol),
+              ],
+            ),
           ),
-          Expanded(
-            child: SymbolInfo(symbolItem: symbol),
-          ),
-        ],
+        ),
       ),
     );
   }

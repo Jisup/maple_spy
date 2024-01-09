@@ -24,7 +24,8 @@ class HexaSkillPage extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     ColorScheme colorScheme = Theme.of(context).colorScheme;
-    return hexaMatrix?.characterHexaCoreEquipment?.length != 0
+    return hexaMatrix?.characterHexaCoreEquipment != null &&
+            hexaMatrix?.characterHexaCoreEquipment?.length != 0
         ? Wrap(
             runSpacing: DimenConfig.commonDimen,
             children: hexaMatrix!.characterHexaCoreEquipment!.map((core) {

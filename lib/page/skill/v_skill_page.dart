@@ -7,6 +7,8 @@ import 'package:maplespy/config/static_switch_config.dart';
 import 'package:maplespy/model/skill/skill_model.dart';
 import 'package:maplespy/model/skill/v_matrix_model.dart';
 import 'package:maplespy/page/main_error_page.dart';
+import 'package:maplespy/page/skill/detail/v_detail_image_page.dart';
+import 'package:maplespy/page/skill/detail/v_detail_info_page.dart';
 import 'package:maplespy/widget/common/custom_box_decoration_widget.dart';
 import 'package:maplespy/widget/common/custom_text_widget.dart';
 
@@ -23,16 +25,10 @@ class VSkillPage extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    ColorScheme colorScheme = Theme.of(context).colorScheme;
-
-    return vSkill?.characterSkill?.length != 0
+    return vSkill?.characterSkill != null && vSkill?.characterSkill?.length != 0
         ? Wrap(
             runSpacing: DimenConfig.commonDimen,
             children: vSkill!.characterSkill!.reversed.map((skill) {
-              if (vDetail[skill.skillName] != null) {
-                print(StaticSwitchConfig.vCoreStartBackgroundColor[
-                    vDetail[skill.skillName]!.skillType]);
-              }
               return Container(
                 decoration: BoxDecoration(
                   gradient: LinearGradient(
@@ -64,110 +60,20 @@ class VSkillPage extends ConsumerWidget {
                       child: Row(
                         children: [
                           Flexible(
-                            flex: 1,
-                            fit: FlexFit.tight,
-                            child: Container(
-                              padding: EdgeInsets.all(DimenConfig.commonDimen),
-                              decoration: vDetail[skill.skillName] != null
-                                  ? customBoxDecoration(
-                                      type: 'in_out_square',
-                                      startColor: StaticSwitchConfig
-                                              .vCoreStartBackgroundColor[
-                                          vDetail[skill.skillName]!.skillType],
-                                      endColor: StaticSwitchConfig
-                                              .vCoreEndBackgroundColor[
-                                          vDetail[skill.skillName]!.skillType],
-                                      borderColor: Colors.transparent,
-                                    )
-                                  : customBoxDecoration(
-                                      type: 'no',
-                                      startColor: SkillColor.background,
-                                    ),
-
-                              /**-----skill icon */
-                              child: Image.network(
-                                skill.skillIcon!,
-                                fit: BoxFit.contain,
-                              ),
-                            ),
-                          ),
+                              flex: 1,
+                              fit: FlexFit.tight,
+                              child: VDetailImagePage(
+                                skillDetail: vDetail[skill.skillName],
+                                skillIcon: skill.skillIcon!,
+                              )),
                           Flexible(
-                            flex: 3,
-                            fit: FlexFit.tight,
-                            child: Container(
-                              margin: EdgeInsets.only(
-                                  left: DimenConfig.commonDimen),
-                              child: Column(
-                                children: [
-                                  Expanded(
-                                    child: FractionallySizedBox(
-                                      widthFactor: 1,
-                                      child: Container(
-                                        alignment: Alignment.center,
-                                        margin: EdgeInsets.only(
-                                          bottom: DimenConfig.subDimen,
-                                        ),
-                                        decoration: vDetail[skill.skillName] !=
-                                                null
-                                            ? customBoxDecoration(
-                                                type: 'in_out_bar',
-                                                startColor: StaticSwitchConfig
-                                                        .vCoreStartBackgroundColor[
-                                                    vDetail[skill.skillName]!
-                                                        .skillType],
-                                                endColor: StaticSwitchConfig
-                                                        .vCoreEndBackgroundColor[
-                                                    vDetail[skill.skillName]!
-                                                        .skillType],
-                                                borderColor: StaticSwitchConfig
-                                                        .vCoreStartBackgroundColor[
-                                                    vDetail[skill.skillName]!
-                                                        .skillType],
-                                              )
-                                            : customBoxDecoration(
-                                                type: 'in_out_bar',
-                                              ),
-
-                                        /**-----skill name */
-                                        child: CustomTextWidget(
-                                          text: skill.skillName!,
-                                          size: FontConfig.commonSize,
-                                          color: Colors.white,
-                                          subColor: colorScheme.primary,
-                                        ),
-                                      ),
-                                    ),
-                                  ),
-                                  Expanded(
-                                    child: FractionallySizedBox(
-                                      widthFactor: 1,
-                                      child: Row(
-                                        mainAxisAlignment:
-                                            MainAxisAlignment.center,
-                                        children: [
-                                          /**-----skill level */
-                                          CustomTextWidget(
-                                            text: skill.skillLevel!.toString(),
-                                            size: FontConfig.middleSize,
-                                            color: Colors.white,
-                                            subColor: colorScheme.primary,
-                                          ),
-
-                                          /**-----skill slot total level */
-                                          CustomTextWidget(
-                                            text:
-                                                '${vDetail[skill.skillName] == null || vDetail[skill.skillName]!.slotLevel == 0 ? '' : ' (+${vDetail[skill.skillName]!.slotLevel})'}',
-                                            size: FontConfig.middleSize,
-                                            color: SkillColor.background,
-                                          ),
-                                        ],
-                                      ),
-                                    ),
-                                  ),
-                                ],
-                              ),
-                            ),
-                          ),
+                              flex: 3,
+                              fit: FlexFit.tight,
+                              child: VDetailInfoPage(
+                                skillDetail: vDetail[skill.skillName],
+                                skillName: skill.skillName!,
+                                skillLevel: skill.skillLevel!.toString(),
+                              )),
                         ],
                       ),
                     ),

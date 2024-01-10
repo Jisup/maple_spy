@@ -35,53 +35,56 @@ class PetSymbolPage extends ConsumerWidget {
           constraints: BoxConstraints(
               minWidth: viewportConstraints.maxWidth,
               minHeight: viewportConstraints.maxHeight),
-          child: SingleChildScrollView(
-            child: Column(
-              children: [
-                /**-----pet detail info*/
-                Row(
-                  children: petDetail.petList
-                      .map(
-                          (pet) => Expanded(child: PetDetailInfoPage(pet: pet)))
-                      .toList(),
-                ),
-
-                /**-----pet detail skill */
-                Row(
-                  children: petDetail.petList
-                      .map((pet) => Expanded(
-                          child:
-                              PetDetailSkillPage(petSkill: pet.petAutoSkill!)))
-                      .toList(),
-                ),
-
-                /**-----devider */
-                Divider(
-                    height: DimenConfig.commonDimen * 2,
-                    thickness: 2,
-                    indent: DimenConfig.commonDimen,
-                    endIndent: DimenConfig.commonDimen,
-                    color: colorScheme.primary),
-
-                /**-----symbol detail */
-                Container(
-                  margin: EdgeInsets.only(
-                      top: DimenConfig.commonDimen,
-                      bottom: DimenConfig.commonDimen),
-                  child: Table(
-                    children: [
-                      TableRow(
-                        children: StaticListConfig.equipmentSymbolTabList
-                            .map((tab) => DetailSelectSubTab(
-                                tab: tab,
-                                provider: equipmentSelectSymbolTabProvider))
-                            .toList(),
-                      ),
-                    ],
+          child: Container(
+            alignment: Alignment.center,
+            child: SingleChildScrollView(
+              child: Column(
+                children: [
+                  /**-----pet detail info*/
+                  Row(
+                    children: petDetail.petList
+                        .map((pet) =>
+                            Expanded(child: PetDetailInfoPage(pet: pet)))
+                        .toList(),
                   ),
-                ),
-                SymbolInfo(symbolItem: symbol),
-              ],
+
+                  /**-----pet detail skill */
+                  Row(
+                    children: petDetail.petList
+                        .map((pet) => Expanded(
+                            child: PetDetailSkillPage(
+                                petSkill: pet.petAutoSkill!)))
+                        .toList(),
+                  ),
+
+                  /**-----devider */
+                  Divider(
+                      height: DimenConfig.commonDimen * 2,
+                      thickness: 2,
+                      indent: DimenConfig.commonDimen,
+                      endIndent: DimenConfig.commonDimen,
+                      color: colorScheme.primary),
+
+                  /**-----symbol detail */
+                  Container(
+                    margin: EdgeInsets.only(
+                        top: DimenConfig.commonDimen,
+                        bottom: DimenConfig.commonDimen),
+                    child: Table(
+                      children: [
+                        TableRow(
+                          children: StaticListConfig.equipmentSymbolTabList
+                              .map((tab) => DetailSelectSubTab(
+                                  tab: tab,
+                                  provider: equipmentSelectSymbolTabProvider))
+                              .toList(),
+                        ),
+                      ],
+                    ),
+                  ),
+                  SymbolInfo(symbolItem: symbol),
+                ],
+              ),
             ),
           ),
         ),

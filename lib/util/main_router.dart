@@ -5,6 +5,7 @@ import 'package:maplespy/page/equipment/item/detail/item_detail_page.dart';
 import 'package:maplespy/page/main_character_page.dart';
 import 'package:maplespy/page/main_equipment_page.dart';
 import 'package:maplespy/page/main_home_page.dart';
+import 'package:maplespy/page/main_information_page.dart';
 import 'package:maplespy/page/main_skill_page.dart';
 import 'package:maplespy/page/main_stat_page.dart';
 
@@ -19,6 +20,15 @@ GoRouter mainRouter = GoRouter(
       name: 'home',
       pageBuilder: (context, state) =>
           const NoTransitionPage(child: MainHomePage()),
+      routes: [
+        GoRoute(
+          path: 'information',
+          name: 'homeInformation',
+          pageBuilder: (context, state) => NoTransitionPage(
+            child: MainInforMationPage(),
+          ),
+        ),
+      ],
     ),
     GoRoute(
       path: '/character',

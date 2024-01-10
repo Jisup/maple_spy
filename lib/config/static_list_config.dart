@@ -11,6 +11,43 @@ class StaticListConfig {
     0.66,
     1.0,
   ];
+  static final List<dynamic> serviceInformationList = [
+    {
+      'header': '※ 본 애플리케이션은\n',
+      'main': '',
+      'footer': '상업적 용도로 이용되지 않습니다.',
+    },
+    {
+      'header': '※ 본 애플리케이션은\n',
+      'main': 'NEXON OPEN API',
+      'footer': '에서 제공되는 메이플스토리 게임 데이터를 기반으로 제작되었습니다.',
+    },
+    {
+      'header': '※ 본 애플리케이션에는\n',
+      'main': '메이플스토리가 제공',
+      'footer': '한 메이플스토리 서체가 적용되어 있습니다.',
+    },
+    {
+      'header': '※ 본 애플리케이션에는\n',
+      'main': '문화체육부의 세종대왕기념사업회가 제공',
+      'footer': '한 돋움 서체가 적용되어 있습니다.',
+    },
+    {
+      'header': '※ 본 애플리케이션의 별 이미지는\n',
+      'main': 'MaterialIcons의 Kid Star',
+      'footer': '를 참고하여 제작되었습니다.',
+    },
+    {
+      'header': '※ 본 애플리케이션의 메인 아이콘(버섯)은\n"iconfinder.com"에서\n',
+      'main': '"deviantart.com/jommans" 저작자',
+      'footer': '가 공개한 아이콘입니다.',
+    },
+    {
+      'header': '※ 본 애플리케이션의 우주 배경 이미지는\n"pixabay.com"의\n',
+      'main': '"pixabay.com/ko/users/felixmittermeier-4397258" 저작자',
+      'footer': '가 공개한 이미지입니다.',
+    },
+  ];
   /**-----Tab */
   static final List mainBottomNavigationTabList = [
     {

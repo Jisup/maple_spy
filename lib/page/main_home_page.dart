@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:go_router/go_router.dart';
 import 'package:maplespy/config/const_config.dart';
 import 'package:maplespy/container/main_container.dart';
 import 'package:maplespy/controller/main_controller.dart';
@@ -146,6 +147,35 @@ class _MainHomeState extends ConsumerState<MainHomePage> {
                       ],
                     ),
                   ),
+                  GestureDetector(
+                    onTap: () => context.push('/information'),
+                    child: Container(
+                      decoration: BoxDecoration(
+                        color: colorScheme.tertiary,
+                        border: Border.all(
+                          width: 1,
+                          color: colorScheme.tertiary,
+                        ),
+                        borderRadius:
+                            BorderRadius.circular(RadiusConfig.minRadius),
+                      ),
+                      margin:
+                          EdgeInsets.only(bottom: DimenConfig.commonDimen * 2),
+                      padding: EdgeInsets.fromLTRB(
+                        DimenConfig.commonDimen,
+                        DimenConfig.subDimen,
+                        DimenConfig.commonDimen,
+                        DimenConfig.subDimen,
+                      ),
+                      child: Text(
+                        'MapleSpy 서비스 정보',
+                        style: TextStyle(
+                            fontSize: FontConfig.commonSize,
+                            fontWeight: FontWeight.bold,
+                            letterSpacing: SpacingConfig.commonSpacing),
+                      ),
+                    ),
+                  )
                 ],
               ),
             ),

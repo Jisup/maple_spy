@@ -26,6 +26,8 @@
 
 ※ 본 애플리케이션에는 문화체육부의 세종대왕기념사업회가 제공한 서체가 적용되어 있습니다.
 
+※ 본 애플리케이션의 star_icon.png/star_deactive_icon.png는 MaterialIcons의 Kid Star를 참고하여 제작되었습니다.
+
 ※ 본 애플리케이션의 "maplespy_icon.png" 아이콘은 "https://www.iconfinder.com/"에서 "https://www.deviantart.com/jommans" 저작자가 공개한 아이콘입니다.
 
 ※ 본 애플리케이션의 "space_background.png" 이미지는 "https://pixabay.com/"의 "https://pixabay.com/ko/users/felixmittermeier-4397258/" 저작자가 공개한 이미지입니다.

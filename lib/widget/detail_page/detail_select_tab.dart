@@ -31,7 +31,10 @@ class DetailSelectTabWidget extends ConsumerWidget {
                         ref
                             .read(provider.notifier)
                             .update((state) => tab['name']);
-                        scrollController?.jumpTo(0);
+                        if (scrollController != null &&
+                            scrollController!.hasClients) {
+                          scrollController?.jumpTo(0);
+                        }
                       },
                 child: Container(
                   margin: EdgeInsets.all(DimenConfig.commonDimen),

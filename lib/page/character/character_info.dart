@@ -42,6 +42,7 @@ class CharacterInfo extends ConsumerWidget {
                       child: Image(
                         image: NetworkImage(character.basic!.characterImage!),
                         fit: BoxFit.contain,
+                        semanticLabel: '캐릭터 이미지',
                       ),
                     ),
                     FractionallySizedBox(

@@ -21,6 +21,7 @@ class MainInforMationPage extends ConsumerWidget {
             child: Icon(
               Icons.navigate_before_rounded,
               color: Colors.white,
+              semanticLabel: '뒤로 가기 버튼',
             ),
           ),
         ),

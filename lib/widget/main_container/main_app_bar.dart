@@ -18,10 +18,12 @@ AppBar mainAppBar({
         child: isHome
             ? Image(
                 image: AssetImage('assets/maplespy_icon.png'),
+                semanticLabel: 'MapleSpy 로고',
               )
             : Icon(
                 Icons.navigate_before_rounded,
                 color: Colors.white,
+                semanticLabel: '뒤로 가기 버튼',
               ),
       ),
     ),

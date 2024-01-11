@@ -59,6 +59,7 @@ class ItemDetailImagePage extends ConsumerWidget {
                   child: Image.network(
                     imageUrl,
                     fit: BoxFit.contain,
+                    semanticLabel: '아이템 이미지',
                   ),
                 ),
                 Transform.rotate(

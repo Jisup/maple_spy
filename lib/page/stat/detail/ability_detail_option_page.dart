@@ -35,6 +35,7 @@ class AbilityDetailOptionPage extends ConsumerWidget {
               Icons.lock,
               size: FontConfig.middleSize,
               color: Colors.white,
+              semanticLabel: '비 활성화',
             ),
     );
   }

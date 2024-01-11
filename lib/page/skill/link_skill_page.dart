@@ -62,6 +62,7 @@ class LinkSkillPage extends ConsumerWidget {
                               child: Image.network(
                                 skill.skillIcon!,
                                 fit: BoxFit.contain,
+                                semanticLabel: '스킬 이미지',
                               ),
                             ),
                           ),

@@ -47,6 +47,7 @@ class EquipmentSlotWidget extends ConsumerWidget {
                   child: Image(
                     image: NetworkImage(imageUrl!),
                     fit: BoxFit.contain,
+                    semanticLabel: '${name} 이미지',
                   ),
                 )
               : SizedBox.shrink(),

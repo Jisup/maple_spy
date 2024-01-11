@@ -47,7 +47,11 @@ class SymbolIconInfoWidget extends ConsumerWidget {
                   child: AspectRatio(
                     aspectRatio: 1,
                     child: imageUrl != null
-                        ? Image.network(imageUrl!, fit: BoxFit.contain)
+                        ? Image.network(
+                            imageUrl!,
+                            fit: BoxFit.contain,
+                            semanticLabel: '심볼 이미지',
+                          )
                         : null,
                   ),
                 ),

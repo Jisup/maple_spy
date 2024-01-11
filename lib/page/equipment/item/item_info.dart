@@ -76,6 +76,7 @@ class ItemInfo extends ConsumerWidget {
                     child: Image(
                       image: NetworkImage(item!.itemIcon!),
                       fit: BoxFit.contain,
+                      semanticLabel: '${item!.itemName!} 이미지',
                     ),
                   )
                 : SizedBox.shrink(),

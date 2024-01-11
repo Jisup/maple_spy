@@ -48,6 +48,7 @@ class CashInfo extends ConsumerWidget {
                   child: Image(
                     image: NetworkImage(cashItem.cashItemIcon!),
                     fit: BoxFit.contain,
+                    semanticLabel: '${cashItem.cashItemName} 이미지',
                   ),
                 )
               : SizedBox.shrink(),

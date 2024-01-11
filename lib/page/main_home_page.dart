@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import 'package:maplespy/config/const_config.dart';
@@ -84,6 +85,15 @@ class _MainHomeState extends ConsumerState<MainHomePage> {
                                 border: OutlineInputBorder(),
                                 labelText: '닉네임',
                               ),
+                              inputFormatters: [
+                                TextInputFormatter.withFunction(
+                                    (oldValue, newValue) {
+                                  return newValue.text.contains(
+                                          RegExp(r'[^0-9a-zA-Zㄱ-ㅎ가-힣]'))
+                                      ? oldValue
+                                      : newValue;
+                                })
+                              ],
                               validator: (value) {
                                 if (value == null || value.isEmpty) {
                                   return '닉네임을 입력해주세요.';

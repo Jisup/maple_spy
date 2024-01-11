@@ -82,6 +82,6 @@ class VSkillPage extends ConsumerWidget {
               );
             }).toList(),
           )
-        : MainErrorPage(message: 'V 코어\n정보가 없어요!');
+        : MainErrorPage(message: ErrorMessageConfig.vSkillPageVariableError);
   }
 }

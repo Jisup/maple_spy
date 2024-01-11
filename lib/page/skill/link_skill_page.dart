@@ -120,6 +120,6 @@ class LinkSkillPage extends ConsumerWidget {
               );
             }).toList(),
           )
-        : MainErrorPage(message: '링크 스킬\n정보가 없어요!');
+        : MainErrorPage(message: ErrorMessageConfig.linkSkillPageVariableError);
   }
 }

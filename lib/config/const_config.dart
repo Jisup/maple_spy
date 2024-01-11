@@ -41,3 +41,22 @@ class SpacingConfig {
   static double maxSpacing = 4;
   static double minSpacing = 0.1;
 }
+
+class ErrorMessageConfig {
+  static String characterPageRequestError = '캐릭터 기본 정보를\n불러오는데 실패했어요!ㅠㅠ';
+
+  static String equipmentPageError = '장비 페이지에\n문제가 발생했어요!ㅠㅠ';
+  static String itemPageRequestError = '장비 아이템 정보를\n불러오는데 실패했어요!ㅠㅠ';
+  static String cashPageRequestError = '캐시 아이템 정보를\n불러오는데 실패했어요!ㅠㅠ';
+  static String petSymbolRequestPageError = '펫/심볼 아이템 정보를\n불러오는데 실패했어요!ㅠㅠ';
+
+  static String skillPageError = '스킬 페이지에\n문제가 발생했어요!ㅠㅠ';
+  static String skillPageRequestError = '스킬 정보를\n불러오는데 실패했어요!ㅠㅠ';
+  static String hexaSkillPageVariableError = 'Hexa 코어\n정보가 없어요!';
+  static String vSkillPageVariableError = 'V 코어\n정보가 없어요!';
+  static String linkSkillPageVariableError = '링크 스킬\n정보가 없어요!';
+
+  static String statPageError = '스탯 페이지에\n문제가 발생했어요!ㅠㅠ';
+  static String statPageRequestError = '스탯 정보를\n불러오는데 실패했어요!ㅠㅠ';
+  static String hexaStatPageVariableError = 'HEXA 스탯\n정보가 존재하지 않아요!';
+}

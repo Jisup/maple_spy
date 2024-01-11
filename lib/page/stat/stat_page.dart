@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:maplespy/config/const_config.dart';
 import 'package:maplespy/controller/stat_controller.dart';
 import 'package:maplespy/model/main_stat_model.dart';
 import 'package:maplespy/page/main_error_page.dart';
@@ -23,7 +24,7 @@ class StatPage extends ConsumerWidget {
       'basic' => BasicStatPage(),
       'hexa' => HexaStatPage(),
       'ability_hyper' => AbilityHyperStatPage(),
-      _ => MainErrorPage(message: 'stat select tab\nhas something error'),
+      _ => MainErrorPage(message: ErrorMessageConfig.statPageError),
     };
   }
 }

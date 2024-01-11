@@ -25,13 +25,25 @@ class EquipmentPetSymbolNotifier
     dioInstance.dio.options.queryParameters = {'ocid': ocid, 'date': yesterday};
 
     /**pet equipment */
-    Response petItemResponse =
-        await dioInstance.dio.get(dotenv.get('MAPLESTORY_PET_PATH'));
-    PetItem petItem = PetItem.fromJson(petItemResponse.data);
+    Response petItemResponse;
+    PetItem petItem;
+    try {
+      petItemResponse =
+          await dioInstance.dio.get(dotenv.get('MAPLESTORY_PET_PATH'));
+      petItem = PetItem.fromJson(petItemResponse.data);
+    } on DioException catch (e) {
+      throw Error();
+    }
     /**symbol equipment */
-    Response symbolItemResponse =
-        await dioInstance.dio.get(dotenv.get('MAPLESTORY_SYMBOL_PATH'));
-    SymbolItem symbolItem = SymbolItem.fromJson(symbolItemResponse.data);
+    Response symbolItemResponse;
+    SymbolItem symbolItem;
+    try {
+      symbolItemResponse =
+          await dioInstance.dio.get(dotenv.get('MAPLESTORY_SYMBOL_PATH'));
+      symbolItem = SymbolItem.fromJson(symbolItemResponse.data);
+    } on DioException catch (e) {
+      throw Error();
+    }
 
     return MainEquipmentPetSymbol(pet: petItem, symbol: symbolItem);
   }

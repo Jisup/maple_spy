@@ -10,9 +10,12 @@ import 'package:maplespy/provider/common_provider.dart';
 import 'package:maplespy/util/day_instance.dart';
 import 'package:maplespy/util/dio_instance.dart';
 
-final asyncEquipmentItemProvider = AutoDisposeAsyncNotifierProvider<EquipmentItemNotifier, MainEquipmentItem>(EquipmentItemNotifier.new);
+final asyncEquipmentItemProvider =
+    AutoDisposeAsyncNotifierProvider<EquipmentItemNotifier, MainEquipmentItem>(
+        EquipmentItemNotifier.new);
 
-class EquipmentItemNotifier extends AutoDisposeAsyncNotifier<MainEquipmentItem> {
+class EquipmentItemNotifier
+    extends AutoDisposeAsyncNotifier<MainEquipmentItem> {
   Future<MainEquipmentItem> _fetchItem() async {
     final dioInstance = DioInstance();
 
@@ -22,11 +25,25 @@ class EquipmentItemNotifier extends AutoDisposeAsyncNotifier<MainEquipmentItem> 
     dioInstance.dio.options.queryParameters = {'ocid': ocid, 'date': yesterday};
 
     /**item equipment */
-    Response itemResponse = await dioInstance.dio.get(dotenv.get('MAPLESTORY_ITEM_PATH'));
-    Item item = Item.fromJson(itemResponse.data);
+    Response itemResponse;
+    Item item;
+    try {
+      itemResponse =
+          await dioInstance.dio.get(dotenv.get('MAPLESTORY_ITEM_PATH'));
+      item = Item.fromJson(itemResponse.data);
+    } on DioException catch (e) {
+      throw Error();
+    }
     /**set effect equipment */
-    Response itemSetEffectResponse = await dioInstance.dio.get(dotenv.get('MAPLESTORY_SETEFFECT_PATH'));
-    ItemSetEffect itemSetEffect = ItemSetEffect.fromJson(itemSetEffectResponse.data);
+    Response itemSetEffectResponse;
+    ItemSetEffect itemSetEffect;
+    try {
+      itemSetEffectResponse =
+          await dioInstance.dio.get(dotenv.get('MAPLESTORY_SETEFFECT_PATH'));
+      itemSetEffect = ItemSetEffect.fromJson(itemSetEffectResponse.data);
+    } on DioException catch (e) {
+      throw Error();
+    }
 
     return MainEquipmentItem(
       item: item,

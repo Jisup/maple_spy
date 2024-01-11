@@ -14,7 +14,9 @@ import 'package:maplespy/provider/common_provider.dart';
 import 'package:maplespy/util/day_instance.dart';
 import 'package:maplespy/util/dio_instance.dart';
 
-final asyncCharacterProvider = AutoDisposeAsyncNotifierProvider<CharacterNotifier, MainCharacter>(CharacterNotifier.new);
+final asyncCharacterProvider =
+    AutoDisposeAsyncNotifierProvider<CharacterNotifier, MainCharacter>(
+        CharacterNotifier.new);
 
 class CharacterNotifier extends AutoDisposeAsyncNotifier<MainCharacter> {
   Future<MainCharacter> _fetchCharacter() async {
@@ -25,25 +27,65 @@ class CharacterNotifier extends AutoDisposeAsyncNotifier<MainCharacter> {
 
     dioInstance.dio.options.queryParameters = {'ocid': ocid, 'date': yesterday};
     /**-----basic*/
-    Response basicResponse = await dioInstance.dio.get(dotenv.get('MAPLESTORY_BASIC_PATH'));
-    Basic basic = Basic.fromJson(basicResponse.data);
+    Response basicResponse;
+    Basic basic;
+    try {
+      basicResponse =
+          await dioInstance.dio.get(dotenv.get('MAPLESTORY_BASIC_PATH'));
+      basic = Basic.fromJson(basicResponse.data);
+    } on DioException catch (e) {
+      throw Error();
+    }
     /**-----dojang*/
-    Response dojangResponse = await dioInstance.dio.get(dotenv.get('MAPLESTORY_DOJANG_PATH'));
-    Dojang dojang = Dojang.fromJson(dojangResponse.data);
+    Response dojangResponse;
+    Dojang dojang;
+    try {
+      dojangResponse =
+          await dioInstance.dio.get(dotenv.get('MAPLESTORY_DOJANG_PATH'));
+      dojang = Dojang.fromJson(dojangResponse.data);
+    } on DioException catch (e) {
+      throw Error();
+    }
     /**-----popularity*/
-    // Response popularityResponse =
-    //     await dioInstance.dio.get(dotenv.get('MAPLESTORY_POPULARITY_PATH'));
-    // Popularity popularity = Popularity.fromJson(popularityResponse.data);
+    // Response popularityResponse;
+    // Popularity popularity;
+    // try {
+    //   popularityResponse =
+    //       await dioInstance.dio.get(dotenv.get('MAPLESTORY_POPULARITY_PATH'));
+    //   popularity = Popularity.fromJson(popularityResponse.data);
+    // } on DioException catch (e) {
+    //   throw Error();
+    // }
     /**-----propensity*/
-    // Response propensityResponse =
-    //     await dioInstance.dio.get(dotenv.get('MAPLESTORY_PROPENSITY_PATH'));
-    // Propensity propensity = Propensity.fromJson(propensityResponse.data);
+    // Response propensityResponse;
+    // Propensity propensity;
+    // try {
+    //   propensityResponse =
+    //       await dioInstance.dio.get(dotenv.get('MAPLESTORY_PROPENSITY_PATH'));
+    //   propensity = Propensity.fromJson(propensityResponse.data);
+    // } on DioException catch (e) {
+    //   throw Error();
+    // }
     /**-----stat */
-    Response statResponse = await dioInstance.dio.get(dotenv.get('MAPLESTORY_STAT_PATH'));
-    Stat stat = Stat.fromJson(statResponse.data);
+    Response statResponse;
+    Stat stat;
+    try {
+      statResponse =
+          await dioInstance.dio.get(dotenv.get('MAPLESTORY_STAT_PATH'));
+      stat = Stat.fromJson(statResponse.data);
+    } on DioException catch (e) {
+      throw Error();
+    }
     /**-----union */
-    Response unionResponse = await dioInstance.dio.get(dotenv.get('MAPLESTORY_UNION_PATH'));
-    Union union = Union.fromJson(unionResponse.data);
+    Response unionResponse;
+    Union union;
+    try {
+      unionResponse =
+          await dioInstance.dio.get(dotenv.get('MAPLESTORY_UNION_PATH'));
+      union = Union.fromJson(unionResponse.data);
+    } on DioException catch (e) {
+      throw Error();
+    }
 
     return MainCharacter(
       basic: basic,

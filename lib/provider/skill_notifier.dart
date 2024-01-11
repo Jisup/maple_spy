@@ -12,7 +12,9 @@ import 'package:maplespy/provider/common_provider.dart';
 import 'package:maplespy/util/day_instance.dart';
 import 'package:maplespy/util/dio_instance.dart';
 
-final asyncSkillProvider = AutoDisposeAsyncNotifierProvider<SkillNotifier, MainSkill>(SkillNotifier.new);
+final asyncSkillProvider =
+    AutoDisposeAsyncNotifierProvider<SkillNotifier, MainSkill>(
+        SkillNotifier.new);
 
 class SkillNotifier extends AutoDisposeAsyncNotifier<MainSkill> {
   Future<MainSkill> _fetchSkill() async {
@@ -24,24 +26,69 @@ class SkillNotifier extends AutoDisposeAsyncNotifier<MainSkill> {
     dioInstance.dio.options.queryParameters = {'ocid': ocid, 'date': yesterday};
 
     /**-----link skill */
-    Response linkSkillResponse = await dioInstance.dio.get(dotenv.get('MAPLESTORY_LINKSKILL_PATH'));
-    LinkSkill linkSkill = LinkSkill.fromJson(linkSkillResponse.data);
+    Response linkSkillResponse;
+    LinkSkill linkSkill;
+    try {
+      linkSkillResponse =
+          await dioInstance.dio.get(dotenv.get('MAPLESTORY_LINKSKILL_PATH'));
+      linkSkill = LinkSkill.fromJson(linkSkillResponse.data);
+    } on DioException catch (e) {
+      throw Error();
+    }
+
     /**-----v matrix */
-    Response vMatrixResponse = await dioInstance.dio.get(dotenv.get('MAPLESTORY_VMATRIX_PATH'));
-    VMatrix vMatrix = VMatrix.fromJson(vMatrixResponse.data);
+    Response vMatrixResponse;
+    VMatrix vMatrix;
+    try {
+      vMatrixResponse =
+          await dioInstance.dio.get(dotenv.get('MAPLESTORY_VMATRIX_PATH'));
+      vMatrix = VMatrix.fromJson(vMatrixResponse.data);
+    } on DioException catch (e) {
+      throw Error();
+    }
+
     /**-----hexa matrix */
-    Response hexaMatrixResponse = await dioInstance.dio.get(dotenv.get('MAPLESTORY_HEXAMATRIX_PATH'));
-    HexaMatrix hexaMatrix = HexaMatrix.fromJson(hexaMatrixResponse.data);
+    Response hexaMatrixResponse;
+    HexaMatrix hexaMatrix;
+    try {
+      hexaMatrixResponse =
+          await dioInstance.dio.get(dotenv.get('MAPLESTORY_HEXAMATRIX_PATH'));
+      hexaMatrix = HexaMatrix.fromJson(hexaMatrixResponse.data);
+    } on DioException catch (e) {
+      throw Error();
+    }
 
     /**-----v skill */
-    dioInstance.dio.options.queryParameters = {'ocid': ocid, 'date': yesterday, 'character_skill_grade': 5};
-    Response vSkillResponse = await dioInstance.dio.get(dotenv.get('MAPLESTORY_SKILL_PATH'));
-    Skill vSkill = Skill.fromJson(vSkillResponse.data);
+    dioInstance.dio.options.queryParameters = {
+      'ocid': ocid,
+      'date': yesterday,
+      'character_skill_grade': 5
+    };
+    Response vSkillResponse;
+    Skill vSkill;
+    try {
+      vSkillResponse =
+          await dioInstance.dio.get(dotenv.get('MAPLESTORY_SKILL_PATH'));
+      vSkill = Skill.fromJson(vSkillResponse.data);
+    } on DioException catch (e) {
+      throw Error();
+    }
 
     /**-----hexa skill */
-    dioInstance.dio.options.queryParameters = {'ocid': ocid, 'date': yesterday, 'character_skill_grade': 6};
-    Response hexaSkillResponse = await dioInstance.dio.get(dotenv.get('MAPLESTORY_SKILL_PATH'));
-    Skill hexaSkill = Skill.fromJson(hexaSkillResponse.data);
+    dioInstance.dio.options.queryParameters = {
+      'ocid': ocid,
+      'date': yesterday,
+      'character_skill_grade': 6
+    };
+    Response hexaSkillResponse;
+    Skill hexaSkill;
+    try {
+      hexaSkillResponse =
+          await dioInstance.dio.get(dotenv.get('MAPLESTORY_SKILL_PATH'));
+      hexaSkill = Skill.fromJson(hexaSkillResponse.data);
+    } on DioException catch (e) {
+      throw Error();
+    }
 
     return MainSkill(
       skill: Skill(),

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:maplespy/config/const_config.dart';
 import 'package:maplespy/page/equipment/item_page.dart';
 import 'package:maplespy/page/main_error_page.dart';
 import 'package:maplespy/provider/equipment_item_notifier.dart';
@@ -14,8 +15,8 @@ class AsyncItemPage extends ConsumerWidget {
 
     return switch (asyncItem) {
       AsyncData(:final value) => ItemPage(item: value.item),
-      AsyncError(:final error) =>
-        MainErrorPage(message: 'equipment item request\nhas somthing Error'),
+      AsyncError() =>
+        MainErrorPage(message: ErrorMessageConfig.itemPageRequestError),
       _ => LoadingSpinner()
     };
   }

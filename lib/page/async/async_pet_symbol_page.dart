@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:maplespy/config/const_config.dart';
 import 'package:maplespy/page/equipment/pet_symbol_page.dart';
 import 'package:maplespy/page/main_error_page.dart';
 import 'package:maplespy/provider/equipment_pet_symbol_notifier.dart';
@@ -15,8 +16,8 @@ class AsyncPetSymbolPage extends ConsumerWidget {
     return switch (asyncPetSymbol) {
       AsyncData(:final value) =>
         PetSymbolPage(pet: value.pet!, symbol: value.symbol!),
-      AsyncError(:final error) => MainErrorPage(
-          message: 'equipment pet/symbol request\nhas something error'),
+      AsyncError() =>
+        MainErrorPage(message: ErrorMessageConfig.petSymbolRequestPageError),
       _ => LoadingSpinner(),
     };
   }

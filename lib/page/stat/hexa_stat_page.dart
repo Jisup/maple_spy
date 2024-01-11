@@ -34,6 +34,6 @@ class HexaStatPage extends ConsumerWidget {
               ),
             ),
           )
-        : MainErrorPage(message: 'HEXA 스탯\n정보가 존재하지 않아요!');
+        : MainErrorPage(message: ErrorMessageConfig.hexaStatPageVariableError);
   }
 }

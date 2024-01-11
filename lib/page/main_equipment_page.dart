@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:maplespy/config/const_config.dart';
 import 'package:maplespy/config/static_list_config.dart';
 import 'package:maplespy/container/main_container.dart';
 import 'package:maplespy/page/main_error_page.dart';
@@ -28,7 +29,8 @@ class MainEquipmentPage extends ConsumerWidget {
               'item' => AsyncItemPage(),
               'cash' => AsyncCashPage(),
               'pet/symbol' => AsyncPetSymbolPage(),
-              _ => MainErrorPage(message: 'equipment select tab move error'),
+              _ =>
+                MainErrorPage(message: ErrorMessageConfig.equipmentPageError),
             },
           ),
         ],

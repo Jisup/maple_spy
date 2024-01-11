@@ -50,8 +50,7 @@ class SkillPage extends ConsumerWidget {
                   vMatrix: mainSkill.vMatrix,
                 ),
               'link' => LinkSkillPage(link: mainSkill.link),
-              _ =>
-                MainErrorPage(message: 'skill select tab\nhas something error'),
+              _ => MainErrorPage(message: ErrorMessageConfig.skillPageError),
             },
           ),
         ),

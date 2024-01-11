@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:maplespy/config/const_config.dart';
 import 'package:maplespy/page/equipment/cash_page.dart';
 import 'package:maplespy/page/main_error_page.dart';
 import 'package:maplespy/provider/equipment_cash_notifier.dart';
@@ -18,8 +19,8 @@ class AsyncCashPage extends ConsumerWidget {
           beauty: value.beauty,
           android: value.android,
         ),
-      AsyncError(:final error) =>
-        MainErrorPage(message: 'equipment item request\nhas somthing Error'),
+      AsyncError() =>
+        MainErrorPage(message: ErrorMessageConfig.cashPageRequestError),
       _ => LoadingSpinner()
     };
   }

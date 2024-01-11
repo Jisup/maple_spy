@@ -157,6 +157,6 @@ class HexaSkillPage extends ConsumerWidget {
               );
             }).toList(),
           )
-        : MainErrorPage(message: 'Hexa 코어\n정보가 없어요!');
+        : MainErrorPage(message: ErrorMessageConfig.hexaSkillPageVariableError);
   }
 }

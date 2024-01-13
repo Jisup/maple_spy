@@ -5,8 +5,8 @@ import 'package:maplespy/model/equipment/pet/pet_detail_model.dart';
 import 'package:maplespy/widget/common/custom_text_widget.dart';
 import 'package:maplespy/widget/equipment/equipment_slot_widget.dart';
 
-class PetDetailSkillPage extends ConsumerWidget {
-  const PetDetailSkillPage({super.key, required this.petSkill});
+class PetSkillPage extends ConsumerWidget {
+  const PetSkillPage({super.key, required this.petSkill});
 
   final List<PetSkill> petSkill;
 

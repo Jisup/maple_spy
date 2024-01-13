@@ -5,9 +5,9 @@ import 'package:maplespy/config/static_list_config.dart';
 import 'package:maplespy/model/equipment/pet/pet_detail_model.dart';
 import 'package:maplespy/model/equipment/pet_item_model.dart';
 import 'package:maplespy/model/equipment/symbol_item_model.dart';
-import 'package:maplespy/page/equipment/pet_symbol/detail/pet_detail_info_page.dart';
-import 'package:maplespy/page/equipment/pet_symbol/detail/pet_detail_skill_page.dart';
-import 'package:maplespy/page/equipment/pet_symbol/symbol_info.dart';
+import 'package:maplespy/page/equipment/pet_symbol/pet/pet_info_page.dart';
+import 'package:maplespy/page/equipment/pet_symbol/pet/pet_skill_page.dart';
+import 'package:maplespy/page/equipment/pet_symbol/symbol_page.dart';
 import 'package:maplespy/provider/common_provider.dart';
 import 'package:maplespy/widget/detail_page/detail_select_sub_tab.dart';
 
@@ -43,8 +43,7 @@ class PetSymbolPage extends ConsumerWidget {
                   /**-----pet detail info*/
                   Row(
                     children: petDetail.petList
-                        .map((pet) =>
-                            Expanded(child: PetDetailInfoPage(pet: pet)))
+                        .map((pet) => Expanded(child: PetInfoPage(pet: pet)))
                         .toList(),
                   ),
 
@@ -52,8 +51,7 @@ class PetSymbolPage extends ConsumerWidget {
                   Row(
                     children: petDetail.petList
                         .map((pet) => Expanded(
-                            child: PetDetailSkillPage(
-                                petSkill: pet.petAutoSkill!)))
+                            child: PetSkillPage(petSkill: pet.petAutoSkill!)))
                         .toList(),
                   ),
 
@@ -82,7 +80,7 @@ class PetSymbolPage extends ConsumerWidget {
                       ],
                     ),
                   ),
-                  SymbolInfo(symbolItem: symbol),
+                  SymbolPage(symbolItem: symbol),
                 ],
               ),
             ),

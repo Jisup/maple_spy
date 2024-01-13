@@ -3,8 +3,8 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:maplespy/config/const_config.dart';
 import 'package:maplespy/widget/common/custom_text_widget.dart';
 
-class SymbolInfoWidget extends ConsumerWidget {
-  const SymbolInfoWidget({super.key, required this.title, required this.stat});
+class SymbolInfoPage extends ConsumerWidget {
+  const SymbolInfoPage({super.key, required this.title, required this.stat});
 
   final String title;
   final String stat;

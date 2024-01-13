@@ -5,8 +5,8 @@ import 'package:maplespy/config/color_config.dart';
 import 'package:maplespy/config/const_config.dart';
 import 'package:maplespy/widget/common/custom_text_widget.dart';
 
-class SymbolIconInfoWidget extends ConsumerWidget {
-  const SymbolIconInfoWidget(
+class SymbolImagePage extends ConsumerWidget {
+  const SymbolImagePage(
       {super.key, required this.imageUrl, required this.level});
 
   final String? imageUrl;

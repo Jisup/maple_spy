@@ -6,12 +6,12 @@ import 'package:maplespy/config/static_list_config.dart';
 import 'package:maplespy/config/static_switch_config.dart';
 import 'package:maplespy/model/equipment/symbol/symbol_detail_model.dart';
 import 'package:maplespy/model/equipment/symbol_item_model.dart';
-import 'package:maplespy/page/equipment/pet_symbol/detail/symbol_detail_icon.dart';
-import 'package:maplespy/page/equipment/pet_symbol/detail/symbol_detail_info.dart';
+import 'package:maplespy/page/equipment/pet_symbol/symbol/symbol_image_page.dart';
+import 'package:maplespy/page/equipment/pet_symbol/symbol/symbol_info_page.dart';
 import 'package:maplespy/provider/common_provider.dart';
 
-class SymbolInfo extends ConsumerWidget {
-  const SymbolInfo({super.key, required this.symbolItem});
+class SymbolPage extends ConsumerWidget {
+  const SymbolPage({super.key, required this.symbolItem});
 
   final SymbolItem symbolItem;
 
@@ -54,7 +54,7 @@ class SymbolInfo extends ConsumerWidget {
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.spaceAround,
                   children: [
-                    SymbolInfoWidget(
+                    SymbolInfoPage(
                         title: symbolTab,
                         stat: symbolTab == 'ARC'
                             ? symbolDetail.arcaneStat.force.toString()
@@ -66,7 +66,7 @@ class SymbolInfo extends ConsumerWidget {
                       indent: DimenConfig.subDimen * 2,
                       endIndent: DimenConfig.subDimen,
                     ),
-                    SymbolInfoWidget(
+                    SymbolInfoPage(
                         title: StaticSwitchConfig.switchClassMainStat(
                           className: symbolItem.characterClass!,
                         ),
@@ -94,7 +94,7 @@ class SymbolInfo extends ConsumerWidget {
                       .singleWhere(
                           (element) => element.symbolName == tab['name'],
                           orElse: () => Symbol());
-                  return SymbolIconInfoWidget(
+                  return SymbolImagePage(
                       imageUrl: symbol.symbolIcon, level: symbol.symbolLevel);
                 }).toList(),
               ),

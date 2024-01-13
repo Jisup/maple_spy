@@ -3,14 +3,11 @@ import 'package:flutter_inset_box_shadow/flutter_inset_box_shadow.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:maplespy/config/color_config.dart';
 import 'package:maplespy/config/const_config.dart';
-import 'package:maplespy/config/static_switch_config.dart';
 import 'package:maplespy/model/skill/skill_model.dart';
 import 'package:maplespy/model/skill/v_matrix_model.dart';
 import 'package:maplespy/page/main_error_page.dart';
 import 'package:maplespy/page/skill/detail/v_detail_image_page.dart';
 import 'package:maplespy/page/skill/detail/v_detail_info_page.dart';
-import 'package:maplespy/widget/common/custom_box_decoration_widget.dart';
-import 'package:maplespy/widget/common/custom_text_widget.dart';
 
 class VSkillPage extends ConsumerWidget {
   const VSkillPage(

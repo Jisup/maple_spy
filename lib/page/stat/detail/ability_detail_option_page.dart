@@ -20,7 +20,7 @@ class AbilityDetailOptionPage extends ConsumerWidget {
       decoration: BoxDecoration(
         color: ability?.abilityGrade != null
             ? StaticSwitchConfig.statBackgroundColor[ability!.abilityGrade!]
-            : StatColor.statBackgroundColor,
+            : StatColor.statBackground,
         borderRadius: BorderRadius.circular(RadiusConfig.minRadius),
       ),
       child: ability?.abilityValue != null

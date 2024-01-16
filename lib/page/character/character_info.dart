@@ -50,7 +50,7 @@ class CharacterInfo extends ConsumerWidget {
                       child: Container(
                         padding: EdgeInsets.all(DimenConfig.subDimen),
                         decoration: BoxDecoration(
-                            color: CommonColor.infoMainColor,
+                            color: CommonColor.infoMain,
                             borderRadius: BorderRadius.horizontal(
                               left: Radius.circular(RadiusConfig.commonRadius),
                               right: Radius.circular(RadiusConfig.commonRadius),

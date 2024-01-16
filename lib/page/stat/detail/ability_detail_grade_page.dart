@@ -29,7 +29,7 @@ class AbilityDetailGradePage extends ConsumerWidget {
                     StaticSwitchConfig.statEndBackgroundColor[grade]!,
                   ])
             : null,
-        color: grade == null ? StatColor.statBackgroundColor : null,
+        color: grade == null ? StatColor.statBackground : null,
         border: grade != null
             ? Border.all(color: StaticSwitchConfig.statBorderColor[grade]!)
             : null,

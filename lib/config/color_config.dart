@@ -19,10 +19,10 @@ const lightColorScheme = ColorScheme(
 // const darkColorscheme = ColorScheme();
 
 class CommonColor {
-  static const Color mainColor = Color(0xFFf68500);
-  static const Color subColor = Color(0xFF3b75d2);
-  static const Color infoMainColor = Color(0xFF3cc1d7);
-  static const Color infoSubColor = Color(0xFFa2cc11);
+  static const Color main = Color(0xFFf68500);
+  static const Color sub = Color(0xFF3b75d2);
+  static const Color infoMain = Color(0xFF3cc1d7);
+  static const Color infoSub = Color(0xFFa2cc11);
 }
 
 class ItemColor {
@@ -94,6 +94,15 @@ class ItemColor {
   // static const Color exceptionalOptionText = Color(0xFF); // 익셉셔널 옵션 텍스트
 }
 
+class CashItemColor {
+  static const Color masterLabelText = Color(0xFF005599); // 마스터 라벨 텍스트
+  static const Color blackLabelText = Color(0xFFffcc00); // 블랙 라벨 텍스트
+  static const Color redLabelText = Color(0xFFff0066); // 레드 라벨 텍스트
+  static const Color specialLabelText = Color(0xFFBBBBBB); // 스페셜 라벨 텍스트
+
+  static const Color masterLabelOption = Color(0xFFF1F140); // 마스터 라벨 옵션
+}
+
 class SymbolColor {
   static const Color startBorder = Color(0xFFf1e2a7); // 공통 장착 시작 테두리
   static const Color endBorder = Color(0xFFd9b47d); // 공통 장착 끝 테두리
@@ -157,54 +166,46 @@ class SkillColor {
 }
 
 class StatColor {
-  static const Color statTitleColor = Color(0xFFDDFF00); // 스탯 제목 색상
-  static const Color statBackgroundColor = Color(0xFF6B7785); // 스텟 배경 색상
-  static const Color dividerColor = Color(0xFFf1e2a7); // 스텟 나눔 막대 색상
+  static const Color statTitle = Color(0xFFDDFF00); // 스탯 제목 색상
+  static const Color statBackground = Color(0xFF6B7785); // 스텟 배경 색상
+  static const Color divider = Color(0xFFf1e2a7); // 스텟 나눔 막대 색상
 
-  static const Color statRareBackgroundColor = Color(0xFF36b8d0); // 스텟 레어 배경 색상
+  static const Color statRareBackground = Color(0xFF36b8d0); // 스텟 레어 배경 색상
 
-  static const Color statEpicBackgroundColor = Color(0xFF7f66d3); // 스텟 에픽 배경 색상
-  static const Color statEpicStartBackgroundColor =
+  static const Color statEpicBackground = Color(0xFF7f66d3); // 스텟 에픽 배경 색상
+  static const Color statEpicStartBackground =
       Color(0xFF7D64D0); // 스텟 에픽 시작 배경 색상
-  static const Color statEpicEndBackgroundColor =
-      Color(0xFF6751B3); // 스텟 에픽 끝 배경 색상
-  static const Color statEpicBorderColor = Color(0xFF55419B); // 스텟 에픽 그림자 색상
+  static const Color statEpicEndBackground = Color(0xFF6751B3); // 스텟 에픽 끝 배경 색상
+  static const Color statEpicBorder = Color(0xFF55419B); // 스텟 에픽 그림자 색상
 
-  static const Color statUniqueBackgroundColor =
-      Color(0xFFe89c09); // 스텟 유니크 배경 색상
-  static const Color statUniqueStartBackgroundColor =
+  static const Color statUniqueBackground = Color(0xFFe89c09); // 스텟 유니크 배경 색상
+  static const Color statUniqueStartBackground =
       Color(0xFFf2b40e); // 스텟 유니크 시작 배경 색상
-  static const Color statUniqueEndBackgroundColor =
+  static const Color statUniqueEndBackground =
       Color(0xFFe89d09); // 스텟 유니크 끝 배경 색상
-  static const Color statUniqueBorderColor = Color(0xFFBA7C04); // 스텟 유니크 그림자 색상
+  static const Color statUniqueBorder = Color(0xFFBA7C04); // 스텟 유니크 그림자 색상
 
-  static const Color statLegendaryBackgroundColor =
-      Color(0xFFa4c700); // 스텟 레전드리 색상
-  static const Color statLegendaryStartBackgroundColor =
+  static const Color statLegendaryBackground = Color(0xFFa4c700); // 스텟 레전드리 색상
+  static const Color statLegendaryStartBackground =
       Color(0xFFA4C206); // 스텟 레전드리 시작 배경 색상
-  static const Color statLegendaryEndBackgroundColor =
+  static const Color statLegendaryEndBackground =
       Color(0xFF84A811); // 스텟 레전드리 끝 배경 색상
-  static const Color statLegendaryBorderColor =
-      Color(0xFF5D8D0A); // 스텟 레전드리 그림자 색상
+  static const Color statLegendaryBorder = Color(0xFF5D8D0A); // 스텟 레전드리 그림자 색상
 
-  static const Color statHexaStartBackgroundColor =
+  static const Color statHexaStartBackground =
       Color(0xFF182848); // 헥사 스텟 시작 배경 색상
-  static const Color statHexaMiddleBackgroundColor =
+  static const Color statHexaMiddleBackground =
       Color(0xFF373577); // 헥사 스텟 중간 배경 색상
-  static const Color statHexaEndBackgroundColor =
-      Color(0xFF224466); // 헥사 스텟 끝 배경 색상
+  static const Color statHexaEndBackground = Color(0xFF224466); // 헥사 스텟 끝 배경 색상
 
-  static const Color statHexaStartTextColor =
-      Color(0xFF51859C); // 헥사 스텟 시작 텍스트 색상
-  static const Color statHexaEndTextColor = Color(0xFF6969AA); // 헥사 스텟 끝 텍스트 색상
+  static const Color statHexaStartText = Color(0xFF51859C); // 헥사 스텟 시작 텍스트 색상
+  static const Color statHexaEndText = Color(0xFF6969AA); // 헥사 스텟 끝 텍스트 색상
 
-  static const Color statHexaBorderColor = Color(0xFF112233); // 헥사 스텟 테두리 색상
-  static const Color statHexaSubBorderColor =
-      Color(0xFF3B7B9B); // 헥사 스텟 서브 테두리 색상
+  static const Color statHexaBorder = Color(0xFF112233); // 헥사 스텟 테두리 색상
+  static const Color statHexaSubBorder = Color(0xFF3B7B9B); // 헥사 스텟 서브 테두리 색상
 
-  static const Color statHexaTextcolor = Color(0xFF7799AA); // 스텟 외부 텍스트 색상
-  static const Color statHexaMainTextColor =
-      Color(0xFFeeddff); // 헥사 스텟 메인 텍스트 색상
-  static const Color statHexaAdditionalTextColor =
+  static const Color statHexaText = Color(0xFF7799AA); // 스텟 외부 텍스트 색상
+  static const Color statHexaMainText = Color(0xFFeeddff); // 헥사 스텟 메인 텍스트 색상
+  static const Color statHexaAdditionalText =
       Color(0xFFccffff); // 헥사 스텟 에디셔널 텍스트 색상
 }

@@ -66,28 +66,28 @@ class StaticSwitchConfig {
   };
   /**-----stat */
   static final statBackgroundColor = {
-    '레전드리': StatColor.statLegendaryBackgroundColor,
-    '유니크': StatColor.statUniqueBackgroundColor,
-    '에픽': StatColor.statEpicBackgroundColor,
-    '레어': StatColor.statRareBackgroundColor,
+    '레전드리': StatColor.statLegendaryBackground,
+    '유니크': StatColor.statUniqueBackground,
+    '에픽': StatColor.statEpicBackground,
+    '레어': StatColor.statRareBackground,
     null: Colors.transparent,
   };
   static final statStartBackgroundColor = {
-    '레전드리': StatColor.statLegendaryStartBackgroundColor,
-    '유니크': StatColor.statUniqueStartBackgroundColor,
-    '에픽': StatColor.statEpicStartBackgroundColor,
+    '레전드리': StatColor.statLegendaryStartBackground,
+    '유니크': StatColor.statUniqueStartBackground,
+    '에픽': StatColor.statEpicStartBackground,
     null: Colors.transparent,
   };
   static final statEndBackgroundColor = {
-    '레전드리': StatColor.statLegendaryEndBackgroundColor,
-    '유니크': StatColor.statUniqueEndBackgroundColor,
-    '에픽': StatColor.statEpicEndBackgroundColor,
+    '레전드리': StatColor.statLegendaryEndBackground,
+    '유니크': StatColor.statUniqueEndBackground,
+    '에픽': StatColor.statEpicEndBackground,
     null: Colors.transparent,
   };
   static final statBorderColor = {
-    '레전드리': StatColor.statLegendaryBorderColor,
-    '유니크': StatColor.statUniqueBorderColor,
-    '에픽': StatColor.statEpicBorderColor,
+    '레전드리': StatColor.statLegendaryBorder,
+    '유니크': StatColor.statUniqueBorder,
+    '에픽': StatColor.statEpicBorder,
     null: Colors.transparent,
   };
 

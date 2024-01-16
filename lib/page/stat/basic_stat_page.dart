@@ -13,7 +13,7 @@ class BasicStatPage extends ConsumerWidget {
     ColorScheme colorScheme = Theme.of(context).colorScheme;
 
     return Container(
-      color: StatColor.statBackgroundColor,
+      color: StatColor.statBackground,
       child: LayoutBuilder(
         builder: (BuildContext context, BoxConstraints viewportConstraints) =>
             ConstrainedBox(

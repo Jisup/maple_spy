@@ -47,7 +47,7 @@ class BasicDetailMainInfoPage extends ConsumerWidget {
           ),
         ),
         Divider(
-          color: StatColor.dividerColor,
+          color: StatColor.divider,
           height: DimenConfig.commonDimen * 2,
           thickness: 2,
           indent: DimenConfig.commonDimen * 2,

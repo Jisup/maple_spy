@@ -29,7 +29,7 @@ class AbilityDetailInfoPage extends ConsumerWidget {
             child: CustomTextWidget(
                 text: 'ABILITY',
                 size: FontConfig.middleSize,
-                color: StatColor.statTitleColor),
+                color: StatColor.statTitle),
           ),
         ),
         Container(

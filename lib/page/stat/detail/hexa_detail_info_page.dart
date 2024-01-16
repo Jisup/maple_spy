@@ -37,7 +37,7 @@ class HexaDetailInfoPage extends ConsumerWidget {
           child: CustomTextWidget(
             text: 'MAIN STAT',
             size: FontConfig.commonSize,
-            color: StatColor.statHexaTextcolor,
+            color: StatColor.statHexaText,
             subColor: Colors.white,
           ),
         ),
@@ -58,7 +58,7 @@ class HexaDetailInfoPage extends ConsumerWidget {
                 statValue: StaticSwitchConfig.switchHexaStatValueToString(
                     name: hexaStatCore.mainStatName,
                     value: hexaStatCore.mainStatValue!),
-                textColor: StatColor.statHexaMainTextColor,
+                textColor: StatColor.statHexaMainText,
               )),
             ],
           ),
@@ -71,7 +71,7 @@ class HexaDetailInfoPage extends ConsumerWidget {
           child: CustomTextWidget(
             text: 'ADDITIONAL STAT',
             size: FontConfig.commonSize,
-            color: StatColor.statHexaTextcolor,
+            color: StatColor.statHexaText,
             subColor: Colors.white,
           ),
         ),
@@ -92,7 +92,7 @@ class HexaDetailInfoPage extends ConsumerWidget {
                 statValue: StaticSwitchConfig.switchHexaStatValueToString(
                     name: hexaStatCore.subStatName1,
                     value: hexaStatCore.subStatValue1!),
-                textColor: StatColor.statHexaAdditionalTextColor,
+                textColor: StatColor.statHexaAdditionalText,
               )),
             ],
           ),
@@ -114,7 +114,7 @@ class HexaDetailInfoPage extends ConsumerWidget {
                 statValue: StaticSwitchConfig.switchHexaStatValueToString(
                     name: hexaStatCore.subStatName2,
                     value: hexaStatCore.subStatValue2!),
-                textColor: StatColor.statHexaAdditionalTextColor,
+                textColor: StatColor.statHexaAdditionalText,
               )),
             ],
           ),

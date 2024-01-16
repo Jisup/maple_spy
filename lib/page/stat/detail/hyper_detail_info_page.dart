@@ -34,14 +34,14 @@ class HyperDetailInfoPage extends ConsumerWidget {
                 child: CustomTextWidget(
                     text: 'HYPER STAT',
                     size: FontConfig.middleSize,
-                    color: StatColor.statTitleColor),
+                    color: StatColor.statTitle),
               ),
               Row(
                 children: StaticListConfig.basicPresetTabList
                     .map((tab) => DetailPresetTab(
                           tab: tab,
                           provider: hyperStatPresetProvider,
-                          color: StatColor.statTitleColor,
+                          color: StatColor.statTitle,
                           isBright: true,
                         ))
                     .toList(),

@@ -27,14 +27,14 @@ class HexaDetailLevelPage extends ConsumerWidget {
                 gradient: LinearGradient(
                   begin: Alignment.topLeft,
                   end: Alignment.bottomRight,
-                  colors: [Colors.white54, StatColor.statHexaSubBorderColor],
+                  colors: [Colors.white54, StatColor.statHexaSubBorder],
                 ),
               ),
               child: HexagonWidget.flat(
                 width: MediaQuery.of(context).size.width / 4 -
                     DimenConfig.subDimen,
                 child: Container(
-                  color: StatColor.statHexaBorderColor,
+                  color: StatColor.statHexaBorder,
                   child: HexagonWidget.flat(
                     width: MediaQuery.of(context).size.width / 4 -
                         (DimenConfig.subDimen * 3),
@@ -44,8 +44,8 @@ class HexaDetailLevelPage extends ConsumerWidget {
                           begin: Alignment.topLeft,
                           end: Alignment.bottomRight,
                           colors: [
-                            StatColor.statHexaSubBorderColor,
-                            StatColor.statHexaStartBackgroundColor
+                            StatColor.statHexaSubBorder,
+                            StatColor.statHexaStartBackground
                           ],
                         ),
                       ),
@@ -60,9 +60,9 @@ class HexaDetailLevelPage extends ConsumerWidget {
                                 begin: Alignment.topCenter,
                                 end: Alignment.bottomCenter,
                                 colors: [
-                                  StatColor.statHexaStartBackgroundColor,
-                                  StatColor.statHexaMiddleBackgroundColor,
-                                  StatColor.statHexaEndBackgroundColor,
+                                  StatColor.statHexaStartBackground,
+                                  StatColor.statHexaMiddleBackground,
+                                  StatColor.statHexaEndBackground,
                                 ],
                               ),
                             ),
@@ -99,8 +99,8 @@ class HexaDetailLevelPage extends ConsumerWidget {
                 begin: Alignment.topCenter,
                 end: Alignment.bottomCenter,
                 colors: [
-                  StatColor.statHexaStartTextColor,
-                  StatColor.statHexaEndTextColor,
+                  StatColor.statHexaStartText,
+                  StatColor.statHexaEndText,
                 ]).createShader(bounds),
             child: CustomTextWidget(
               text: 'LEVEL',

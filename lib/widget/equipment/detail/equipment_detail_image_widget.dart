@@ -46,11 +46,11 @@ class EquipmentDetailImageWidget extends ConsumerWidget {
                   begin: Alignment.topCenter,
                   end: Alignment.bottomCenter,
                   colors: [
-                    ItemColor.detailItemStartBackground,
-                    ItemColor.detailItemEndBackground
+                    EquipmentColor.detailItemStartBackground,
+                    EquipmentColor.detailItemEndBackground
                   ],
                   tileMode: TileMode.mirror),
-              border: Border.all(width: 1, color: ItemColor.background),
+              border: Border.all(width: 1, color: EquipmentColor.background),
               borderRadius: BorderRadius.circular(RadiusConfig.subRadius - 3),
             ),
             clipBehavior: Clip.hardEdge,

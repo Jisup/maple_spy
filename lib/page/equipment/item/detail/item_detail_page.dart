@@ -63,7 +63,7 @@ class ItemDetailPage extends ConsumerWidget {
                 padding: EdgeInsets.only(
                     top: DimenConfig.commonDimen * 2,
                     bottom: DimenConfig.commonDimen * 2),
-                color: ItemColor.detailBackground,
+                color: EquipmentColor.detailBackground,
                 child: Column(
                   children: [
                     Container(

@@ -17,7 +17,7 @@ class EquipmentDetailRequiredClassWidget extends ConsumerWidget {
             right: DimenConfig.commonDimen * 2),
         padding: EdgeInsets.all(DimenConfig.minDimen),
         decoration: BoxDecoration(
-          color: ItemColor.detailClassBackground,
+          color: EquipmentColor.detailClassBackground,
           border: Border.all(
             color: ItemColor.deactiveOptionText,
           ),

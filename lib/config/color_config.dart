@@ -25,7 +25,7 @@ class CommonColor {
   static const Color infoSub = Color(0xFFa2cc11);
 }
 
-class ItemColor {
+class EquipmentColor {
   static const Color background = Color(0xFFeeeeee); // 장비 아이템 배경
   static const Color detailBackground = Color(0xFF121318); // 장비 디테일 배경
   static const Color detailClassBackground = Color(0xFF222222); // 장비 디테일 직업 배경
@@ -40,7 +40,9 @@ class ItemColor {
       Color(0xFFacacac); // 장착 비활성화 칸 배경
   static const Color equipmentImpossibleBackground =
       Color(0xFFd6adad); // 장착 불가능 칸 배경
+}
 
+class ItemColor {
   static const Color rarePotentialBorder = Color(0xFF0099ff); // 레어 테두리
   static const Color epicPotentialBorder = Color(0xFF7700cc); // 에픽 테두리
   static const Color uniquePotentialBorder = Color(0xFFffaa00); // 유니크 테두리

@@ -48,7 +48,6 @@ BoxDecoration? customBoxDecoration({
                 color: Colors.black87,
                 inset: true)
           ]),
-    /**-----equipment slot */
     'in_out_square' => BoxDecoration(
           gradient: RadialGradient(
             transform: GradientRotation(pi + pi / 2),
@@ -72,6 +71,61 @@ BoxDecoration? customBoxDecoration({
                 inset: true)
           ]),
     /**-----equipment label */
+    'no_circle' => BoxDecoration(
+          color: borderColor,
+          border: Border.all(
+            color: borderColor!,
+            width: 3,
+          ),
+          borderRadius: BorderRadius.circular(RadiusConfig.maxRadius),
+          boxShadow: [
+            BoxShadow(
+                blurRadius: RadiusConfig.subRadius,
+                offset: Offset(-3, -3),
+                color: endColor ?? Colors.white,
+                inset: true),
+            BoxShadow(
+                blurRadius: RadiusConfig.subRadius,
+                offset: Offset(3, 3),
+                color: startColor ?? Colors.black87,
+                inset: true),
+            BoxShadow(
+              offset: Offset(-2, -2),
+              color: Colors.black,
+            ),
+            BoxShadow(
+              offset: Offset(-2, 0),
+              color: Colors.black,
+            ),
+            BoxShadow(
+              offset: Offset(0, -2),
+              color: Colors.black,
+            ),
+            BoxShadow(
+              offset: Offset(0, 0),
+              color: Colors.black,
+            ),
+            BoxShadow(
+              offset: Offset(0, 2),
+              color: Colors.black,
+            ),
+            BoxShadow(
+              offset: Offset(2, 0),
+              color: Colors.black,
+            ),
+            BoxShadow(
+              offset: Offset(2, 2),
+              color: Colors.black,
+            ),
+            BoxShadow(
+              offset: Offset(-2, 2),
+              color: Colors.black,
+            ),
+            BoxShadow(
+              offset: Offset(2, -2),
+              color: Colors.black,
+            ),
+          ]),
     'in_out_circle' => BoxDecoration(
           gradient: RadialGradient(
             radius: 0.5,
@@ -149,7 +203,6 @@ BoxDecoration? customBoxDecoration({
         ),
         borderRadius: BorderRadius.circular(RadiusConfig.maxRadius),
       ),
-    /**-----skill */
     'three_divide' => BoxDecoration(
         gradient: SweepGradient(
           transform: GradientRotation(pi + pi / 2),

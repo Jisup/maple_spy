@@ -5,7 +5,6 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:maplespy/config/color_config.dart';
 import 'package:maplespy/config/const_config.dart';
 import 'package:maplespy/config/static_switch_config.dart';
-import 'package:maplespy/util/make_list.dart';
 import 'package:maplespy/widget/common/custom_box_decoration_widget.dart';
 
 class EquipmentDetailImageWidget extends ConsumerWidget {
@@ -94,7 +93,7 @@ class EquipmentDetailImageWidget extends ConsumerWidget {
                         child: Container(
                           margin: EdgeInsets.all(DimenConfig.minDimen),
                           decoration: customBoxDecoration(
-                            type: 'in_out_circle',
+                            type: label != '캐시' ? 'in_out_circle' : 'no_circle',
                             startColor: StaticSwitchConfig
                                 .labelStartBackgroundColor[label]!,
                             endColor: StaticSwitchConfig
@@ -128,7 +127,7 @@ class EquipmentDetailImageWidget extends ConsumerWidget {
                         ),
                       ),
                     )
-                  : SizedBox.shrink(),
+                  : SizedBox.shrink()
             ],
           ),
         ),

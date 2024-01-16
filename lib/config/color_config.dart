@@ -102,16 +102,20 @@ class CashItemColor {
   static const Color redLabelText = Color(0xFFff0066); // 레드 라벨 텍스트
   static const Color specialLabelText = Color(0xFFBBBBBB); // 스페셜 라벨 텍스트
 
+  static const Color text = Color(0xFF);
   static const Color initialText = Color(0xFFFFFF66); // 이니셜 색상
   static const Color initialShadow = Color(0xFFEEBB00); // 이니셜 그림자
   static const Color subInitialText = Color(0xFFFFFFFF); // 서브 이니셜 색상
   static const Color subInitialShadow = Color(0xFFEEDDDD); // 서브 이니셜 그림자
 
+  static const Color border = Color(0xFFFFDD00); // 캐시 테두리
   static const Color masterBorder = Color(0xFF00DDFF); // 마스터 라벨 테두리
   static const Color blackBorder = Color(0xFF656565); // 블랙 라벨 테두리
   static const Color redBorder = Color(0xFFFF3344); // 레드 라벨 테두리
   static const Color specialBorder = Color(0xFFBBBBBB); // 스페셜 라벨 테두리
 
+  static const Color startBackground = Color(0xFF774400); // 캐시 시작 테두리
+  static const Color endBackground = Color(0xFFFFFFFF); // 캐시 끝 테두리
   static const Color masterStartBackground = Color(0xFF0055BB); // 마스터 라벨 시작 배경
   static const Color masterEndBackground = Color(0xFF003388); // 마스터 라벨 끝 배경
   static const Color blackStartBackground = Color(0xFF323232); // 블랙 라벨 시작 배경

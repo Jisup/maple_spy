@@ -45,6 +45,7 @@ class StaticSwitchConfig {
     '블랙라벨': CashItemColor.initialText,
     '레드라벨': CashItemColor.initialText,
     '스페셜라벨': CashItemColor.subInitialText,
+    '캐시': Colors.white,
     null: Colors.transparent,
   };
   static final labelInitialShadowColor = {
@@ -52,6 +53,7 @@ class StaticSwitchConfig {
     '블랙라벨': CashItemColor.initialShadow,
     '레드라벨': CashItemColor.initialShadow,
     '스페셜라벨': CashItemColor.subInitialShadow,
+    '캐시': Colors.black26,
     null: Colors.transparent,
   };
   static final labelBorderColor = {
@@ -59,6 +61,7 @@ class StaticSwitchConfig {
     '블랙라벨': CashItemColor.blackBorder,
     '레드라벨': CashItemColor.redBorder,
     '스페셜라벨': CashItemColor.specialBorder,
+    '캐시': CashItemColor.border,
     null: Colors.transparent,
   };
   static final labelStartBackgroundColor = {
@@ -66,6 +69,7 @@ class StaticSwitchConfig {
     '블랙라벨': CashItemColor.blackStartBackground,
     '레드라벨': CashItemColor.redStartBackground,
     '스페셜라벨': CashItemColor.specialStartBackground,
+    '캐시': CashItemColor.startBackground,
     null: Colors.transparent,
   };
   static final labelEndBackgroundColor = {
@@ -73,6 +77,7 @@ class StaticSwitchConfig {
     '블랙라벨': CashItemColor.blackEndBackground,
     '레드라벨': CashItemColor.redEndBackground,
     '스페셜라벨': CashItemColor.specialEndBackground,
+    '캐시': CashItemColor.endBackground,
     null: Colors.transparent,
   };
 
@@ -150,6 +155,7 @@ class StaticSwitchConfig {
     '블랙라벨': 'B',
     '레드라벨': 'R',
     '스페셜라벨': 'S',
+    '캐시': 'C',
     null: '',
   };
 

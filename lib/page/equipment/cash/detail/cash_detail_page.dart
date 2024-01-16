@@ -104,7 +104,7 @@ class CashDetailPage extends ConsumerWidget {
                             /**-----item image */
                             EquipmentDetailImageWidget(
                               imageUrl: cashItem.cashItemIcon!,
-                              label: cashItem.cashItemLabel,
+                              label: cashItem.cashItemLabel ?? '캐시',
                             ),
                             EquipmentDetailRequiredLevelWidget(),
                           ],

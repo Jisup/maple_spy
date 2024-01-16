@@ -237,6 +237,25 @@ class ItemDetailPage extends ConsumerWidget {
                             ),
                           )
                         : SizedBox.shrink(),
+                    item.itemDescription != null
+                        ? DashedDividerWidget()
+                        : SizedBox(),
+                    item.itemDescription != null
+                        ? FractionallySizedBox(
+                            widthFactor: 1,
+                            child: Container(
+                              margin: EdgeInsets.only(
+                                  left: DimenConfig.commonDimen * 2,
+                                  right: DimenConfig.commonDimen * 2),
+                              child: Text(
+                                item.itemDescription!,
+                                style: TextStyle(
+                                  color: ItemColor.commonInfoText,
+                                ),
+                              ),
+                            ),
+                          )
+                        : SizedBox.shrink()
                   ],
                 ),
               ),

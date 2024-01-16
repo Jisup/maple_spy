@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:maplespy/model/equipment/cash_item_model.dart';
 import 'package:maplespy/model/equipment/item_model.dart';
+import 'package:maplespy/page/equipment/cash/detail/cash_detail_page.dart';
 import 'package:maplespy/page/equipment/item/detail/item_detail_page.dart';
 import 'package:maplespy/page/main_character_page.dart';
 import 'package:maplespy/page/main_equipment_page.dart';
@@ -47,6 +49,13 @@ GoRouter mainRouter = GoRouter(
             name: 'itemDetail',
             pageBuilder: (context, state) => NoTransitionPage(
               child: ItemDetailPage(item: state.extra as ItemEquipment),
+            ),
+          ),
+          GoRoute(
+            path: 'cash/detail',
+            name: 'cashDetail',
+            pageBuilder: (context, state) => NoTransitionPage(
+              child: CashDetailPage(cashItem: state.extra as CashItemEquipment),
             ),
           ),
         ]),

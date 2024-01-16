@@ -97,10 +97,29 @@ class ItemColor {
 }
 
 class CashItemColor {
-  static const Color masterLabelText = Color(0xFF005599); // 마스터 라벨 텍스트
+  static const Color masterLabelText = Color(0xFF00CCFF); // 마스터 라벨 텍스트
   static const Color blackLabelText = Color(0xFFffcc00); // 블랙 라벨 텍스트
   static const Color redLabelText = Color(0xFFff0066); // 레드 라벨 텍스트
   static const Color specialLabelText = Color(0xFFBBBBBB); // 스페셜 라벨 텍스트
+
+  static const Color initialText = Color(0xFFFFFF66); // 이니셜 색상
+  static const Color initialShadow = Color(0xFFEEBB00); // 이니셜 그림자
+  static const Color subInitialText = Color(0xFFFFFFFF); // 서브 이니셜 색상
+  static const Color subInitialShadow = Color(0xFFEEDDDD); // 서브 이니셜 그림자
+
+  static const Color masterBorder = Color(0xFF00DDFF); // 마스터 라벨 테두리
+  static const Color blackBorder = Color(0xFF656565); // 블랙 라벨 테두리
+  static const Color redBorder = Color(0xFFFF3344); // 레드 라벨 테두리
+  static const Color specialBorder = Color(0xFFBBBBBB); // 스페셜 라벨 테두리
+
+  static const Color masterStartBackground = Color(0xFF0055BB); // 마스터 라벨 시작 배경
+  static const Color masterEndBackground = Color(0xFF003388); // 마스터 라벨 끝 배경
+  static const Color blackStartBackground = Color(0xFF323232); // 블랙 라벨 시작 배경
+  static const Color blackEndBackground = Color(0xFF111111); // 블랙 라벨 끝 배경
+  static const Color redStartBackground = Color(0xFFBB0000); // 레드 라벨 시작 배경
+  static const Color redEndBackground = Color(0xFF660000); // 레드 라벨 끝 배경
+  static const Color specialStartBackground = Color(0xFFBBAAAA); // 스페셜 라벨 시작 배경
+  static const Color specialEndBackground = Color(0xFF665555); // 스페셜 라벨 끝 배경
 
   static const Color masterLabelOption = Color(0xFFF1F140); // 마스터 라벨 옵션
 }

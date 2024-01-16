@@ -1,3 +1,5 @@
+import 'package:intl/intl.dart';
+
 class CashItem {
   String? date;
   String? characterGender;
@@ -10,7 +12,17 @@ class CashItem {
   List<AdditionalCashItemEquipment>? additionalCashItemEquipmentPreset2;
   List<AdditionalCashItemEquipment>? additionalCashItemEquipmentPreset3;
 
-  CashItem({this.date, this.characterGender, this.characterClass, this.presetNo, this.cashItemEquipmentPreset1, this.cashItemEquipmentPreset2, this.cashItemEquipmentPreset3, this.additionalCashItemEquipmentPreset1, this.additionalCashItemEquipmentPreset2, this.additionalCashItemEquipmentPreset3});
+  CashItem(
+      {this.date,
+      this.characterGender,
+      this.characterClass,
+      this.presetNo,
+      this.cashItemEquipmentPreset1,
+      this.cashItemEquipmentPreset2,
+      this.cashItemEquipmentPreset3,
+      this.additionalCashItemEquipmentPreset1,
+      this.additionalCashItemEquipmentPreset2,
+      this.additionalCashItemEquipmentPreset3});
 
   CashItem.fromJson(Map<String, dynamic> json) {
     date = json['date'];
@@ -38,19 +50,22 @@ class CashItem {
     if (json['additional_cash_item_equipment_preset_1'] != null) {
       additionalCashItemEquipmentPreset1 = <AdditionalCashItemEquipment>[];
       json['additional_cash_item_equipment_preset_1'].forEach((v) {
-        additionalCashItemEquipmentPreset1!.add(new AdditionalCashItemEquipment.fromJson(v));
+        additionalCashItemEquipmentPreset1!
+            .add(new AdditionalCashItemEquipment.fromJson(v));
       });
     }
     if (json['additional_cash_item_equipment_preset_2'] != null) {
       additionalCashItemEquipmentPreset2 = <AdditionalCashItemEquipment>[];
       json['additional_cash_item_equipment_preset_2'].forEach((v) {
-        additionalCashItemEquipmentPreset2!.add(new AdditionalCashItemEquipment.fromJson(v));
+        additionalCashItemEquipmentPreset2!
+            .add(new AdditionalCashItemEquipment.fromJson(v));
       });
     }
     if (json['additional_cash_item_equipment_preset_3'] != null) {
       additionalCashItemEquipmentPreset3 = <AdditionalCashItemEquipment>[];
       json['additional_cash_item_equipment_preset_3'].forEach((v) {
-        additionalCashItemEquipmentPreset3!.add(new AdditionalCashItemEquipment.fromJson(v));
+        additionalCashItemEquipmentPreset3!
+            .add(new AdditionalCashItemEquipment.fromJson(v));
       });
     }
   }
@@ -62,22 +77,34 @@ class CashItem {
     data['character_class'] = this.characterClass;
     data['preset_no'] = this.presetNo;
     if (this.cashItemEquipmentPreset1 != null) {
-      data['cash_item_equipment_preset_1'] = this.cashItemEquipmentPreset1!.map((v) => v.toJson()).toList();
+      data['cash_item_equipment_preset_1'] =
+          this.cashItemEquipmentPreset1!.map((v) => v.toJson()).toList();
     }
     if (this.cashItemEquipmentPreset2 != null) {
-      data['cash_item_equipment_preset_2'] = this.cashItemEquipmentPreset2!.map((v) => v.toJson()).toList();
+      data['cash_item_equipment_preset_2'] =
+          this.cashItemEquipmentPreset2!.map((v) => v.toJson()).toList();
     }
     if (this.cashItemEquipmentPreset3 != null) {
-      data['cash_item_equipment_preset_3'] = this.cashItemEquipmentPreset3!.map((v) => v.toJson()).toList();
+      data['cash_item_equipment_preset_3'] =
+          this.cashItemEquipmentPreset3!.map((v) => v.toJson()).toList();
     }
     if (this.additionalCashItemEquipmentPreset1 != null) {
-      data['additional_cash_item_equipment_preset_1'] = this.additionalCashItemEquipmentPreset1!.map((v) => v.toJson()).toList();
+      data['additional_cash_item_equipment_preset_1'] = this
+          .additionalCashItemEquipmentPreset1!
+          .map((v) => v.toJson())
+          .toList();
     }
     if (this.additionalCashItemEquipmentPreset2 != null) {
-      data['additional_cash_item_equipment_preset_2'] = this.additionalCashItemEquipmentPreset2!.map((v) => v.toJson()).toList();
+      data['additional_cash_item_equipment_preset_2'] = this
+          .additionalCashItemEquipmentPreset2!
+          .map((v) => v.toJson())
+          .toList();
     }
     if (this.additionalCashItemEquipmentPreset3 != null) {
-      data['additional_cash_item_equipment_preset_3'] = this.additionalCashItemEquipmentPreset3!.map((v) => v.toJson()).toList();
+      data['additional_cash_item_equipment_preset_3'] = this
+          .additionalCashItemEquipmentPreset3!
+          .map((v) => v.toJson())
+          .toList();
     }
     return data;
   }
@@ -96,7 +123,18 @@ class CashItemEquipment {
   CashItemColoringPrism? cashItemColoringPrism;
   String? basePresetItemDisableFlag;
 
-  CashItemEquipment({this.cashItemEquipmentPart, this.cashItemEquipmentSlot, this.cashItemName, this.cashItemIcon, this.cashItemDescription, this.cashItemOption, this.dateExpire, this.dateOptionExpire, this.cashItemLabel, this.cashItemColoringPrism, this.basePresetItemDisableFlag});
+  CashItemEquipment(
+      {this.cashItemEquipmentPart,
+      this.cashItemEquipmentSlot,
+      this.cashItemName,
+      this.cashItemIcon,
+      this.cashItemDescription,
+      this.cashItemOption,
+      this.dateExpire,
+      this.dateOptionExpire,
+      this.cashItemLabel,
+      this.cashItemColoringPrism,
+      this.basePresetItemDisableFlag});
 
   CashItemEquipment.fromJson(Map<String, dynamic> json) {
     cashItemEquipmentPart = json['cash_item_equipment_part'];
@@ -113,8 +151,15 @@ class CashItemEquipment {
     dateExpire = json['date_expire'];
     dateOptionExpire = json['date_option_expire'];
     cashItemLabel = json['cash_item_label'];
-    cashItemColoringPrism = json['cash_item_coloring_prism'] != null ? new CashItemColoringPrism.fromJson(json['cash_item_coloring_prism']) : null;
+    cashItemColoringPrism = json['cash_item_coloring_prism'] != null
+        ? new CashItemColoringPrism.fromJson(json['cash_item_coloring_prism'])
+        : null;
     basePresetItemDisableFlag = json['base_preset_item_disable_flag'];
+
+    if (dateOptionExpire != null) {
+      DateFormat formatter = DateFormat('yyyy년 MM월 dd일 HH시');
+      dateOptionExpire = formatter.format(DateTime.parse(dateOptionExpire!));
+    }
   }
 
   Map<String, dynamic> toJson() {
@@ -125,7 +170,8 @@ class CashItemEquipment {
     data['cash_item_icon'] = this.cashItemIcon;
     data['cash_item_description'] = this.cashItemDescription;
     if (this.cashItemOption != null) {
-      data['cash_item_option'] = this.cashItemOption!.map((v) => v.toJson()).toList();
+      data['cash_item_option'] =
+          this.cashItemOption!.map((v) => v.toJson()).toList();
     }
     data['date_expire'] = this.dateExpire;
     data['date_option_expire'] = this.dateOptionExpire;
@@ -151,7 +197,18 @@ class AdditionalCashItemEquipment {
   CashItemColoringPrism? cashItemColoringPrism;
   String? basePresetItemDisableFlag;
 
-  AdditionalCashItemEquipment({this.cashItemEquipmentPart, this.cashItemEquipmentSlot, this.cashItemName, this.cashItemIcon, this.cashItemDescription, this.cashItemOption, this.dateExpire, this.dateOptionExpire, this.cashItemLabel, this.cashItemColoringPrism, this.basePresetItemDisableFlag});
+  AdditionalCashItemEquipment(
+      {this.cashItemEquipmentPart,
+      this.cashItemEquipmentSlot,
+      this.cashItemName,
+      this.cashItemIcon,
+      this.cashItemDescription,
+      this.cashItemOption,
+      this.dateExpire,
+      this.dateOptionExpire,
+      this.cashItemLabel,
+      this.cashItemColoringPrism,
+      this.basePresetItemDisableFlag});
 
   AdditionalCashItemEquipment.fromJson(Map<String, dynamic> json) {
     cashItemEquipmentPart = json['cash_item_equipment_part'];
@@ -168,7 +225,9 @@ class AdditionalCashItemEquipment {
     dateExpire = json['date_expire'];
     dateOptionExpire = json['date_option_expire'];
     cashItemLabel = json['cash_item_label'];
-    cashItemColoringPrism = json['cash_item_coloring_prism'] != null ? new CashItemColoringPrism.fromJson(json['cash_item_coloring_prism']) : null;
+    cashItemColoringPrism = json['cash_item_coloring_prism'] != null
+        ? new CashItemColoringPrism.fromJson(json['cash_item_coloring_prism'])
+        : null;
     basePresetItemDisableFlag = json['base_preset_item_disable_flag'];
   }
 
@@ -180,7 +239,8 @@ class AdditionalCashItemEquipment {
     data['cash_item_icon'] = this.cashItemIcon;
     data['cash_item_description'] = this.cashItemDescription;
     if (this.cashItemOption != null) {
-      data['cash_item_option'] = this.cashItemOption!.map((v) => v.toJson()).toList();
+      data['cash_item_option'] =
+          this.cashItemOption!.map((v) => v.toJson()).toList();
     }
     data['date_expire'] = this.dateExpire;
     data['date_option_expire'] = this.dateOptionExpire;
@@ -218,7 +278,8 @@ class CashItemColoringPrism {
   int? saturation;
   int? value;
 
-  CashItemColoringPrism({this.colorRange, this.hue, this.saturation, this.value});
+  CashItemColoringPrism(
+      {this.colorRange, this.hue, this.saturation, this.value});
 
   CashItemColoringPrism.fromJson(Map<String, dynamic> json) {
     colorRange = json['color_range'];

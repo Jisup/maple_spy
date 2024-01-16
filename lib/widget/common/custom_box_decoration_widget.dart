@@ -32,6 +32,7 @@ BoxDecoration? customBoxDecoration({
   Color mainColor = SkillColor.background;
 
   return switch (type) {
+    /**-----equipment slot */
     'no' => BoxDecoration(
           color: startColor ?? mainColor,
           borderRadius: BorderRadius.circular(RadiusConfig.subRadius),
@@ -47,6 +48,7 @@ BoxDecoration? customBoxDecoration({
                 color: Colors.black87,
                 inset: true)
           ]),
+    /**-----equipment slot */
     'in_out_square' => BoxDecoration(
           gradient: RadialGradient(
             transform: GradientRotation(pi + pi / 2),
@@ -69,6 +71,69 @@ BoxDecoration? customBoxDecoration({
                 color: Colors.black87,
                 inset: true)
           ]),
+    /**-----equipment label */
+    'in_out_circle' => BoxDecoration(
+          gradient: RadialGradient(
+            radius: 0.5,
+            colors: [
+              startColor ?? mainColor,
+              endColor ?? mainColor,
+            ],
+          ),
+          border: Border.all(
+            color: borderColor!,
+            width: 3,
+          ),
+          borderRadius: BorderRadius.circular(RadiusConfig.maxRadius),
+          boxShadow: [
+            BoxShadow(
+              offset: Offset(-2, -2),
+              color: Colors.black,
+            ),
+            BoxShadow(
+              offset: Offset(-2, 0),
+              color: Colors.black,
+            ),
+            BoxShadow(
+              offset: Offset(0, -2),
+              color: Colors.black,
+            ),
+            BoxShadow(
+              offset: Offset(0, 0),
+              color: Colors.black,
+            ),
+            BoxShadow(
+              offset: Offset(0, 2),
+              color: Colors.black,
+            ),
+            BoxShadow(
+              offset: Offset(2, 0),
+              color: Colors.black,
+            ),
+            BoxShadow(
+              offset: Offset(2, 2),
+              color: Colors.black,
+            ),
+            BoxShadow(
+              offset: Offset(-2, 2),
+              color: Colors.black,
+            ),
+            BoxShadow(
+              offset: Offset(2, -2),
+              color: Colors.black,
+            ),
+            BoxShadow(
+                blurRadius: RadiusConfig.subRadius,
+                offset: Offset(-3, -3),
+                color: Colors.black26,
+                inset: true),
+            BoxShadow(
+                blurRadius: RadiusConfig.subRadius,
+                offset: Offset(3, 3),
+                color: Colors.black87,
+                inset: true)
+          ]),
+    /**-----skill */
     'in_out_bar' => BoxDecoration(
         gradient: RadialGradient(
           transform: GradientRotation(pi + pi / 2),
@@ -84,6 +149,7 @@ BoxDecoration? customBoxDecoration({
         ),
         borderRadius: BorderRadius.circular(RadiusConfig.maxRadius),
       ),
+    /**-----skill */
     'three_divide' => BoxDecoration(
         gradient: SweepGradient(
           transform: GradientRotation(pi + pi / 2),

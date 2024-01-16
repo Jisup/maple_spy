@@ -40,6 +40,42 @@ class StaticSwitchConfig {
     '스페셜라벨': CashItemColor.specialLabelText,
     null: Colors.transparent,
   };
+  static final labelInitialColor = {
+    '마스터라벨': CashItemColor.initialText,
+    '블랙라벨': CashItemColor.initialText,
+    '레드라벨': CashItemColor.initialText,
+    '스페셜라벨': CashItemColor.subInitialText,
+    null: Colors.transparent,
+  };
+  static final labelInitialShadowColor = {
+    '마스터라벨': CashItemColor.initialShadow,
+    '블랙라벨': CashItemColor.initialShadow,
+    '레드라벨': CashItemColor.initialShadow,
+    '스페셜라벨': CashItemColor.subInitialShadow,
+    null: Colors.transparent,
+  };
+  static final labelBorderColor = {
+    '마스터라벨': CashItemColor.masterBorder,
+    '블랙라벨': CashItemColor.blackBorder,
+    '레드라벨': CashItemColor.redBorder,
+    '스페셜라벨': CashItemColor.specialBorder,
+    null: Colors.transparent,
+  };
+  static final labelStartBackgroundColor = {
+    '마스터라벨': CashItemColor.masterStartBackground,
+    '블랙라벨': CashItemColor.blackStartBackground,
+    '레드라벨': CashItemColor.redStartBackground,
+    '스페셜라벨': CashItemColor.specialStartBackground,
+    null: Colors.transparent,
+  };
+  static final labelEndBackgroundColor = {
+    '마스터라벨': CashItemColor.masterEndBackground,
+    '블랙라벨': CashItemColor.blackEndBackground,
+    '레드라벨': CashItemColor.redEndBackground,
+    '스페셜라벨': CashItemColor.specialEndBackground,
+    null: Colors.transparent,
+  };
+
   /**-----core */
   static final hexaCoreStartBackgroundColor = {
     '공용 코어': SkillColor.hexaCoreStartBackground,
@@ -106,6 +142,14 @@ class StaticSwitchConfig {
     '유니크': 'U',
     '에픽': 'E',
     '레어': 'R',
+    null: '',
+  };
+  /**-----label */
+  static final labelInitialText = {
+    '마스터라벨': 'M',
+    '블랙라벨': 'B',
+    '레드라벨': 'R',
+    '스페셜라벨': 'S',
     null: '',
   };
 

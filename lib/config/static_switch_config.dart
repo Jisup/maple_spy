@@ -34,50 +34,89 @@ class StaticSwitchConfig {
   };
   /**-----label */
   static final labelTextColor = {
-    '마스터라벨': CashItemColor.masterLabelText,
-    '블랙라벨': CashItemColor.blackLabelText,
-    '레드라벨': CashItemColor.redLabelText,
-    '스페셜라벨': CashItemColor.specialLabelText,
+    '마스터라벨': CashColor.masterLabelText,
+    '블랙라벨': CashColor.blackLabelText,
+    '레드라벨': CashColor.redLabelText,
+    '스페셜라벨': CashColor.specialLabelText,
     null: Colors.transparent,
   };
   static final labelInitialColor = {
-    '마스터라벨': CashItemColor.initialText,
-    '블랙라벨': CashItemColor.initialText,
-    '레드라벨': CashItemColor.initialText,
-    '스페셜라벨': CashItemColor.subInitialText,
+    '마스터라벨': CashColor.initialText,
+    '블랙라벨': CashColor.initialText,
+    '레드라벨': CashColor.initialText,
+    '스페셜라벨': CashColor.subInitialText,
     '캐시': Colors.white,
     null: Colors.transparent,
   };
   static final labelInitialShadowColor = {
-    '마스터라벨': CashItemColor.initialShadow,
-    '블랙라벨': CashItemColor.initialShadow,
-    '레드라벨': CashItemColor.initialShadow,
-    '스페셜라벨': CashItemColor.subInitialShadow,
+    '마스터라벨': CashColor.initialShadow,
+    '블랙라벨': CashColor.initialShadow,
+    '레드라벨': CashColor.initialShadow,
+    '스페셜라벨': CashColor.subInitialShadow,
     '캐시': Colors.black26,
     null: Colors.transparent,
   };
   static final labelBorderColor = {
-    '마스터라벨': CashItemColor.masterBorder,
-    '블랙라벨': CashItemColor.blackBorder,
-    '레드라벨': CashItemColor.redBorder,
-    '스페셜라벨': CashItemColor.specialBorder,
-    '캐시': CashItemColor.border,
+    '마스터라벨': CashColor.masterBorder,
+    '블랙라벨': CashColor.blackBorder,
+    '레드라벨': CashColor.redBorder,
+    '스페셜라벨': CashColor.specialBorder,
+    '캐시': CashColor.border,
     null: Colors.transparent,
   };
   static final labelStartBackgroundColor = {
-    '마스터라벨': CashItemColor.masterStartBackground,
-    '블랙라벨': CashItemColor.blackStartBackground,
-    '레드라벨': CashItemColor.redStartBackground,
-    '스페셜라벨': CashItemColor.specialStartBackground,
-    '캐시': CashItemColor.startBackground,
+    '마스터라벨': CashColor.masterStartBackground,
+    '블랙라벨': CashColor.blackStartBackground,
+    '레드라벨': CashColor.redStartBackground,
+    '스페셜라벨': CashColor.specialStartBackground,
+    '캐시': CashColor.startBackground,
     null: Colors.transparent,
   };
   static final labelEndBackgroundColor = {
-    '마스터라벨': CashItemColor.masterEndBackground,
-    '블랙라벨': CashItemColor.blackEndBackground,
-    '레드라벨': CashItemColor.redEndBackground,
-    '스페셜라벨': CashItemColor.specialEndBackground,
-    '캐시': CashItemColor.endBackground,
+    '마스터라벨': CashColor.masterEndBackground,
+    '블랙라벨': CashColor.blackEndBackground,
+    '레드라벨': CashColor.redEndBackground,
+    '스페셜라벨': CashColor.specialEndBackground,
+    '캐시': CashColor.endBackground,
+    null: Colors.transparent,
+  };
+  static final petLabelInitialColor = {
+    '루나 쁘띠': PetColor.initialText,
+    '루나 드림': PetColor.initialText,
+    '루나 스윗': PetColor.initialText,
+    '원더 블랙': PetColor.subInitialText,
+    '캐시': PetColor.text,
+    null: Colors.transparent,
+  };
+  static final petLabelTextColor = {
+    '루나 쁘띠': PetColor.lunaPetitText,
+    '루나 드림': PetColor.lunaDreamText,
+    '루나 스윗': PetColor.lunaSweetText,
+    '원더 블랙': PetColor.wonderBlackText,
+    null: Colors.transparent,
+  };
+  static final petLabelBorderColor = {
+    '루나 쁘띠': PetColor.lunaPetitBorder,
+    '루나 드림': PetColor.lunaDreamBorder,
+    '루나 스윗': PetColor.lunaSweetBorder,
+    '원더 블랙': PetColor.wonderBlackBorder,
+    '캐시': PetColor.border,
+    null: Colors.transparent,
+  };
+  static final petLabelStartBackgroundColor = {
+    '루나 쁘띠': PetColor.lunaPetitStartBackground,
+    '루나 드림': PetColor.lunaDreamStartBackground,
+    '루나 스윗': PetColor.lunaSweetStartBackground,
+    '원더 블랙': PetColor.wonderStartBackground,
+    '캐시': PetColor.startBackground,
+    null: Colors.transparent,
+  };
+  static final petLabelEndBackgroundColor = {
+    '루나 쁘띠': PetColor.lunaPetitEndBackground,
+    '루나 드림': PetColor.lunaDreamEndBackground,
+    '루나 스윗': PetColor.lunaSweetEndBackground,
+    '원더 블랙': PetColor.wonderEndBackground,
+    '캐시': PetColor.endBackground,
     null: Colors.transparent,
   };
 
@@ -155,6 +194,14 @@ class StaticSwitchConfig {
     '블랙라벨': 'B',
     '레드라벨': 'R',
     '스페셜라벨': 'S',
+    '캐시': 'C',
+    null: '',
+  };
+  static final petLabelInitialText = {
+    '루나 쁘띠': 'P',
+    '루나 드림': 'D',
+    '루나 스윗': 'S',
+    '원더 블랙': 'W',
     '캐시': 'C',
     null: '',
   };

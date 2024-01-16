@@ -96,36 +96,70 @@ class ItemColor {
   // static const Color exceptionalOptionText = Color(0xFF); // 익셉셔널 옵션 텍스트
 }
 
-class CashItemColor {
-  static const Color masterLabelText = Color(0xFF00CCFF); // 마스터 라벨 텍스트
-  static const Color blackLabelText = Color(0xFFffcc00); // 블랙 라벨 텍스트
-  static const Color redLabelText = Color(0xFFff0066); // 레드 라벨 텍스트
-  static const Color specialLabelText = Color(0xFFBBBBBB); // 스페셜 라벨 텍스트
-
-  static const Color text = Color(0xFF);
+class CashColor {
   static const Color initialText = Color(0xFFFFFF66); // 이니셜 색상
   static const Color initialShadow = Color(0xFFEEBB00); // 이니셜 그림자
   static const Color subInitialText = Color(0xFFFFFFFF); // 서브 이니셜 색상
   static const Color subInitialShadow = Color(0xFFEEDDDD); // 서브 이니셜 그림자
 
   static const Color border = Color(0xFFFFDD00); // 캐시 테두리
-  static const Color masterBorder = Color(0xFF00DDFF); // 마스터 라벨 테두리
-  static const Color blackBorder = Color(0xFF656565); // 블랙 라벨 테두리
-  static const Color redBorder = Color(0xFFFF3344); // 레드 라벨 테두리
-  static const Color specialBorder = Color(0xFFBBBBBB); // 스페셜 라벨 테두리
-
   static const Color startBackground = Color(0xFF774400); // 캐시 시작 테두리
   static const Color endBackground = Color(0xFFFFFFFF); // 캐시 끝 테두리
+
+  static const Color masterLabelText = Color(0xFF00CCFF); // 마스터 라벨 텍스트
+  static const Color masterLabelOption = Color(0xFFF1F140); // 마스터 라벨 옵션
+  static const Color masterBorder = Color(0xFF00DDFF); // 마스터 라벨 테두리
   static const Color masterStartBackground = Color(0xFF0055BB); // 마스터 라벨 시작 배경
   static const Color masterEndBackground = Color(0xFF003388); // 마스터 라벨 끝 배경
+
+  static const Color blackLabelText = Color(0xFFffcc00); // 블랙 라벨 텍스트
+  static const Color blackBorder = Color(0xFF656565); // 블랙 라벨 테두리
   static const Color blackStartBackground = Color(0xFF323232); // 블랙 라벨 시작 배경
   static const Color blackEndBackground = Color(0xFF111111); // 블랙 라벨 끝 배경
+
+  static const Color redLabelText = Color(0xFFff0066); // 레드 라벨 텍스트
+  static const Color redBorder = Color(0xFFFF3344); // 레드 라벨 테두리
   static const Color redStartBackground = Color(0xFFBB0000); // 레드 라벨 시작 배경
   static const Color redEndBackground = Color(0xFF660000); // 레드 라벨 끝 배경
+
+  static const Color specialLabelText = Color(0xFFBBBBBB); // 스페셜 라벨 텍스트
+  static const Color specialBorder = Color(0xFFBBBBBB); // 스페셜 라벨 테두리
   static const Color specialStartBackground = Color(0xFFBBAAAA); // 스페셜 라벨 시작 배경
   static const Color specialEndBackground = Color(0xFF665555); // 스페셜 라벨 끝 배경
+}
 
-  static const Color masterLabelOption = Color(0xFFF1F140); // 마스터 라벨 옵션
+class PetColor {
+  static const Color text = Color(0xFF000000);
+  static const Color border = Color(0xFFFFDD00);
+  static const Color startBackground = Color(0xFFFFCC00);
+  static const Color endBackground = Color(0xFFFFDD00);
+
+  static const Color initialText = Color(0xFFFFFFFF);
+  static const Color subInitialText = Color(0xFF777766);
+
+  static const Color wonderBorder = Color(0xFF55DDEE);
+  static const Color wonderStartBackground = Color(0xFF0022EE);
+  static const Color wonderEndBackground = Color(0xFF2288FF);
+
+  static const Color wonderBlackText = Color(0xFFEEBB00);
+  static const Color wonderBlackBorder = Color(0xFF777766);
+  static const Color wonderBlackStartBackground = Color(0xFF333333);
+  static const Color wonderBlackEndBackground = Color(0xFF000000);
+
+  static const Color lunaSweetText = Color(0xFFEE55BB);
+  static const Color lunaSweetBorder = Color(0xFFFFBBDD);
+  static const Color lunaSweetStartBackground = Color(0xFF773399);
+  static const Color lunaSweetEndBackground = Color(0xFFEE88CC);
+
+  static const Color lunaDreamText = Color(0xFF00BBEE);
+  static const Color lunaDreamBorder = Color(0xFF33CCDD);
+  static const Color lunaDreamStartBackground = Color(0xFF221133);
+  static const Color lunaDreamEndBackground = Color(0xFF1177AA);
+
+  static const Color lunaPetitText = Color(0xFFBB77FF);
+  static const Color lunaPetitBorder = Color(0xFFAA77FF);
+  static const Color lunaPetitStartBackground = Color(0xFF111122);
+  static const Color lunaPetitEndBackground = Color(0xFF5533CC);
 }
 
 class SymbolColor {

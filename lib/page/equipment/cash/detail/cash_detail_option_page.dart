@@ -30,8 +30,7 @@ class CashDetailOptionPage extends ConsumerWidget {
                   return label ?? false
                       ? Text(
                           '${option.optionType} : +${option.optionValue}',
-                          style:
-                              TextStyle(color: CashItemColor.masterLabelOption),
+                          style: TextStyle(color: CashColor.masterLabelOption),
                         )
                       : Text.rich(TextSpan(children: [
                           TextSpan(

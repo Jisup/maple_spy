@@ -122,6 +122,7 @@ class CashDetailPage extends ConsumerWidget {
                           child: CashDetailOptionPage(
                             part: cashItem.cashItemEquipmentPart!,
                             options: cashItem.cashItemOption,
+                            label: cashItem.cashItemLabel != null,
                           ),
                         ),
                       ),

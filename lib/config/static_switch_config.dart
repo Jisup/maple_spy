@@ -32,6 +32,14 @@ class StaticSwitchConfig {
     '레어': ItemColor.rareIconTextShadow,
     null: Colors.transparent,
   };
+  /**-----label */
+  static final labelTextColor = {
+    '마스터라벨': CashItemColor.masterLabelText,
+    '블랙라벨': CashItemColor.blackLabelText,
+    '레드라벨': CashItemColor.redLabelText,
+    '스페셜라벨': CashItemColor.specialLabelText,
+    null: Colors.transparent,
+  };
   /**-----core */
   static final hexaCoreStartBackgroundColor = {
     '공용 코어': SkillColor.hexaCoreStartBackground,

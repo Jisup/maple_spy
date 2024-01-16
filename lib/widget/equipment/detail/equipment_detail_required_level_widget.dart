@@ -3,10 +3,13 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:maplespy/config/color_config.dart';
 import 'package:maplespy/config/const_config.dart';
 
-class ItemDetailRequiredLevelPage extends ConsumerWidget {
-  const ItemDetailRequiredLevelPage({super.key, required this.level});
+class EquipmentDetailRequiredLevelWidget extends ConsumerWidget {
+  const EquipmentDetailRequiredLevelWidget({
+    super.key,
+    this.level,
+  });
 
-  final String level;
+  final String? level;
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
@@ -24,15 +27,19 @@ class ItemDetailRequiredLevelPage extends ConsumerWidget {
                   TextSpan(
                     text: '- REQ_LEV : ',
                     style: TextStyle(
-                      color: ItemColor.subInfoText,
+                      color: level != null
+                          ? ItemColor.subInfoText
+                          : ItemColor.deactiveOptionText,
                       fontSize: FontConfig.subSize,
                       fontFamily: 'Maplestory',
                     ),
                   ),
                   TextSpan(
-                    text: level,
+                    text: level ?? '0',
                     style: TextStyle(
-                      color: ItemColor.subInfoText,
+                      color: level != null
+                          ? ItemColor.subInfoText
+                          : ItemColor.deactiveOptionText,
                       fontSize: FontConfig.subSize,
                     ),
                   ),

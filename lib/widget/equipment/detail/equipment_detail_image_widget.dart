@@ -6,9 +6,12 @@ import 'package:maplespy/config/color_config.dart';
 import 'package:maplespy/config/const_config.dart';
 import 'package:maplespy/config/static_switch_config.dart';
 
-class ItemDetailImagePage extends ConsumerWidget {
-  const ItemDetailImagePage(
-      {super.key, required this.imageUrl, required this.grade});
+class EquipmentDetailImageWidget extends ConsumerWidget {
+  const EquipmentDetailImageWidget({
+    super.key,
+    required this.imageUrl,
+    this.grade,
+  });
 
   final String imageUrl;
   final String? grade;

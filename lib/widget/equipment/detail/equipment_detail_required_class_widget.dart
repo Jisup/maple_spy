@@ -5,8 +5,8 @@ import 'package:maplespy/config/const_config.dart';
 import 'package:maplespy/config/static_list_config.dart';
 import 'package:maplespy/util/make_list.dart';
 
-class ItemDetailRequiredClassPage extends ConsumerWidget {
-  const ItemDetailRequiredClassPage({super.key});
+class EquipmentDetailRequiredClassWidget extends ConsumerWidget {
+  const EquipmentDetailRequiredClassWidget({super.key});
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {

@@ -6,13 +6,13 @@ import 'package:maplespy/config/const_config.dart';
 import 'package:maplespy/model/equipment/item/item_detail_option_model.dart';
 import 'package:maplespy/model/equipment/item/item_detail_potential_option_model.dart';
 import 'package:maplespy/model/equipment/item_model.dart';
-import 'package:maplespy/page/equipment/item/detail/Item_detail_required_class_page.dart';
-import 'package:maplespy/page/equipment/item/detail/item_detail_image_page.dart';
 import 'package:maplespy/page/equipment/item/detail/item_detail_potential_option_page.dart';
-import 'package:maplespy/page/equipment/item/detail/item_detail_required_level_page.dart';
 import 'package:maplespy/widget/common/dashed_divider_widget.dart';
 import 'package:maplespy/page/equipment/item/detail/item_detail_starforce_page.dart';
 import 'package:maplespy/page/equipment/item/detail/item_detail_option_page.dart';
+import 'package:maplespy/widget/equipment/detail/equipment_detail_image_widget.dart';
+import 'package:maplespy/widget/equipment/detail/equipment_detail_required_class_widget.dart';
+import 'package:maplespy/widget/equipment/detail/equipment_detail_required_level_widget.dart';
 
 class ItemDetailPage extends ConsumerWidget {
   const ItemDetailPage({super.key, required this.item});
@@ -158,17 +158,17 @@ class ItemDetailPage extends ConsumerWidget {
                       child: Row(
                         children: [
                           /**-----item image */
-                          ItemDetailImagePage(
+                          EquipmentDetailImageWidget(
                               imageUrl: item.itemIcon!,
                               grade: item.potentialOptionGrade),
-                          ItemDetailRequiredLevelPage(
+                          EquipmentDetailRequiredLevelWidget(
                               level: item.itemBaseOption!.baseEquipmentLevel!
                                   .toInt()
                                   .toString())
                         ],
                       ),
                     ),
-                    ItemDetailRequiredClassPage(),
+                    EquipmentDetailRequiredClassWidget(),
 
                     /**-----item detail option with stat */
                     DashedDividerWidget(),

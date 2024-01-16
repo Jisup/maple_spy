@@ -83,7 +83,9 @@ class CashDetailPage extends ConsumerWidget {
                               margin:
                                   EdgeInsets.only(top: DimenConfig.subDimen),
                               child: Text(
-                                '옵션 유효기간 : ${cashItem.dateOptionExpire}',
+                                cashItem.cashItemLabel != null
+                                    ? '옵션 유효기간 : ${cashItem.dateOptionExpire}'
+                                    : '${cashItem.dateOptionExpire}까지 사용가능',
                                 style: TextStyle(
                                   fontSize: FontConfig.commonSize,
                                   color: Colors.white,

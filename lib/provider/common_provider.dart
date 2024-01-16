@@ -6,7 +6,7 @@ final ocidProvider = StateProvider((_) => '');
 
 /**-----select tab */
 final equipmentSelectTabProvider = StateProvider((_) => 'item');
-final equipmentSelectCashTabProvider = StateProvider((_) => 'preset1');
+final equipmentCashPresetProvider = StateProvider((_) => 'preset1');
 final equipmentSelectSymbolTabProvider = StateProvider((_) => 'ARC');
 
 final statSelectTabProvider = StateProvider((_) => 'basic');

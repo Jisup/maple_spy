@@ -45,7 +45,7 @@ class MainController extends Notifier {
 
       ref.read(equipmentSelectTabProvider.notifier).update((state) => 'item');
       ref
-          .read(equipmentSelectCashTabProvider.notifier)
+          .read(equipmentCashPresetProvider.notifier)
           .update((state) => 'preset1');
       ref
           .read(equipmentSelectSymbolTabProvider.notifier)

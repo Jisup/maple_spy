@@ -33,6 +33,10 @@ class DetailPresetTab extends ConsumerWidget {
         alignment: Alignment.center,
         decoration: BoxDecoration(
           color: equal ? color ?? colorScheme.primary : colorScheme.onPrimary,
+          border: Border.all(
+            color: colorScheme.primary,
+            width: 2,
+          ),
           borderRadius: BorderRadius.circular(RadiusConfig.minRadius),
         ),
         child: isBright

@@ -7,6 +7,7 @@ import 'package:maplespy/model/equipment/beauty_item_model.dart';
 import 'package:maplespy/model/equipment/cash_item_model.dart';
 import 'package:maplespy/page/equipment/cash/cash_info.dart';
 import 'package:maplespy/provider/common_provider.dart';
+import 'package:maplespy/widget/detail_page/detail_preset_tab.dart';
 
 class CashPage extends ConsumerWidget {
   const CashPage(
@@ -21,7 +22,7 @@ class CashPage extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final selectCashTab = ref.watch(equipmentSelectCashTabProvider);
+    final selectCashTab = ref.watch(equipmentCashPresetProvider);
 
     final List<CashItemEquipment>? cashList = switch (selectCashTab) {
       'preset1' => cash?.cashItemEquipmentPreset1,
@@ -43,25 +44,44 @@ class CashPage extends ConsumerWidget {
             child: Container(
               alignment: Alignment.center,
               child: SingleChildScrollView(
-                child: Wrap(
-                  runAlignment: WrapAlignment.center,
-                  children: StaticListConfig.equipmentCashList.map((slot) {
-                    return FractionallySizedBox(
-                      widthFactor: 1 / 5.0125,
-                      child: AspectRatio(
-                        aspectRatio: 1 / 1,
-                        child: slot['name'] != null
-                            ? CashInfo(
-                                name: slot['name'],
-                                cashItem: cashList!.singleWhere(
-                                    (element) =>
-                                        element.cashItemEquipmentSlot ==
-                                        slot['slot'],
-                                    orElse: () => CashItemEquipment()))
-                            : null,
+                child: Column(
+                  children: [
+                    Container(
+                      margin: EdgeInsets.only(
+                        bottom: DimenConfig.commonDimen,
+                        right: DimenConfig.commonDimen,
                       ),
-                    );
-                  }).toList(),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.end,
+                        children: StaticListConfig.basicPresetTabList
+                            .map((tab) => DetailPresetTab(
+                                tab: tab,
+                                provider: equipmentCashPresetProvider,
+                                isBright: false))
+                            .toList(),
+                      ),
+                    ),
+                    Wrap(
+                      runAlignment: WrapAlignment.center,
+                      children: StaticListConfig.equipmentCashList.map((slot) {
+                        return FractionallySizedBox(
+                          widthFactor: 1 / 5.0125,
+                          child: AspectRatio(
+                            aspectRatio: 1 / 1,
+                            child: slot['name'] != null
+                                ? CashInfo(
+                                    name: slot['name'],
+                                    cashItem: cashList!.singleWhere(
+                                        (element) =>
+                                            element.cashItemEquipmentSlot ==
+                                            slot['slot'],
+                                        orElse: () => CashItemEquipment()))
+                                : null,
+                          ),
+                        );
+                      }).toList(),
+                    ),
+                  ],
                 ),
               ),
             ),

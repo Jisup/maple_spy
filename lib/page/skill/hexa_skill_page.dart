@@ -64,7 +64,7 @@ class HexaSkillPage extends ConsumerWidget {
                             fit: FlexFit.tight,
                             child: Container(
                               decoration: customBoxDecoration(
-                                  type: 'three_divide',
+                                  type: 'skill_three_divide',
                                   startColor: StaticSwitchConfig
                                           .hexaCoreStartBackgroundColor[
                                       core.hexaCoreType]!,
@@ -110,7 +110,7 @@ class HexaSkillPage extends ConsumerWidget {
                                             bottom: DimenConfig.subDimen,
                                           ),
                                           decoration: customBoxDecoration(
-                                            type: 'in_out_bar',
+                                            type: 'skill_in_out_bar',
                                             startColor: StaticSwitchConfig
                                                     .hexaCoreStartBackgroundColor[
                                                 core.hexaCoreType]!,

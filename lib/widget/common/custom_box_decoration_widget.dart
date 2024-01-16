@@ -33,7 +33,7 @@ BoxDecoration? customBoxDecoration({
 
   return switch (type) {
     /**-----equipment slot */
-    'no' => BoxDecoration(
+    'equipment_no' => BoxDecoration(
           color: startColor ?? mainColor,
           borderRadius: BorderRadius.circular(RadiusConfig.subRadius),
           boxShadow: [
@@ -48,30 +48,9 @@ BoxDecoration? customBoxDecoration({
                 color: Colors.black87,
                 inset: true)
           ]),
-    'in_out_square' => BoxDecoration(
-          gradient: RadialGradient(
-            transform: GradientRotation(pi + pi / 2),
-            radius: 0.5,
-            colors: [
-              startColor ?? mainColor,
-              endColor ?? mainColor,
-            ],
-          ),
-          borderRadius: BorderRadius.circular(RadiusConfig.subRadius),
-          boxShadow: [
-            BoxShadow(
-                blurRadius: RadiusConfig.subRadius,
-                offset: Offset(-3, -3),
-                color: Colors.white70,
-                inset: true),
-            BoxShadow(
-                blurRadius: RadiusConfig.subRadius,
-                offset: Offset(3, 3),
-                color: Colors.black87,
-                inset: true)
-          ]),
+
     /**-----equipment label */
-    'no_circle' => BoxDecoration(
+    'label_no' => BoxDecoration(
           color: borderColor,
           border: Border.all(
             color: borderColor!,
@@ -126,7 +105,7 @@ BoxDecoration? customBoxDecoration({
               color: Colors.black,
             ),
           ]),
-    'in_out_circle' => BoxDecoration(
+    'label_in_out_circle' => BoxDecoration(
           gradient: RadialGradient(
             radius: 0.5,
             colors: [
@@ -188,7 +167,7 @@ BoxDecoration? customBoxDecoration({
                 inset: true)
           ]),
     /**-----skill */
-    'in_out_bar' => BoxDecoration(
+    'skill_in_out_bar' => BoxDecoration(
         gradient: RadialGradient(
           transform: GradientRotation(pi + pi / 2),
           radius: RadiusConfig.minRadius,
@@ -203,7 +182,29 @@ BoxDecoration? customBoxDecoration({
         ),
         borderRadius: BorderRadius.circular(RadiusConfig.maxRadius),
       ),
-    'three_divide' => BoxDecoration(
+    'skill_in_out_square' => BoxDecoration(
+          gradient: RadialGradient(
+            transform: GradientRotation(pi + pi / 2),
+            radius: 0.5,
+            colors: [
+              startColor ?? mainColor,
+              endColor ?? mainColor,
+            ],
+          ),
+          borderRadius: BorderRadius.circular(RadiusConfig.subRadius),
+          boxShadow: [
+            BoxShadow(
+                blurRadius: RadiusConfig.subRadius,
+                offset: Offset(-3, -3),
+                color: Colors.white70,
+                inset: true),
+            BoxShadow(
+                blurRadius: RadiusConfig.subRadius,
+                offset: Offset(3, 3),
+                color: Colors.black87,
+                inset: true)
+          ]),
+    'skill_three_divide' => BoxDecoration(
         gradient: SweepGradient(
           transform: GradientRotation(pi + pi / 2),
           colors: [

@@ -22,7 +22,7 @@ class VDetailImagePage extends ConsumerWidget {
       padding: EdgeInsets.all(DimenConfig.commonDimen),
       decoration: skillDetail != null
           ? customBoxDecoration(
-              type: 'in_out_square',
+              type: 'skill_in_out_square',
               startColor: StaticSwitchConfig
                   .vCoreStartBackgroundColor[skillDetail?.skillType],
               endColor: StaticSwitchConfig
@@ -30,7 +30,7 @@ class VDetailImagePage extends ConsumerWidget {
               borderColor: Colors.transparent,
             )
           : customBoxDecoration(
-              type: 'no',
+              type: 'equipment_no',
               startColor: SkillColor.background,
             ),
 

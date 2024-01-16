@@ -37,7 +37,7 @@ class VDetailInfoPage extends ConsumerWidget {
                 ),
                 decoration: skillDetail != null
                     ? customBoxDecoration(
-                        type: 'in_out_bar',
+                        type: 'skill_in_out_bar',
                         startColor: StaticSwitchConfig
                             .vCoreStartBackgroundColor[skillDetail!.skillType],
                         endColor: StaticSwitchConfig
@@ -46,7 +46,7 @@ class VDetailInfoPage extends ConsumerWidget {
                             .vCoreStartBackgroundColor[skillDetail!.skillType],
                       )
                     : customBoxDecoration(
-                        type: 'in_out_bar',
+                        type: 'skill_in_out_bar',
                       ),
 
                 /**-----skill name */

@@ -56,7 +56,7 @@ class LinkSkillPage extends ConsumerWidget {
                             child: Container(
                               padding: EdgeInsets.all(DimenConfig.commonDimen),
                               decoration: customBoxDecoration(
-                                type: 'no',
+                                type: 'equipment_no',
                                 startColor: SkillColor.background,
                               ),
                               child: Image.network(

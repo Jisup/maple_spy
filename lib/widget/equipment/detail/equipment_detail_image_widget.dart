@@ -13,11 +13,13 @@ class EquipmentDetailImageWidget extends ConsumerWidget {
     required this.imageUrl,
     this.grade,
     this.label,
+    this.petLabel,
   });
 
   final String imageUrl;
   final String? grade;
   final String? label;
+  final String? petLabel;
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
@@ -93,7 +95,9 @@ class EquipmentDetailImageWidget extends ConsumerWidget {
                         child: Container(
                           margin: EdgeInsets.all(DimenConfig.minDimen),
                           decoration: customBoxDecoration(
-                            type: label != '캐시' ? 'in_out_circle' : 'no_circle',
+                            type: label != '캐시'
+                                ? 'label_in_out_circle'
+                                : 'label_no',
                             startColor: StaticSwitchConfig
                                 .labelStartBackgroundColor[label]!,
                             endColor: StaticSwitchConfig
@@ -127,7 +131,101 @@ class EquipmentDetailImageWidget extends ConsumerWidget {
                         ),
                       ),
                     )
-                  : SizedBox.shrink()
+                  : SizedBox.shrink(),
+              petLabel != null
+                  ? Positioned(
+                      bottom: 0,
+                      right: 0,
+                      width: 45,
+                      height: 45,
+                      child: petLabel != '캐시'
+                          ? Container(
+                              margin: EdgeInsets.all(DimenConfig.subDimen),
+                              child: Container(
+                                margin: EdgeInsets.all(DimenConfig.minDimen),
+                                decoration: customBoxDecoration(
+                                  type: 'pet_out_circle',
+                                  borderColor: StaticSwitchConfig
+                                      .petLabelBorderColor[petLabel]!,
+                                ),
+                                child: ClipOval(
+                                  child: Stack(
+                                      alignment: Alignment.center,
+                                      children: [
+                                        Container(
+                                          decoration: BoxDecoration(
+                                              gradient: RadialGradient(
+                                                  radius: 0.625,
+                                                  colors: [
+                                                Colors.white,
+                                                PetColor.lunaStartBorder,
+                                                PetColor.lunaMiddleBorder,
+                                                PetColor.lunaEndBorder,
+                                              ])),
+                                          child: Transform.translate(
+                                            offset: Offset(-5, -5),
+                                            child: Container(
+                                              decoration: customBoxDecoration(
+                                                type:
+                                                    'pet_linear_impact_circle',
+                                                startColor: StaticSwitchConfig
+                                                        .petLabelStartBackgroundColor[
+                                                    petLabel]!,
+                                                endColor: StaticSwitchConfig
+                                                        .petLabelEndBackgroundColor[
+                                                    petLabel]!,
+                                              ),
+                                            ),
+                                          ),
+                                        ),
+                                        Text(
+                                          StaticSwitchConfig
+                                              .petLabelInitialText[petLabel]!,
+                                          textAlign: TextAlign.center,
+                                          style: TextStyle(
+                                            color: StaticSwitchConfig
+                                                    .petLabelInitialColor[
+                                                petLabel]!,
+                                            fontSize:
+                                                FontConfig.middleDownSize - 1,
+                                            fontWeight: FontWeight.w900,
+                                            fontFamily: 'MapleStory',
+                                          ),
+                                        ),
+                                      ]),
+                                ),
+                              ),
+                            )
+                          : Container(
+                              margin: EdgeInsets.all(DimenConfig.subDimen),
+                              child: Container(
+                                margin: EdgeInsets.all(DimenConfig.minDimen),
+                                decoration: customBoxDecoration(
+                                  type: 'label_no',
+                                  startColor: StaticSwitchConfig
+                                      .petLabelStartBackgroundColor[petLabel]!,
+                                  endColor: StaticSwitchConfig
+                                      .petLabelEndBackgroundColor[petLabel]!,
+                                  borderColor: StaticSwitchConfig
+                                      .petLabelBorderColor[petLabel]!,
+                                ),
+                                alignment: Alignment.center,
+                                child: Text(
+                                  StaticSwitchConfig
+                                      .petLabelInitialText[petLabel]!,
+                                  textAlign: TextAlign.center,
+                                  style: TextStyle(
+                                    color: StaticSwitchConfig
+                                        .petLabelInitialColor[petLabel]!,
+                                    fontSize: FontConfig.middleDownSize - 1,
+                                    fontWeight: FontWeight.w900,
+                                    fontFamily: 'MapleStory',
+                                  ),
+                                ),
+                              ),
+                            ),
+                    )
+                  : SizedBox.shrink(),
             ],
           ),
         ),

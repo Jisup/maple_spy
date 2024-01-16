@@ -12,16 +12,17 @@ import 'package:maplespy/provider/common_provider.dart';
 import 'package:maplespy/widget/detail_page/detail_select_sub_tab.dart';
 
 class PetSymbolPage extends ConsumerWidget {
-  const PetSymbolPage({super.key, required this.pet, required this.symbol});
+  const PetSymbolPage(
+      {super.key, required this.petItem, required this.symbolItem});
 
-  final PetItem pet;
-  final SymbolItem symbol;
+  final PetItem petItem;
+  final SymbolItem symbolItem;
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     ColorScheme colorScheme = Theme.of(context).colorScheme;
 
-    PetDetail petDetail = PetDetail(petItem: pet);
+    PetDetail petDetail = PetDetail(petItem: petItem);
 
     return Container(
       margin: EdgeInsets.only(
@@ -80,7 +81,7 @@ class PetSymbolPage extends ConsumerWidget {
                       ],
                     ),
                   ),
-                  SymbolPage(symbolItem: symbol),
+                  SymbolPage(symbolItem: symbolItem),
                 ],
               ),
             ),

@@ -51,121 +51,53 @@ BoxDecoration? customBoxDecoration({
 
     /**-----equipment label */
     'label_no' => BoxDecoration(
-          color: borderColor,
-          border: Border.all(
-            color: borderColor!,
-            width: 3,
-          ),
-          borderRadius: BorderRadius.circular(RadiusConfig.maxRadius),
-          boxShadow: [
-            BoxShadow(
-                blurRadius: RadiusConfig.subRadius,
-                offset: Offset(-3, -3),
-                color: endColor ?? Colors.white,
-                inset: true),
-            BoxShadow(
-                blurRadius: RadiusConfig.subRadius,
-                offset: Offset(3, 3),
-                color: startColor ?? Colors.black87,
-                inset: true),
-            BoxShadow(
-              offset: Offset(-2, -2),
-              color: Colors.black,
-            ),
-            BoxShadow(
-              offset: Offset(-2, 0),
-              color: Colors.black,
-            ),
-            BoxShadow(
-              offset: Offset(0, -2),
-              color: Colors.black,
-            ),
-            BoxShadow(
-              offset: Offset(0, 0),
-              color: Colors.black,
-            ),
-            BoxShadow(
-              offset: Offset(0, 2),
-              color: Colors.black,
-            ),
-            BoxShadow(
-              offset: Offset(2, 0),
-              color: Colors.black,
-            ),
-            BoxShadow(
-              offset: Offset(2, 2),
-              color: Colors.black,
-            ),
-            BoxShadow(
-              offset: Offset(-2, 2),
-              color: Colors.black,
-            ),
-            BoxShadow(
-              offset: Offset(2, -2),
-              color: Colors.black,
-            ),
-          ]),
+        color: borderColor,
+        border: Border.all(
+          color: borderColor!,
+          width: 3,
+        ),
+        borderRadius: BorderRadius.circular(RadiusConfig.maxRadius),
+        boxShadow: basicBoxShadowList(
+          d: 2,
+          color: Colors.black,
+          insetTop: startColor,
+          insetBottom: endColor,
+        ),
+      ),
     'label_in_out_circle' => BoxDecoration(
-          gradient: RadialGradient(
-            radius: 0.5,
-            colors: [
-              startColor ?? mainColor,
-              endColor ?? mainColor,
-            ],
-          ),
-          border: Border.all(
-            color: borderColor!,
-            width: 3,
-          ),
-          borderRadius: BorderRadius.circular(RadiusConfig.maxRadius),
-          boxShadow: [
-            BoxShadow(
-              offset: Offset(-2, -2),
-              color: Colors.black,
-            ),
-            BoxShadow(
-              offset: Offset(-2, 0),
-              color: Colors.black,
-            ),
-            BoxShadow(
-              offset: Offset(0, -2),
-              color: Colors.black,
-            ),
-            BoxShadow(
-              offset: Offset(0, 0),
-              color: Colors.black,
-            ),
-            BoxShadow(
-              offset: Offset(0, 2),
-              color: Colors.black,
-            ),
-            BoxShadow(
-              offset: Offset(2, 0),
-              color: Colors.black,
-            ),
-            BoxShadow(
-              offset: Offset(2, 2),
-              color: Colors.black,
-            ),
-            BoxShadow(
-              offset: Offset(-2, 2),
-              color: Colors.black,
-            ),
-            BoxShadow(
-              offset: Offset(2, -2),
-              color: Colors.black,
-            ),
-            BoxShadow(
-                blurRadius: RadiusConfig.subRadius,
-                offset: Offset(-3, -3),
-                color: Colors.black26,
-                inset: true),
-            BoxShadow(
-                blurRadius: RadiusConfig.subRadius,
-                offset: Offset(3, 3),
-                color: Colors.black87,
-                inset: true)
-          ]),
+        gradient: RadialGradient(
+          radius: 0.5,
+          colors: [
+            startColor ?? mainColor,
+            endColor ?? mainColor,
+          ],
+        ),
+        border: Border.all(
+          color: borderColor!,
+          width: 3,
+        ),
+        borderRadius: BorderRadius.circular(RadiusConfig.maxRadius),
+        boxShadow: basicBoxShadowList(
+          d: 2,
+          color: Colors.black,
+          insetBottom: Colors.black87,
+        ),
+      ),
+    'pet_out_circle' => BoxDecoration(
+        borderRadius: BorderRadius.circular(RadiusConfig.maxRadius),
+        boxShadow: basicBoxShadowList(d: 2, color: Colors.black),
+      ),
+    'pet_linear_impact_circle' => BoxDecoration(
+        gradient: LinearGradient(
+          begin: Alignment.topLeft,
+          end: Alignment.bottomRight,
+          colors: [
+            startColor ?? mainColor,
+            endColor ?? mainColor,
+          ],
+        ),
+        borderRadius: BorderRadius.circular(RadiusConfig.maxRadius),
+      ),
     /**-----skill */
     'skill_in_out_bar' => BoxDecoration(
         gradient: RadialGradient(
@@ -236,4 +168,60 @@ BoxDecoration? customBoxDecoration({
       ),
     _ => null,
   };
+}
+
+List<BoxShadow> basicBoxShadowList({
+  required double d,
+  required Color color,
+  Color? insetTop,
+  Color? insetBottom,
+}) {
+  return [
+    BoxShadow(
+      offset: Offset(-d, -d),
+      color: color,
+    ),
+    BoxShadow(
+      offset: Offset(-d, 0),
+      color: color,
+    ),
+    BoxShadow(
+      offset: Offset(0, -d),
+      color: color,
+    ),
+    BoxShadow(
+      offset: Offset(0, 0),
+      color: color,
+    ),
+    BoxShadow(
+      offset: Offset(0, d),
+      color: color,
+    ),
+    BoxShadow(
+      offset: Offset(d, 0),
+      color: color,
+    ),
+    BoxShadow(
+      offset: Offset(d, d),
+      color: color,
+    ),
+    BoxShadow(
+      offset: Offset(-d, d),
+      color: color,
+    ),
+    BoxShadow(
+      offset: Offset(d, -d),
+      color: color,
+    ),
+    BoxShadow(
+        blurRadius: RadiusConfig.subRadius,
+        offset: Offset(3, 3),
+        color: insetTop ?? Colors.black87,
+        inset: true),
+    BoxShadow(
+        blurRadius: RadiusConfig.subRadius,
+        offset: Offset(-3, -3),
+        color: insetBottom ?? Colors.white54,
+        inset: true),
+  ];
 }

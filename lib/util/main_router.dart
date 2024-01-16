@@ -2,8 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:maplespy/model/equipment/cash_item_model.dart';
 import 'package:maplespy/model/equipment/item_model.dart';
+import 'package:maplespy/model/equipment/pet/pet_detail_model.dart';
+import 'package:maplespy/model/equipment/pet_item_model.dart';
 import 'package:maplespy/page/equipment/cash/detail/cash_detail_page.dart';
 import 'package:maplespy/page/equipment/item/detail/item_detail_page.dart';
+import 'package:maplespy/page/equipment/pet_symbol/pet/detail/pet_detail_page.dart';
+import 'package:maplespy/page/equipment/pet_symbol/pet/detail/pet_equipment_item_detail_page.dart';
 import 'package:maplespy/page/main_character_page.dart';
 import 'package:maplespy/page/main_equipment_page.dart';
 import 'package:maplespy/page/main_home_page.dart';
@@ -58,6 +62,19 @@ GoRouter mainRouter = GoRouter(
               child: CashDetailPage(cashItem: state.extra as CashItemEquipment),
             ),
           ),
+          GoRoute(
+            path: 'pet/detail',
+            name: 'petDetail',
+            pageBuilder: (context, state) =>
+                NoTransitionPage(child: PetDetailPage(pet: state.extra as Pet)),
+          ),
+          GoRoute(
+            path: 'pet/equipment/item/detail',
+            name: 'petEquilmentItemDetail',
+            pageBuilder: (context, state) => NoTransitionPage(
+                child: PetEquipmentItemDetailPage(
+                    item: state.extra as PetEquipment)),
+          )
         ]),
     GoRoute(
       path: '/stat',

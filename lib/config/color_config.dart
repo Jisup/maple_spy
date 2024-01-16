@@ -129,10 +129,10 @@ class CashColor {
 }
 
 class PetColor {
-  static const Color text = Color(0xFF000000);
+  static const Color text = Color(0xFFFFFFFF);
   static const Color border = Color(0xFFFFDD00);
-  static const Color startBackground = Color(0xFFFFCC00);
-  static const Color endBackground = Color(0xFFFFDD00);
+  static const Color startBackground = Color(0xFF774400);
+  static const Color endBackground = Color(0xFFFFFFFF);
 
   static const Color initialText = Color(0xFFFFFFFF);
   static const Color subInitialText = Color(0xFF777766);
@@ -160,6 +160,10 @@ class PetColor {
   static const Color lunaPetitBorder = Color(0xFFAA77FF);
   static const Color lunaPetitStartBackground = Color(0xFF111122);
   static const Color lunaPetitEndBackground = Color(0xFF5533CC);
+
+  static const Color lunaStartBorder = Color(0xFFFFFF77);
+  static const Color lunaMiddleBorder = Color(0xFFEFC010);
+  static const Color lunaEndBorder = Color(0xFFEE8800);
 }
 
 class SymbolColor {

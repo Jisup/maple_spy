@@ -1,3 +1,5 @@
+import 'package:intl/intl.dart';
+
 class PetItem {
   String? date;
   String? pet1Name;
@@ -99,6 +101,17 @@ class PetItem {
     pet3PetType = json['pet_3_pet_type'];
     pet3Skill = json['pet_3_skill'].cast<String>();
     pet3DateExpire = json['pet_3_date_expire'];
+
+    DateFormat formatter = DateFormat('yyyy년 MM월 dd일 HH시');
+    if (pet1DateExpire != null) {
+      pet1DateExpire = formatter.format(DateTime.parse(pet1DateExpire!));
+    }
+    if (pet2DateExpire != null) {
+      pet2DateExpire = formatter.format(DateTime.parse(pet2DateExpire!));
+    }
+    if (pet3DateExpire != null) {
+      pet3DateExpire = formatter.format(DateTime.parse(pet3DateExpire!));
+    }
   }
 
   Map<String, dynamic> toJson() {

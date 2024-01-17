@@ -207,6 +207,15 @@ class StaticSwitchConfig {
   };
 
   /**----------function */
+  /**-----pet stat */
+  static int switchPetEquipmentStat({required String? petType}) {
+    return switch (petType) {
+      '루나 쁘띠' => 10,
+      '루나 드림' || '루나 스윗' || '원더 블랙' => 5,
+      _ => 0,
+    };
+  }
+
   /**-----stat */
   static String switchClassMainStat({required String className}) {
     return switch (className) {

@@ -59,6 +59,7 @@ class ItemColor {
 
   static const Color commonInfoText = Color(0xFFffffff); // 공통 텍스트: 흰색
   static const Color subInfoText = Color(0xFFffcc00); // 공통 서브 텍스트: 노란색
+  static const Color etcInfoText = Color(0xFFffaa00); // 공통 예외 텍스트
   static const Color deactiveOptionText = Color(0xFF777777); // 비활성화 옵션 텍스트
 
   static const Color rarePotentialText = Color(0xFF66ffff); // 레어 잠재능력 텍스트

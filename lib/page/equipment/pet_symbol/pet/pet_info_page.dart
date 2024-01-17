@@ -41,10 +41,10 @@ class PetInfoPage extends ConsumerWidget {
                   ),
                 ),
                 GestureDetector(
-                  onTap: pet.petEquipment != null
+                  onTap: pet.petEquipment?.itemName != null
                       ? () => context.push(
                           '/equipment/pet/equipment/item/detail',
-                          extra: pet.petEquipment)
+                          extra: pet)
                       : null,
                   child: FractionallySizedBox(
                     widthFactor: 0.75,

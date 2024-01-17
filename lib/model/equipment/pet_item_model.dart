@@ -166,15 +166,18 @@ class PetEquipment {
   String? itemDescription;
   List<ItemOption>? itemOption;
   int? scrollUpgrade;
-  int? scrollUpgradeable;
+  // int? scrollUpgradeable;
+  int? scrollUpgradable;
 
-  PetEquipment(
-      {this.itemName,
-      this.itemIcon,
-      this.itemDescription,
-      this.itemOption,
-      this.scrollUpgrade,
-      this.scrollUpgradeable});
+  PetEquipment({
+    this.itemName,
+    this.itemIcon,
+    this.itemDescription,
+    this.itemOption,
+    this.scrollUpgrade,
+    // this.scrollUpgradeable,
+    this.scrollUpgradable,
+  });
 
   PetEquipment.fromJson(Map<String, dynamic> json) {
     itemName = json['item_name'];
@@ -187,7 +190,8 @@ class PetEquipment {
       });
     }
     scrollUpgrade = json['scroll_upgrade'];
-    scrollUpgradeable = json['scroll_upgradeable'];
+    // scrollUpgradeable = json['scroll_upgradeable'];
+    scrollUpgradable = json['scroll_upgradable'];
   }
 
   Map<String, dynamic> toJson() {
@@ -199,7 +203,8 @@ class PetEquipment {
       data['item_option'] = this.itemOption!.map((v) => v.toJson()).toList();
     }
     data['scroll_upgrade'] = this.scrollUpgrade;
-    data['scroll_upgradeable'] = this.scrollUpgradeable;
+    // data['scroll_upgradeable'] = this.scrollUpgradeable;
+    data['scroll_upgradable'] = this.scrollUpgradable;
     return data;
   }
 }

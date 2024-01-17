@@ -69,12 +69,14 @@ GoRouter mainRouter = GoRouter(
                 NoTransitionPage(child: PetDetailPage(pet: state.extra as Pet)),
           ),
           GoRoute(
-            path: 'pet/equipment/item/detail',
-            name: 'petEquilmentItemDetail',
-            pageBuilder: (context, state) => NoTransitionPage(
-                child: PetEquipmentItemDetailPage(
-                    item: state.extra as PetEquipment)),
-          )
+              path: 'pet/equipment/item/detail',
+              name: 'petEquilmentItemDetail',
+              pageBuilder: (context, state) => NoTransitionPage(
+                    child: PetEquipmentItemDetailPage(
+                        equipment:
+                            (state.extra as Pet).petEquipment as PetEquipment,
+                        petType: (state.extra as Pet).petPetType),
+                  ))
         ]),
     GoRoute(
       path: '/stat',

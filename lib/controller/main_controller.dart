@@ -6,9 +6,9 @@ import 'package:maplespy/provider/common_provider.dart';
 import 'package:maplespy/util/dio_instance.dart';
 import 'package:maplespy/util/main_router.dart';
 
-final mainControllerProvider = NotifierProvider(MainController.new);
+final mainControllerProvider = AutoDisposeNotifierProvider(MainController.new);
 
-class MainController extends Notifier {
+class MainController extends AutoDisposeNotifier {
   final isLoading = StateProvider((_) => false);
   final hasError = StateProvider((_) => false);
   final errorMessage = StateProvider((_) => '');

@@ -16,6 +16,7 @@ class MainEquipmentPage extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final selectTab = ref.watch(equipmentSelectTabProvider);
+
     return MainContainer(
       isHome: false,
       body: Column(

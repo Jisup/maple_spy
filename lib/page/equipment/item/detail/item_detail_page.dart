@@ -13,6 +13,7 @@ import 'package:maplespy/page/equipment/item/detail/item_detail_option_page.dart
 import 'package:maplespy/widget/equipment/detail/equipment_detail_image_widget.dart';
 import 'package:maplespy/widget/equipment/detail/equipment_detail_required_class_widget.dart';
 import 'package:maplespy/widget/equipment/detail/equipment_detail_required_level_widget.dart';
+import 'package:maplespy/widget/equipment/item/exceptional_enhance_widget.dart';
 
 class ItemDetailPage extends ConsumerWidget {
   const ItemDetailPage({super.key, required this.item});
@@ -212,6 +213,15 @@ class ItemDetailPage extends ConsumerWidget {
                               option3: item.additionalPotentialOption3,
                             ),
                           )
+                        : SizedBox.shrink(),
+
+                    /**-----item exceptional potential option */
+                    item.itemExceptionalOption?.str != '0'
+                        ? DashedDividerWidget()
+                        : SizedBox.shrink(),
+                    item.itemExceptionalOption?.str != '0'
+                        ? ExceptionalEnhanceWidget(
+                            exceptionalOprion: item.itemExceptionalOption!)
                         : SizedBox.shrink(),
 
                     /**-----item soul */

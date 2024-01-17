@@ -24,30 +24,35 @@ class ExceptionalEnhanceWidget extends ConsumerWidget {
           children: [
             Row(
               children: [
-                Container(
-                  margin: EdgeInsets.only(right: DimenConfig.commonDimen),
-                  decoration: BoxDecoration(
-                    color: ItemColor.exceptionalIconBackground,
-                    border: Border.all(color: ItemColor.exceptionalIconBorder),
-                    borderRadius: BorderRadius.circular(DimenConfig.subDimen),
-                    boxShadow: fourDirectionBoxShadow(
-                        d: 1, color: ItemColor.iconBoxShadow),
-                  ),
-                  child: SizedBox(
-                    width: FontConfig.minSize * 2,
-                    height: FontConfig.minSize * 1.5,
-                    child: Center(
-                      child: Text(
-                        'EX',
-                        style: TextStyle(
-                            color: ItemColor.commonInfoText,
-                            fontSize: FontConfig.minSize,
-                            fontWeight: FontWeight.bold,
-                            letterSpacing: 1.5,
-                            shadows: eightDirectionShadow(
-                              d: 2,
-                              color: ItemColor.exceptionalIconTextShadow,
-                            )),
+                Semantics(
+                  label: '익셉셔널 강화 아이콘',
+                  readOnly: true,
+                  child: Container(
+                    margin: EdgeInsets.only(right: DimenConfig.commonDimen),
+                    decoration: BoxDecoration(
+                      color: ItemColor.exceptionalIconBackground,
+                      border:
+                          Border.all(color: ItemColor.exceptionalIconBorder),
+                      borderRadius: BorderRadius.circular(DimenConfig.subDimen),
+                      boxShadow: fourDirectionBoxShadow(
+                          d: 1, color: ItemColor.iconBoxShadow),
+                    ),
+                    child: SizedBox(
+                      width: FontConfig.minSize * 2,
+                      height: FontConfig.minSize * 1.5,
+                      child: Center(
+                        child: Text(
+                          'EX',
+                          style: TextStyle(
+                              color: ItemColor.commonInfoText,
+                              fontSize: FontConfig.minSize,
+                              fontWeight: FontWeight.bold,
+                              letterSpacing: 1.5,
+                              shadows: eightDirectionShadow(
+                                d: 2,
+                                color: ItemColor.exceptionalIconTextShadow,
+                              )),
+                        ),
                       ),
                     ),
                   ),

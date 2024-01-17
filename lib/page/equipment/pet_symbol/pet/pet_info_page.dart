@@ -33,9 +33,13 @@ class PetInfoPage extends ConsumerWidget {
                     widthFactor: 0.75,
                     child: AspectRatio(
                       aspectRatio: 1 / 1,
-                      child: EquipmentSlotWidget(
-                        name: 'PET',
-                        imageUrl: pet.petIcon,
+                      child: Semantics(
+                        label: '펫 아이템 칸, ${pet.petName ?? '비어있음'}',
+                        button: true,
+                        child: EquipmentSlotWidget(
+                          name: 'PET',
+                          imageUrl: pet.petIcon,
+                        ),
                       ),
                     ),
                   ),
@@ -50,9 +54,14 @@ class PetInfoPage extends ConsumerWidget {
                     widthFactor: 0.75,
                     child: AspectRatio(
                       aspectRatio: 1 / 1,
-                      child: EquipmentSlotWidget(
-                        name: 'PET\nACC',
-                        imageUrl: pet.petEquipment?.itemIcon,
+                      child: Semantics(
+                        label:
+                            '펫 장비 아이템 칸, ${pet.petEquipment?.itemName ?? '비어있음'}',
+                        button: true,
+                        child: EquipmentSlotWidget(
+                          name: 'PET\nACC',
+                          imageUrl: pet.petEquipment?.itemIcon,
+                        ),
                       ),
                     ),
                   ),

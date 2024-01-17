@@ -87,7 +87,7 @@ class HexaSkillPage extends ConsumerWidget {
                                         hexaDetail[
                                             core.linkedSkill![0].hexaSkillId]!,
                                         fit: BoxFit.contain,
-                                        semanticLabel: '스킬 이미지',
+                                        semanticLabel: '헥사 코어 이미지',
                                       ),
                                     )
                                   : null,

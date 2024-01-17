@@ -26,32 +26,36 @@ class DetailPresetTab extends ConsumerWidget {
       onTap: equal
           ? null
           : () => ref.read(provider.notifier).update((state) => tab['name']),
-      child: Container(
-        width: size ?? 30,
-        height: size ?? 30,
-        margin: EdgeInsets.only(left: DimenConfig.commonDimen),
-        alignment: Alignment.center,
-        decoration: BoxDecoration(
-          color: equal ? color ?? colorScheme.primary : colorScheme.onPrimary,
-          border: Border.all(
-            color: colorScheme.primary,
-            width: 2,
+      child: Semantics(
+        label: '프리셋 ${tab['text']}번',
+        button: true,
+        child: Container(
+          width: size ?? 30,
+          height: size ?? 30,
+          margin: EdgeInsets.only(left: DimenConfig.commonDimen),
+          alignment: Alignment.center,
+          decoration: BoxDecoration(
+            color: equal ? color ?? colorScheme.primary : colorScheme.onPrimary,
+            border: Border.all(
+              color: colorScheme.primary,
+              width: 2,
+            ),
+            borderRadius: BorderRadius.circular(RadiusConfig.minRadius),
           ),
-          borderRadius: BorderRadius.circular(RadiusConfig.minRadius),
+          child: isBright
+              ? CustomTextWidget(
+                  text: tab['text'],
+                  size: FontConfig.commonSize,
+                  color: equal ? Colors.black : Colors.black,
+                  subColor: equal ? Colors.white70 : Colors.white70,
+                )
+              : CustomTextWidget(
+                  text: tab['text'],
+                  size: FontConfig.commonSize,
+                  color: equal ? Colors.white : Colors.black,
+                  subColor: equal ? Colors.black26 : Colors.white70,
+                ),
         ),
-        child: isBright
-            ? CustomTextWidget(
-                text: tab['text'],
-                size: FontConfig.commonSize,
-                color: equal ? Colors.black : Colors.black,
-                subColor: equal ? Colors.white70 : Colors.white70,
-              )
-            : CustomTextWidget(
-                text: tab['text'],
-                size: FontConfig.commonSize,
-                color: equal ? Colors.white : Colors.black,
-                subColor: equal ? Colors.black26 : Colors.white70,
-              ),
       ),
     );
   }

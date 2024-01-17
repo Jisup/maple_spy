@@ -59,12 +59,16 @@ class SymbolPage extends ConsumerWidget {
                         stat: symbolTab == 'ARC'
                             ? symbolDetail.arcaneStat.force.toString()
                             : symbolDetail.authenticStat.force.toString()),
-                    Divider(
-                      color: SymbolColor.startBorder,
-                      height: DimenConfig.subDimen * 2,
-                      thickness: 2,
-                      indent: DimenConfig.subDimen * 2,
-                      endIndent: DimenConfig.subDimen,
+                    Semantics(
+                      label: '구분 선',
+                      readOnly: true,
+                      child: Divider(
+                        color: SymbolColor.startBorder,
+                        height: DimenConfig.subDimen * 2,
+                        thickness: 2,
+                        indent: DimenConfig.subDimen * 2,
+                        endIndent: DimenConfig.subDimen,
+                      ),
                     ),
                     SymbolInfoPage(
                         title: StaticSwitchConfig.switchClassMainStat(
@@ -94,8 +98,13 @@ class SymbolPage extends ConsumerWidget {
                       .singleWhere(
                           (element) => element.symbolName == tab['name'],
                           orElse: () => Symbol());
-                  return SymbolImagePage(
-                      imageUrl: symbol.symbolIcon, level: symbol.symbolLevel);
+                  return Semantics(
+                    label: symbol.symbolName != null
+                        ? '${symbol.symbolName} 심볼'
+                        : ' 비어있음',
+                    child: SymbolImagePage(
+                        imageUrl: symbol.symbolIcon, level: symbol.symbolLevel),
+                  );
                 }).toList(),
               ),
             ),

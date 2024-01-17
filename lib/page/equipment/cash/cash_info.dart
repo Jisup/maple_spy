@@ -18,46 +18,50 @@ class CashInfo extends ConsumerWidget {
       onTap: cashItem.cashItemName != null
           ? () => context.push('/equipment/cash/detail', extra: cashItem)
           : null,
-      child: Container(
-        margin: EdgeInsets.all(DimenConfig.minDimen),
-        padding: EdgeInsets.all(DimenConfig.subDimen),
-        decoration: BoxDecoration(
-            color: colorScheme.onSecondary,
-            borderRadius: BorderRadius.circular(RadiusConfig.subRadius),
-            boxShadow: [
-              BoxShadow(
-                  blurRadius: RadiusConfig.subRadius,
-                  offset: Offset(-3, -3),
-                  color: Colors.white,
-                  inset: true),
-              BoxShadow(
-                  blurRadius: RadiusConfig.subRadius,
-                  offset: Offset(3, 3),
-                  color: Colors.black87,
-                  inset: true)
-            ]),
-        child: Stack(
-          children: [
-            Text(
-              name,
-              style: TextStyle(
-                  fontSize: FontConfig.minSize,
-                  letterSpacing: SpacingConfig.minSpacing,
-                  color: Colors.white70,
-                  fontWeight: FontWeight.bold),
-            ),
-            cashItem.cashItemIcon != null
-                ? SizedBox(
-                    width: double.infinity,
-                    height: double.infinity,
-                    child: Image(
-                      image: NetworkImage(cashItem.cashItemIcon!),
-                      fit: BoxFit.contain,
-                      semanticLabel: '${cashItem.cashItemName} 이미지',
-                    ),
-                  )
-                : SizedBox.shrink(),
-          ],
+      child: Semantics(
+        label: '캐시 ${name} 아이템 칸, ${cashItem.cashItemName ?? '비어있음'}',
+        button: true,
+        child: Container(
+          margin: EdgeInsets.all(DimenConfig.minDimen),
+          padding: EdgeInsets.all(DimenConfig.subDimen),
+          decoration: BoxDecoration(
+              color: colorScheme.onSecondary,
+              borderRadius: BorderRadius.circular(RadiusConfig.subRadius),
+              boxShadow: [
+                BoxShadow(
+                    blurRadius: RadiusConfig.subRadius,
+                    offset: Offset(-3, -3),
+                    color: Colors.white,
+                    inset: true),
+                BoxShadow(
+                    blurRadius: RadiusConfig.subRadius,
+                    offset: Offset(3, 3),
+                    color: Colors.black87,
+                    inset: true)
+              ]),
+          child: Stack(
+            children: [
+              Text(
+                name,
+                style: TextStyle(
+                    fontSize: FontConfig.minSize,
+                    letterSpacing: SpacingConfig.minSpacing,
+                    color: Colors.white70,
+                    fontWeight: FontWeight.bold),
+              ),
+              cashItem.cashItemIcon != null
+                  ? SizedBox(
+                      width: double.infinity,
+                      height: double.infinity,
+                      child: Image(
+                        image: NetworkImage(cashItem.cashItemIcon!),
+                        fit: BoxFit.contain,
+                        semanticLabel: '${cashItem.cashItemName} 이미지',
+                      ),
+                    )
+                  : SizedBox.shrink(),
+            ],
+          ),
         ),
       ),
     );

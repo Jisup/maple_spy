@@ -57,12 +57,16 @@ class PetSymbolPage extends ConsumerWidget {
                   ),
 
                   /**-----devider */
-                  Divider(
-                      height: DimenConfig.commonDimen * 2,
-                      thickness: 2,
-                      indent: DimenConfig.commonDimen,
-                      endIndent: DimenConfig.commonDimen,
-                      color: colorScheme.primary),
+                  Semantics(
+                    label: '구분 선',
+                    readOnly: true,
+                    child: Divider(
+                        height: DimenConfig.commonDimen * 2,
+                        thickness: 2,
+                        indent: DimenConfig.commonDimen,
+                        endIndent: DimenConfig.commonDimen,
+                        color: colorScheme.primary),
+                  ),
 
                   /**-----symbol detail */
                   Container(

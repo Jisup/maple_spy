@@ -20,67 +20,72 @@ class ItemInfo extends ConsumerWidget {
       onTap: item?.itemName != null
           ? () => context.push('/equipment/item/detail', extra: item)
           : null,
-      child: Container(
-        margin: EdgeInsets.all(DimenConfig.minDimen),
-        padding: EdgeInsets.all(DimenConfig.subDimen),
-        decoration: BoxDecoration(
-            color: colorScheme.onSecondary,
-            /**-----potential option grade */
-            border: item?.potentialOptionGrade != null
-                ? Border.all(
-                    color: StaticSwitchConfig
-                        .potentialGradeColor[item?.potentialOptionGrade]!,
-                    width: 2,
-                  )
-                : null,
-            /**-----potential option grade */
-            borderRadius: item?.potentialOptionGrade == null
-                ? BorderRadius.circular(RadiusConfig.subRadius)
-                : null,
-            boxShadow: [
-              BoxShadow(
-                  blurRadius: RadiusConfig.subRadius,
-                  offset: Offset(-3, -3),
-                  color: Colors.white,
-                  inset: true),
-              BoxShadow(
-                  blurRadius: RadiusConfig.subRadius,
-                  offset: Offset(3, 3),
-                  color: Colors.black87,
-                  inset: true),
+      child: Semantics(
+        label:
+            '${name} 아이템 칸, ${item != null ? '${item!.potentialOptionGrade != null ? '${item!.potentialOptionGrade} 잠재능력을 지닌 ' : ''}${item!.itemName}' : '비어있음'}',
+        button: true,
+        child: Container(
+          margin: EdgeInsets.all(DimenConfig.minDimen),
+          padding: EdgeInsets.all(DimenConfig.subDimen),
+          decoration: BoxDecoration(
+              color: colorScheme.onSecondary,
               /**-----potential option grade */
-              item?.potentialOptionGrade != null
-                  ? BoxShadow(
-                      blurRadius: RadiusConfig.littleRadius,
+              border: item?.potentialOptionGrade != null
+                  ? Border.all(
                       color: StaticSwitchConfig
                           .potentialGradeColor[item?.potentialOptionGrade]!,
-                      blurStyle: BlurStyle.outer,
+                      width: 2,
                     )
-                  : BoxShadow(),
-            ]),
-        child: Stack(
-          children: [
-            Text(
-              name,
-              style: TextStyle(
-                  fontSize: FontConfig.minSize,
-                  letterSpacing: SpacingConfig.minSpacing,
-                  color: Colors.white70,
-                  fontWeight: FontWeight.bold),
-            ),
-            /**-----item icon */
-            item?.itemIcon != null
-                ? SizedBox(
-                    width: double.infinity,
-                    height: double.infinity,
-                    child: Image(
-                      image: NetworkImage(item!.itemIcon!),
-                      fit: BoxFit.contain,
-                      semanticLabel: '${item!.itemName!} 이미지',
-                    ),
-                  )
-                : SizedBox.shrink(),
-          ],
+                  : null,
+              /**-----potential option grade */
+              borderRadius: item?.potentialOptionGrade == null
+                  ? BorderRadius.circular(RadiusConfig.subRadius)
+                  : null,
+              boxShadow: [
+                BoxShadow(
+                    blurRadius: RadiusConfig.subRadius,
+                    offset: Offset(-3, -3),
+                    color: Colors.white,
+                    inset: true),
+                BoxShadow(
+                    blurRadius: RadiusConfig.subRadius,
+                    offset: Offset(3, 3),
+                    color: Colors.black87,
+                    inset: true),
+                /**-----potential option grade */
+                item?.potentialOptionGrade != null
+                    ? BoxShadow(
+                        blurRadius: RadiusConfig.littleRadius,
+                        color: StaticSwitchConfig
+                            .potentialGradeColor[item?.potentialOptionGrade]!,
+                        blurStyle: BlurStyle.outer,
+                      )
+                    : BoxShadow(),
+              ]),
+          child: Stack(
+            children: [
+              Text(
+                name,
+                style: TextStyle(
+                    fontSize: FontConfig.minSize,
+                    letterSpacing: SpacingConfig.minSpacing,
+                    color: Colors.white70,
+                    fontWeight: FontWeight.bold),
+              ),
+              /**-----item icon */
+              item?.itemIcon != null
+                  ? SizedBox(
+                      width: double.infinity,
+                      height: double.infinity,
+                      child: Image(
+                        image: NetworkImage(item!.itemIcon!),
+                        fit: BoxFit.contain,
+                        semanticLabel: '${item!.itemName!} 이미지',
+                      ),
+                    )
+                  : SizedBox.shrink(),
+            ],
+          ),
         ),
       ),
     );

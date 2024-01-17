@@ -44,10 +44,14 @@ class MainInforMationPage extends ConsumerWidget {
                         fontWeight: FontWeight.bold,
                       ),
                     ),
-                    Divider(
-                      color: colorScheme.primary,
-                      height: DimenConfig.commonDimen,
-                      thickness: 2,
+                    Semantics(
+                      label: '구분 선',
+                      readOnly: true,
+                      child: Divider(
+                        color: colorScheme.primary,
+                        height: DimenConfig.commonDimen,
+                        thickness: 2,
+                      ),
                     ),
                     Text.rich(
                       textAlign: TextAlign.center,
@@ -78,10 +82,14 @@ class MainInforMationPage extends ConsumerWidget {
                         ),
                       ),
                     ),
-                    Divider(
-                      color: colorScheme.primary,
-                      height: DimenConfig.commonDimen,
-                      thickness: 2,
+                    Semantics(
+                      label: '구분 선',
+                      readOnly: true,
+                      child: Divider(
+                        color: colorScheme.primary,
+                        height: DimenConfig.commonDimen,
+                        thickness: 2,
+                      ),
                     ),
                     ...StaticListConfig.serviceInformationList
                         .map((info) => FractionallySizedBox(

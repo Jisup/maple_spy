@@ -12,30 +12,35 @@ class PotentialGradeIconWidget extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    return Container(
-      margin: EdgeInsets.only(right: DimenConfig.commonDimen),
-      decoration: BoxDecoration(
-        color: StaticSwitchConfig.potentialGradeColor[potentialGrade]!,
-        border: Border.all(
-            color: StaticSwitchConfig
-                .potentialGradeIconBorderColor[potentialGrade]!),
-        borderRadius: BorderRadius.circular(DimenConfig.subDimen),
-        boxShadow: fourDirectionBoxShadow(d: 1, color: ItemColor.iconBoxShadow),
-      ),
-      child: SizedBox(
-        width: FontConfig.minSize * 1.5,
-        height: FontConfig.minSize * 1.5,
-        child: Center(
-          child: Text(
-            StaticSwitchConfig.potentialGradeCircleText[potentialGrade]!,
-            style: TextStyle(
-                color: ItemColor.commonInfoText,
-                fontSize: FontConfig.minSize,
-                fontWeight: FontWeight.bold,
-                shadows: eightDirectionShadow(
-                    d: 2,
-                    color: StaticSwitchConfig
-                        .potentialGradeIconTextShadowColor[potentialGrade]!)),
+    return Semantics(
+      label: '${potentialGrade} 잠재능력 아이콘',
+      readOnly: true,
+      child: Container(
+        margin: EdgeInsets.only(right: DimenConfig.commonDimen),
+        decoration: BoxDecoration(
+          color: StaticSwitchConfig.potentialGradeColor[potentialGrade]!,
+          border: Border.all(
+              color: StaticSwitchConfig
+                  .potentialGradeIconBorderColor[potentialGrade]!),
+          borderRadius: BorderRadius.circular(DimenConfig.subDimen),
+          boxShadow:
+              fourDirectionBoxShadow(d: 1, color: ItemColor.iconBoxShadow),
+        ),
+        child: SizedBox(
+          width: FontConfig.minSize * 1.5,
+          height: FontConfig.minSize * 1.5,
+          child: Center(
+            child: Text(
+              StaticSwitchConfig.potentialGradeCircleText[potentialGrade]!,
+              style: TextStyle(
+                  color: ItemColor.commonInfoText,
+                  fontSize: FontConfig.minSize,
+                  fontWeight: FontWeight.bold,
+                  shadows: eightDirectionShadow(
+                      d: 2,
+                      color: StaticSwitchConfig
+                          .potentialGradeIconTextShadowColor[potentialGrade]!)),
+            ),
           ),
         ),
       ),

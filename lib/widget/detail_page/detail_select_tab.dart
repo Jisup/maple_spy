@@ -36,27 +36,31 @@ class DetailSelectTabWidget extends ConsumerWidget {
                           scrollController?.jumpTo(0);
                         }
                       },
-                child: Container(
-                  margin: EdgeInsets.all(DimenConfig.commonDimen),
-                  alignment: Alignment.center,
-                  decoration: BoxDecoration(
-                    color:
-                        equal ? colorScheme.primary : colorScheme.onSecondary,
-                    borderRadius: BorderRadius.horizontal(
-                      left: Radius.circular(RadiusConfig.commonRadius),
-                      right: Radius.circular(RadiusConfig.commonRadius),
-                    ),
-                  ),
+                child: Semantics(
+                  label: '${tab['text']} 선택 탭',
+                  button: true,
                   child: Container(
-                    padding: EdgeInsets.all(tab['dimenSize']),
-                    child: Text(
-                      tab['text'],
-                      textAlign: TextAlign.center,
-                      style: TextStyle(
-                          color: equal ? Colors.white : colorScheme.primary,
-                          fontSize: tab['fontSize'],
-                          fontWeight: FontWeight.bold,
-                          letterSpacing: SpacingConfig.commonSpacing),
+                    margin: EdgeInsets.all(DimenConfig.commonDimen),
+                    alignment: Alignment.center,
+                    decoration: BoxDecoration(
+                      color:
+                          equal ? colorScheme.primary : colorScheme.onSecondary,
+                      borderRadius: BorderRadius.horizontal(
+                        left: Radius.circular(RadiusConfig.commonRadius),
+                        right: Radius.circular(RadiusConfig.commonRadius),
+                      ),
+                    ),
+                    child: Container(
+                      padding: EdgeInsets.all(tab['dimenSize']),
+                      child: Text(
+                        tab['text'],
+                        textAlign: TextAlign.center,
+                        style: TextStyle(
+                            color: equal ? Colors.white : colorScheme.primary,
+                            fontSize: tab['fontSize'],
+                            fontWeight: FontWeight.bold,
+                            letterSpacing: SpacingConfig.commonSpacing),
+                      ),
                     ),
                   ),
                 ),

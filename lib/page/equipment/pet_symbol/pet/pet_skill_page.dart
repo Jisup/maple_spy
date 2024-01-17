@@ -43,9 +43,13 @@ class PetSkillPage extends ConsumerWidget {
                         aspectRatio: 1 / 1,
                         child: Container(
                           padding: EdgeInsets.all(DimenConfig.minDimen),
-                          child: EquipmentSlotWidget(
-                            name: 'PET\nSKILL',
-                            imageUrl: skill.icon,
+                          child: Semantics(
+                            label: '펫 스킬 정보, ${skill.name ?? '비어있음'}',
+                            button: true,
+                            child: EquipmentSlotWidget(
+                              name: 'PET\nSKILL',
+                              imageUrl: skill.icon,
+                            ),
                           ),
                         ),
                       ),

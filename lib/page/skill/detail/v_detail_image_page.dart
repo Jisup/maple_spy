@@ -38,7 +38,7 @@ class VDetailImagePage extends ConsumerWidget {
       child: Image.network(
         skillIcon,
         fit: BoxFit.contain,
-        semanticLabel: '스킬 이미지',
+        semanticLabel: 'V 코어 이미지',
       ),
     );
   }

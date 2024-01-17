@@ -9,16 +9,12 @@ class MainErrorPage extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    return FractionallySizedBox(
-      widthFactor: 1,
-      heightFactor: 1,
-      child: Container(
-        alignment: Alignment.center,
-        child: Text(
-          message,
-          textAlign: TextAlign.center,
-          style: TextStyle(fontSize: FontConfig.commonSize),
-        ),
+    return Container(
+      alignment: Alignment.center,
+      child: Text(
+        message,
+        textAlign: TextAlign.center,
+        style: TextStyle(fontSize: FontConfig.commonSize),
       ),
     );
   }

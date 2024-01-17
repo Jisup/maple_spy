@@ -23,7 +23,7 @@ class StatPage extends ConsumerWidget {
     return switch (statTab) {
       'basic' => BasicStatPage(),
       'hexa' => HexaStatPage(),
-      'ability_hyper' => AbilityHyperStatPage(),
+      'ability/hyper' => AbilityHyperStatPage(),
       _ => MainErrorPage(message: ErrorMessageConfig.statPageError),
     };
   }

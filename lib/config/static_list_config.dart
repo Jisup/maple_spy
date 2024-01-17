@@ -123,7 +123,7 @@ class StaticListConfig {
       'dimenSize': DimenConfig.commonDimen,
     },
     {
-      'name': 'ability_hyper',
+      'name': 'ability/hyper',
       'text': '어빌리티 /\n하이퍼 스탯',
       'fontSize': FontConfig.commonSize,
       'dimenSize': 0.0,

@@ -5,6 +5,7 @@ import 'package:maplespy/config/color_config.dart';
 import 'package:maplespy/config/const_config.dart';
 import 'package:maplespy/model/skill/link_skill_model.dart';
 import 'package:maplespy/page/main_error_page.dart';
+import 'package:maplespy/provider/common_provider.dart';
 import 'package:maplespy/widget/common/custom_box_decoration_widget.dart';
 import 'package:maplespy/widget/common/custom_text_widget.dart';
 
@@ -16,111 +17,124 @@ class LinkSkillPage extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     ColorScheme colorScheme = Theme.of(context).colorScheme;
-    return link?.characterOwnedLinkSkill != null
-        ? Wrap(
-            runSpacing: DimenConfig.commonDimen,
-            children: link!.characterLinkSkill!.map((skill) {
-              return Container(
-                decoration: BoxDecoration(
-                  gradient: LinearGradient(
-                      begin: Alignment.topCenter,
-                      end: Alignment.bottomCenter,
-                      colors: [
-                        SkillColor.startBackground,
-                        SkillColor.endBackground,
-                      ]),
-                  border: Border.all(
-                    color: SkillColor.border,
-                    width: 2,
-                  ),
-                  borderRadius: BorderRadius.circular(DimenConfig.commonDimen),
-                ),
-                child: Container(
-                  padding: EdgeInsets.all(DimenConfig.commonDimen),
+    return GestureDetector(
+      onPanUpdate: (details) {
+        if (details.delta.dx < -3) {
+          ref.read(skillSelectTabProvider.notifier).update((state) => 'v');
+        }
+      },
+      behavior: HitTestBehavior.translucent,
+      child: link?.characterOwnedLinkSkill != null
+          ? Wrap(
+              runSpacing: DimenConfig.commonDimen,
+              children: link!.characterLinkSkill!.map((skill) {
+                return Container(
                   decoration: BoxDecoration(
+                    gradient: LinearGradient(
+                        begin: Alignment.topCenter,
+                        end: Alignment.bottomCenter,
+                        colors: [
+                          SkillColor.startBackground,
+                          SkillColor.endBackground,
+                        ]),
                     border: Border.all(
-                      color: Colors.white70,
+                      color: SkillColor.border,
+                      width: 2,
                     ),
                     borderRadius:
                         BorderRadius.circular(DimenConfig.commonDimen),
                   ),
-                  child: FractionallySizedBox(
-                    widthFactor: 1,
-                    child: AspectRatio(
-                      aspectRatio: 4 / 1,
-                      child: Row(
-                        children: [
-                          Flexible(
-                            flex: 1,
-                            fit: FlexFit.tight,
-                            child: Container(
-                              padding: EdgeInsets.all(DimenConfig.commonDimen),
-                              decoration: customBoxDecoration(
-                                type: 'equipment_no',
-                                startColor: SkillColor.background,
-                              ),
-                              child: Image.network(
-                                skill.skillIcon!,
-                                fit: BoxFit.contain,
-                                semanticLabel: '링크 스킬 이미지',
+                  child: Container(
+                    padding: EdgeInsets.all(DimenConfig.commonDimen),
+                    decoration: BoxDecoration(
+                      border: Border.all(
+                        color: Colors.white70,
+                      ),
+                      borderRadius:
+                          BorderRadius.circular(DimenConfig.commonDimen),
+                    ),
+                    child: FractionallySizedBox(
+                      widthFactor: 1,
+                      child: AspectRatio(
+                        aspectRatio: 4 / 1,
+                        child: Row(
+                          children: [
+                            Flexible(
+                              flex: 1,
+                              fit: FlexFit.tight,
+                              child: Container(
+                                padding:
+                                    EdgeInsets.all(DimenConfig.commonDimen),
+                                decoration: customBoxDecoration(
+                                  type: 'equipment_no',
+                                  startColor: SkillColor.background,
+                                ),
+                                child: Image.network(
+                                  skill.skillIcon!,
+                                  fit: BoxFit.contain,
+                                  semanticLabel: '링크 스킬 이미지',
+                                ),
                               ),
                             ),
-                          ),
-                          Flexible(
-                            flex: 3,
-                            fit: FlexFit.tight,
-                            child: Container(
-                                margin: EdgeInsets.only(
-                                    left: DimenConfig.commonDimen),
-                                child: Column(
-                                  children: [
-                                    Expanded(
-                                      child: FractionallySizedBox(
-                                        widthFactor: 1,
-                                        child: Container(
-                                          alignment: Alignment.center,
-                                          margin: EdgeInsets.only(
-                                            bottom: DimenConfig.subDimen,
-                                          ),
-                                          decoration: BoxDecoration(
-                                            color: SkillColor.background,
-                                            borderRadius: BorderRadius.circular(
-                                                RadiusConfig.maxRadius),
-                                          ),
-                                          child: CustomTextWidget(
-                                            text: skill.skillName!,
-                                            size: FontConfig.commonSize,
-                                            color: Colors.white,
-                                            subColor: colorScheme.primary,
-                                          ),
-                                        ),
-                                      ),
-                                    ),
-                                    Expanded(
-                                      child: FractionallySizedBox(
-                                        widthFactor: 1,
-                                        child: Container(
-                                          alignment: Alignment.center,
-                                          child: CustomTextWidget(
-                                            text: skill.skillLevel!.toString(),
-                                            size: FontConfig.middleSize,
-                                            color: Colors.white,
-                                            subColor: colorScheme.primary,
+                            Flexible(
+                              flex: 3,
+                              fit: FlexFit.tight,
+                              child: Container(
+                                  margin: EdgeInsets.only(
+                                      left: DimenConfig.commonDimen),
+                                  child: Column(
+                                    children: [
+                                      Expanded(
+                                        child: FractionallySizedBox(
+                                          widthFactor: 1,
+                                          child: Container(
+                                            alignment: Alignment.center,
+                                            margin: EdgeInsets.only(
+                                              bottom: DimenConfig.subDimen,
+                                            ),
+                                            decoration: BoxDecoration(
+                                              color: SkillColor.background,
+                                              borderRadius:
+                                                  BorderRadius.circular(
+                                                      RadiusConfig.maxRadius),
+                                            ),
+                                            child: CustomTextWidget(
+                                              text: skill.skillName!,
+                                              size: FontConfig.commonSize,
+                                              color: Colors.white,
+                                              subColor: colorScheme.primary,
+                                            ),
                                           ),
                                         ),
                                       ),
-                                    ),
-                                  ],
-                                )),
-                          ),
-                        ],
+                                      Expanded(
+                                        child: FractionallySizedBox(
+                                          widthFactor: 1,
+                                          child: Container(
+                                            alignment: Alignment.center,
+                                            child: CustomTextWidget(
+                                              text:
+                                                  skill.skillLevel!.toString(),
+                                              size: FontConfig.middleSize,
+                                              color: Colors.white,
+                                              subColor: colorScheme.primary,
+                                            ),
+                                          ),
+                                        ),
+                                      ),
+                                    ],
+                                  )),
+                            ),
+                          ],
+                        ),
                       ),
                     ),
                   ),
-                ),
-              );
-            }).toList(),
-          )
-        : MainErrorPage(message: ErrorMessageConfig.linkSkillPageVariableError);
+                );
+              }).toList(),
+            )
+          : MainErrorPage(
+              message: ErrorMessageConfig.linkSkillPageVariableError),
+    );
   }
 }

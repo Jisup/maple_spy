@@ -31,62 +31,77 @@ class CashPage extends ConsumerWidget {
       _ => [],
     };
 
-    return Container(
-      margin: EdgeInsets.only(
-          left: DimenConfig.commonDimen, right: DimenConfig.commonDimen),
-      child: LayoutBuilder(
-        builder:
-            (BuildContext childContext, BoxConstraints viewportConstraints) {
-          return ConstrainedBox(
-            constraints: BoxConstraints(
-                minWidth: viewportConstraints.maxWidth,
-                minHeight: viewportConstraints.maxHeight),
-            child: Container(
-              alignment: Alignment.center,
-              child: SingleChildScrollView(
-                child: Column(
-                  children: [
-                    Container(
-                      margin: EdgeInsets.only(
-                        bottom: DimenConfig.commonDimen,
-                        right: DimenConfig.commonDimen,
+    return GestureDetector(
+      onPanUpdate: (details) {
+        if (details.delta.dx < -3) {
+          ref
+              .read(equipmentSelectTabProvider.notifier)
+              .update((state) => 'item');
+        } else if (details.delta.dx > 3) {
+          ref
+              .read(equipmentSelectTabProvider.notifier)
+              .update((state) => 'pet/symbol');
+        }
+      },
+      behavior: HitTestBehavior.translucent,
+      child: Container(
+        margin: EdgeInsets.only(
+            left: DimenConfig.commonDimen, right: DimenConfig.commonDimen),
+        child: LayoutBuilder(
+          builder:
+              (BuildContext childContext, BoxConstraints viewportConstraints) {
+            return ConstrainedBox(
+              constraints: BoxConstraints(
+                  minWidth: viewportConstraints.maxWidth,
+                  minHeight: viewportConstraints.maxHeight),
+              child: Container(
+                alignment: Alignment.center,
+                child: SingleChildScrollView(
+                  child: Column(
+                    children: [
+                      Container(
+                        margin: EdgeInsets.only(
+                          bottom: DimenConfig.commonDimen,
+                          right: DimenConfig.commonDimen,
+                        ),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.end,
+                          children: StaticListConfig.basicPresetTabList
+                              .map((tab) => DetailPresetTab(
+                                  tab: tab,
+                                  provider: equipmentCashPresetProvider,
+                                  isBright: false))
+                              .toList(),
+                        ),
                       ),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.end,
-                        children: StaticListConfig.basicPresetTabList
-                            .map((tab) => DetailPresetTab(
-                                tab: tab,
-                                provider: equipmentCashPresetProvider,
-                                isBright: false))
-                            .toList(),
+                      Wrap(
+                        runAlignment: WrapAlignment.center,
+                        children:
+                            StaticListConfig.equipmentCashList.map((slot) {
+                          return FractionallySizedBox(
+                            widthFactor: 1 / 5.0125,
+                            child: AspectRatio(
+                              aspectRatio: 1 / 1,
+                              child: slot['name'] != null
+                                  ? CashInfo(
+                                      name: slot['name'],
+                                      cashItem: cashList!.singleWhere(
+                                          (element) =>
+                                              element.cashItemEquipmentSlot ==
+                                              slot['slot'],
+                                          orElse: () => CashItemEquipment()))
+                                  : null,
+                            ),
+                          );
+                        }).toList(),
                       ),
-                    ),
-                    Wrap(
-                      runAlignment: WrapAlignment.center,
-                      children: StaticListConfig.equipmentCashList.map((slot) {
-                        return FractionallySizedBox(
-                          widthFactor: 1 / 5.0125,
-                          child: AspectRatio(
-                            aspectRatio: 1 / 1,
-                            child: slot['name'] != null
-                                ? CashInfo(
-                                    name: slot['name'],
-                                    cashItem: cashList!.singleWhere(
-                                        (element) =>
-                                            element.cashItemEquipmentSlot ==
-                                            slot['slot'],
-                                        orElse: () => CashItemEquipment()))
-                                : null,
-                          ),
-                        );
-                      }).toList(),
-                    ),
-                  ],
+                    ],
+                  ),
                 ),
               ),
-            ),
-          );
-        },
+            );
+          },
+        ),
       ),
     );
   }

@@ -8,6 +8,7 @@ import 'package:maplespy/model/skill/v_matrix_model.dart';
 import 'package:maplespy/page/main_error_page.dart';
 import 'package:maplespy/page/skill/detail/v_detail_image_page.dart';
 import 'package:maplespy/page/skill/detail/v_detail_info_page.dart';
+import 'package:maplespy/provider/common_provider.dart';
 
 class VSkillPage extends ConsumerWidget {
   const VSkillPage(
@@ -22,63 +23,75 @@ class VSkillPage extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    return vSkill?.characterSkill != null && vSkill?.characterSkill?.length != 0
-        ? Wrap(
-            runSpacing: DimenConfig.commonDimen,
-            children: vSkill!.characterSkill!.reversed.map((skill) {
-              return Container(
-                decoration: BoxDecoration(
-                  gradient: LinearGradient(
-                      begin: Alignment.topCenter,
-                      end: Alignment.bottomCenter,
-                      colors: [
-                        SkillColor.startBackground,
-                        SkillColor.endBackground,
-                      ]),
-                  border: Border.all(
-                    color: SkillColor.border,
-                    width: 2,
-                  ),
-                  borderRadius: BorderRadius.circular(DimenConfig.commonDimen),
-                ),
-                child: Container(
-                  padding: EdgeInsets.all(DimenConfig.commonDimen),
+    return GestureDetector(
+      onPanUpdate: (details) {
+        if (details.delta.dx < -3) {
+          ref.read(skillSelectTabProvider.notifier).update((state) => 'hexa');
+        } else if (details.delta.dx > 3) {
+          ref.read(skillSelectTabProvider.notifier).update((state) => 'link');
+        }
+      },
+      behavior: HitTestBehavior.translucent,
+      child: vSkill?.characterSkill != null &&
+              vSkill?.characterSkill?.length != 0
+          ? Wrap(
+              runSpacing: DimenConfig.commonDimen,
+              children: vSkill!.characterSkill!.reversed.map((skill) {
+                return Container(
                   decoration: BoxDecoration(
+                    gradient: LinearGradient(
+                        begin: Alignment.topCenter,
+                        end: Alignment.bottomCenter,
+                        colors: [
+                          SkillColor.startBackground,
+                          SkillColor.endBackground,
+                        ]),
                     border: Border.all(
-                      color: Colors.white70,
+                      color: SkillColor.border,
+                      width: 2,
                     ),
                     borderRadius:
                         BorderRadius.circular(DimenConfig.commonDimen),
                   ),
-                  child: FractionallySizedBox(
-                    widthFactor: 1,
-                    child: AspectRatio(
-                      aspectRatio: 4 / 1,
-                      child: Row(
-                        children: [
-                          Flexible(
-                              flex: 1,
-                              fit: FlexFit.tight,
-                              child: VDetailImagePage(
-                                skillDetail: vDetail[skill.skillName],
-                                skillIcon: skill.skillIcon!,
-                              )),
-                          Flexible(
-                              flex: 3,
-                              fit: FlexFit.tight,
-                              child: VDetailInfoPage(
-                                skillDetail: vDetail[skill.skillName],
-                                skillName: skill.skillName!,
-                                skillLevel: skill.skillLevel!.toString(),
-                              )),
-                        ],
+                  child: Container(
+                    padding: EdgeInsets.all(DimenConfig.commonDimen),
+                    decoration: BoxDecoration(
+                      border: Border.all(
+                        color: Colors.white70,
+                      ),
+                      borderRadius:
+                          BorderRadius.circular(DimenConfig.commonDimen),
+                    ),
+                    child: FractionallySizedBox(
+                      widthFactor: 1,
+                      child: AspectRatio(
+                        aspectRatio: 4 / 1,
+                        child: Row(
+                          children: [
+                            Flexible(
+                                flex: 1,
+                                fit: FlexFit.tight,
+                                child: VDetailImagePage(
+                                  skillDetail: vDetail[skill.skillName],
+                                  skillIcon: skill.skillIcon!,
+                                )),
+                            Flexible(
+                                flex: 3,
+                                fit: FlexFit.tight,
+                                child: VDetailInfoPage(
+                                  skillDetail: vDetail[skill.skillName],
+                                  skillName: skill.skillName!,
+                                  skillLevel: skill.skillLevel!.toString(),
+                                )),
+                          ],
+                        ),
                       ),
                     ),
                   ),
-                ),
-              );
-            }).toList(),
-          )
-        : MainErrorPage(message: ErrorMessageConfig.vSkillPageVariableError);
+                );
+              }).toList(),
+            )
+          : MainErrorPage(message: ErrorMessageConfig.vSkillPageVariableError),
+    );
   }
 }

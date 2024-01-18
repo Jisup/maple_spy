@@ -19,6 +19,11 @@ class StaticListConfig {
     },
     {
       'header': '※ 본 애플리케이션은\n',
+      'main': 'NEXON의 공식 애플리케이션이 아니며,\n',
+      'footer': '어떠한 보증도 제공하지 않습니다.',
+    },
+    {
+      'header': '※ 본 애플리케이션은\n',
       'main': 'NEXON OPEN API',
       'footer': '에서 제공되는 메이플스토리 게임 데이터를 기반으로 제작되었습니다.',
     },

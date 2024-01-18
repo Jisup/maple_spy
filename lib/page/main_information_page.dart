@@ -71,6 +71,10 @@ class MainInforMationPage extends ConsumerWidget {
                       '2023년 12월 21일 데이터부터 조회할 수 있으며,\n매일 오전 1시를 기준으로 데이터가 갱신됩니다.',
                       textAlign: TextAlign.center,
                     ),
+                    Text(
+                      '일일 제한 요청량이 초과할 경우, 캐릭터 정보 조회가 불가능할 수 있습니다.',
+                      textAlign: TextAlign.center,
+                    ),
                     Container(
                       margin: EdgeInsets.only(
                           top: DimenConfig.maxDimen - DimenConfig.commonDimen),

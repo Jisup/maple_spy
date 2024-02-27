@@ -37,15 +37,48 @@
 
 # < 사용 방법 >
 
-#### ● 캐릭터 정보 조회
+#### ● 캐릭터 조회
+
+- 캐릭터 닉네임을 입력하여 기본/아이템/스탯/스킬 정보를 확인할 수 있습니다.
+
+<Image width="30%" src="https://github.com/Jisup/maple_spy/assets/49368118/de2ca0a6-dcfc-48a0-a169-e736adfa29fd">
 
 #### ● 캐릭터 전체 정보 조회
 
+- 캐릭터 네비게이션 탭을 통해, 캐릭터의 기본 정보를 확인할 수 있습니다.
+
+<Image width="30%" src="https://github.com/Jisup/maple_spy/assets/49368118/1bbd62ac-4aeb-46a9-b225-cf16be616318">
+
 #### ● 캐릭터 아이템 정보 조회
+
+- 캐릭터가 장착 중인 아이템 정보를 확인할 수 있습니다.
+- 아이템이 존재하는 경우, 슬릇을 클릭하여 아이템의 세부 정보를 확인할 수 있습니다.
+- 캐시 아이템의 경우, 숫자 버튼을 통해 사용자가 설정한 프리셋 아이템 정보를 확인할 수 있습니다.
+
+<Image width="30%" src="https://github.com/Jisup/maple_spy/assets/49368118/9a640e33-781e-42f5-ab2d-f7fe9c61ee1b">
+<Image width="30%" src="https://github.com/Jisup/maple_spy/assets/49368118/04ede375-3f8f-4f00-b002-c062d30fe277">
+
+</br>
+  
+<Image width="30%" src="https://github.com/Jisup/maple_spy/assets/49368118/f26c4aca-bdfc-46d4-af26-e6527d98b7b3">
+<Image width="30%" src="https://github.com/Jisup/maple_spy/assets/49368118/aa0062ca-3965-425f-9909-f8569586a37f">
 
 #### ● 캐릭터 스탯 정보 조회
 
+- 캐릭터에게 적용 중인 스탯 정보를 확인할 수 있습니다.
+- 하이퍼 스탯의 경우, 숫자 버튼을 통해 사용자가 설정한 프리셋 하이퍼 스탯 정보를 확인할 수 있습니다.
+
+<Image width="30%" src="https://github.com/Jisup/maple_spy/assets/49368118/2db67a3c-3ff1-4d9a-900c-022c41e8d85a">
+<Image width="30%" src="https://github.com/Jisup/maple_spy/assets/49368118/4c6fd238-2e3a-4f68-8e12-770b0849b16e">
+<Image width="30%" src="https://github.com/Jisup/maple_spy/assets/49368118/f3054e57-b438-4628-9617-fb9dd488bc87">
+
 #### ● 캐릭터 스킬 정보 조회
+
+- 캐릭터에게 적용 중인 스킬 정보를 확인할 수 있습니다.
+
+<Image width="30%" src="https://github.com/Jisup/maple_spy/assets/49368118/02961533-309b-4a31-b310-2da0600ef087">
+<Image width="30%" src="https://github.com/Jisup/maple_spy/assets/49368118/518d38db-9b57-45a5-ae90-808c6d544dc7">
+<Image width="30%" src="https://github.com/Jisup/maple_spy/assets/49368118/f67760d7-3a67-4b65-958a-4dfe3b429c02">
 
 </br>
 

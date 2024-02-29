@@ -93,7 +93,7 @@ class _MainHomeState extends ConsumerState<MainHomePage> {
                                   TextInputFormatter.withFunction(
                                       (oldValue, newValue) {
                                     return newValue.text.contains(
-                                            RegExp(r'[^0-9a-zA-Zㄱ-ㅎ가-힣]'))
+                                            RegExp(r'[^0-9a-zA-Zㆍᆞᆢㅏ-ㅣㄱ-ㅎ가-힣]'))
                                         ? oldValue
                                         : newValue;
                                   })

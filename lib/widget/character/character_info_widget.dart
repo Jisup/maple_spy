@@ -38,6 +38,7 @@ class CharacterInfoWidget extends ConsumerWidget {
                     fontSize: FontConfig.commonSize,
                     fontWeight: FontWeight.bold,
                     letterSpacing: SpacingConfig.commonSpacing,
+                    overflow: TextOverflow.ellipsis,
                   ),
                   strokeColor: colorScheme.primary,
                   strokeWidth: StrokeConfig.commonWidth,
@@ -54,13 +55,13 @@ class CharacterInfoWidget extends ConsumerWidget {
                     right: Radius.circular(RadiusConfig.commonRadius)),
               ),
               child: Container(
-                margin: EdgeInsets.only(left: DimenConfig.commonDimen),
                 child: Text(
                   value,
                   style: TextStyle(
                     color: type ? Colors.white : Colors.black,
                     fontSize: FontConfig.commonSize,
                     fontWeight: FontWeight.bold,
+                    overflow: TextOverflow.ellipsis,
                   ),
                 ),
               ),

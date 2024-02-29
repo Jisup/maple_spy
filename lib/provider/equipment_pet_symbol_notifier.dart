@@ -15,6 +15,10 @@ final asyncEquipmentPetSymbolProvider =
         EquipmentPetSymbolNotifier.new);
 
 class EquipmentPetSymbolNotifier extends AsyncNotifier<MainEquipmentPetSymbol> {
+  final oldCharacterNameProvider = StateProvider(
+    (ref) => "",
+  );
+
   Future<MainEquipmentPetSymbol> _fetchPetSymbol() async {
     final dioInstance = DioInstance();
 
@@ -50,5 +54,19 @@ class EquipmentPetSymbolNotifier extends AsyncNotifier<MainEquipmentPetSymbol> {
   @override
   Future<MainEquipmentPetSymbol> build() {
     return _fetchPetSymbol();
+  }
+
+  Future<void> getNewPetSymbol() async {
+    final oldCharacterName = ref.read(oldCharacterNameProvider);
+    final newCharacterName = ref.read(characterNameProvider);
+
+    if (oldCharacterName == newCharacterName) return;
+
+    ref
+        .read(oldCharacterNameProvider.notifier)
+        .update((state) => newCharacterName);
+
+    state = AsyncValue.loading();
+    state = await AsyncValue.guard(() => _fetchPetSymbol());
   }
 }

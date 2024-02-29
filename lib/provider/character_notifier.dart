@@ -15,10 +15,15 @@ import 'package:maplespy/util/day_instance.dart';
 import 'package:maplespy/util/dio_instance.dart';
 
 final asyncCharacterProvider =
-    AsyncNotifierProvider<CharacterNotifier, MainCharacter>(
-        CharacterNotifier.new);
+    AsyncNotifierProvider<CharacterNotifier, MainCharacter>(() {
+  return CharacterNotifier();
+});
 
 class CharacterNotifier extends AsyncNotifier<MainCharacter> {
+  final oldCharacterNameProvider = StateProvider(
+    (ref) => "",
+  );
+
   Future<MainCharacter> _fetchCharacter() async {
     final dioInstance = DioInstance();
     final yesterday = DayInstance().yesterday;
@@ -98,7 +103,21 @@ class CharacterNotifier extends AsyncNotifier<MainCharacter> {
   }
 
   @override
-  FutureOr<MainCharacter> build() {
+  Future<MainCharacter> build() {
     return _fetchCharacter();
+  }
+
+  Future<void> getNewCharacter() async {
+    final oldCharacterName = ref.read(oldCharacterNameProvider);
+    final newCharacterName = ref.read(characterNameProvider);
+
+    if (oldCharacterName == newCharacterName) return;
+
+    ref
+        .read(oldCharacterNameProvider.notifier)
+        .update((state) => newCharacterName);
+
+    state = AsyncValue.loading();
+    state = await AsyncValue.guard(() => _fetchCharacter());
   }
 }

@@ -16,6 +16,10 @@ final asyncSkillProvider =
     AsyncNotifierProvider<SkillNotifier, MainSkill>(SkillNotifier.new);
 
 class SkillNotifier extends AsyncNotifier<MainSkill> {
+  final oldCharacterNameProvider = StateProvider(
+    (ref) => "",
+  );
+
   Future<MainSkill> _fetchSkill() async {
     final dioInstance = DioInstance();
 
@@ -103,5 +107,19 @@ class SkillNotifier extends AsyncNotifier<MainSkill> {
   @override
   Future<MainSkill> build() {
     return _fetchSkill();
+  }
+
+  Future<void> getNewSkill() async {
+    final oldCharacterName = ref.read(oldCharacterNameProvider);
+    final newCharacterName = ref.read(characterNameProvider);
+
+    if (oldCharacterName == newCharacterName) return;
+
+    ref
+        .read(oldCharacterNameProvider.notifier)
+        .update((state) => newCharacterName);
+
+    state = AsyncValue.loading();
+    state = await AsyncValue.guard(() => _fetchSkill());
   }
 }

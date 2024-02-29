@@ -143,6 +143,7 @@ class _MainHomeState extends ConsumerState<MainHomePage> {
                                           mainController.onClickSearchButton(
                                               characterName:
                                                   _textFieldController.text),
+                                          _textFieldController.text = '',
                                           FocusScope.of(context).unfocus()
                                         }
                                       : _focusNode.requestFocus(),

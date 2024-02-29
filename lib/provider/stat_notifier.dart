@@ -16,6 +16,10 @@ final asyncStatProvider =
     AsyncNotifierProvider<StatNotifier, MainStat>(StatNotifier.new);
 
 class StatNotifier extends AsyncNotifier<MainStat> {
+  final oldCharacterNameProvider = StateProvider(
+    (ref) => "",
+  );
+
   Future<MainStat> _fetchStat() async {
     DioInstance dioInstance = DioInstance();
 
@@ -78,5 +82,19 @@ class StatNotifier extends AsyncNotifier<MainStat> {
   @override
   Future<MainStat> build() {
     return _fetchStat();
+  }
+
+  Future<void> getNewStat() async {
+    final oldCharacterName = ref.read(oldCharacterNameProvider);
+    final newCharacterName = ref.read(characterNameProvider);
+
+    if (oldCharacterName == newCharacterName) return;
+
+    ref
+        .read(oldCharacterNameProvider.notifier)
+        .update((state) => newCharacterName);
+
+    state = AsyncValue.loading();
+    state = await AsyncValue.guard(() => _fetchStat());
   }
 }

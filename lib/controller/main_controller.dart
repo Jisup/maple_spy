@@ -2,6 +2,7 @@ import 'package:dio/dio.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
+import 'package:maplespy/provider/character_notifier.dart';
 import 'package:maplespy/provider/common_provider.dart';
 import 'package:maplespy/util/dio_instance.dart';
 import 'package:maplespy/util/main_router.dart';
@@ -40,9 +41,11 @@ class MainController extends AutoDisposeNotifier {
     }
 
     if (!ref.read(hasError)) {
+      /**----- 기본 정보 업데이트 */
       ref.read(characterNameProvider.notifier).update((state) => characterName);
       ref.read(ocidProvider.notifier).update((state) => ocid);
 
+      /**----- 선택 탭 정보 초기화 */
       ref.read(equipmentSelectTabProvider.notifier).update((state) => 'item');
       ref.read(equipmentCashPresetProvider.notifier).update((state) => 'base');
       ref
@@ -54,7 +57,10 @@ class MainController extends AutoDisposeNotifier {
 
       ref.read(skillSelectTabProvider.notifier).update((state) => 'hexa');
 
-      context.go('/character');
+      /**----- 캐릭터 정보 업데이트 */
+      ref.read(asyncCharacterProvider.notifier).getNewCharacter();
+      /**----- 캐릭터 정보 페이지 이동 */
+      context.push('/character');
     }
 
     ref.read(isLoading.notifier).update((state) => false);

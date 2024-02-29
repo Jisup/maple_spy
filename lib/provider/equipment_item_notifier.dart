@@ -15,6 +15,10 @@ final asyncEquipmentItemProvider =
         EquipmentItemNotifier.new);
 
 class EquipmentItemNotifier extends AsyncNotifier<MainEquipmentItem> {
+  final oldCharacterNameProvider = StateProvider(
+    (ref) => "",
+  );
+
   Future<MainEquipmentItem> _fetchItem() async {
     final dioInstance = DioInstance();
 
@@ -53,5 +57,19 @@ class EquipmentItemNotifier extends AsyncNotifier<MainEquipmentItem> {
   @override
   Future<MainEquipmentItem> build() {
     return _fetchItem();
+  }
+
+  Future<void> getNewItemEquipment() async {
+    final oldCharacterName = ref.read(oldCharacterNameProvider);
+    final newCharacterName = ref.read(characterNameProvider);
+
+    if (oldCharacterName == newCharacterName) return;
+
+    ref
+        .read(oldCharacterNameProvider.notifier)
+        .update((state) => newCharacterName);
+
+    state = AsyncValue.loading();
+    state = await AsyncValue.guard(() => _fetchItem());
   }
 }

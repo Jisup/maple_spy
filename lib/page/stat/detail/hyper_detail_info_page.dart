@@ -37,7 +37,7 @@ class HyperDetailInfoPage extends ConsumerWidget {
                     color: StatColor.statTitle),
               ),
               Row(
-                children: StaticListConfig.basicPresetTabList
+                children: StaticListConfig.hyperPresetTabList
                     .map((tab) => DetailPresetTab(
                           tab: tab,
                           provider: hyperStatPresetProvider,

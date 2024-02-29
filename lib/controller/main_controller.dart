@@ -44,9 +44,7 @@ class MainController extends AutoDisposeNotifier {
       ref.read(ocidProvider.notifier).update((state) => ocid);
 
       ref.read(equipmentSelectTabProvider.notifier).update((state) => 'item');
-      ref
-          .read(equipmentCashPresetProvider.notifier)
-          .update((state) => 'preset1');
+      ref.read(equipmentCashPresetProvider.notifier).update((state) => 'base');
       ref
           .read(equipmentSelectSymbolTabProvider.notifier)
           .update((state) => 'ARC');

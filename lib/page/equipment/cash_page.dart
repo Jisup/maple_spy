@@ -25,6 +25,7 @@ class CashPage extends ConsumerWidget {
     final selectCashTab = ref.watch(equipmentCashPresetProvider);
 
     final List<CashItemEquipment>? cashList = switch (selectCashTab) {
+      'base' => cash?.cashItemEquipmentBase,
       'preset1' => cash?.cashItemEquipmentPreset1,
       'preset2' => cash?.cashItemEquipmentPreset2,
       'preset3' => cash?.cashItemEquipmentPreset3,
@@ -66,7 +67,7 @@ class CashPage extends ConsumerWidget {
                         ),
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.end,
-                          children: StaticListConfig.basicPresetTabList
+                          children: StaticListConfig.cashPresetTabList
                               .map((tab) => DetailPresetTab(
                                   tab: tab,
                                   provider: equipmentCashPresetProvider,

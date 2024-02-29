@@ -5,9 +5,11 @@ class CashItem {
   String? characterGender;
   String? characterClass;
   int? presetNo;
+  List<CashItemEquipment>? cashItemEquipmentBase;
   List<CashItemEquipment>? cashItemEquipmentPreset1;
   List<CashItemEquipment>? cashItemEquipmentPreset2;
   List<CashItemEquipment>? cashItemEquipmentPreset3;
+  List<AdditionalCashItemEquipment>? additionalCashItemEquipmentBase;
   List<AdditionalCashItemEquipment>? additionalCashItemEquipmentPreset1;
   List<AdditionalCashItemEquipment>? additionalCashItemEquipmentPreset2;
   List<AdditionalCashItemEquipment>? additionalCashItemEquipmentPreset3;
@@ -29,6 +31,12 @@ class CashItem {
     characterGender = json['character_gender'];
     characterClass = json['character_class'];
     presetNo = json['preset_no'];
+    if (json['cash_item_equipment_base'] != null) {
+      cashItemEquipmentBase = <CashItemEquipment>[];
+      json['cash_item_equipment_base'].forEach((v) {
+        cashItemEquipmentBase!.add(new CashItemEquipment.fromJson(v));
+      });
+    }
     if (json['cash_item_equipment_preset_1'] != null) {
       cashItemEquipmentPreset1 = <CashItemEquipment>[];
       json['cash_item_equipment_preset_1'].forEach((v) {
@@ -45,6 +53,13 @@ class CashItem {
       cashItemEquipmentPreset3 = <CashItemEquipment>[];
       json['cash_item_equipment_preset_3'].forEach((v) {
         cashItemEquipmentPreset3!.add(new CashItemEquipment.fromJson(v));
+      });
+    }
+    if (json['additional_cash_item_equipment_base'] != null) {
+      additionalCashItemEquipmentBase = <AdditionalCashItemEquipment>[];
+      json['cash_item_equipment_base'].forEach((v) {
+        additionalCashItemEquipmentBase!
+            .add(new AdditionalCashItemEquipment.fromJson(v));
       });
     }
     if (json['additional_cash_item_equipment_preset_1'] != null) {
@@ -76,6 +91,10 @@ class CashItem {
     data['character_gender'] = this.characterGender;
     data['character_class'] = this.characterClass;
     data['preset_no'] = this.presetNo;
+    if (this.cashItemEquipmentBase != null) {
+      data['cash_item_equipment_base'] =
+          this.cashItemEquipmentBase!.map((v) => v.toJson()).toList();
+    }
     if (this.cashItemEquipmentPreset1 != null) {
       data['cash_item_equipment_preset_1'] =
           this.cashItemEquipmentPreset1!.map((v) => v.toJson()).toList();
@@ -87,6 +106,10 @@ class CashItem {
     if (this.cashItemEquipmentPreset3 != null) {
       data['cash_item_equipment_preset_3'] =
           this.cashItemEquipmentPreset3!.map((v) => v.toJson()).toList();
+    }
+    if (this.additionalCashItemEquipmentBase != null) {
+      data['additional_cash_item_equipment_Base'] =
+          this.additionalCashItemEquipmentBase!.map((v) => v.toJson()).toList();
     }
     if (this.additionalCashItemEquipmentPreset1 != null) {
       data['additional_cash_item_equipment_preset_1'] = this

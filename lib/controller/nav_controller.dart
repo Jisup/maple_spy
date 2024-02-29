@@ -16,7 +16,7 @@ class NavController extends AutoDisposeNotifier {
         ref.read(equipmentSelectTabProvider.notifier).update((state) => 'item');
         ref
             .read(equipmentCashPresetProvider.notifier)
-            .update((state) => 'preset1');
+            .update((state) => 'base');
         ref
             .read(equipmentSelectSymbolTabProvider.notifier)
             .update((state) => 'ARC');

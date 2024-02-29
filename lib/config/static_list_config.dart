@@ -117,19 +117,19 @@ class StaticListConfig {
   static final List<dynamic> detailStatTabList = [
     {
       'name': 'basic',
-      'text': '기본 스탯',
+      'text': '기본',
       'fontSize': FontConfig.commonSize,
       'dimenSize': DimenConfig.commonDimen,
     },
     {
       'name': 'hexa',
-      'text': 'HEXA 스탯',
+      'text': 'HEXA',
       'fontSize': FontConfig.commonSize,
       'dimenSize': DimenConfig.commonDimen,
     },
     {
       'name': 'ability/hyper',
-      'text': '어빌리티 /\n하이퍼 스탯',
+      'text': '어빌리티 /\n하이퍼',
       'fontSize': FontConfig.commonSize,
       'dimenSize': 0.0,
     },
@@ -137,19 +137,19 @@ class StaticListConfig {
   static final List<dynamic> detailSkillTabList = [
     {
       'name': 'hexa',
-      'text': 'HEXA 코어',
+      'text': 'HEXA',
       'fontSize': FontConfig.commonSize,
       'dimenSize': DimenConfig.commonDimen,
     },
     {
       'name': 'v',
-      'text': 'V 코어',
+      'text': 'V',
       'fontSize': FontConfig.commonSize,
       'dimenSize': DimenConfig.commonDimen,
     },
     {
       'name': 'link',
-      'text': '링크 스킬',
+      'text': '링크',
       'fontSize': FontConfig.commonSize,
       'dimenSize': DimenConfig.commonDimen,
     },

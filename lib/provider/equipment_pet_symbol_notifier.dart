@@ -10,12 +10,11 @@ import 'package:maplespy/provider/common_provider.dart';
 import 'package:maplespy/util/day_instance.dart';
 import 'package:maplespy/util/dio_instance.dart';
 
-final asyncEquipmentPetSymbolProvider = AutoDisposeAsyncNotifierProvider<
-    EquipmentPetSymbolNotifier,
-    MainEquipmentPetSymbol>(EquipmentPetSymbolNotifier.new);
+final asyncEquipmentPetSymbolProvider =
+    AsyncNotifierProvider<EquipmentPetSymbolNotifier, MainEquipmentPetSymbol>(
+        EquipmentPetSymbolNotifier.new);
 
-class EquipmentPetSymbolNotifier
-    extends AutoDisposeAsyncNotifier<MainEquipmentPetSymbol> {
+class EquipmentPetSymbolNotifier extends AsyncNotifier<MainEquipmentPetSymbol> {
   Future<MainEquipmentPetSymbol> _fetchPetSymbol() async {
     final dioInstance = DioInstance();
 

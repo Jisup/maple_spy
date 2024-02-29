@@ -12,11 +12,10 @@ import 'package:maplespy/util/day_instance.dart';
 import 'package:maplespy/util/dio_instance.dart';
 
 final asyncEquipmentCashProvider =
-    AutoDisposeAsyncNotifierProvider<EquipmentCashNotifier, MainEquipmentCash>(
+    AsyncNotifierProvider<EquipmentCashNotifier, MainEquipmentCash>(
         EquipmentCashNotifier.new);
 
-class EquipmentCashNotifier
-    extends AutoDisposeAsyncNotifier<MainEquipmentCash> {
+class EquipmentCashNotifier extends AsyncNotifier<MainEquipmentCash> {
   Future<MainEquipmentCash> _fetchCash() async {
     final dioInstance = DioInstance();
 

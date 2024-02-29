@@ -13,9 +13,9 @@ import 'package:maplespy/util/day_instance.dart';
 import 'package:maplespy/util/dio_instance.dart';
 
 final asyncStatProvider =
-    AutoDisposeAsyncNotifierProvider<StatNotifier, MainStat>(StatNotifier.new);
+    AsyncNotifierProvider<StatNotifier, MainStat>(StatNotifier.new);
 
-class StatNotifier extends AutoDisposeAsyncNotifier<MainStat> {
+class StatNotifier extends AsyncNotifier<MainStat> {
   Future<MainStat> _fetchStat() async {
     DioInstance dioInstance = DioInstance();
 

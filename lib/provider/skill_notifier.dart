@@ -13,10 +13,9 @@ import 'package:maplespy/util/day_instance.dart';
 import 'package:maplespy/util/dio_instance.dart';
 
 final asyncSkillProvider =
-    AutoDisposeAsyncNotifierProvider<SkillNotifier, MainSkill>(
-        SkillNotifier.new);
+    AsyncNotifierProvider<SkillNotifier, MainSkill>(SkillNotifier.new);
 
-class SkillNotifier extends AutoDisposeAsyncNotifier<MainSkill> {
+class SkillNotifier extends AsyncNotifier<MainSkill> {
   Future<MainSkill> _fetchSkill() async {
     final dioInstance = DioInstance();
 

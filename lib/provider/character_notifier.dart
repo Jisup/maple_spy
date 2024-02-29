@@ -15,10 +15,10 @@ import 'package:maplespy/util/day_instance.dart';
 import 'package:maplespy/util/dio_instance.dart';
 
 final asyncCharacterProvider =
-    AutoDisposeAsyncNotifierProvider<CharacterNotifier, MainCharacter>(
+    AsyncNotifierProvider<CharacterNotifier, MainCharacter>(
         CharacterNotifier.new);
 
-class CharacterNotifier extends AutoDisposeAsyncNotifier<MainCharacter> {
+class CharacterNotifier extends AsyncNotifier<MainCharacter> {
   Future<MainCharacter> _fetchCharacter() async {
     final dioInstance = DioInstance();
     final yesterday = DayInstance().yesterday;

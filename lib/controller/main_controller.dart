@@ -47,12 +47,14 @@ class MainController extends AutoDisposeNotifier {
 
       /**----- 선택 탭 정보 초기화 */
       ref.read(equipmentSelectTabProvider.notifier).update((state) => 'item');
-      ref.read(equipmentCashPresetProvider.notifier).update((state) => 'base');
+      ref.read(equipmentItemPresetProvider.notifier).update((state) => 'main');
+      ref.read(equipmentCashPresetProvider.notifier).update((state) => 'main');
       ref
           .read(equipmentSelectSymbolTabProvider.notifier)
           .update((state) => 'ARC');
 
       ref.read(statSelectTabProvider.notifier).update((state) => 'basic');
+      ref.read(abilityStatPresetProvider.notifier).update((state) => 'preset1');
       ref.read(hyperStatPresetProvider.notifier).update((state) => 'preset1');
 
       ref.read(skillSelectTabProvider.notifier).update((state) => 'hexa');

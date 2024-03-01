@@ -4,6 +4,8 @@ import 'package:maplespy/config/const_config.dart';
 import 'package:maplespy/config/static_list_config.dart';
 import 'package:maplespy/model/equipment/item_model.dart';
 import 'package:maplespy/page/equipment/item/item_info.dart';
+import 'package:maplespy/provider/common_provider.dart';
+import 'package:maplespy/widget/detail_page/detail_preset_tab.dart';
 
 class ItemPage extends ConsumerWidget {
   const ItemPage({super.key, required this.item});
@@ -12,6 +14,16 @@ class ItemPage extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
+    final selectItemTab = ref.watch(equipmentItemPresetProvider);
+
+    final List<ItemEquipment>? itemList = switch (selectItemTab) {
+      'main' => item?.itemEquipment,
+      'preset1' => item?.itemEquipmentPreset1,
+      'preset2' => item?.itemEquipmentPreset2,
+      'preset3' => item?.itemEquipmentPreset3,
+      _ => [],
+    };
+
     return Container(
       margin: EdgeInsets.only(
           left: DimenConfig.commonDimen, right: DimenConfig.commonDimen),
@@ -25,25 +37,44 @@ class ItemPage extends ConsumerWidget {
             child: Container(
               alignment: Alignment.center,
               child: SingleChildScrollView(
-                child: Wrap(
-                  runAlignment: WrapAlignment.center,
-                  children: StaticListConfig.equipmentItemList.map((slot) {
-                    return FractionallySizedBox(
-                      widthFactor: 1 / 5.0125,
-                      child: AspectRatio(
-                        aspectRatio: 1 / 1,
-                        child: slot['name'] != null
-                            ? ItemInfo(
-                                name: slot['name'],
-                                item: item?.itemEquipment?.singleWhere(
-                                    (element) =>
-                                        element.itemEquipmentSlot ==
-                                        slot['slot'],
-                                    orElse: () => ItemEquipment()))
-                            : null,
+                child: Column(
+                  children: [
+                    Container(
+                      margin: EdgeInsets.only(
+                        bottom: DimenConfig.commonDimen,
+                        right: DimenConfig.commonDimen,
                       ),
-                    );
-                  }).toList(),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.end,
+                        children: StaticListConfig.itemPresetTabList
+                            .map((tab) => DetailPresetTab(
+                                tab: tab,
+                                provider: equipmentItemPresetProvider,
+                                isBright: false))
+                            .toList(),
+                      ),
+                    ),
+                    Wrap(
+                      runAlignment: WrapAlignment.center,
+                      children: StaticListConfig.equipmentItemList.map((slot) {
+                        return FractionallySizedBox(
+                          widthFactor: 1 / 5.0125,
+                          child: AspectRatio(
+                            aspectRatio: 1 / 1,
+                            child: slot['name'] != null
+                                ? ItemInfo(
+                                    name: slot['name'],
+                                    item: itemList?.singleWhere(
+                                        (element) =>
+                                            element.itemEquipmentSlot ==
+                                            slot['slot'],
+                                        orElse: () => ItemEquipment()))
+                                : null,
+                          ),
+                        );
+                      }).toList(),
+                    ),
+                  ],
                 ),
               ),
             ),

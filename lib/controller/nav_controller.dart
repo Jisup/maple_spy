@@ -53,14 +53,20 @@ class NavController extends AutoDisposeNotifier {
       case '장비':
         ref.read(equipmentSelectTabProvider.notifier).update((state) => 'item');
         ref
+            .read(equipmentItemPresetProvider.notifier)
+            .update((state) => 'main');
+        ref
             .read(equipmentCashPresetProvider.notifier)
-            .update((state) => 'base');
+            .update((state) => 'main');
         ref
             .read(equipmentSelectSymbolTabProvider.notifier)
             .update((state) => 'ARC');
         break;
       case '스탯':
         ref.read(statSelectTabProvider.notifier).update((state) => 'basic');
+        ref
+            .read(abilityStatPresetProvider.notifier)
+            .update((state) => 'preset1');
         ref.read(hyperStatPresetProvider.notifier).update((state) => 'preset1');
         break;
       case '스킬':

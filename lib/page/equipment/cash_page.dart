@@ -25,7 +25,7 @@ class CashPage extends ConsumerWidget {
     final selectCashTab = ref.watch(equipmentCashPresetProvider);
 
     final List<CashItemEquipment>? cashList = switch (selectCashTab) {
-      'base' => cash?.cashItemEquipmentBase,
+      'main' => cash?.cashItemEquipmentBase,
       'preset1' => cash?.cashItemEquipmentPreset1,
       'preset2' => cash?.cashItemEquipmentPreset2,
       'preset3' => cash?.cashItemEquipmentPreset3,

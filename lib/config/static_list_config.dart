@@ -164,12 +164,51 @@ class StaticListConfig {
     },
   ];
   /**-----preset */
-  static final List<dynamic> cashPresetTabList = [
+  static final List<dynamic> itemPresetTabList = [
     {
-      'name': 'base',
+      'name': 'main',
       'text': 'M',
       'fontSize': FontConfig.commonSize,
     },
+    {
+      'name': 'preset1',
+      'text': '1',
+      'fontSize': FontConfig.commonSize,
+    },
+    {
+      'name': 'preset2',
+      'text': '2',
+      'fontSize': FontConfig.commonSize,
+    },
+    {
+      'name': 'preset3',
+      'text': '3',
+      'fontSize': FontConfig.commonSize,
+    },
+  ];
+  static final List<dynamic> cashPresetTabList = [
+    {
+      'name': 'main',
+      'text': 'M',
+      'fontSize': FontConfig.commonSize,
+    },
+    {
+      'name': 'preset1',
+      'text': '1',
+      'fontSize': FontConfig.commonSize,
+    },
+    {
+      'name': 'preset2',
+      'text': '2',
+      'fontSize': FontConfig.commonSize,
+    },
+    {
+      'name': 'preset3',
+      'text': '3',
+      'fontSize': FontConfig.commonSize,
+    },
+  ];
+  static final List<dynamic> abilityPresetTabList = [
     {
       'name': 'preset1',
       'text': '1',

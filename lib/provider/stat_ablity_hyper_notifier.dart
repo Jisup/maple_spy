@@ -78,10 +78,17 @@ class StatAbilityHyperNotifier extends AsyncNotifier<void> {
     state = await AsyncValue.guard(() => _fetchAbilityHyper());
   }
 
-  AbilityInfo findAbilityInfo(int no) {
-    return ref.read(abilityStatProvider).abilityInfo!.singleWhere(
-        (element) => element.abilityNo == no.toString(),
-        orElse: () => AbilityInfo());
+  AbilityPreset? abilityStatPresetInfo(String preset) {
+    switch (preset) {
+      case 'preset1':
+        return ref.read(abilityStatProvider).abilityPreset1;
+      case 'preset2':
+        return ref.read(abilityStatProvider).abilityPreset2;
+      case 'preset3':
+        return ref.read(abilityStatProvider).abilityPreset3;
+      default:
+        return null;
+    }
   }
 
   List<HyperStatPreset>? hyperStatPresetInfo(String preset) {

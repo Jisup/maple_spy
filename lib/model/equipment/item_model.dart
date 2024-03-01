@@ -4,9 +4,9 @@ class Item {
   String? characterClass;
   int? presetNo;
   List<ItemEquipment>? itemEquipment;
-  List<ItemEquipmentPreset>? itemEquipmentPreset1;
-  List<ItemEquipmentPreset>? itemEquipmentPreset2;
-  List<ItemEquipmentPreset>? itemEquipmentPreset3;
+  List<ItemEquipment>? itemEquipmentPreset1;
+  List<ItemEquipment>? itemEquipmentPreset2;
+  List<ItemEquipment>? itemEquipmentPreset3;
   Title? title;
   List<DragonEquipment>? dragonEquipment;
   List<MechanicEquipment>? mechanicEquipment;
@@ -36,21 +36,21 @@ class Item {
       });
     }
     if (json['item_equipment_preset_1'] != null) {
-      itemEquipmentPreset1 = <ItemEquipmentPreset>[];
+      itemEquipmentPreset1 = <ItemEquipment>[];
       json['item_equipment_preset_1'].forEach((v) {
-        itemEquipmentPreset1!.add(new ItemEquipmentPreset.fromJson(v));
+        itemEquipmentPreset1!.add(new ItemEquipment.fromJson(v));
       });
     }
     if (json['item_equipment_preset_2'] != null) {
-      itemEquipmentPreset2 = <ItemEquipmentPreset>[];
+      itemEquipmentPreset2 = <ItemEquipment>[];
       json['item_equipment_preset_2'].forEach((v) {
-        itemEquipmentPreset2!.add(new ItemEquipmentPreset.fromJson(v));
+        itemEquipmentPreset2!.add(new ItemEquipment.fromJson(v));
       });
     }
     if (json['item_equipment_preset_3'] != null) {
-      itemEquipmentPreset3 = <ItemEquipmentPreset>[];
+      itemEquipmentPreset3 = <ItemEquipment>[];
       json['item_equipment_preset_3'].forEach((v) {
-        itemEquipmentPreset3!.add(new ItemEquipmentPreset.fromJson(v));
+        itemEquipmentPreset3!.add(new ItemEquipment.fromJson(v));
       });
     }
     title = json['title'] != null ? new Title.fromJson(json['title']) : null;
@@ -681,188 +681,6 @@ class ItemStarforceOption {
     data['armor'] = this.armor;
     data['speed'] = this.speed;
     data['jump'] = this.jump;
-    return data;
-  }
-}
-
-class ItemEquipmentPreset {
-  String? itemEquipmentPart;
-  String? equipmentSlot;
-  String? itemName;
-  String? itemIcon;
-  String? itemDescription;
-  String? itemShapeName;
-  String? itemShapeIcon;
-  String? itemGender;
-  ItemTotalOption? itemTotalOption;
-  ItemBaseOption? itemBaseOption;
-  String? potentialOptionGrade;
-  String? additionalPotentialOptionGrade;
-  String? potentialOption1;
-  String? potentialOption2;
-  String? potentialOption3;
-  String? additionalPotentialOption1;
-  String? additionalPotentialOption2;
-  String? additionalPotentialOption3;
-  int? equipmentLevelIncrease;
-  ItemExceptionalOption? itemExceptionalOption;
-  ItemAddOption? itemAddOption;
-  int? growthExp;
-  int? growthLevel;
-  String? scrollUpgrade;
-  String? cuttableCount;
-  String? goldenHammerFlag;
-  String? scrollResilienceCount;
-  String? scrollUpgradeableCount;
-  String? soulName;
-  String? soulOption;
-  ItemEtcOption? itemEtcOption;
-  String? starforce;
-  String? starforceScrollFlag;
-  ItemStarforceOption? itemStarforceOption;
-  int? specialRingLevel;
-  String? dateExpire;
-
-  ItemEquipmentPreset(
-      {this.itemEquipmentPart,
-      this.equipmentSlot,
-      this.itemName,
-      this.itemIcon,
-      this.itemDescription,
-      this.itemShapeName,
-      this.itemShapeIcon,
-      this.itemGender,
-      this.itemTotalOption,
-      this.itemBaseOption,
-      this.potentialOptionGrade,
-      this.additionalPotentialOptionGrade,
-      this.potentialOption1,
-      this.potentialOption2,
-      this.potentialOption3,
-      this.additionalPotentialOption1,
-      this.additionalPotentialOption2,
-      this.additionalPotentialOption3,
-      this.equipmentLevelIncrease,
-      this.itemExceptionalOption,
-      this.itemAddOption,
-      this.growthExp,
-      this.growthLevel,
-      this.scrollUpgrade,
-      this.cuttableCount,
-      this.goldenHammerFlag,
-      this.scrollResilienceCount,
-      this.scrollUpgradeableCount,
-      this.soulName,
-      this.soulOption,
-      this.itemEtcOption,
-      this.starforce,
-      this.starforceScrollFlag,
-      this.itemStarforceOption,
-      this.specialRingLevel,
-      this.dateExpire});
-
-  ItemEquipmentPreset.fromJson(Map<String, dynamic> json) {
-    itemEquipmentPart = json['item_equipment_part'];
-    equipmentSlot = json['equipment_slot'];
-    itemName = json['item_name'];
-    itemIcon = json['item_icon'];
-    itemDescription = json['item_description'];
-    itemShapeName = json['item_shape_name'];
-    itemShapeIcon = json['item_shape_icon'];
-    itemGender = json['item_gender'];
-    itemTotalOption = json['item_total_option'] != null
-        ? new ItemTotalOption.fromJson(json['item_total_option'])
-        : null;
-    itemBaseOption = json['item_base_option'] != null
-        ? new ItemBaseOption.fromJson(json['item_base_option'])
-        : null;
-    potentialOptionGrade = json['potential_option_grade'];
-    additionalPotentialOptionGrade = json['additional_potential_option_grade'];
-    potentialOption1 = json['potential_option_1'];
-    potentialOption2 = json['potential_option_2'];
-    potentialOption3 = json['potential_option_3'];
-    additionalPotentialOption1 = json['additional_potential_option_1'];
-    additionalPotentialOption2 = json['additional_potential_option_2'];
-    additionalPotentialOption3 = json['additional_potential_option_3'];
-    equipmentLevelIncrease = json['equipment_level_increase'];
-    itemExceptionalOption = json['item_exceptional_option'] != null
-        ? new ItemExceptionalOption.fromJson(json['item_exceptional_option'])
-        : null;
-    itemAddOption = json['item_add_option'] != null
-        ? new ItemAddOption.fromJson(json['item_add_option'])
-        : null;
-    growthExp = json['growth_exp'];
-    growthLevel = json['growth_level'];
-    scrollUpgrade = json['scroll_upgrade'];
-    cuttableCount = json['cuttable_count'];
-    goldenHammerFlag = json['golden_hammer_flag'];
-    scrollResilienceCount = json['scroll_resilience_count'];
-    scrollUpgradeableCount = json['scroll_upgradeable_count'];
-    soulName = json['soul_name'];
-    soulOption = json['soul_option'];
-    itemEtcOption = json['item_etc_option'] != null
-        ? new ItemEtcOption.fromJson(json['item_etc_option'])
-        : null;
-    starforce = json['starforce'];
-    starforceScrollFlag = json['starforce_scroll_flag'];
-    itemStarforceOption = json['item_starforce_option'] != null
-        ? new ItemStarforceOption.fromJson(json['item_starforce_option'])
-        : null;
-    specialRingLevel = json['special_ring_level'];
-    dateExpire = json['date_expire'];
-  }
-
-  Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['item_equipment_part'] = this.itemEquipmentPart;
-    data['equipment_slot'] = this.equipmentSlot;
-    data['item_name'] = this.itemName;
-    data['item_icon'] = this.itemIcon;
-    data['item_description'] = this.itemDescription;
-    data['item_shape_name'] = this.itemShapeName;
-    data['item_shape_icon'] = this.itemShapeIcon;
-    data['item_gender'] = this.itemGender;
-    if (this.itemTotalOption != null) {
-      data['item_total_option'] = this.itemTotalOption!.toJson();
-    }
-    if (this.itemBaseOption != null) {
-      data['item_base_option'] = this.itemBaseOption!.toJson();
-    }
-    data['potential_option_grade'] = this.potentialOptionGrade;
-    data['additional_potential_option_grade'] =
-        this.additionalPotentialOptionGrade;
-    data['potential_option_1'] = this.potentialOption1;
-    data['potential_option_2'] = this.potentialOption2;
-    data['potential_option_3'] = this.potentialOption3;
-    data['additional_potential_option_1'] = this.additionalPotentialOption1;
-    data['additional_potential_option_2'] = this.additionalPotentialOption2;
-    data['additional_potential_option_3'] = this.additionalPotentialOption3;
-    data['equipment_level_increase'] = this.equipmentLevelIncrease;
-    if (this.itemExceptionalOption != null) {
-      data['item_exceptional_option'] = this.itemExceptionalOption!.toJson();
-    }
-    if (this.itemAddOption != null) {
-      data['item_add_option'] = this.itemAddOption!.toJson();
-    }
-    data['growth_exp'] = this.growthExp;
-    data['growth_level'] = this.growthLevel;
-    data['scroll_upgrade'] = this.scrollUpgrade;
-    data['cuttable_count'] = this.cuttableCount;
-    data['golden_hammer_flag'] = this.goldenHammerFlag;
-    data['scroll_resilience_count'] = this.scrollResilienceCount;
-    data['scroll_upgradeable_count'] = this.scrollUpgradeableCount;
-    data['soul_name'] = this.soulName;
-    data['soul_option'] = this.soulOption;
-    if (this.itemEtcOption != null) {
-      data['item_etc_option'] = this.itemEtcOption!.toJson();
-    }
-    data['starforce'] = this.starforce;
-    data['starforce_scroll_flag'] = this.starforceScrollFlag;
-    if (this.itemStarforceOption != null) {
-      data['item_starforce_option'] = this.itemStarforceOption!.toJson();
-    }
-    data['special_ring_level'] = this.specialRingLevel;
-    data['date_expire'] = this.dateExpire;
     return data;
   }
 }

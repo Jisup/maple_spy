@@ -2,10 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:maplespy/config/color_config.dart';
 import 'package:maplespy/config/const_config.dart';
-import 'package:maplespy/page/stat/detail/ability_detail_grade_page.dart';
-import 'package:maplespy/page/stat/detail/ability_detail_option_page.dart';
+import 'package:maplespy/config/static_list_config.dart';
+import 'package:maplespy/page/stat/detail/ability_detail_preset_page.dart';
+import 'package:maplespy/provider/common_provider.dart';
 import 'package:maplespy/provider/stat_ablity_hyper_notifier.dart';
 import 'package:maplespy/widget/common/custom_text_widget.dart';
+import 'package:maplespy/widget/detail_page/detail_preset_tab.dart';
 
 class AbilityDetailInfoPage extends ConsumerWidget {
   const AbilityDetailInfoPage({super.key});
@@ -30,10 +32,33 @@ class AbilityDetailInfoPage extends ConsumerWidget {
               bottom: DimenConfig.subDimen,
             ),
             color: colorScheme.primary,
-            child: CustomTextWidget(
-                text: 'ABILITY',
-                size: FontConfig.middleSize,
-                color: StatColor.statTitle),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Container(
+                  padding: EdgeInsets.only(
+                    top: DimenConfig.subDimen,
+                    bottom: DimenConfig.subDimen,
+                  ),
+                  child: CustomTextWidget(
+                      text: 'ABILITY',
+                      size: FontConfig.middleSize,
+                      color: StatColor.statTitle),
+                ),
+                abilityStat.presetNo != null
+                    ? Row(
+                        children: StaticListConfig.abilityPresetTabList
+                            .map((tab) => DetailPresetTab(
+                                  tab: tab,
+                                  provider: abilityStatPresetProvider,
+                                  color: StatColor.statTitle,
+                                  isBright: true,
+                                ))
+                            .toList(),
+                      )
+                    : SizedBox.shrink(),
+              ],
+            ),
           ),
         ),
         Container(
@@ -44,22 +69,7 @@ class AbilityDetailInfoPage extends ConsumerWidget {
             color: colorScheme.onPrimary,
             borderRadius: BorderRadius.circular(RadiusConfig.subRadius),
           ),
-          child: Column(
-            children: [
-              AbilityDetailGradePage(
-                grade: abilityStat.abilityGrade,
-              ),
-              Wrap(
-                runSpacing: DimenConfig.minDimen,
-                children: [
-                  for (var i = 1; i <= 3; i++)
-                    AbilityDetailOptionPage(
-                      ability: asyncAbilityNotifier.findAbilityInfo(i),
-                    )
-                ],
-              ),
-            ],
-          ),
+          child: AbilityDetailPresetPage(),
         )
       ],
     );

@@ -22,7 +22,6 @@ class Union {
     var mainFormatter = NumberFormat('#,###,###,###,###,###', 'ko_KR');
     unionLevel = mainFormatter.format(json['union_level'] ?? 0);
 
-    unionLevel = json['union_level'];
     unionGrade = json['union_grade'];
     unionArtifactLevel = json['union_artifact_level'];
     unionArtifactExp = json['union_artifact_exp'];

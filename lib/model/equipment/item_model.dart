@@ -217,7 +217,7 @@ class ItemEquipment {
     cuttableCount = json['cuttable_count'];
     goldenHammerFlag = json['golden_hammer_flag'];
     scrollResilienceCount = json['scroll_resilience_count'];
-    scrollUpgradeableCount = json['scroll_upgradable_count'];
+    scrollUpgradeableCount = json['scroll_upgradeable_count'];
     soulName = json['soul_name'];
     soulOption = json['soul_option'];
     itemEtcOption = json['item_etc_option'] != null
@@ -270,7 +270,7 @@ class ItemEquipment {
     data['cuttable_count'] = this.cuttableCount;
     data['golden_hammer_flag'] = this.goldenHammerFlag;
     data['scroll_resilience_count'] = this.scrollResilienceCount;
-    data['scroll_upgradable_count'] = this.scrollUpgradeableCount;
+    data['scroll_upgradeable_count'] = this.scrollUpgradeableCount;
     data['soul_name'] = this.soulName;
     data['soul_option'] = this.soulOption;
     if (this.itemEtcOption != null) {
@@ -797,7 +797,7 @@ class ItemEquipmentPreset {
     cuttableCount = json['cuttable_count'];
     goldenHammerFlag = json['golden_hammer_flag'];
     scrollResilienceCount = json['scroll_resilience_count'];
-    scrollUpgradeableCount = json['scroll_upgradable_count'];
+    scrollUpgradeableCount = json['scroll_upgradeable_count'];
     soulName = json['soul_name'];
     soulOption = json['soul_option'];
     itemEtcOption = json['item_etc_option'] != null
@@ -850,7 +850,7 @@ class ItemEquipmentPreset {
     data['cuttable_count'] = this.cuttableCount;
     data['golden_hammer_flag'] = this.goldenHammerFlag;
     data['scroll_resilience_count'] = this.scrollResilienceCount;
-    data['scroll_upgradable_count'] = this.scrollUpgradeableCount;
+    data['scroll_upgradeable_count'] = this.scrollUpgradeableCount;
     data['soul_name'] = this.soulName;
     data['soul_option'] = this.soulOption;
     if (this.itemEtcOption != null) {
@@ -988,7 +988,7 @@ class DragonEquipment {
     cuttableCount = json['cuttable_count'];
     goldenHammerFlag = json['golden_hammer_flag'];
     scrollResilienceCount = json['scroll_resilience_count'];
-    scrollUpgradeableCount = json['scroll_upgradable_count'];
+    scrollUpgradeableCount = json['scroll_upgradeable_count'];
     soulName = json['soul_name'];
     soulOption = json['soul_option'];
     itemEtcOption = json['item_etc_option'] != null
@@ -1032,7 +1032,7 @@ class DragonEquipment {
     data['cuttable_count'] = this.cuttableCount;
     data['golden_hammer_flag'] = this.goldenHammerFlag;
     data['scroll_resilience_count'] = this.scrollResilienceCount;
-    data['scroll_upgradable_count'] = this.scrollUpgradeableCount;
+    data['scroll_upgradeable_count'] = this.scrollUpgradeableCount;
     data['soul_name'] = this.soulName;
     data['soul_option'] = this.soulOption;
     if (this.itemEtcOption != null) {
@@ -1137,7 +1137,7 @@ class MechanicEquipment {
     cuttableCount = json['cuttable_count'];
     goldenHammerFlag = json['golden_hammer_flag'];
     scrollResilienceCount = json['scroll_resilience_count'];
-    scrollUpgradeableCount = json['scroll_upgradable_count'];
+    scrollUpgradeableCount = json['scroll_upgradeable_count'];
     soulName = json['soul_name'];
     soulOption = json['soul_option'];
     itemEtcOption = json['item_etc_option'] != null
@@ -1181,7 +1181,7 @@ class MechanicEquipment {
     data['cuttable_count'] = this.cuttableCount;
     data['golden_hammer_flag'] = this.goldenHammerFlag;
     data['scroll_resilience_count'] = this.scrollResilienceCount;
-    data['scroll_upgradable_count'] = this.scrollUpgradeableCount;
+    data['scroll_upgradeable_count'] = this.scrollUpgradeableCount;
     data['soul_name'] = this.soulName;
     data['soul_option'] = this.soulOption;
     if (this.itemEtcOption != null) {

@@ -15,7 +15,10 @@ class DioInstance {
       'x-nxopen-api-key': dotenv.get('NEXON_API_KEY'),
     };
     dio.options.validateStatus = (status) => status != null;
-    dio.interceptors.addAll([DioErrorInterceptor(), LogInterceptor(logPrint: (o) => debugPrint(o.toString()))]);
+    dio.interceptors.addAll([
+      DioErrorInterceptor(),
+      // LogInterceptor(logPrint: (o) => debugPrint(o.toString())),
+    ]);
   }
 
   factory DioInstance() {

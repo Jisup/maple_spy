@@ -8,11 +8,13 @@ class DetailSelectTabWidget extends ConsumerWidget {
     required this.tabList,
     required this.provider,
     this.scrollController,
+    this.pageController,
   });
 
   final List tabList;
   final StateProvider<String> provider;
   final ScrollController? scrollController;
+  final PageController? pageController;
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
@@ -31,6 +33,10 @@ class DetailSelectTabWidget extends ConsumerWidget {
                         ref
                             .read(provider.notifier)
                             .update((state) => tab['name']);
+                        if (pageController != null &&
+                            pageController!.hasClients) {
+                          pageController!.jumpToPage(tab['index']);
+                        }
                         if (scrollController != null &&
                             scrollController!.hasClients) {
                           scrollController?.jumpTo(0);

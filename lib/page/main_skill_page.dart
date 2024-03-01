@@ -24,7 +24,6 @@ class _MainSkillPageState extends ConsumerState<MainSkillPage> {
 
   @override
   void deactivate() {
-    ref.read(skillControllerProvider.notifier).scrollController.dispose();
     super.deactivate();
   }
 
@@ -42,8 +41,6 @@ class _MainSkillPageState extends ConsumerState<MainSkillPage> {
           DetailSelectTabWidget(
             tabList: StaticListConfig.detailSkillTabList,
             provider: skillSelectTabProvider,
-            scrollController:
-                ref.read(skillControllerProvider.notifier).scrollController,
           ),
           Expanded(
             child: AsyncSkillPage(),

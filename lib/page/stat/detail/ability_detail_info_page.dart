@@ -2,9 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:maplespy/config/color_config.dart';
 import 'package:maplespy/config/const_config.dart';
-import 'package:maplespy/controller/stat_controller.dart';
 import 'package:maplespy/page/stat/detail/ability_detail_grade_page.dart';
 import 'package:maplespy/page/stat/detail/ability_detail_option_page.dart';
+import 'package:maplespy/provider/stat_ablity_hyper_notifier.dart';
 import 'package:maplespy/widget/common/custom_text_widget.dart';
 
 class AbilityDetailInfoPage extends ConsumerWidget {
@@ -13,6 +13,10 @@ class AbilityDetailInfoPage extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     ColorScheme colorScheme = Theme.of(context).colorScheme;
+
+    final asyncAbilityNotifier =
+        ref.read(asyncStatAbilityHyperProvider.notifier);
+    final abilityStat = ref.watch(asyncAbilityNotifier.abilityStatProvider);
 
     return Column(
       children: [
@@ -43,14 +47,14 @@ class AbilityDetailInfoPage extends ConsumerWidget {
           child: Column(
             children: [
               AbilityDetailGradePage(
-                grade: StatController.abilityStat.abilityGrade,
+                grade: abilityStat.abilityGrade,
               ),
               Wrap(
                 runSpacing: DimenConfig.minDimen,
                 children: [
                   for (var i = 1; i <= 3; i++)
                     AbilityDetailOptionPage(
-                      ability: StatController.findAbilityInfo(i),
+                      ability: asyncAbilityNotifier.findAbilityInfo(i),
                     )
                 ],
               ),

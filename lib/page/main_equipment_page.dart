@@ -1,22 +1,38 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:maplespy/config/const_config.dart';
 import 'package:maplespy/config/static_list_config.dart';
 import 'package:maplespy/container/main_container.dart';
-import 'package:maplespy/page/main_error_page.dart';
 import 'package:maplespy/page/async/async_cash_page.dart';
 import 'package:maplespy/page/async/async_item_page.dart';
 import 'package:maplespy/page/async/async_pet_symbol_page.dart';
 import 'package:maplespy/provider/common_provider.dart';
 import 'package:maplespy/widget/detail_page/detail_select_tab.dart';
 
-class MainEquipmentPage extends ConsumerWidget {
+class MainEquipmentPage extends ConsumerStatefulWidget {
   const MainEquipmentPage({super.key});
 
   @override
-  Widget build(BuildContext context, WidgetRef ref) {
-    final selectTab = ref.watch(equipmentSelectTabProvider);
+  ConsumerState<ConsumerStatefulWidget> createState() =>
+      _MainEquipmentPageState();
+}
 
+class _MainEquipmentPageState extends ConsumerState<MainEquipmentPage> {
+  late PageController _pageController;
+
+  @override
+  void initState() {
+    super.initState();
+    _pageController = PageController(initialPage: 0);
+  }
+
+  @override
+  void dispose() {
+    _pageController.dispose();
+    super.dispose();
+  }
+
+  @override
+  Widget build(BuildContext context) {
     return MainContainer(
       isHome: false,
       body: Column(
@@ -24,15 +40,21 @@ class MainEquipmentPage extends ConsumerWidget {
           DetailSelectTabWidget(
             tabList: StaticListConfig.detailEquipmentTabList,
             provider: equipmentSelectTabProvider,
+            pageController: _pageController,
           ),
           Expanded(
-            child: switch (selectTab) {
-              'item' => AsyncItemPage(),
-              'cash' => AsyncCashPage(),
-              'pet/symbol' => AsyncPetSymbolPage(),
-              _ =>
-                MainErrorPage(message: ErrorMessageConfig.equipmentPageError),
-            },
+            child: PageView(
+              controller: _pageController,
+              onPageChanged: (value) {
+                ref.read(equipmentSelectTabProvider.notifier).update((state) =>
+                    (StaticListConfig.detailEquipmentTabList[value]['name']));
+              },
+              children: [
+                AsyncItemPage(),
+                AsyncCashPage(),
+                AsyncPetSymbolPage(),
+              ],
+            ),
           ),
         ],
       ),

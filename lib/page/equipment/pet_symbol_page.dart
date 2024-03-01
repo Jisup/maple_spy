@@ -24,79 +24,69 @@ class PetSymbolPage extends ConsumerWidget {
 
     PetDetail petDetail = PetDetail(petItem: petItem);
 
-    return GestureDetector(
-      onPanUpdate: (details) {
-        if (details.delta.dx < -3) {
-          ref
-              .read(equipmentSelectTabProvider.notifier)
-              .update((state) => 'cash');
-        }
-      },
-      behavior: HitTestBehavior.translucent,
-      child: Container(
-        margin: EdgeInsets.only(
-          left: DimenConfig.commonDimen,
-          right: DimenConfig.commonDimen,
-        ),
-        child: LayoutBuilder(
-          builder:
-              (BuildContext childContext, BoxConstraints viewportConstraints) =>
-                  ConstrainedBox(
-            constraints: BoxConstraints(
-                minWidth: viewportConstraints.maxWidth,
-                minHeight: viewportConstraints.maxHeight),
-            child: Container(
-              alignment: Alignment.center,
-              child: SingleChildScrollView(
-                child: Column(
-                  children: [
-                    /**-----pet detail info*/
-                    Row(
-                      children: petDetail.petList
-                          .map((pet) => Expanded(child: PetInfoPage(pet: pet)))
-                          .toList(),
-                    ),
+    return Container(
+      margin: EdgeInsets.only(
+        left: DimenConfig.commonDimen,
+        right: DimenConfig.commonDimen,
+      ),
+      child: LayoutBuilder(
+        builder:
+            (BuildContext childContext, BoxConstraints viewportConstraints) =>
+                ConstrainedBox(
+          constraints: BoxConstraints(
+              minWidth: viewportConstraints.maxWidth,
+              minHeight: viewportConstraints.maxHeight),
+          child: Container(
+            alignment: Alignment.center,
+            child: SingleChildScrollView(
+              child: Column(
+                children: [
+                  /**-----pet detail info*/
+                  Row(
+                    children: petDetail.petList
+                        .map((pet) => Expanded(child: PetInfoPage(pet: pet)))
+                        .toList(),
+                  ),
 
-                    /**-----pet detail skill */
-                    Row(
-                      children: petDetail.petList
-                          .map((pet) => Expanded(
-                              child: PetSkillPage(petSkill: pet.petAutoSkill!)))
-                          .toList(),
-                    ),
+                  /**-----pet detail skill */
+                  Row(
+                    children: petDetail.petList
+                        .map((pet) => Expanded(
+                            child: PetSkillPage(petSkill: pet.petAutoSkill!)))
+                        .toList(),
+                  ),
 
-                    /**-----devider */
-                    Semantics(
-                      label: '구분 선',
-                      readOnly: true,
-                      child: Divider(
-                          height: DimenConfig.commonDimen * 2,
-                          thickness: 2,
-                          indent: DimenConfig.commonDimen,
-                          endIndent: DimenConfig.commonDimen,
-                          color: colorScheme.primary),
-                    ),
+                  /**-----devider */
+                  Semantics(
+                    label: '구분 선',
+                    readOnly: true,
+                    child: Divider(
+                        height: DimenConfig.commonDimen * 2,
+                        thickness: 2,
+                        indent: DimenConfig.commonDimen,
+                        endIndent: DimenConfig.commonDimen,
+                        color: colorScheme.primary),
+                  ),
 
-                    /**-----symbol detail */
-                    Container(
-                      margin: EdgeInsets.only(
-                          top: DimenConfig.commonDimen,
-                          bottom: DimenConfig.commonDimen),
-                      child: Table(
-                        children: [
-                          TableRow(
-                            children: StaticListConfig.equipmentSymbolTabList
-                                .map((tab) => DetailSelectSubTab(
-                                    tab: tab,
-                                    provider: equipmentSelectSymbolTabProvider))
-                                .toList(),
-                          ),
-                        ],
-                      ),
+                  /**-----symbol detail */
+                  Container(
+                    margin: EdgeInsets.only(
+                        top: DimenConfig.commonDimen,
+                        bottom: DimenConfig.commonDimen),
+                    child: Table(
+                      children: [
+                        TableRow(
+                          children: StaticListConfig.equipmentSymbolTabList
+                              .map((tab) => DetailSelectSubTab(
+                                  tab: tab,
+                                  provider: equipmentSelectSymbolTabProvider))
+                              .toList(),
+                        ),
+                      ],
                     ),
-                    SymbolPage(symbolItem: symbolItem),
-                  ],
-                ),
+                  ),
+                  SymbolPage(symbolItem: symbolItem),
+                ],
               ),
             ),
           ),

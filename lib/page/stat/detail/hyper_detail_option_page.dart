@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:maplespy/config/const_config.dart';
-import 'package:maplespy/controller/stat_controller.dart';
 import 'package:maplespy/provider/common_provider.dart';
+import 'package:maplespy/provider/stat_ablity_hyper_notifier.dart';
 import 'package:maplespy/widget/common/custom_text_widget.dart';
 
 class HyperDetailOptionPage extends ConsumerWidget {
@@ -11,6 +11,7 @@ class HyperDetailOptionPage extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final hyperStatPreset = ref.watch(hyperStatPresetProvider);
+    final asyncHyperNotifier = ref.read(asyncStatAbilityHyperProvider.notifier);
 
     return Container(
       margin: EdgeInsets.only(
@@ -20,7 +21,8 @@ class HyperDetailOptionPage extends ConsumerWidget {
         right: DimenConfig.maxDimen,
       ),
       child: Wrap(
-        children: StatController.hyperStatPresetInfo(hyperStatPreset)
+        children: asyncHyperNotifier
+                .hyperStatPresetInfo(hyperStatPreset)
                 ?.map((hyperStat) {
               var isZero = hyperStat.statLevel == 0;
               return Row(

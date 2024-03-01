@@ -3,7 +3,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:maplespy/config/color_config.dart';
 import 'package:maplespy/config/const_config.dart';
 import 'package:maplespy/config/static_list_config.dart';
-import 'package:maplespy/controller/stat_controller.dart';
+import 'package:maplespy/provider/stat_basic_notifier.dart';
 import 'package:maplespy/widget/common/custom_text_widget.dart';
 
 class BasicDetailMainInfoPage extends ConsumerWidget {
@@ -11,6 +11,8 @@ class BasicDetailMainInfoPage extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
+    final asyncBasicNotifier = ref.read(asyncStatBasicProvider.notifier);
+
     return Column(
       children: [
         Container(
@@ -36,7 +38,7 @@ class BasicDetailMainInfoPage extends ConsumerWidget {
                 child: Container(
                   alignment: Alignment.centerRight,
                   child: CustomTextWidget(
-                    text: StatController.findStatValue('전투력'),
+                    text: asyncBasicNotifier.findStatValue('전투력'),
                     size: FontConfig.middleSize,
                     color: Colors.yellow,
                     subColor: Colors.black87,
@@ -78,7 +80,7 @@ class BasicDetailMainInfoPage extends ConsumerWidget {
                       child: CustomTextWidget(
                         text: stat,
                         size: FontConfig.commonSize,
-                        color: StatController.isEqualCharacterClass(stat)
+                        color: asyncBasicNotifier.isEqualCharacterClass(stat)
                             ? Colors.yellow
                             : Colors.white,
                         subColor: Colors.black26,
@@ -89,11 +91,12 @@ class BasicDetailMainInfoPage extends ConsumerWidget {
                           ? EdgeInsets.only(right: DimenConfig.commonDimen)
                           : null,
                       child: Text(
-                        StatController.findStatValue(stat),
+                        asyncBasicNotifier.findStatValue(stat),
                         style: TextStyle(
-                            color: StatController.isEqualCharacterClass(stat)
-                                ? Colors.yellow
-                                : Colors.white,
+                            color:
+                                asyncBasicNotifier.isEqualCharacterClass(stat)
+                                    ? Colors.yellow
+                                    : Colors.white,
                             fontSize: FontConfig.commonSize,
                             fontWeight: FontWeight.bold),
                       ),

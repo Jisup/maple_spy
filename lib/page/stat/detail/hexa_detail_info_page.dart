@@ -3,28 +3,32 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:maplespy/config/color_config.dart';
 import 'package:maplespy/config/const_config.dart';
 import 'package:maplespy/config/static_switch_config.dart';
-import 'package:maplespy/controller/stat_controller.dart';
 import 'package:maplespy/model/stat/hexa_matrix_stat_model.dart';
 import 'package:maplespy/page/stat/detail/hexa_detail_level_page.dart';
 import 'package:maplespy/page/stat/detail/hexa_detail_option_page.dart';
 import 'package:maplespy/widget/common/custom_text_widget.dart';
 
 class HexaDetailInfoPage extends ConsumerWidget {
-  const HexaDetailInfoPage({super.key, required this.hexaStatCore});
+  const HexaDetailInfoPage({
+    super.key,
+    required this.characterClass,
+    required this.hexaStatCore,
+  });
 
+  final String characterClass;
   final CharacterHexaStatCore hexaStatCore;
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     if (hexaStatCore.mainStatName == '주력 스탯')
-      hexaStatCore.mainStatName = StaticSwitchConfig.switchClassMainStat(
-          className: StatController.hexaMatrixStat.characterClass!);
+      hexaStatCore.mainStatName =
+          StaticSwitchConfig.switchClassMainStat(className: characterClass);
     if (hexaStatCore.subStatName1 == '주력 스탯')
-      hexaStatCore.subStatName1 = StaticSwitchConfig.switchClassMainStat(
-          className: StatController.hexaMatrixStat.characterClass!);
+      hexaStatCore.subStatName1 =
+          StaticSwitchConfig.switchClassMainStat(className: characterClass);
     if (hexaStatCore.subStatName2 == '주력 스탯')
-      hexaStatCore.subStatName2 = StaticSwitchConfig.switchClassMainStat(
-          className: StatController.hexaMatrixStat.characterClass!);
+      hexaStatCore.subStatName2 =
+          StaticSwitchConfig.switchClassMainStat(className: characterClass);
 
     return Wrap(
       runSpacing: DimenConfig.commonDimen * 2,

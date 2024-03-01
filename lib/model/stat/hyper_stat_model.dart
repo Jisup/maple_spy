@@ -89,6 +89,11 @@ class HyperStatPreset {
     statPoint = json['stat_point'];
     statLevel = json['stat_level'];
     statIncrease = json['stat_increase'];
+
+    if (statIncrease != null) {
+      var tempList = statIncrease!.split(' ');
+      statIncrease = tempList.elementAt(tempList.length - 2);
+    }
   }
 
   Map<String, dynamic> toJson() {

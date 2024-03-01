@@ -9,6 +9,14 @@ class AndroidItem {
   String? androidSkinName;
   List<AndroidCashItemEquipment>? androidCashItemEquipment;
   String? androidEarSensorClipFlag;
+  String? androidGender;
+  String? androidGrade;
+  String? androidNonHumanoidFlag;
+  String? androidShopUsableFlag;
+  int? presetNo;
+  AndroidPreset? androidPreset1;
+  AndroidPreset? androidPreset2;
+  AndroidPreset? androidPreset3;
 
   AndroidItem(
       {this.date,
@@ -20,7 +28,15 @@ class AndroidItem {
       this.androidFace,
       this.androidSkinName,
       this.androidCashItemEquipment,
-      this.androidEarSensorClipFlag});
+      this.androidEarSensorClipFlag,
+      this.androidGender,
+      this.androidGrade,
+      this.androidNonHumanoidFlag,
+      this.androidShopUsableFlag,
+      this.presetNo,
+      this.androidPreset1,
+      this.androidPreset2,
+      this.androidPreset3});
 
   AndroidItem.fromJson(Map<String, dynamic> json) {
     date = json['date'];
@@ -42,6 +58,20 @@ class AndroidItem {
       });
     }
     androidEarSensorClipFlag = json['android_ear_sensor_clip_flag'];
+    androidGender = json['android_gender'];
+    androidGrade = json['android_grade'];
+    androidNonHumanoidFlag = json['android_non_humanoid_flag'];
+    androidShopUsableFlag = json['android_shop_usable_flag'];
+    presetNo = json['preset_no'];
+    androidPreset1 = json['android_preset_1'] != null
+        ? new AndroidPreset.fromJson(json['android_preset_1'])
+        : null;
+    androidPreset2 = json['android_preset_2'] != null
+        ? new AndroidPreset.fromJson(json['android_preset_2'])
+        : null;
+    androidPreset3 = json['android_preset_3'] != null
+        ? new AndroidPreset.fromJson(json['android_preset_3'])
+        : null;
   }
 
   Map<String, dynamic> toJson() {
@@ -63,6 +93,20 @@ class AndroidItem {
           this.androidCashItemEquipment!.map((v) => v.toJson()).toList();
     }
     data['android_ear_sensor_clip_flag'] = this.androidEarSensorClipFlag;
+    data['android_gender'] = this.androidGender;
+    data['android_grade'] = this.androidGrade;
+    data['android_non_humanoid_flag'] = this.androidNonHumanoidFlag;
+    data['android_shop_usable_flag'] = this.androidShopUsableFlag;
+    data['preset_no'] = this.presetNo;
+    if (this.androidPreset1 != null) {
+      data['android_preset_1'] = this.androidPreset1!.toJson();
+    }
+    if (this.androidPreset2 != null) {
+      data['android_preset_2'] = this.androidPreset2!.toJson();
+    }
+    if (this.androidPreset3 != null) {
+      data['android_preset_3'] = this.androidPreset3!.toJson();
+    }
     return data;
   }
 }
@@ -128,6 +172,7 @@ class AndroidCashItemEquipment {
   String? dateOptionExpire;
   String? cashItemLabel;
   CashItemColoringPrism? cashItemColoringPrism;
+  String? androidItemGender;
 
   AndroidCashItemEquipment(
       {this.cashItemEquipmentPart,
@@ -139,7 +184,8 @@ class AndroidCashItemEquipment {
       this.dateExpire,
       this.dateOptionExpire,
       this.cashItemLabel,
-      this.cashItemColoringPrism});
+      this.cashItemColoringPrism,
+      this.androidItemGender});
 
   AndroidCashItemEquipment.fromJson(Map<String, dynamic> json) {
     cashItemEquipmentPart = json['cash_item_equipment_part'];
@@ -159,6 +205,7 @@ class AndroidCashItemEquipment {
     cashItemColoringPrism = json['cash_item_coloring_prism'] != null
         ? new CashItemColoringPrism.fromJson(json['cash_item_coloring_prism'])
         : null;
+    androidItemGender = json['android_item_gender'];
   }
 
   Map<String, dynamic> toJson() {
@@ -178,6 +225,7 @@ class AndroidCashItemEquipment {
     if (this.cashItemColoringPrism != null) {
       data['cash_item_coloring_prism'] = this.cashItemColoringPrism!.toJson();
     }
+    data['android_item_gender'] = this.androidItemGender;
     return data;
   }
 }
@@ -223,6 +271,75 @@ class CashItemColoringPrism {
     data['hue'] = this.hue;
     data['saturation'] = this.saturation;
     data['value'] = this.value;
+    return data;
+  }
+}
+
+class AndroidPreset {
+  String? androidName;
+  String? androidNickname;
+  String? androidIcon;
+  String? androidDescription;
+  String? androidGender;
+  String? androidGrade;
+  String? androidSkinName;
+  AndroidHair? androidHair;
+  AndroidFace? androidFace;
+  String? androidEarSensorClipFlag;
+  String? androidNonHumanoidFlag;
+  String? androidShopUsableFlag;
+
+  AndroidPreset(
+      {this.androidName,
+      this.androidNickname,
+      this.androidIcon,
+      this.androidDescription,
+      this.androidGender,
+      this.androidGrade,
+      this.androidSkinName,
+      this.androidHair,
+      this.androidFace,
+      this.androidEarSensorClipFlag,
+      this.androidNonHumanoidFlag,
+      this.androidShopUsableFlag});
+
+  AndroidPreset.fromJson(Map<String, dynamic> json) {
+    androidName = json['android_name'];
+    androidNickname = json['android_nickname'];
+    androidIcon = json['android_icon'];
+    androidDescription = json['android_description'];
+    androidGender = json['android_gender'];
+    androidGrade = json['android_grade'];
+    androidSkinName = json['android_skin_name'];
+    androidHair = json['android_hair'] != null
+        ? new AndroidHair.fromJson(json['android_hair'])
+        : null;
+    androidFace = json['android_face'] != null
+        ? new AndroidFace.fromJson(json['android_face'])
+        : null;
+    androidEarSensorClipFlag = json['android_ear_sensor_clip_flag'];
+    androidNonHumanoidFlag = json['android_non_humanoid_flag'];
+    androidShopUsableFlag = json['android_shop_usable_flag'];
+  }
+
+  Map<String, dynamic> toJson() {
+    final Map<String, dynamic> data = new Map<String, dynamic>();
+    data['android_name'] = this.androidName;
+    data['android_nickname'] = this.androidNickname;
+    data['android_icon'] = this.androidIcon;
+    data['android_description'] = this.androidDescription;
+    data['android_gender'] = this.androidGender;
+    data['android_grade'] = this.androidGrade;
+    data['android_skin_name'] = this.androidSkinName;
+    if (this.androidHair != null) {
+      data['android_hair'] = this.androidHair!.toJson();
+    }
+    if (this.androidFace != null) {
+      data['android_face'] = this.androidFace!.toJson();
+    }
+    data['android_ear_sensor_clip_flag'] = this.androidEarSensorClipFlag;
+    data['android_non_humanoid_flag'] = this.androidNonHumanoidFlag;
+    data['android_shop_usable_flag'] = this.androidShopUsableFlag;
     return data;
   }
 }

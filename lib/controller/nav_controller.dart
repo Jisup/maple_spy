@@ -5,7 +5,9 @@ import 'package:maplespy/provider/common_provider.dart';
 import 'package:maplespy/provider/equipment_cash_notifier.dart';
 import 'package:maplespy/provider/equipment_item_notifier.dart';
 import 'package:maplespy/provider/equipment_pet_symbol_notifier.dart';
-import 'package:maplespy/provider/skill_notifier.dart';
+import 'package:maplespy/provider/skill_hexa_notifier.dart';
+import 'package:maplespy/provider/skill_link_notifier.dart';
+import 'package:maplespy/provider/skill_v_notifier.dart';
 import 'package:maplespy/provider/stat_ablity_hyper_notifier.dart';
 import 'package:maplespy/provider/stat_basic_notifier.dart';
 import 'package:maplespy/provider/stat_hexa_notifier.dart';
@@ -38,7 +40,9 @@ class NavController extends AutoDisposeNotifier {
             .getNewAbilityHyperStat();
         break;
       case '스킬':
-        ref.read(asyncSkillProvider.notifier).getNewSkill();
+        ref.read(asyncSkillHexaProvider.notifier).getNewHexaSkill();
+        ref.read(asyncSkillVProvider.notifier).getNewVSkill();
+        ref.read(asyncSkillLinkProvider.notifier).getNewLinkSkill();
         break;
     }
 

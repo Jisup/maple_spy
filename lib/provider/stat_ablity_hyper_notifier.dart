@@ -3,7 +3,6 @@ import 'dart:async';
 import 'package:dio/dio.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:maplespy/model/main_stat_ability_hyper_model.dart';
 import 'package:maplespy/model/stat/ability_stat_model.dart';
 import 'package:maplespy/model/stat/hyper_stat_model.dart';
 import 'package:maplespy/provider/common_provider.dart';

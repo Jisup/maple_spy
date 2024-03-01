@@ -30,9 +30,9 @@ class HexaStatPage extends ConsumerWidget {
               ),
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
-                children: hexaMatrixStat!.characterHexaStatCore!
+                children: hexaMatrixStat.characterHexaStatCore!
                     .map((hexaStatCore) => HexaDetailInfoPage(
-                          characterClass: hexaMatrixStat!.characterClass!,
+                          characterClass: hexaMatrixStat.characterClass!,
                           hexaStatCore: hexaStatCore,
                         ))
                     .toList(),

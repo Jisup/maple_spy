@@ -1,4 +1,5 @@
 import 'dart:async';
+import 'dart:collection';
 
 import 'package:dio/dio.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
@@ -21,6 +22,9 @@ class SkillHexaNotifier extends AsyncNotifier<void> {
   );
   final hexaSkillProvider = StateProvider(
     (ref) => Skill(),
+  );
+  final hexaDetailProvider = StateProvider(
+    (ref) => <String, String>{},
   );
 
   Future<void> _fetchHexaSkill() async {
@@ -58,8 +62,21 @@ class SkillHexaNotifier extends AsyncNotifier<void> {
       throw Error();
     }
 
+    /**-----hexa matrix core icon*/
+    Map<String, String> hexaDetail = HashMap();
+    for (CharacterHexaCoreEquipment hexaCore
+        in hexaMatrix.characterHexaCoreEquipment ?? []) {
+      String coreIcon = hexaSkill.characterSkill
+              ?.singleWhere((element) =>
+                  element.skillName == hexaCore.linkedSkill![0].hexaSkillId)
+              .skillIcon ??
+          '';
+      hexaDetail[hexaCore.linkedSkill![0].hexaSkillId!] = coreIcon;
+    }
+
     ref.read(hexaMatrixProvider.notifier).update((state) => hexaMatrix);
     ref.read(hexaSkillProvider.notifier).update((state) => hexaSkill);
+    ref.read(hexaDetailProvider.notifier).update((state) => hexaDetail);
   }
 
   @override

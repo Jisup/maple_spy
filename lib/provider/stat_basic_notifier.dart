@@ -4,7 +4,6 @@ import 'package:dio/dio.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:maplespy/config/static_switch_config.dart';
-import 'package:maplespy/model/main_stat_basic_model.dart';
 import 'package:maplespy/model/stat/stat_model.dart';
 import 'package:maplespy/provider/common_provider.dart';
 import 'package:maplespy/util/day_instance.dart';

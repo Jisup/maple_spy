@@ -1,8 +1,11 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import 'package:maplespy/config/color_config.dart';
 import 'package:maplespy/config/const_config.dart';
+import 'package:maplespy/config/static_switch_config.dart';
 import 'package:maplespy/model/equipment/item/item_detail_option_model.dart';
 import 'package:maplespy/model/equipment/item/item_detail_potential_option_model.dart';
 import 'package:maplespy/model/equipment/item_model.dart';
@@ -159,9 +162,36 @@ class ItemDetailPage extends ConsumerWidget {
                       child: Row(
                         children: [
                           /**-----item image */
-                          EquipmentDetailImageWidget(
-                              imageUrl: item.itemIcon!,
-                              grade: item.potentialOptionGrade),
+                          Container(
+                            child: Stack(
+                              children: [
+                                Positioned(
+                                  right: 0,
+                                  child: Transform.rotate(
+                                    angle: -pi / 2,
+                                    child: Transform.translate(
+                                      offset: Offset(-FontConfig.minSize + 3,
+                                          FontConfig.middleSize - 3),
+                                      child: Icon(Icons.bookmark_sharp,
+                                          size: FontConfig.middleSize,
+                                          shadows: [
+                                            BoxShadow(
+                                              offset: Offset(-2, 2),
+                                              color: Colors.black,
+                                            )
+                                          ],
+                                          color: StaticSwitchConfig
+                                                  .potentialGradeDetailColor[
+                                              item.potentialOptionGrade]!),
+                                    ),
+                                  ),
+                                ),
+                                EquipmentDetailImageWidget(
+                                    imageUrl: item.itemIcon!,
+                                    grade: item.potentialOptionGrade),
+                              ],
+                            ),
+                          ),
                           EquipmentDetailRequiredLevelWidget(
                               level: item.itemBaseOption!.baseEquipmentLevel!
                                   .toInt()

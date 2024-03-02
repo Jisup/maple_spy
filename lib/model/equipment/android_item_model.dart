@@ -1,3 +1,5 @@
+import 'package:maplespy/model/equipment/cash_item_model.dart';
+
 class AndroidItem {
   String? date;
   String? androidName;
@@ -7,7 +9,7 @@ class AndroidItem {
   AndroidHair? androidHair;
   AndroidFace? androidFace;
   String? androidSkinName;
-  List<AndroidCashItemEquipment>? androidCashItemEquipment;
+  List<CashItemEquipment>? androidCashItemEquipment;
   String? androidEarSensorClipFlag;
   String? androidGender;
   String? androidGrade;
@@ -52,9 +54,9 @@ class AndroidItem {
         : null;
     androidSkinName = json['android_skin_name'];
     if (json['android_cash_item_equipment'] != null) {
-      androidCashItemEquipment = <AndroidCashItemEquipment>[];
+      androidCashItemEquipment = <CashItemEquipment>[];
       json['android_cash_item_equipment'].forEach((v) {
-        androidCashItemEquipment!.add(new AndroidCashItemEquipment.fromJson(v));
+        androidCashItemEquipment!.add(new CashItemEquipment.fromJson(v));
       });
     }
     androidEarSensorClipFlag = json['android_ear_sensor_clip_flag'];
@@ -157,94 +159,6 @@ class AndroidFace {
     data['base_color'] = this.baseColor;
     data['mix_color'] = this.mixColor;
     data['mix_rate'] = this.mixRate;
-    return data;
-  }
-}
-
-class AndroidCashItemEquipment {
-  String? cashItemEquipmentPart;
-  String? cashItemEquipmentSlot;
-  String? cashItemName;
-  String? cashItemIcon;
-  String? cashItemDescription;
-  List<CashItemOption>? cashItemOption;
-  String? dateExpire;
-  String? dateOptionExpire;
-  String? cashItemLabel;
-  CashItemColoringPrism? cashItemColoringPrism;
-  String? androidItemGender;
-
-  AndroidCashItemEquipment(
-      {this.cashItemEquipmentPart,
-      this.cashItemEquipmentSlot,
-      this.cashItemName,
-      this.cashItemIcon,
-      this.cashItemDescription,
-      this.cashItemOption,
-      this.dateExpire,
-      this.dateOptionExpire,
-      this.cashItemLabel,
-      this.cashItemColoringPrism,
-      this.androidItemGender});
-
-  AndroidCashItemEquipment.fromJson(Map<String, dynamic> json) {
-    cashItemEquipmentPart = json['cash_item_equipment_part'];
-    cashItemEquipmentSlot = json['cash_item_equipment_slot'];
-    cashItemName = json['cash_item_name'];
-    cashItemIcon = json['cash_item_icon'];
-    cashItemDescription = json['cash_item_description'];
-    if (json['cash_item_option'] != null) {
-      cashItemOption = <CashItemOption>[];
-      json['cash_item_option'].forEach((v) {
-        cashItemOption!.add(new CashItemOption.fromJson(v));
-      });
-    }
-    dateExpire = json['date_expire'];
-    dateOptionExpire = json['date_option_expire'];
-    cashItemLabel = json['cash_item_label'];
-    cashItemColoringPrism = json['cash_item_coloring_prism'] != null
-        ? new CashItemColoringPrism.fromJson(json['cash_item_coloring_prism'])
-        : null;
-    androidItemGender = json['android_item_gender'];
-  }
-
-  Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['cash_item_equipment_part'] = this.cashItemEquipmentPart;
-    data['cash_item_equipment_slot'] = this.cashItemEquipmentSlot;
-    data['cash_item_name'] = this.cashItemName;
-    data['cash_item_icon'] = this.cashItemIcon;
-    data['cash_item_description'] = this.cashItemDescription;
-    if (this.cashItemOption != null) {
-      data['cash_item_option'] =
-          this.cashItemOption!.map((v) => v.toJson()).toList();
-    }
-    data['date_expire'] = this.dateExpire;
-    data['date_option_expire'] = this.dateOptionExpire;
-    data['cash_item_label'] = this.cashItemLabel;
-    if (this.cashItemColoringPrism != null) {
-      data['cash_item_coloring_prism'] = this.cashItemColoringPrism!.toJson();
-    }
-    data['android_item_gender'] = this.androidItemGender;
-    return data;
-  }
-}
-
-class CashItemOption {
-  String? optionType;
-  String? optionValue;
-
-  CashItemOption({this.optionType, this.optionValue});
-
-  CashItemOption.fromJson(Map<String, dynamic> json) {
-    optionType = json['option_type'];
-    optionValue = json['option_value'];
-  }
-
-  Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['option_type'] = this.optionType;
-    data['option_value'] = this.optionValue;
     return data;
   }
 }

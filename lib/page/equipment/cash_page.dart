@@ -29,6 +29,7 @@ class CashPage extends ConsumerWidget {
       'preset1' => cash?.cashItemEquipmentPreset1,
       'preset2' => cash?.cashItemEquipmentPreset2,
       'preset3' => cash?.cashItemEquipmentPreset3,
+      'android' => android?.androidCashItemEquipment,
       _ => [],
     };
 
@@ -49,7 +50,7 @@ class CashPage extends ConsumerWidget {
                   children: [
                     Container(
                       margin: EdgeInsets.only(
-                        bottom: DimenConfig.commonDimen,
+                        bottom: DimenConfig.subDimen,
                         right: DimenConfig.commonDimen,
                       ),
                       child: Row(

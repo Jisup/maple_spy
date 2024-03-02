@@ -207,6 +207,11 @@ class StaticListConfig {
       'text': '3',
       'fontSize': FontConfig.commonSize,
     },
+    {
+      'name': 'android',
+      'text': 'A',
+      'fontSize': FontConfig.commonSize,
+    },
   ];
   static final List<dynamic> abilityPresetTabList = [
     {

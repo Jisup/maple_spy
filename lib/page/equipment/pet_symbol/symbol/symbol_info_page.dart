@@ -20,7 +20,7 @@ class SymbolInfoPage extends ConsumerWidget {
           CustomTextWidget(
             text: title,
             size: FontConfig.middleDownSize,
-            color: Colors.white,
+            color: Colors.yellow,
             subColor: Colors.black26,
             shadowSize: 2,
           ),

@@ -35,6 +35,10 @@ class SymbolPage extends ConsumerWidget {
       ),
       child: Container(
         margin: EdgeInsets.all(DimenConfig.minDimen),
+        padding: EdgeInsets.only(
+          top: DimenConfig.subDimen,
+          bottom: DimenConfig.subDimen,
+        ),
         decoration: BoxDecoration(
           border: Border.all(
             color: Colors.white70,

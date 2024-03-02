@@ -54,25 +54,29 @@ class ItemPage extends ConsumerWidget {
                             .toList(),
                       ),
                     ),
-                    Wrap(
-                      runAlignment: WrapAlignment.center,
-                      children: StaticListConfig.equipmentItemList.map((slot) {
-                        return FractionallySizedBox(
-                          widthFactor: 1 / 5.0125,
-                          child: AspectRatio(
-                            aspectRatio: 1 / 1,
-                            child: slot['name'] != null
-                                ? ItemInfo(
-                                    name: slot['name'],
-                                    item: itemList?.singleWhere(
-                                        (element) =>
-                                            element.itemEquipmentSlot ==
-                                            slot['slot'],
-                                        orElse: () => ItemEquipment()))
-                                : null,
-                          ),
-                        );
-                      }).toList(),
+                    Container(
+                      margin: EdgeInsets.all(DimenConfig.commonDimen),
+                      child: Wrap(
+                        runAlignment: WrapAlignment.center,
+                        children:
+                            StaticListConfig.equipmentItemList.map((slot) {
+                          return FractionallySizedBox(
+                            widthFactor: 1 / 5.0125,
+                            child: AspectRatio(
+                              aspectRatio: 1 / 1,
+                              child: slot['name'] != null
+                                  ? ItemInfo(
+                                      name: slot['name'],
+                                      item: itemList?.singleWhere(
+                                          (element) =>
+                                              element.itemEquipmentSlot ==
+                                              slot['slot'],
+                                          orElse: () => ItemEquipment()))
+                                  : null,
+                            ),
+                          );
+                        }).toList(),
+                      ),
                     ),
                   ],
                 ),

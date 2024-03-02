@@ -62,25 +62,29 @@ class CashPage extends ConsumerWidget {
                             .toList(),
                       ),
                     ),
-                    Wrap(
-                      runAlignment: WrapAlignment.center,
-                      children: StaticListConfig.equipmentCashList.map((slot) {
-                        return FractionallySizedBox(
-                          widthFactor: 1 / 5.0125,
-                          child: AspectRatio(
-                            aspectRatio: 1 / 1,
-                            child: slot['name'] != null
-                                ? CashInfo(
-                                    name: slot['name'],
-                                    cashItem: cashList!.singleWhere(
-                                        (element) =>
-                                            element.cashItemEquipmentSlot ==
-                                            slot['slot'],
-                                        orElse: () => CashItemEquipment()))
-                                : null,
-                          ),
-                        );
-                      }).toList(),
+                    Container(
+                      margin: EdgeInsets.all(DimenConfig.commonDimen),
+                      child: Wrap(
+                        runAlignment: WrapAlignment.center,
+                        children:
+                            StaticListConfig.equipmentCashList.map((slot) {
+                          return FractionallySizedBox(
+                            widthFactor: 1 / 5.0125,
+                            child: AspectRatio(
+                              aspectRatio: 1 / 1,
+                              child: slot['name'] != null
+                                  ? CashInfo(
+                                      name: slot['name'],
+                                      cashItem: cashList!.singleWhere(
+                                          (element) =>
+                                              element.cashItemEquipmentSlot ==
+                                              slot['slot'],
+                                          orElse: () => CashItemEquipment()))
+                                  : null,
+                            ),
+                          );
+                        }).toList(),
+                      ),
                     ),
                   ],
                 ),

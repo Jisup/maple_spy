@@ -23,7 +23,12 @@ class CharacterInfo extends ConsumerWidget {
       //   ),
       // ),
       child: Container(
-        margin: EdgeInsets.all(DimenConfig.maxDimen),
+        margin: EdgeInsets.only(
+          top: DimenConfig.maxDimen,
+          bottom: DimenConfig.maxDimen,
+          left: DimenConfig.maxDimen / 2,
+          right: DimenConfig.maxDimen / 2,
+        ),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [

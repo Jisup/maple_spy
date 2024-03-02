@@ -40,67 +40,72 @@ class VSkillPage extends ConsumerWidget {
                           minHeight: viewportConstraints.maxHeight),
                       child: vSkill.characterSkill != null &&
                               vSkill.characterSkill?.length != 0
-                          ? Wrap(
-                              runSpacing: DimenConfig.commonDimen,
-                              children:
-                                  vSkill!.characterSkill!.reversed.map((skill) {
-                                return Container(
-                                  decoration: BoxDecoration(
-                                    gradient: LinearGradient(
-                                        begin: Alignment.topCenter,
-                                        end: Alignment.bottomCenter,
-                                        colors: [
-                                          SkillColor.startBackground,
-                                          SkillColor.endBackground,
-                                        ]),
-                                    border: Border.all(
-                                      color: SkillColor.border,
-                                      width: 2,
-                                    ),
-                                    borderRadius: BorderRadius.circular(
-                                        DimenConfig.commonDimen),
-                                  ),
-                                  child: Container(
-                                    padding:
-                                        EdgeInsets.all(DimenConfig.commonDimen),
+                          ? Container(
+                              margin: EdgeInsets.only(
+                                  bottom: DimenConfig.maxDimen / 2),
+                              child: Wrap(
+                                runSpacing: DimenConfig.commonDimen,
+                                children: vSkill!.characterSkill!.reversed
+                                    .map((skill) {
+                                  return Container(
                                     decoration: BoxDecoration(
+                                      gradient: LinearGradient(
+                                          begin: Alignment.topCenter,
+                                          end: Alignment.bottomCenter,
+                                          colors: [
+                                            SkillColor.startBackground,
+                                            SkillColor.endBackground,
+                                          ]),
                                       border: Border.all(
-                                        color: Colors.white70,
+                                        color: SkillColor.border,
+                                        width: 2,
                                       ),
                                       borderRadius: BorderRadius.circular(
                                           DimenConfig.commonDimen),
                                     ),
-                                    child: FractionallySizedBox(
-                                      widthFactor: 1,
-                                      child: AspectRatio(
-                                        aspectRatio: 4 / 1,
-                                        child: Row(
-                                          children: [
-                                            Flexible(
-                                                flex: 1,
-                                                fit: FlexFit.tight,
-                                                child: VDetailImagePage(
-                                                  skillDetail:
-                                                      vDetail[skill.skillName],
-                                                  skillIcon: skill.skillIcon!,
-                                                )),
-                                            Flexible(
-                                                flex: 3,
-                                                fit: FlexFit.tight,
-                                                child: VDetailInfoPage(
-                                                  skillDetail:
-                                                      vDetail[skill.skillName],
-                                                  skillName: skill.skillName!,
-                                                  skillLevel: skill.skillLevel!
-                                                      .toString(),
-                                                )),
-                                          ],
+                                    child: Container(
+                                      padding: EdgeInsets.all(
+                                          DimenConfig.commonDimen),
+                                      decoration: BoxDecoration(
+                                        border: Border.all(
+                                          color: Colors.white70,
+                                        ),
+                                        borderRadius: BorderRadius.circular(
+                                            DimenConfig.commonDimen),
+                                      ),
+                                      child: FractionallySizedBox(
+                                        widthFactor: 1,
+                                        child: AspectRatio(
+                                          aspectRatio: 4 / 1,
+                                          child: Row(
+                                            children: [
+                                              Flexible(
+                                                  flex: 1,
+                                                  fit: FlexFit.tight,
+                                                  child: VDetailImagePage(
+                                                    skillDetail: vDetail[
+                                                        skill.skillName],
+                                                    skillIcon: skill.skillIcon!,
+                                                  )),
+                                              Flexible(
+                                                  flex: 3,
+                                                  fit: FlexFit.tight,
+                                                  child: VDetailInfoPage(
+                                                    skillDetail: vDetail[
+                                                        skill.skillName],
+                                                    skillName: skill.skillName!,
+                                                    skillLevel: skill
+                                                        .skillLevel!
+                                                        .toString(),
+                                                  )),
+                                            ],
+                                          ),
                                         ),
                                       ),
                                     ),
-                                  ),
-                                );
-                              }).toList(),
+                                  );
+                                }).toList(),
+                              ),
                             )
                           : MainErrorPage(
                               message:

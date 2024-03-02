@@ -16,9 +16,9 @@ class HyperDetailOptionPage extends ConsumerWidget {
     return Container(
       margin: EdgeInsets.only(
         top: DimenConfig.commonDimen,
-        bottom: DimenConfig.commonDimen,
-        left: DimenConfig.maxDimen,
-        right: DimenConfig.maxDimen,
+        bottom: DimenConfig.maxDimen / 2,
+        left: DimenConfig.maxDimen / 2,
+        right: DimenConfig.maxDimen / 2,
       ),
       child: Wrap(
         children: asyncHyperNotifier
@@ -29,7 +29,7 @@ class HyperDetailOptionPage extends ConsumerWidget {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Flexible(
-                    flex: 4,
+                    flex: 8,
                     fit: FlexFit.tight,
                     child: CustomTextWidget(
                       text: hyperStat.statType!,
@@ -39,25 +39,39 @@ class HyperDetailOptionPage extends ConsumerWidget {
                     ),
                   ),
                   Flexible(
-                      flex: 1,
-                      fit: FlexFit.tight,
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          CustomTextWidget(
-                            text: 'Lv.',
-                            size: FontConfig.commonSize,
-                            color: isZero ? Colors.white : Colors.yellow,
+                    flex: 2,
+                    fit: FlexFit.tight,
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        CustomTextWidget(
+                          text: 'Lv.',
+                          size: FontConfig.commonSize,
+                          color: isZero ? Colors.white : Colors.yellow,
+                          subColor: Colors.black26,
+                        ),
+                        CustomTextWidget(
+                          text: '${hyperStat.statLevel}',
+                          size: FontConfig.commonSize,
+                          color: isZero ? Colors.white : Colors.yellow,
+                          subColor: Colors.black26,
+                        ),
+                      ],
+                    ),
+                  ),
+                  Flexible(
+                    flex: 3,
+                    fit: FlexFit.tight,
+                    child: hyperStat.statIncrease != null
+                        ? CustomTextWidget(
+                            text: '(+${hyperStat.statIncrease})',
+                            textAlign: TextAlign.right,
+                            size: FontConfig.subSize,
+                            color: Colors.yellow,
                             subColor: Colors.black26,
-                          ),
-                          CustomTextWidget(
-                            text: '${hyperStat.statLevel}',
-                            size: FontConfig.commonSize,
-                            color: isZero ? Colors.white : Colors.yellow,
-                            subColor: Colors.black26,
-                          ),
-                        ],
-                      )),
+                          )
+                        : SizedBox.shrink(),
+                  ),
                 ],
               );
             }).toList() ??

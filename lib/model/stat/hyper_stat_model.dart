@@ -90,6 +90,13 @@ class HyperStatPreset {
     statLevel = json['stat_level'];
     statIncrease = json['stat_increase'];
 
+    if (statType == '보스 몬스터 공격 시 데미지 증가') {
+      statType = '보스 몬스터 데미지';
+    }
+    if (statType == '일반 몬스터 공격 시 데미지 증가') {
+      statType = '일반 몬스터 데미지';
+    }
+
     if (statIncrease != null) {
       var tempList = statIncrease!.split(' ');
       statIncrease = tempList.elementAt(tempList.length - 2);

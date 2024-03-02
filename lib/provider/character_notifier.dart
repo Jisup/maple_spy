@@ -92,6 +92,10 @@ class CharacterNotifier extends AsyncNotifier<MainCharacter> {
       throw Error();
     }
 
+    ref
+        .read(characterWorldProvider.notifier)
+        .update((state) => basic.worldName!);
+
     return MainCharacter(
       basic: basic,
       dojang: dojang,

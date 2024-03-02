@@ -6,6 +6,7 @@ AppBar mainAppBar({
   required BuildContext context,
   required bool isHome,
   required String characterName,
+  required String characterWorld,
 }) {
   ColorScheme colorScheme = Theme.of(context).colorScheme;
 
@@ -28,7 +29,7 @@ AppBar mainAppBar({
       ),
     ),
     title: Text(
-      isHome ? 'MapleSpy' : characterName,
+      isHome ? 'MapleSpy' : '${characterName} (${characterWorld})',
       textAlign: TextAlign.center,
       style: TextStyle(color: colorScheme.onPrimary, fontFamily: 'Maplestory'),
     ),

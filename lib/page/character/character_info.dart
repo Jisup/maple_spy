@@ -61,12 +61,28 @@ class CharacterInfo extends ConsumerWidget {
                               right: Radius.circular(RadiusConfig.commonRadius),
                             )),
                         alignment: Alignment.center,
-                        child: Text(
-                          character.basic!.characterName!,
-                          style: TextStyle(
-                            fontSize: FontConfig.commonSize,
-                            fontWeight: FontWeight.bold,
-                          ),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            SizedBox(
+                              height: FontConfig.middleSize,
+                              child: Image.asset(
+                                'assets/maplespy_icon.png',
+                                fit: BoxFit.contain,
+                              ),
+                            ),
+                            Text(
+                              character.basic!.characterName!,
+                              style: TextStyle(
+                                fontSize: FontConfig.commonSize,
+                                fontWeight: FontWeight.bold,
+                              ),
+                            ),
+                            SizedBox(
+                              width: FontConfig.middleSize,
+                              height: FontConfig.middleSize,
+                            )
+                          ],
                         ),
                       ),
                     )

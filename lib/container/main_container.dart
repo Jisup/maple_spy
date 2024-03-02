@@ -13,12 +13,15 @@ class MainContainer extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final characterName = ref.watch(characterNameProvider);
+    final characterWorld = ref.watch(characterWorldProvider);
+
     return SafeArea(
       child: Scaffold(
         appBar: mainAppBar(
           context: context,
           isHome: isHome,
           characterName: characterName,
+          characterWorld: characterWorld,
         ),
         body: body,
         bottomNavigationBar: isHome ? null : const MainBottomNavigationBar(),

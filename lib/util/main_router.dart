@@ -34,61 +34,62 @@ GoRouter mainRouter = GoRouter(
             child: MainInforMationPage(),
           ),
         ),
-      ],
-    ),
-    GoRoute(
-      path: '/character',
-      name: 'character',
-      pageBuilder: (context, state) =>
-          const NoTransitionPage(child: MainCharacterPage()),
-    ),
-    GoRoute(
-        path: '/equipment',
-        name: 'equipment',
-        pageBuilder: (context, state) =>
-            const NoTransitionPage(child: MainEquipmentPage()),
-        routes: [
-          GoRoute(
-            path: 'item/detail',
-            name: 'itemDetail',
-            pageBuilder: (context, state) => NoTransitionPage(
-              child: ItemDetailPage(item: state.extra as ItemEquipment),
-            ),
-          ),
-          GoRoute(
-            path: 'cash/detail',
-            name: 'cashDetail',
-            pageBuilder: (context, state) => NoTransitionPage(
-              child: CashDetailPage(cashItem: state.extra as CashItemEquipment),
-            ),
-          ),
-          GoRoute(
-            path: 'pet/detail',
-            name: 'petDetail',
+        GoRoute(
+          path: 'character',
+          name: 'character',
+          pageBuilder: (context, state) =>
+              const NoTransitionPage(child: MainCharacterPage()),
+        ),
+        GoRoute(
+            path: 'equipment',
+            name: 'equipment',
             pageBuilder: (context, state) =>
-                NoTransitionPage(child: PetDetailPage(pet: state.extra as Pet)),
-          ),
-          GoRoute(
-              path: 'pet/equipment/item/detail',
-              name: 'petEquilmentItemDetail',
-              pageBuilder: (context, state) => NoTransitionPage(
-                    child: PetEquipmentItemDetailPage(
-                        equipment:
-                            (state.extra as Pet).petEquipment as PetEquipment,
-                        petType: (state.extra as Pet).petPetType),
-                  ))
-        ]),
-    GoRoute(
-      path: '/stat',
-      name: 'stat',
-      pageBuilder: (context, state) =>
-          const NoTransitionPage(child: MainStatPage()),
-    ),
-    GoRoute(
-      path: '/skill',
-      name: 'skill',
-      pageBuilder: (context, state) =>
-          const NoTransitionPage(child: MainSkillPage()),
+                const NoTransitionPage(child: MainEquipmentPage()),
+            routes: [
+              GoRoute(
+                path: 'item/detail',
+                name: 'itemDetail',
+                pageBuilder: (context, state) => NoTransitionPage(
+                  child: ItemDetailPage(item: state.extra as ItemEquipment),
+                ),
+              ),
+              GoRoute(
+                path: 'cash/detail',
+                name: 'cashDetail',
+                pageBuilder: (context, state) => NoTransitionPage(
+                  child: CashDetailPage(
+                      cashItem: state.extra as CashItemEquipment),
+                ),
+              ),
+              GoRoute(
+                path: 'pet/detail',
+                name: 'petDetail',
+                pageBuilder: (context, state) => NoTransitionPage(
+                    child: PetDetailPage(pet: state.extra as Pet)),
+              ),
+              GoRoute(
+                  path: 'pet/equipment/item/detail',
+                  name: 'petEquilmentItemDetail',
+                  pageBuilder: (context, state) => NoTransitionPage(
+                        child: PetEquipmentItemDetailPage(
+                            equipment: (state.extra as Pet).petEquipment
+                                as PetEquipment,
+                            petType: (state.extra as Pet).petPetType),
+                      ))
+            ]),
+        GoRoute(
+          path: 'stat',
+          name: 'stat',
+          pageBuilder: (context, state) =>
+              const NoTransitionPage(child: MainStatPage()),
+        ),
+        GoRoute(
+          path: 'skill',
+          name: 'skill',
+          pageBuilder: (context, state) =>
+              const NoTransitionPage(child: MainSkillPage()),
+        ),
+      ],
     ),
   ],
 );

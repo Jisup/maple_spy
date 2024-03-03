@@ -342,7 +342,7 @@ class StaticListConfig {
       'slot': '하의',
     },
     {
-      'name': 'GLOUES',
+      'name': 'GLOVES',
       'slot': '장갑',
     },
     {

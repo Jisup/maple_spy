@@ -52,12 +52,12 @@ class ErrorMessageConfig {
 
   static String skillPageError = '스킬 페이지에\n문제가 발생했어요!ㅠㅠ';
   static String skillPageRequestError = '스킬 정보를\n불러오는데 실패했어요!ㅠㅠ';
-  static String hexaSkillPageVariableError = 'Hexa 코어\n정보가 없어요!';
+  static String hexaSkillPageVariableError = 'HEXA 코어\n정보가 없어요!';
   static String vSkillPageVariableError = 'V 코어\n정보가 없어요!';
   static String linkSkillPageVariableError = '링크 스킬\n정보가 없어요!';
 
   static String statPageError = '스탯 페이지에\n문제가 발생했어요!ㅠㅠ';
   static String statPageRequestError = '스탯 정보를\n불러오는데 실패했어요!ㅠㅠ';
-  static String abilityStatPageVaribaleError = 'Ability 스탯\n정보가 존재하지 않아요!';
+  static String abilityStatPageVaribaleError = 'ABILITY 스탯\n정보가 존재하지 않아요!';
   static String hexaStatPageVariableError = 'HEXA 스탯\n정보가 존재하지 않아요!';
 }

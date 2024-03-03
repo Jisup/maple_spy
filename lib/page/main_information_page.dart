@@ -72,7 +72,7 @@ class MainInforMationPage extends ConsumerWidget {
                       textAlign: TextAlign.center,
                     ),
                     Text(
-                      '일일 제한 요청량이 초과할 경우, 캐릭터 정보 조회가 불가능할 수 있습니다.',
+                      '일일 제한 요청량이 초과할 경우,\n 캐릭터 정보 조회가 불가능할 수 있습니다.',
                       textAlign: TextAlign.center,
                     ),
                     Container(

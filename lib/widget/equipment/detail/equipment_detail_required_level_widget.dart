@@ -25,7 +25,7 @@ class EquipmentDetailRequiredLevelWidget extends ConsumerWidget {
               TextSpan(
                 children: [
                   TextSpan(
-                    text: '- REQ_LEV : ',
+                    text: '- REQ LEV : ',
                     style: TextStyle(
                       color: level != null
                           ? ItemColor.subInfoText

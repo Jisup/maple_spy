@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "581028077064",
+    "project_id": "maple-spy",
+    "storage_bucket": "maple-spy.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:581028077064:android:b5efd2790c7c453319fbbd",
+        "android_client_info": {
+          "package_name": "com.malangdidoo.maplespy"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDuLVSCUhvJJ8_46GYU7TrjX0HoIClTPbE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

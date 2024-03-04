@@ -12,6 +12,7 @@ import 'package:maplespy/page/main_character_page.dart';
 import 'package:maplespy/page/main_equipment_page.dart';
 import 'package:maplespy/page/main_home_page.dart';
 import 'package:maplespy/page/main_information_page.dart';
+import 'package:maplespy/page/main_insert_page.dart';
 import 'package:maplespy/page/main_skill_page.dart';
 import 'package:maplespy/page/main_stat_page.dart';
 
@@ -19,8 +20,14 @@ GlobalKey<NavigatorState> navigatorkey = GlobalKey<NavigatorState>();
 
 GoRouter mainRouter = GoRouter(
   navigatorKey: navigatorkey,
-  initialLocation: '/',
+  initialLocation: '/insert',
   routes: [
+    GoRoute(
+      path: '/insert',
+      name: 'insert',
+      pageBuilder: (context, state) =>
+          NoTransitionPage(child: MainInsertPage()),
+    ),
     GoRoute(
       path: '/',
       name: 'home',

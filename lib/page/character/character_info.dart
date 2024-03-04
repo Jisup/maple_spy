@@ -62,7 +62,7 @@ class CharacterInfo extends ConsumerWidget {
                             )),
                         alignment: Alignment.center,
                         child: Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          mainAxisAlignment: MainAxisAlignment.spaceAround,
                           children: [
                             SizedBox(
                               height: FontConfig.middleSize,
@@ -78,10 +78,6 @@ class CharacterInfo extends ConsumerWidget {
                                 fontWeight: FontWeight.bold,
                               ),
                             ),
-                            SizedBox(
-                              width: FontConfig.middleSize,
-                              height: FontConfig.middleSize,
-                            )
                           ],
                         ),
                       ),

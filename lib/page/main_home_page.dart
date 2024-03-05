@@ -1,12 +1,16 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter/widgets.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import 'package:maplespy/config/const_config.dart';
 import 'package:maplespy/container/main_container.dart';
 import 'package:maplespy/controller/main_controller.dart';
 import 'package:maplespy/page/main_error_page.dart';
+import 'package:maplespy/provider/common_provider.dart';
 import 'package:maplespy/widget/common/loading_spinner.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class MainHomePage extends ConsumerStatefulWidget {
   const MainHomePage({super.key});
@@ -40,6 +44,7 @@ class _MainHomeState extends ConsumerState<MainHomePage> {
     ColorScheme colorScheme = Theme.of(context).colorScheme;
 
     final mainController = ref.watch(mainControllerProvider.notifier);
+    final nickNameList = ref.watch(characterNameListProvider);
 
     return GestureDetector(
       onTap: () {
@@ -61,13 +66,96 @@ class _MainHomeState extends ConsumerState<MainHomePage> {
               child: Column(
                 children: [
                   Expanded(
-                    child: Container(
-                      alignment: Alignment.center,
-                      child: ref.watch(mainController.hasError)
-                          ? MainErrorPage(
-                              message: ref.watch(mainController.errorMessage))
-                          : SizedBox.shrink(),
-                    ),
+                    child: Column(children: [
+                      Expanded(
+                        child: Container(
+                          alignment: Alignment.center,
+                          child: ref.watch(mainController.hasError)
+                              ? MainErrorPage(
+                                  message:
+                                      ref.watch(mainController.errorMessage))
+                              : SizedBox.shrink(),
+                        ),
+                      ),
+                      Expanded(
+                        child: Column(
+                          children: [
+                            Container(
+                              alignment: Alignment.centerLeft,
+                              child: nickNameList.length != 0
+                                  ? Text('최근 검색 닉네임',
+                                      style: TextStyle(
+                                        fontSize: FontConfig.middleDownSize,
+                                        fontWeight: FontWeight.bold,
+                                      ))
+                                  : SizedBox.shrink(),
+                            ),
+                            Expanded(
+                              child: Container(
+                                alignment: Alignment.centerLeft,
+                                child: ListView.builder(
+                                  shrinkWrap: true,
+                                  scrollDirection: Axis.horizontal,
+                                  itemCount: nickNameList.length,
+                                  itemBuilder: (context, index) {
+                                    return Container(
+                                      alignment: Alignment.centerLeft,
+                                      child: Container(
+                                        margin: EdgeInsets.only(
+                                          bottom: DimenConfig.commonDimen,
+                                          right: DimenConfig.subDimen,
+                                        ),
+                                        padding: EdgeInsets.only(
+                                          top: DimenConfig.subDimen,
+                                          bottom: DimenConfig.subDimen,
+                                          left: DimenConfig.commonDimen,
+                                          right: DimenConfig.subDimen,
+                                        ),
+                                        decoration: BoxDecoration(
+                                          color: colorScheme.onSecondary,
+                                          borderRadius: BorderRadius.circular(
+                                              RadiusConfig.maxRadius),
+                                        ),
+                                        child: Row(
+                                          children: [
+                                            GestureDetector(
+                                              onTap: () => mainController
+                                                  .onClickSearchButton(
+                                                      characterName:
+                                                          nickNameList
+                                                              .elementAt(
+                                                                  index)),
+                                              child: Text(
+                                                  nickNameList.elementAt(index),
+                                                  style: TextStyle(
+                                                    fontSize:
+                                                        FontConfig.commonSize,
+                                                  )),
+                                            ),
+                                            GestureDetector(
+                                              onTap: () => mainController
+                                                  .onclickDeleteButton(
+                                                      characterName:
+                                                          nickNameList
+                                                              .elementAt(
+                                                                  index)),
+                                              child: Icon(Icons.close,
+                                                  size:
+                                                      FontConfig.middleDownSize,
+                                                  color: colorScheme.primary),
+                                            ),
+                                          ],
+                                        ),
+                                      ),
+                                    );
+                                  },
+                                ),
+                              ),
+                            ),
+                          ],
+                        ),
+                      )
+                    ]),
                   ),
                   Expanded(
                     child: Row(

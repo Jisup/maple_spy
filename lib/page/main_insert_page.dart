@@ -45,7 +45,8 @@ class _MainInsertPageState extends ConsumerState<MainInsertPage> {
     var originVersion = loadYaml(doc)['version'].toString().split('+')[0];
 
     Timer(Duration(milliseconds: 1500), () {
-      if (remoteLatestVersion == originVersion) {
+      // if (remoteLatestVersion == originVersion) {
+      if (true) {
         // navigatior redirect
         context.go('/');
       } else {
@@ -68,7 +69,7 @@ class _MainInsertPageState extends ConsumerState<MainInsertPage> {
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              Image.asset('assets/maplespy_icon.png'),
+              Center(child: Image.asset('assets/maplespy_icon.png')),
             ],
           ),
         ),

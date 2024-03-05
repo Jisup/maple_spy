@@ -118,6 +118,20 @@ class _MainHomeState extends ConsumerState<MainHomePage> {
                                         ),
                                         child: Row(
                                           children: [
+                                            // GestureDetector(
+                                            //   onTap: () => null,
+                                            //   child: Container(
+                                            //     margin: EdgeInsets.only(
+                                            //       right: DimenConfig.minDimen,
+                                            //     ),
+                                            //     child: Icon(Icons.star_outline,
+                                            //         size: FontConfig
+                                            //             .middleDownSize,
+                                            //         color: colorScheme.primary),
+                                            //   ),
+                                            //   // child: Image.asset(
+                                            //   //     'assets/star_deactive_icon.png'),
+                                            // ),
                                             GestureDetector(
                                               onTap: () => mainController
                                                   .onClickSearchButton(
@@ -125,12 +139,18 @@ class _MainHomeState extends ConsumerState<MainHomePage> {
                                                           nickNameList
                                                               .elementAt(
                                                                   index)),
-                                              child: Text(
-                                                  nickNameList.elementAt(index),
-                                                  style: TextStyle(
-                                                    fontSize:
-                                                        FontConfig.commonSize,
-                                                  )),
+                                              child: Container(
+                                                margin: EdgeInsets.only(
+                                                  right: DimenConfig.minDimen,
+                                                ),
+                                                child: Text(
+                                                    nickNameList
+                                                        .elementAt(index),
+                                                    style: TextStyle(
+                                                      fontSize:
+                                                          FontConfig.commonSize,
+                                                    )),
+                                              ),
                                             ),
                                             GestureDetector(
                                               onTap: () => mainController

@@ -60,18 +60,19 @@ class HyperDetailOptionPage extends ConsumerWidget {
                     ),
                   ),
                   Flexible(
-                    flex: 3,
-                    fit: FlexFit.tight,
-                    child: hyperStat.statIncrease != null
-                        ? CustomTextWidget(
-                            text: '(+${hyperStat.statIncrease})',
-                            textAlign: TextAlign.right,
-                            size: FontConfig.subSize,
-                            color: Colors.yellow,
-                            subColor: Colors.black26,
-                          )
-                        : SizedBox.shrink(),
-                  ),
+                      flex: 3,
+                      fit: FlexFit.tight,
+                      child: CustomTextWidget(
+                        text: hyperStat.statIncrease != null
+                            ? '(+${hyperStat.statIncrease})'
+                            : '-',
+                        textAlign: TextAlign.right,
+                        size: FontConfig.subSize,
+                        color: hyperStat.statIncrease != null
+                            ? Colors.yellow
+                            : Colors.white,
+                        subColor: Colors.black26,
+                      )),
                 ],
               );
             }).toList() ??

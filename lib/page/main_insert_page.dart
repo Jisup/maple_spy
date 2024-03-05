@@ -1,14 +1,11 @@
 import 'dart:async';
-import 'dart:io';
 
 import 'package:firebase_remote_config/firebase_remote_config.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
-import 'package:maplespy/config/const_config.dart';
-import 'package:url_launcher/url_launcher.dart';
+import 'package:maplespy/controller/main_controller.dart';
 import 'package:yaml/yaml.dart';
 
 class MainInsertPage extends ConsumerStatefulWidget {
@@ -45,9 +42,10 @@ class _MainInsertPageState extends ConsumerState<MainInsertPage> {
     var originVersion = loadYaml(doc)['version'].toString().split('+')[0];
 
     Timer(Duration(milliseconds: 1500), () {
-      // if (remoteLatestVersion == originVersion) {
-      if (true) {
+      if (remoteLatestVersion == originVersion) {
+        // if (true) {
         // navigatior redirect
+        ref.read(mainControllerProvider.notifier).getNickNameList();
         context.go('/');
       } else {
         // store redirect

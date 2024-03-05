@@ -18,6 +18,14 @@ class MainController extends AutoDisposeNotifier {
   @override
   build() {}
 
+  void getNickNameList() async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    List<String>? nickNameList = prefs.getStringList('nickName');
+    ref
+        .read(characterNameListProvider.notifier)
+        .update((state) => [...?nickNameList]);
+  }
+
   void onClickSearchButton({required String characterName}) async {
     var context = navigatorkey.currentContext!;
 

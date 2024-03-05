@@ -6,6 +6,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:go_router/go_router.dart';
+import 'package:maplespy/config/const_config.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:yaml/yaml.dart';
 
@@ -17,13 +19,10 @@ class MainInsertPage extends ConsumerStatefulWidget {
 }
 
 class _MainInsertPageState extends ConsumerState<MainInsertPage> {
-  late bool versionMatch;
-
   @override
   void initState() {
     super.initState();
 
-    versionMatch = true;
     checkApplicationVersion();
   }
 
@@ -48,23 +47,13 @@ class _MainInsertPageState extends ConsumerState<MainInsertPage> {
     Timer(Duration(milliseconds: 1500), () {
       if (remoteLatestVersion == originVersion) {
         // navigatior redirect
-        // context.go('/');
+        context.go('/');
       } else {
         // store redirect
-        if (Platform.isAndroid || Platform.isIOS) {
-          final appId = Platform.isAndroid
-              ? dotenv.get('ANDROID_PACKAGE_NAME')
-              : dotenv.get('IOS_APP_ID');
-          final url = Uri.parse(
-            Platform.isAndroid
-                ? 'market://details?id=${appId}'
-                : 'https://apps.apple.com/app/id${appId}',
-          );
-          launchUrl(
-            url,
-            mode: LaunchMode.externalApplication,
-          );
-        }
+        context.go('/update', extra: {
+          'oldVersion': originVersion,
+          'newVersion': remoteLatestVersion,
+        });
       }
     });
   }

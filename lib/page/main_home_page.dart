@@ -1,7 +1,5 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter/widgets.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import 'package:maplespy/config/const_config.dart';
@@ -10,7 +8,6 @@ import 'package:maplespy/controller/main_controller.dart';
 import 'package:maplespy/page/main_error_page.dart';
 import 'package:maplespy/provider/common_provider.dart';
 import 'package:maplespy/widget/common/loading_spinner.dart';
-import 'package:shared_preferences/shared_preferences.dart';
 
 class MainHomePage extends ConsumerStatefulWidget {
   const MainHomePage({super.key});

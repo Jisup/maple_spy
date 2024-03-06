@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:go_router/go_router.dart';
 import 'package:maplespy/config/const_config.dart';
+import 'package:maplespy/controller/nav_controller.dart';
 import 'package:stroke_text/stroke_text.dart';
 
 class CharacterInfoWidget extends ConsumerWidget {
@@ -10,11 +10,13 @@ class CharacterInfoWidget extends ConsumerWidget {
       required this.title,
       required this.value,
       this.detailPath,
+      this.pathType,
       required this.type});
 
   final String title;
   final String value;
   final String? detailPath;
+  final String? pathType;
   final bool type;
 
   @override
@@ -51,7 +53,13 @@ class CharacterInfoWidget extends ConsumerWidget {
                     ),
                     detailPath != null
                         ? GestureDetector(
-                            onTap: () => context.go(detailPath!),
+                            onTap: () => switch (pathType) {
+                              '유니온' => ref
+                                  .read(navControllerProvider.notifier)
+                                  .onClickNavTab(
+                                      tab: pathType!, path: detailPath!),
+                              _ => () {},
+                            },
                             child: Icon(
                               Icons.open_in_new,
                               size: FontConfig.middleDownSize,

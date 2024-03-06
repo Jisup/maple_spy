@@ -166,7 +166,7 @@ class StaticListConfig {
   static final List<dynamic> detailUnionTabList = [
     {
       'name': 'raider',
-      'text': '공격대',
+      'text': '기본',
       'index': 0,
       'fontSize': FontConfig.commonSize,
       'dimenSize': DimenConfig.commonDimen,

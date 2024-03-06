@@ -60,4 +60,12 @@ class ErrorMessageConfig {
   static String statPageRequestError = '스탯 정보를\n불러오는데 실패했어요!ㅠㅠ';
   static String abilityStatPageVaribaleError = 'ABILITY 스탯\n정보가 존재하지 않아요!';
   static String hexaStatPageVariableError = 'HEXA 스탯\n정보가 존재하지 않아요!';
+
+  static String unionPageError = '유니온 페이지에\n문제가 발생했어요!ㅠㅠ';
+  static String unionPageRequestError = '유니온 정보를\n불러오는데 실패했어요!ㅠㅠ';
+  static String unionRaiderPageVariableError = '유니온 공격대\n정보가 존재하지 않아요!';
+  static String unionArtifactPageVariableError = '유니온 아티팩트\n정보가 존재하지 않아요!';
+  static String unionRaiderPageWholeVariableError =
+      '유니온 공격대 점령 효과\n정보가 존재하지 않아요!';
+  static String unionRaiderPageEachVariableError = '유니온 공격대원 효과\n정보가 존재하지 않아요!';
 }

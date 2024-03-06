@@ -17,3 +17,6 @@ final abilityStatPresetProvider = StateProvider((_) => 'preset1');
 final hyperStatPresetProvider = StateProvider((_) => 'preset1');
 
 final skillSelectTabProvider = StateProvider((_) => 'hexa');
+
+final unionSelectTabProvider = StateProvider((_) => 'raider');
+final unionRaiderSelectTabProvider = StateProvider((_) => 'whole');

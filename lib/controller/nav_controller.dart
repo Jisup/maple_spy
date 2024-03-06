@@ -11,6 +11,9 @@ import 'package:maplespy/provider/skill_v_notifier.dart';
 import 'package:maplespy/provider/stat_ablity_hyper_notifier.dart';
 import 'package:maplespy/provider/stat_basic_notifier.dart';
 import 'package:maplespy/provider/stat_hexa_notifier.dart';
+import 'package:maplespy/provider/union_artifact_notifier.dart';
+import 'package:maplespy/provider/union_main_character_notifier.dart';
+import 'package:maplespy/provider/union_raider_notifier.dart';
 import 'package:maplespy/util/main_router.dart';
 
 final navControllerProvider = AutoDisposeNotifierProvider(NavController.new);
@@ -44,6 +47,12 @@ class NavController extends AutoDisposeNotifier {
         ref.read(asyncSkillVProvider.notifier).getNewVSkill();
         ref.read(asyncSkillLinkProvider.notifier).getNewLinkSkill();
         break;
+      case '유니온':
+        ref.read(asyncUnionRaiderProvider.notifier).getNewUnion();
+        ref.read(asyncUnionArtifactProvider.notifier).getNewUnionArtifact();
+        ref
+            .read(asyncUnionMainCharacterProvider.notifier)
+            .getNewUnionMainCharacter();
     }
 
     /**----- 선택 탭 초기화 */
@@ -72,6 +81,11 @@ class NavController extends AutoDisposeNotifier {
       case '스킬':
         ref.read(skillSelectTabProvider.notifier).update((state) => 'hexa');
         break;
+      case '유니온':
+        ref.read(unionSelectTabProvider.notifier).update((state) => 'raider');
+        ref
+            .read(unionRaiderSelectTabProvider.notifier)
+            .update((state) => 'whole');
     }
 
     context.go(path);

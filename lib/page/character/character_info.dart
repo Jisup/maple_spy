@@ -1,6 +1,7 @@
 import 'dart:ui';
 
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:maplespy/config/color_config.dart';
 import 'package:maplespy/config/const_config.dart';
@@ -62,13 +63,17 @@ class CharacterInfo extends ConsumerWidget {
                             )),
                         alignment: Alignment.center,
                         child: Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceAround,
+                          mainAxisAlignment: MainAxisAlignment.center,
                           children: [
                             SizedBox(
                               height: FontConfig.middleSize,
-                              child: Image.asset(
-                                'assets/maplespy_icon.png',
-                                fit: BoxFit.contain,
+                              child: Container(
+                                margin: EdgeInsets.only(
+                                    right: DimenConfig.subDimen),
+                                child: Image.asset(
+                                  'assets/maplespy_icon.png',
+                                  fit: BoxFit.contain,
+                                ),
                               ),
                             ),
                             Text(
@@ -103,6 +108,7 @@ class CharacterInfo extends ConsumerWidget {
             CharacterInfoWidget(
                 title: '유니온',
                 value: '${character.union?.unionLevel ?? ''}',
+                detailPath: '/character/union',
                 type: false),
             /**-----character`s guild */
             CharacterInfoWidget(

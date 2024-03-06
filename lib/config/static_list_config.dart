@@ -163,6 +163,41 @@ class StaticListConfig {
       'dimenSize': DimenConfig.commonDimen,
     },
   ];
+  static final List<dynamic> detailUnionTabList = [
+    {
+      'name': 'raider',
+      'text': '공격대',
+      'index': 0,
+      'fontSize': FontConfig.commonSize,
+      'dimenSize': DimenConfig.commonDimen,
+    },
+    {
+      'name': 'artifact',
+      'text': '아티팩트',
+      'index': 1,
+      'fontSize': FontConfig.commonSize,
+      'dimenSize': DimenConfig.commonDimen,
+    },
+    {
+      'name': 'mainCharacter',
+      'text': '본캐추적',
+      'index': 2,
+      'fontSize': FontConfig.commonSize,
+      'dimenSize': DimenConfig.commonDimen,
+    },
+  ];
+  static final List<dynamic> unionRadierTabList = [
+    {
+      'title': 'whole',
+      'name': '공격대 점령 효과',
+      'text': '공격대 점령 효과',
+    },
+    {
+      'title': 'each',
+      'name': '공격대원 효과',
+      'text': '공격대원 효과',
+    },
+  ];
   /**-----preset */
   static final List<dynamic> itemPresetTabList = [
     {

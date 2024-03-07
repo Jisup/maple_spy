@@ -323,4 +323,33 @@ class StaticSwitchConfig {
       _ => '',
     };
   }
+
+  static int switchUnionStat({required String stat}) {
+    var type = stat.split(' ').first;
+    return switch (type) {
+      '보스' => 1,
+      '방어율' => 2,
+      '크리티컬' => 3,
+      '일반' => 4,
+      '버프' => 5,
+      '상태' => 6,
+      '스킬' => 7,
+      '공격력/마력' => 8,
+      '공격력' => 9,
+      '마력' => 10,
+      'STR,' => 11,
+      'STR' => 12,
+      'DEX' => 13,
+      'INT' => 14,
+      'LUK' => 15,
+      '최대' => 16,
+      '경험치' => 17,
+      '메소' => 18,
+      '상태' => 19,
+      '소환수' => 20,
+      '공격' => 21,
+      '적' => 22,
+      _ => 23,
+    };
+  }
 }

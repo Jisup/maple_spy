@@ -1,9 +1,12 @@
+import 'package:maplespy/config/static_switch_config.dart';
+
 class UnionRaider {
   String? date;
   List<String>? unionRaiderStat;
   List<String>? unionOccupiedStat;
   List<UnionInnerStat>? unionInnerStat;
   List<UnionBlock>? unionBlock;
+  late List<List<UnionDetail>> unionTable;
 
   UnionRaider(
       {this.date,
@@ -27,6 +30,68 @@ class UnionRaider {
       json['union_block'].forEach((v) {
         unionBlock!.add(new UnionBlock.fromJson(v));
       });
+    }
+    /**----- 유니온 레이더 스탯 정렬 */
+    if (unionRaiderStat != null && unionRaiderStat!.isNotEmpty) {
+      unionRaiderStat!.sort((a, b) {
+        var a_result = StaticSwitchConfig.switchUnionStat(stat: a);
+        var b_result = StaticSwitchConfig.switchUnionStat(stat: b);
+        if (a_result == b_result) {
+          return a.compareTo(b);
+        }
+        return a_result - b_result;
+      });
+    }
+
+    /**----- 유니온 배치 스탯 정렬 */
+    if (unionOccupiedStat != null && unionOccupiedStat!.isNotEmpty) {
+      unionOccupiedStat!.sort((a, b) {
+        var a_result = StaticSwitchConfig.switchUnionStat(stat: a);
+        var b_result = StaticSwitchConfig.switchUnionStat(stat: b);
+        if (a_result == b_result) {
+          return a.compareTo(b);
+        }
+        return a_result - b_result;
+      });
+    }
+
+    /**----- 유니온 테이블 제작 */
+    unionTable =
+        List.generate(22, (_) => List.generate(24, (_) => UnionDetail()));
+    if (unionBlock != null && unionBlock!.isNotEmpty) {
+      for (var block in unionBlock!) {
+        int cy = block.blockControlPoint!.y! + 10;
+        int cx = block.blockControlPoint!.x! + 12;
+        unionTable[cy][cx].isPoint = true;
+        unionTable[cy][cx].type = block.blockType;
+
+        for (var position in block.blockPosition!) {
+          int py = position.y! + 10;
+          int px = position.x! + 12;
+          unionTable[py][px].isExist = true;
+        }
+      }
+    }
+
+    List<int> dy = [-1, 1, 0, 0];
+    List<int> dx = [0, 0, -1, 1];
+
+    bool range(int y, int x) {
+      return y < 0 || x < 0 || y > 21 || x > 23;
+    }
+
+    for (var y = 1; y < 22; y++) {
+      for (var x = 1; x < 24; x++) {
+        if (unionTable[y][x].isExist) {
+          for (var d = 0; d < 4; d++) {
+            int ny = y + dy[d];
+            int nx = x + dx[d];
+            if (!range(ny, nx) && !unionTable[ny][nx].isExist) {
+              unionTable[y][x].border[d] = true;
+            }
+          }
+        }
+      }
     }
   }
 
@@ -146,4 +211,11 @@ class BlockPosition {
     data['y'] = this.y;
     return data;
   }
+}
+
+class UnionDetail {
+  bool isExist = false;
+  bool isPoint = false;
+  String? type;
+  List<bool> border = [false, false, false, false]; // 상, 하, 좌, 우
 }

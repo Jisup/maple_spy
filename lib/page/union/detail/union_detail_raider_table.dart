@@ -9,7 +9,8 @@ class UnionDetailRaiderTable extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final unionRaider = ref.watch(UnionRaiderNotifier().unionRaiderProvider);
+    final unionRaiderNotifier = ref.read(asyncUnionRaiderProvider.notifier);
+    final unionRaider = ref.watch(unionRaiderNotifier.unionRaiderProvider);
 
     return Container(
       margin: EdgeInsets.only(

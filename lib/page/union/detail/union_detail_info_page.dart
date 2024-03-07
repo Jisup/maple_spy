@@ -27,6 +27,7 @@ class UnionDetailInfoPage extends ConsumerWidget {
       children: [
         Container(
           width: MediaQuery.of(context).size.width,
+          margin: EdgeInsets.only(bottom: DimenConfig.subDimen),
           child: Stack(
             alignment: Alignment.center,
             children: [
@@ -90,7 +91,7 @@ class UnionDetailInfoPage extends ConsumerWidget {
         ),
         Container(
           margin: EdgeInsets.only(
-              top: DimenConfig.commonDimen, bottom: DimenConfig.commonDimen),
+              top: DimenConfig.subDimen, bottom: DimenConfig.subDimen),
           width: MediaQuery.of(context).size.width / 2,
           child: Image.asset(
             'assets/maplespy_icon.png',
@@ -99,7 +100,7 @@ class UnionDetailInfoPage extends ConsumerWidget {
         ),
         Container(
           margin: EdgeInsets.only(
-              top: DimenConfig.commonDimen, bottom: DimenConfig.commonDimen),
+              top: DimenConfig.subDimen, bottom: DimenConfig.subDimen),
           child: Row(
             children: [
               Expanded(

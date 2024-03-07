@@ -279,3 +279,29 @@ class StatColor {
   static const Color statHexaAdditionalText =
       Color(0xFFccffff); // 헥사 스텟 에디셔널 텍스트 색상
 }
+
+class UnionColor {
+  static const Color unionBackground = Color(0xFF29313B); // 유니온 배치도 배경
+  static const Color unionTableCellBackground =
+      Color(0xFFBB9977); // 유니온 배치도 셀 배경
+
+  static const Color unionIconBorder = Color(0xFF774433);
+
+  static const Color unionWarriorIconBorder = Color(0xFFDD3366);
+  static const Color unionWarriorIconBackground = Color(0xFFAA2244);
+
+  static const Color unionArcherIconBorder = Color(0xFFAACC44);
+  static const Color unionArcherIconBackground = Color(0xFF669933);
+
+  static const Color unionWizardIconBorder = Color(0xFF33BBCC);
+  static const Color unionWizardIconBackground = Color(0xFF227799);
+
+  static const Color unionThiefIconBorder = Color(0xFFAA66EE);
+  static const Color unionThiefIconBackground = Color(0xFF6644CC);
+
+  static const Color unionPirateIconBorder = Color(0xFFAAAAAA);
+  static const Color unionPirateIconBackground = Color(0xFF666666);
+
+  static const Color unionMIconBorder = Color(0xFFEE8800);
+  static const Color unionMIconBackground = Color(0xFFCC5500);
+}

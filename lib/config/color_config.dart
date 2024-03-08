@@ -282,8 +282,7 @@ class StatColor {
 
 class UnionColor {
   static const Color unionBackground = Color(0xFF29313B); // 유니온 배치도 배경
-  static const Color unionTableCellBackground =
-      Color(0xFFBB9977); // 유니온 배치도 셀 배경
+  static const Color unionBlockBackground = Color(0xFFBB9977); // 유니온 배치도 블록 배경
 
   static const Color unionIconBorder = Color(0xFF774433);
 

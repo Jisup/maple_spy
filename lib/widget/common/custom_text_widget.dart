@@ -36,7 +36,7 @@ class CustomTextWidget extends ConsumerWidget {
         fontWeight: weight ?? FontWeight.bold,
         overflow: TextOverflow.ellipsis,
         shadows: subColor != null
-            ? shadowType != null
+            ? shadowType != null && shadowType!
                 ? [
                     Shadow(
                       blurRadius: RadiusConfig.commonRadius * 2,

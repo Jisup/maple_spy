@@ -6,7 +6,10 @@ class UnionRaider {
   List<String>? unionOccupiedStat;
   List<UnionInnerStat>? unionInnerStat;
   List<UnionBlock>? unionBlock;
+  late List<List<List<bool>>> unionTableBorder;
   late List<List<UnionDetail>> unionTable;
+  late List<String> unionInnerField;
+  late List<String> unionOuterField;
 
   UnionRaider(
       {this.date,
@@ -31,6 +34,28 @@ class UnionRaider {
         unionBlock!.add(new UnionBlock.fromJson(v));
       });
     }
+
+    /**----- 유니온 필드 */
+    unionInnerField = [];
+    if (unionInnerStat != null && unionInnerStat!.isNotEmpty) {
+      unionInnerField = unionInnerStat!.map((stat) {
+        return stat.statFieldEffect!
+            .replaceAll(' ', '')
+            .replaceAll('유니온', '')
+            .replaceAll('최대', '');
+      }).toList();
+    }
+    unionOuterField = [
+      '상태이상내성',
+      '획득경험치',
+      '크리티컬\n확률',
+      '보스데미지',
+      '일반데미지',
+      '버프지속시간',
+      '방어율무시',
+      '크리티컬\n데미지'
+    ];
+
     /**----- 유니온 레이더 스탯 정렬 */
     if (unionRaiderStat != null && unionRaiderStat!.isNotEmpty) {
       unionRaiderStat!.sort((a, b) {
@@ -54,6 +79,52 @@ class UnionRaider {
         return a_result - b_result;
       });
     }
+
+    /**----- 유니온 테이블 테두리 제작 */
+    unionTableBorder = List.generate(
+        22, (_) => List.generate(24, (_) => List.generate(4, (_) => false)));
+
+    // 좌상향 10,11에서 -1/-1
+    for (var y = 10, x = 11; y > 0 && x > 0; y--, x--) {
+      unionTableBorder[y][x] = [false, true, true, false];
+    }
+    // 우상향 10,12에서 -1/+1
+    for (var y = 10, x = 12; y > 0 && x < 23; y--, x++) {
+      unionTableBorder[y][x] = [false, true, false, true];
+    }
+    // 좌하향 11,11에서 +1/-1
+    for (var y = 11, x = 11; y < 21 && x > 0; y++, x--) {
+      unionTableBorder[y][x] = [true, false, true, false];
+    }
+    // 우하향 11,12에서 +1/+1
+    for (var y = 11, x = 12; y < 21 && x < 23; y++, x++) {
+      unionTableBorder[y][x] = [true, false, false, true];
+    }
+    // 세로 직선
+    for (var y = 1; y < 21; y++) {
+      if (y > 5 && y < 16) {
+        unionTableBorder[y][6][2] = true;
+        unionTableBorder[y][17][3] = true;
+      }
+      unionTableBorder[y][11][3] = true;
+      unionTableBorder[y][12][2] = true;
+    }
+    // 가로 직선
+    for (var x = 1; x < 23; x++) {
+      if (x > 5 && x < 18) {
+        unionTableBorder[5][x][1] = true;
+        unionTableBorder[16][x][0] = true;
+      }
+      unionTableBorder[10][x][1] = true;
+      unionTableBorder[11][x][0] = true;
+    }
+    // 가운데 블록
+
+    // 예외
+    unionTableBorder[1][1][0] = true;
+    unionTableBorder[20][1][1] = true;
+    unionTableBorder[1][22][0] = true;
+    unionTableBorder[20][22][1] = true;
 
     /**----- 유니온 테이블 제작 */
     unionTable =

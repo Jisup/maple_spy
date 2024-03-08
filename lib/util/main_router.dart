@@ -4,7 +4,7 @@ import 'package:maplespy/model/equipment/cash_item_model.dart';
 import 'package:maplespy/model/equipment/item_model.dart';
 import 'package:maplespy/model/equipment/pet/pet_detail_model.dart';
 import 'package:maplespy/model/equipment/pet_item_model.dart';
-import 'package:maplespy/page/union/union_page.dart';
+import 'package:maplespy/page/main_union_page.dart';
 import 'package:maplespy/page/equipment/cash/detail/cash_detail_page.dart';
 import 'package:maplespy/page/equipment/item/detail/item_detail_page.dart';
 import 'package:maplespy/page/equipment/pet_symbol/pet/detail/pet_detail_page.dart';
@@ -61,7 +61,7 @@ GoRouter mainRouter = GoRouter(
               path: 'union',
               name: 'union',
               pageBuilder: (context, state) =>
-                  NoTransitionPage(child: UnionPage()),
+                  NoTransitionPage(child: MainUnionPage()),
             )
           ],
         ),

@@ -8,14 +8,14 @@ import 'package:maplespy/page/async/async_union_raider_page.dart';
 import 'package:maplespy/provider/common_provider.dart';
 import 'package:maplespy/widget/detail_page/detail_select_tab.dart';
 
-class UnionPage extends ConsumerStatefulWidget {
-  const UnionPage({super.key});
+class MainUnionPage extends ConsumerStatefulWidget {
+  const MainUnionPage({super.key});
 
   @override
-  ConsumerState<ConsumerStatefulWidget> createState() => _UnionPageState();
+  ConsumerState<ConsumerStatefulWidget> createState() => _MainUnionPageState();
 }
 
-class _UnionPageState extends ConsumerState<UnionPage> {
+class _MainUnionPageState extends ConsumerState<MainUnionPage> {
   late PageController _pageController;
 
   @override
@@ -34,6 +34,9 @@ class _UnionPageState extends ConsumerState<UnionPage> {
   Widget build(BuildContext context) {
     ColorScheme colorScheme = Theme.of(context).colorScheme;
 
+    final characterName = ref.watch(characterNameProvider);
+    final characterWorld = ref.watch(characterWorldProvider);
+
     return SafeArea(
       child: Scaffold(
         appBar: AppBar(
@@ -45,6 +48,12 @@ class _UnionPageState extends ConsumerState<UnionPage> {
               color: Colors.white,
               semanticLabel: '뒤로 가기 버튼',
             ),
+          ),
+          title: Text(
+            '${characterName} (${characterWorld})',
+            textAlign: TextAlign.center,
+            style: TextStyle(
+                color: colorScheme.onPrimary, fontFamily: 'Maplestory'),
           ),
         ),
         body: Column(

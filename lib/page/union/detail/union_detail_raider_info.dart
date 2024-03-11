@@ -13,8 +13,6 @@ class UnionDetailRaiderInfo extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    ColorScheme colorScheme = Theme.of(context).colorScheme;
-
     final unionRaiderNotifier = ref.read(asyncUnionRaiderProvider.notifier);
     final raiderInfo =
         ref.watch(unionRaiderNotifier.unionRaiderProvider).unionInfo;

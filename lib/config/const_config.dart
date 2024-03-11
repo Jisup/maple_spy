@@ -68,4 +68,8 @@ class ErrorMessageConfig {
   static String unionRaiderPageWholeVariableError =
       '유니온 공격대 점령 효과\n정보가 존재하지 않아요!';
   static String unionRaiderPageEachVariableError = '유니온 공격대원 효과\n정보가 존재하지 않아요!';
+
+  static String unionArtifactEffactVariableError = '유니온 아티팩트 효과\n정보가 존재하지 않아요!';
+  static String unionArtifactCrystalVraibaleError =
+      '유니온 아티팩트 크리스탈\n정보가 존재하지 않아요!';
 }

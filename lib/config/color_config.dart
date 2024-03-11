@@ -306,4 +306,10 @@ class UnionColor {
 
   static const Color unionStartText = Color(0xFFFFDDBB);
   static const Color unionEndText = Color(0xFFDDAA88);
+
+  static const Color unionArtifactLevelIconShadow = Color(0xFF639BA2);
+  static const Color unionArtifactStartBackground = Color(0xFF2C3036);
+  static const Color unionArtifactEndBackground = Color(0xFF5F50DD);
+  static const Color unionArtifactBorder = Color(0xFFD6EBEB);
+  static const Color unionArtifactTextShadow = Color(0xFFA783FF);
 }

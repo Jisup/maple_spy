@@ -1,3 +1,5 @@
+import 'package:maplespy/config/static_switch_config.dart';
+
 class UnionArtifact {
   String? date;
   List<UnionArtifactEffect>? unionArtifactEffect;
@@ -18,6 +20,19 @@ class UnionArtifact {
         unionArtifactEffect!.add(new UnionArtifactEffect.fromJson(v));
       });
     }
+
+    if (unionArtifactEffect != null && unionArtifactEffect!.isNotEmpty) {
+      unionArtifactEffect!.sort((a, b) {
+        var a_result = StaticSwitchConfig.switchUnionStat(stat: a.name!);
+        var b_result = StaticSwitchConfig.switchUnionStat(stat: b.name!);
+
+        if (a_result == b_result) {
+          return a.name!.compareTo(b.name!);
+        }
+        return a_result - b_result;
+      });
+    }
+
     if (json['union_artifact_crystal'] != null) {
       unionArtifactCrystal = <UnionArtifactCrystal>[];
       json['union_artifact_crystal'].forEach((v) {
@@ -52,6 +67,10 @@ class UnionArtifactEffect {
   UnionArtifactEffect.fromJson(Map<String, dynamic> json) {
     name = json['name'];
     level = json['level'];
+
+    if (name != null) {
+      name = name!.replaceAll(' 증가, ', ' 증가\n').replaceAll(', ', ' 증가\n');
+    }
   }
 
   Map<String, dynamic> toJson() {
@@ -82,6 +101,11 @@ class UnionArtifactCrystal {
 
   UnionArtifactCrystal.fromJson(Map<String, dynamic> json) {
     name = json['name'];
+
+    if (name != null) {
+      name = name!.split(' ').last;
+    }
+
     validityFlag = json['validity_flag'];
     dateExpire = json['date_expire'];
     level = json['level'];

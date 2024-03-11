@@ -626,4 +626,15 @@ class StaticListConfig {
       '공격 속도',
     ],
   ];
+  static final List<dynamic> unionArtifactCrystalList = [
+    '주황버섯',
+    '슬라임',
+    '뿔버섯',
+    '스텀프',
+    '스톤골렘',
+    '발록',
+    '자쿰',
+    '핑크빈',
+    '파풀라투스',
+  ];
 }

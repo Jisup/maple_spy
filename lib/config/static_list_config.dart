@@ -52,6 +52,11 @@ class StaticListConfig {
       'main': '"pixabay.com/ko/users/felixmittermeier-4397258" 저작자',
       'footer': '가 공개한 이미지입니다.',
     },
+    {
+      'header': '※ 본 애플리케이션의 이미지 정보가 부족한 경우\n',
+      'main': '',
+      'footer': '메인 아이콘 이미지로 대체될 수 있습니다.',
+    },
   ];
   /**-----Tab */
   static final List mainBottomNavigationTabList = [
@@ -107,13 +112,11 @@ class StaticListConfig {
   ];
   static final List<dynamic> equipmentSymbolTabList = [
     {
-      'title': 'ARC',
-      'name': '아케인심볼',
+      'name': 'ARC',
       'text': 'ARCANE',
     },
     {
-      'title': 'AUT',
-      'name': '어센틱심볼',
+      'name': 'AUT',
       'text': 'AUTHENTIC',
     },
   ];
@@ -188,13 +191,11 @@ class StaticListConfig {
   ];
   static final List<dynamic> unionRadierTabList = [
     {
-      'title': 'whole',
-      'name': '공격대 점령 효과',
+      'name': 'occupied',
       'text': '공격대 점령 효과',
     },
     {
-      'title': 'each',
-      'name': '공격대원 효과',
+      'name': 'inner',
       'text': '공격대원 효과',
     },
   ];

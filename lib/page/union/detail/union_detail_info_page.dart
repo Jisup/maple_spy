@@ -25,9 +25,11 @@ class UnionDetailInfoPage extends ConsumerWidget {
 
     return Column(
       children: [
+        /**----- union grade */
         Container(
           width: MediaQuery.of(context).size.width,
           margin: EdgeInsets.only(bottom: DimenConfig.subDimen),
+          color: colorScheme.primary,
           child: Stack(
             alignment: Alignment.center,
             children: [
@@ -89,6 +91,7 @@ class UnionDetailInfoPage extends ConsumerWidget {
             ],
           ),
         ),
+        /**----- union grade icon */
         Container(
           margin: EdgeInsets.only(
               top: DimenConfig.subDimen, bottom: DimenConfig.subDimen),
@@ -98,14 +101,17 @@ class UnionDetailInfoPage extends ConsumerWidget {
             fit: BoxFit.contain,
           ),
         ),
+        /**----- union level */
         Container(
           margin: EdgeInsets.only(
               top: DimenConfig.subDimen, bottom: DimenConfig.subDimen),
           child: Row(
+            mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Expanded(
                 child: Container(
-                  margin: EdgeInsets.only(right: DimenConfig.maxDimen),
+                  padding: EdgeInsets.only(right: FontConfig.maxSize),
+                  alignment: Alignment.centerRight,
                   child: CustomTextWidget(
                     text: 'LEVEL',
                     textAlign: TextAlign.end,
@@ -120,7 +126,8 @@ class UnionDetailInfoPage extends ConsumerWidget {
               ),
               Expanded(
                 child: Container(
-                  margin: EdgeInsets.only(left: DimenConfig.maxDimen),
+                  padding: EdgeInsets.only(left: FontConfig.commonSize),
+                  alignment: Alignment.centerLeft,
                   child: CustomTextWidget(
                     text: '${unionLevel}',
                     textAlign: TextAlign.start,
@@ -132,7 +139,7 @@ class UnionDetailInfoPage extends ConsumerWidget {
                     shadowType: true,
                   ),
                 ),
-              ),
+              )
             ],
           ),
         ),

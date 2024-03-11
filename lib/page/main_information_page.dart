@@ -23,6 +23,12 @@ class MainInforMationPage extends ConsumerWidget {
               semanticLabel: '뒤로 가기 버튼',
             ),
           ),
+          title: Text(
+            'MapleSpy',
+            textAlign: TextAlign.center,
+            style: TextStyle(
+                color: colorScheme.onPrimary, fontFamily: 'Maplestory'),
+          ),
         ),
         body: LayoutBuilder(
           builder:
@@ -72,7 +78,7 @@ class MainInforMationPage extends ConsumerWidget {
                       textAlign: TextAlign.center,
                     ),
                     Text(
-                      '일일 제한 요청량이 초과할 경우,\n 캐릭터 정보 조회가 불가능할 수 있습니다.',
+                      '단, 일일 제한 요청량이 초과할 경우\n캐릭터 정보 조회가 불가능할 수 있습니다.',
                       textAlign: TextAlign.center,
                     ),
                     Container(

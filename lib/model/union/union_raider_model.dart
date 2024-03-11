@@ -8,6 +8,7 @@ class UnionRaider {
   List<UnionBlock>? unionBlock;
   late List<List<List<bool>>> unionTableBorder;
   late List<List<UnionDetail>> unionTable;
+  late List<UnionInfo> unionInfo;
   late List<String> unionInnerField;
   late List<String> unionOuterField;
 
@@ -126,18 +127,24 @@ class UnionRaider {
     unionTableBorder[1][22][0] = true;
     unionTableBorder[20][22][1] = true;
 
-    /**----- 유니온 테이블 제작 */
+    /**----- 유니온 테이블 및 캐릭터 정보 리스트 제작 */
+    unionInfo = [];
     unionTable =
         List.generate(22, (_) => List.generate(24, (_) => UnionDetail()));
     if (unionBlock != null && unionBlock!.isNotEmpty) {
       for (var block in unionBlock!) {
-        int cy = block.blockControlPoint!.y! + 10;
+        int cy = -(block.blockControlPoint!.y!) + 1 + 10;
         int cx = block.blockControlPoint!.x! + 12;
         unionTable[cy][cx].isPoint = true;
         unionTable[cy][cx].type = block.blockType;
 
+        unionInfo.add(UnionInfo(
+          characterClass: block.blockClass!,
+          characterClassLevel: block.blockLevel!,
+        ));
+
         for (var position in block.blockPosition!) {
-          int py = position.y! + 10;
+          int py = -(position.y!) + 1 + 10;
           int px = position.x! + 12;
           unionTable[py][px].isExist = true;
         }
@@ -164,6 +171,22 @@ class UnionRaider {
         }
       }
     }
+
+    /**----- 유니온 캐릭터 정보 정렬 */
+    unionInfo.sort((a, b) {
+      var a_result = StaticSwitchConfig.switchUnionCharacter(
+          characterClass: a.characterClass);
+      var b_result = StaticSwitchConfig.switchUnionCharacter(
+          characterClass: b.characterClass);
+      if (a.characterClassLevel == b.characterClassLevel) {
+        if (a_result == b_result) {
+          return a.characterClass.compareTo(b.characterClass);
+        }
+        return a_result - b_result;
+      }
+      return int.parse(b.characterClassLevel) -
+          int.parse(a.characterClassLevel);
+    });
   }
 
   Map<String, dynamic> toJson() {
@@ -289,4 +312,14 @@ class UnionDetail {
   bool isPoint = false;
   String? type;
   List<bool> border = [false, false, false, false]; // 상, 하, 좌, 우
+}
+
+class UnionInfo {
+  String characterClass;
+  String characterClassLevel;
+
+  UnionInfo({
+    required this.characterClass,
+    required this.characterClassLevel,
+  });
 }

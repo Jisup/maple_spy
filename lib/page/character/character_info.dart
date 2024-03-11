@@ -108,7 +108,9 @@ class CharacterInfo extends ConsumerWidget {
             CharacterInfoWidget(
                 title: '유니온',
                 value: '${character.union?.unionLevel ?? ''}',
-                detailPath: '/character/union',
+                detailPath: character.union?.unionLevel != null
+                    ? '/character/union'
+                    : null,
                 pathType: '유니온',
                 type: false),
             /**-----character`s guild */

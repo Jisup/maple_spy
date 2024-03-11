@@ -85,7 +85,7 @@ class NavController extends AutoDisposeNotifier {
         ref.read(unionSelectTabProvider.notifier).update((state) => 'raider');
         ref
             .read(unionRaiderSelectTabProvider.notifier)
-            .update((state) => 'whole');
+            .update((state) => 'occupied');
     }
 
     context.go(path);

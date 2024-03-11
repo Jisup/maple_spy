@@ -35,8 +35,7 @@ class UnionDetailRaiderTable extends ConsumerWidget {
             final innerFieldX = viewportConstraints.maxWidth / 22 * 3.75;
             final outerFieldY = viewportConstraints.minHeight / 20 * 7.5;
             final outerFieldX = viewportConstraints.maxWidth / 22 * 7.75;
-            print(
-                '${innerFieldY}/${innerFieldX}/${outerFieldY}/${outerFieldX}');
+
             final fieldType = [
               [-1, -1 / 2.25], // -y -x/2
               [-1, 1 / 2.25], // -y +x/2

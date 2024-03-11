@@ -69,22 +69,9 @@ class PetSymbolPage extends ConsumerWidget {
                   ),
 
                   /**-----symbol detail */
-                  Container(
-                    margin: EdgeInsets.only(
-                        top: DimenConfig.commonDimen,
-                        bottom: DimenConfig.commonDimen),
-                    child: Table(
-                      children: [
-                        TableRow(
-                          children: StaticListConfig.equipmentSymbolTabList
-                              .map((tab) => DetailSelectSubTab(
-                                  tab: tab,
-                                  provider: equipmentSelectSymbolTabProvider))
-                              .toList(),
-                        ),
-                      ],
-                    ),
-                  ),
+                  DetailSelectSubTab(
+                      tabList: StaticListConfig.equipmentSymbolTabList,
+                      provider: equipmentSelectSymbolTabProvider),
                   SymbolPage(symbolItem: symbolItem),
                 ],
               ),

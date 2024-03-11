@@ -9,6 +9,7 @@ class CustomTextWidget extends ConsumerWidget {
     required this.text,
     this.textAlign,
     required this.size,
+    this.fontStyle,
     this.weight,
     required this.color,
     this.subColor,
@@ -19,6 +20,7 @@ class CustomTextWidget extends ConsumerWidget {
   final String text;
   final TextAlign? textAlign;
   final double size;
+  final FontStyle? fontStyle;
   final FontWeight? weight;
   final Color color;
   final Color? subColor;
@@ -33,6 +35,7 @@ class CustomTextWidget extends ConsumerWidget {
       style: TextStyle(
         color: color,
         fontSize: size,
+        fontStyle: fontStyle,
         fontWeight: weight ?? FontWeight.bold,
         overflow: TextOverflow.ellipsis,
         shadows: subColor != null

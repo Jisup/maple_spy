@@ -352,4 +352,58 @@ class StaticSwitchConfig {
       _ => 23,
     };
   }
+
+  static int switchUnionCharacter({required String characterClass}) {
+    var type = switchClassMainStat(className: characterClass);
+    return switch (type) {
+      'STR' => 1,
+      'DEX' => 2,
+      'INT' => 3,
+      'LUK' => 4,
+      _ => 5,
+    };
+  }
+
+  static String switchUnionCardGrade(
+      {required String characterClass, required String characterLevel}) {
+    var cardGrade = '';
+    var level = int.parse(characterLevel);
+    switch (characterClass) {
+      case '제로':
+        if (250 <= level) {
+          cardGrade = 'SSS';
+        } else if (200 <= level && level < 250) {
+          cardGrade = 'SS';
+        } else if (180 <= level && level < 200) {
+          cardGrade = 'S';
+        } else if (160 <= level && level < 180) {
+          cardGrade = 'A';
+        } else if (130 <= level && level < 160) {
+          cardGrade = 'B';
+        }
+      case '모바일 캐릭터':
+        if (120 <= level) {
+          cardGrade = 'SS';
+        } else if (70 <= level && level < 120) {
+          cardGrade = 'S';
+        } else if (50 <= level && level < 70) {
+          cardGrade = 'A';
+        } else if (30 <= level && level < 50) {
+          cardGrade = 'B';
+        }
+      default:
+        if (250 <= level) {
+          cardGrade = 'SSS';
+        } else if (200 <= level && level < 250) {
+          cardGrade = 'SS';
+        } else if (140 <= level && level < 200) {
+          cardGrade = 'S';
+        } else if (100 <= level && level < 140) {
+          cardGrade = 'A';
+        } else if (60 <= level && level < 100) {
+          cardGrade = 'B';
+        }
+    }
+    return cardGrade;
+  }
 }

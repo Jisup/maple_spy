@@ -303,4 +303,7 @@ class UnionColor {
 
   static const Color unionMIconBorder = Color(0xFFEE8800);
   static const Color unionMIconBackground = Color(0xFFCC5500);
+
+  static const Color unionStartText = Color(0xFFFFDDBB);
+  static const Color unionEndText = Color(0xFFDDAA88);
 }

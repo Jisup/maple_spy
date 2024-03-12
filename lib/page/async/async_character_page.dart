@@ -14,7 +14,7 @@ class AsyncCharacterPage extends ConsumerWidget {
     final asyncCharacter = ref.watch(asyncCharacterProvider);
 
     return switch (asyncCharacter) {
-      AsyncData(:final value) => CharacterInfo(character: value),
+      AsyncData() => CharacterInfo(),
       AsyncError() =>
         MainErrorPage(message: ErrorMessageConfig.characterPageRequestError),
       _ => const LoadingSpinner(),

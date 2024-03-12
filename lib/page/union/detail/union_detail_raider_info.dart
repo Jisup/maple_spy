@@ -1,6 +1,4 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:maplespy/config/color_config.dart';
 import 'package:maplespy/config/const_config.dart';
@@ -85,7 +83,7 @@ class UnionDetailRaiderInfo extends ConsumerWidget {
                                                 characterClass:
                                                     info.characterClass,
                                                 characterLevel:
-                                                    info.characterClassLevel,
+                                                    info.characterLevel,
                                               ),
                                               size: FontConfig.subSize,
                                               fontStyle: FontStyle.italic,
@@ -105,7 +103,7 @@ class UnionDetailRaiderInfo extends ConsumerWidget {
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
                                   Text(info.characterClass),
-                                  Text('Lv. ${info.characterClassLevel}'),
+                                  Text('Lv. ${info.characterLevel}'),
                                 ],
                               ),
                             ),

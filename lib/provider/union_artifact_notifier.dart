@@ -53,6 +53,6 @@ class UnionArtifactNotifier extends AsyncNotifier {
         .update((state) => newCharacterName);
 
     state = AsyncValue.loading();
-    state = await AsyncValue.guard(() => _fetchUnionArtifact());
+    state = await AsyncValue.guard(() async => await _fetchUnionArtifact());
   }
 }

@@ -95,6 +95,6 @@ class SkillHexaNotifier extends AsyncNotifier<void> {
         .update((state) => newCharacterName);
 
     state = AsyncValue.loading();
-    state = await AsyncValue.guard(() => _fetchHexaSkill());
+    state = await AsyncValue.guard(() async => await _fetchHexaSkill());
   }
 }

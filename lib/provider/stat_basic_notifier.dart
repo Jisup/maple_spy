@@ -59,7 +59,7 @@ class StatBasicNotifier extends AsyncNotifier<void> {
         .update((state) => newCharacterName);
 
     state = AsyncValue.loading();
-    state = await AsyncValue.guard(() => _fetchBasic());
+    state = await AsyncValue.guard(() async => await _fetchBasic());
   }
 
   bool isEqualCharacterClass(String stat) {

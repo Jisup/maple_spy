@@ -67,6 +67,6 @@ class SkillLinkNotifier extends AsyncNotifier<void> {
         .update((state) => newCharacterName);
 
     state = AsyncValue.loading();
-    state = await AsyncValue.guard(() => _fetchLinkSkill());
+    state = await AsyncValue.guard(() async => await _fetchLinkSkill());
   }
 }

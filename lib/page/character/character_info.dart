@@ -1,20 +1,21 @@
-import 'dart:ui';
-
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:maplespy/config/color_config.dart';
 import 'package:maplespy/config/const_config.dart';
-import 'package:maplespy/model/main_character_model.dart';
+import 'package:maplespy/provider/character_notifier.dart';
 import 'package:maplespy/widget/character/character_info_widget.dart';
 
 class CharacterInfo extends ConsumerWidget {
-  const CharacterInfo({super.key, required this.character});
-
-  final MainCharacter character;
+  const CharacterInfo({super.key});
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
+    final characterNotifier = ref.read(asyncCharacterProvider.notifier);
+    final character = ref.watch(characterNotifier.mainCharacterProvider);
+
+    // print("캐릭터 페이지 접근");
+
     return Container(
       /**Is active when provide character custom background of Maplestory API*/
       // decoration: BoxDecoration(

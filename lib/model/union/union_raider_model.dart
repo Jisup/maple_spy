@@ -140,7 +140,7 @@ class UnionRaider {
 
         unionInfo.add(UnionInfo(
           characterClass: block.blockClass!,
-          characterClassLevel: block.blockLevel!,
+          characterLevel: block.blockLevel!,
         ));
 
         for (var position in block.blockPosition!) {
@@ -178,14 +178,13 @@ class UnionRaider {
           characterClass: a.characterClass);
       var b_result = StaticSwitchConfig.switchUnionCharacter(
           characterClass: b.characterClass);
-      if (a.characterClassLevel == b.characterClassLevel) {
+      if (a.characterLevel == b.characterLevel) {
         if (a_result == b_result) {
           return a.characterClass.compareTo(b.characterClass);
         }
         return a_result - b_result;
       }
-      return int.parse(b.characterClassLevel) -
-          int.parse(a.characterClassLevel);
+      return int.parse(b.characterLevel) - int.parse(a.characterLevel);
     });
   }
 
@@ -316,10 +315,10 @@ class UnionDetail {
 
 class UnionInfo {
   String characterClass;
-  String characterClassLevel;
+  String characterLevel;
 
   UnionInfo({
     required this.characterClass,
-    required this.characterClassLevel,
+    required this.characterLevel,
   });
 }

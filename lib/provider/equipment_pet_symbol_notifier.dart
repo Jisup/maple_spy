@@ -67,6 +67,6 @@ class EquipmentPetSymbolNotifier extends AsyncNotifier<MainEquipmentPetSymbol> {
         .update((state) => newCharacterName);
 
     state = AsyncValue.loading();
-    state = await AsyncValue.guard(() => _fetchPetSymbol());
+    state = await AsyncValue.guard(() async => await _fetchPetSymbol());
   }
 }

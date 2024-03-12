@@ -301,6 +301,17 @@ class _MainHomeState extends ConsumerState<MainHomePage> {
                             letterSpacing: SpacingConfig.commonSpacing),
                       ),
                     ),
+                  ),
+                  Container(
+                    margin:
+                        EdgeInsets.only(bottom: DimenConfig.commonDimen * 2),
+                    child: Text.rich(TextSpan(children: [
+                      TextSpan(text: 'Data based on '),
+                      TextSpan(
+                          text: 'NEXON OPEN API',
+                          style: TextStyle(
+                              color: Colors.blue, fontWeight: FontWeight.bold))
+                    ])),
                   )
                 ],
               ),

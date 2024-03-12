@@ -75,7 +75,7 @@ class StatAbilityHyperNotifier extends AsyncNotifier<void> {
         .update((state) => newCharacterName);
 
     state = AsyncValue.loading();
-    state = await AsyncValue.guard(() => _fetchAbilityHyper());
+    state = await AsyncValue.guard(() async => await _fetchAbilityHyper());
   }
 
   AbilityPreset? abilityStatPresetInfo(String preset) {

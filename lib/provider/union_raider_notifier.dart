@@ -68,6 +68,8 @@ class UnionRaiderNotifier extends AsyncNotifier {
         .update((state) => newCharacterName);
 
     state = AsyncValue.loading();
-    state = await AsyncValue.guard(() => _fetchUnionRaider());
+    state = await AsyncValue.guard(() async {
+      await _fetchUnionRaider();
+    });
   }
 }

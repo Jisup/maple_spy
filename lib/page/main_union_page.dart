@@ -3,7 +3,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import 'package:maplespy/config/static_list_config.dart';
 import 'package:maplespy/page/async/async_union_artifact_page.dart';
-import 'package:maplespy/page/async/async_union_main_character_page.dart';
+import 'package:maplespy/page/async/async_union_character_page.dart';
 import 'package:maplespy/page/async/async_union_raider_page.dart';
 import 'package:maplespy/provider/common_provider.dart';
 import 'package:maplespy/widget/detail_page/detail_select_tab.dart';
@@ -26,6 +26,7 @@ class _MainUnionPageState extends ConsumerState<MainUnionPage> {
 
   @override
   void dispose() {
+    // print("유니온 페이지 종료");
     _pageController.dispose();
     super.dispose();
   }
@@ -36,7 +37,7 @@ class _MainUnionPageState extends ConsumerState<MainUnionPage> {
 
     final characterName = ref.watch(characterNameProvider);
     final characterWorld = ref.watch(characterWorldProvider);
-
+    // print("유니온 페이지 접근");
     return SafeArea(
       child: Scaffold(
         appBar: AppBar(
@@ -73,7 +74,7 @@ class _MainUnionPageState extends ConsumerState<MainUnionPage> {
                 children: [
                   AsyncUnionRaiderPage(),
                   AsyncUnionArtifactPage(),
-                  AsyncUnionMainCharacterPage(),
+                  AsyncUnionCharacterPage(),
                 ],
               ),
             ),

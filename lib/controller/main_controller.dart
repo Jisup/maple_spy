@@ -26,7 +26,7 @@ class MainController extends AutoDisposeNotifier {
         .update((state) => [...?nickNameList]);
   }
 
-  void onClickSearchButton({required String characterName}) async {
+  void onClickSearchButton({required String characterName, bool? union}) async {
     var context = navigatorkey.currentContext!;
 
     ref.read(isLoading.notifier).update((state) => true);
@@ -90,7 +90,9 @@ class MainController extends AutoDisposeNotifier {
     /**----- 캐릭터 정보 업데이트 */
     ref.read(asyncCharacterProvider.notifier).getNewCharacter();
     /**----- 캐릭터 정보 페이지 이동 */
-    context.push('/character');
+    union != null && union
+        ? context.go('/character')
+        : context.push('/character');
 
     ref.read(isLoading.notifier).update((state) => false);
   }

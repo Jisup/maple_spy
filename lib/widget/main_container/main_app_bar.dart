@@ -13,7 +13,7 @@ AppBar mainAppBar({
   return AppBar(
     leading: GestureDetector(
       behavior: HitTestBehavior.translucent,
-      onTap: isHome ? null : () => context.go("/"),
+      onTap: isHome ? null : () => context.pop(),
       child: Container(
         padding: isHome ? EdgeInsets.all(DimenConfig.commonDimen) : null,
         child: isHome

@@ -12,7 +12,7 @@ import 'package:maplespy/provider/stat_ablity_hyper_notifier.dart';
 import 'package:maplespy/provider/stat_basic_notifier.dart';
 import 'package:maplespy/provider/stat_hexa_notifier.dart';
 import 'package:maplespy/provider/union_artifact_notifier.dart';
-import 'package:maplespy/provider/union_main_character_notifier.dart';
+import 'package:maplespy/provider/union_character_notifier.dart';
 import 'package:maplespy/provider/union_raider_notifier.dart';
 import 'package:maplespy/util/main_router.dart';
 
@@ -50,9 +50,7 @@ class NavController extends AutoDisposeNotifier {
       case '유니온':
         ref.read(asyncUnionRaiderProvider.notifier).getNewUnion();
         ref.read(asyncUnionArtifactProvider.notifier).getNewUnionArtifact();
-        ref
-            .read(asyncUnionMainCharacterProvider.notifier)
-            .getNewUnionMainCharacter();
+        ref.read(asyncUnionCharacterProvider.notifier).getNewUnionCharacter();
     }
 
     /**----- 선택 탭 초기화 */

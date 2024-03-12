@@ -90,6 +90,6 @@ class UnionDetailArtifactCrystalOption extends ConsumerWidget {
               ),
             ]))
         : MainErrorPage(
-            message: ErrorMessageConfig.unionArtifactCrystalVraibaleError);
+            message: ErrorMessageConfig.unionArtifactCrystalVaribaleError);
   }
 }

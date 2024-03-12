@@ -82,6 +82,6 @@ class EquipmentCashNotifier extends AsyncNotifier<MainEquipmentCash> {
         .update((state) => newCharacterName);
 
     state = AsyncValue.loading();
-    state = await AsyncValue.guard(() => _fetchCash());
+    state = await AsyncValue.guard(() async => await _fetchCash());
   }
 }

@@ -70,6 +70,6 @@ class EquipmentItemNotifier extends AsyncNotifier<MainEquipmentItem> {
         .update((state) => newCharacterName);
 
     state = AsyncValue.loading();
-    state = await AsyncValue.guard(() => _fetchItem());
+    state = await AsyncValue.guard(() async => await _fetchItem());
   }
 }

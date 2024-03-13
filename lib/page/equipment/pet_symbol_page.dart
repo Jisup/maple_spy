@@ -61,7 +61,7 @@ class PetSymbolPage extends ConsumerWidget {
                     label: '구분 선',
                     readOnly: true,
                     child: Divider(
-                        height: DimenConfig.commonDimen * 2,
+                        height: DimenConfig.subDimen,
                         thickness: 2,
                         indent: DimenConfig.commonDimen,
                         endIndent: DimenConfig.commonDimen,

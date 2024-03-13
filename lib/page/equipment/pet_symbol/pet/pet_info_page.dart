@@ -16,14 +16,15 @@ class PetInfoPage extends ConsumerWidget {
       margin: EdgeInsets.only(
           left: DimenConfig.commonDimen, right: DimenConfig.commonDimen),
       padding: EdgeInsets.all(DimenConfig.subDimen),
+      alignment: Alignment.center,
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           FractionallySizedBox(
-            widthFactor: 1,
+            widthFactor: 0.9,
             child: Wrap(
               alignment: WrapAlignment.center,
-              runSpacing: DimenConfig.subDimen,
+              runSpacing: DimenConfig.minDimen,
               children: [
                 GestureDetector(
                   onTap: pet.petName != null

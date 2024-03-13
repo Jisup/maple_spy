@@ -180,6 +180,9 @@ class SymbolColor {
 
   static const Color arcaneStartBackground = Color(0xFF5a5a92); // 아케인 시작 배경
   static const Color arcaneEndBackground = Color(0xFF707ab7); // 아케인 끝 배경
+  static const Color arcaneGrowthBackground = Color(0xFF444477);
+  static const Color arcaneGrowthStart = Color(0xFF444477);
+  static const Color arcaneGrowthEnd = Color(0xFF555599);
 
   static const Color authenticLeftStartBackground =
       Color(0xFF8acaf4); // 어센틱 왼쪽 시작 배경
@@ -191,6 +194,9 @@ class SymbolColor {
       Color(0xFF638fd7); // 어센틱 오른쪽 끝 배경
   static const Color authenticStartBackground = Color(0xFF6a96cb); // 어센틱 시작 배경
   static const Color authenticEndBackground = Color(0xFF8d8fd8); // 어센틱 끝 배경
+  static const Color authenticGrowthBackground = Color(0xFF5076AA);
+  static const Color authenticGrowthStart = Color(0xFF4D64A4);
+  static const Color authenticGrowthEnd = Color(0xFFD6E6FF);
 }
 
 class SkillColor {

@@ -20,16 +20,25 @@ class SymbolPage extends ConsumerWidget {
     final String symbolTab = ref.watch(equipmentSelectSymbolTabProvider);
     final SymbolDetail symbolDetail = SymbolDetail(symbol: symbolItem.symbol);
 
+    final startBackground = symbolTab == 'ARC'
+        ? SymbolColor.arcaneStartBackground
+        : SymbolColor.authenticStartBackground;
+    final endBackground = symbolTab == 'ARC'
+        ? SymbolColor.arcaneEndBackground
+        : SymbolColor.authenticEndBackground;
+
     return Container(
-      margin: EdgeInsets.all(DimenConfig.commonDimen),
+      margin: EdgeInsets.only(
+        top: DimenConfig.subDimen,
+        bottom: DimenConfig.commonDimen * 2,
+        left: DimenConfig.commonDimen,
+        right: DimenConfig.commonDimen,
+      ),
       decoration: BoxDecoration(
         gradient: LinearGradient(
           begin: Alignment.topCenter,
           end: Alignment.bottomCenter,
-          colors: [
-            SymbolColor.arcaneStartBackground,
-            SymbolColor.arcaneEndBackground
-          ],
+          colors: [startBackground, endBackground],
         ),
         borderRadius: BorderRadius.circular(DimenConfig.commonDimen),
       ),
@@ -68,7 +77,7 @@ class SymbolPage extends ConsumerWidget {
                       readOnly: true,
                       child: Divider(
                         color: SymbolColor.startBorder,
-                        height: DimenConfig.subDimen * 2,
+                        height: DimenConfig.commonDimen * 2,
                         thickness: 2,
                         indent: DimenConfig.subDimen * 2,
                         endIndent: DimenConfig.subDimen,
@@ -107,7 +116,11 @@ class SymbolPage extends ConsumerWidget {
                         ? '${symbol.symbolName} 심볼'
                         : ' 비어있음',
                     child: SymbolImagePage(
-                        imageUrl: symbol.symbolIcon, level: symbol.symbolLevel),
+                      imageUrl: symbol.symbolIcon,
+                      level: symbol.symbolLevel,
+                      growth: symbol.symbolGrowthCount ?? 0,
+                      require_growth: symbol.symbolRequireGrowthCount ?? 1,
+                    ),
                   );
                 }).toList(),
               ),

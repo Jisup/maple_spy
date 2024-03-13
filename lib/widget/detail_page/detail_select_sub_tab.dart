@@ -14,7 +14,10 @@ class DetailSelectSubTab extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     ColorScheme colorScheme = Theme.of(context).colorScheme;
     return Container(
-      margin: EdgeInsets.all(DimenConfig.commonDimen),
+      margin: EdgeInsets.only(
+        top: DimenConfig.commonDimen,
+        bottom: DimenConfig.subDimen,
+      ),
       child: Row(
         children: tabList.map(
           (tab) {

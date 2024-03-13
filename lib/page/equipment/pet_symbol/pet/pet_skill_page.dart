@@ -13,8 +13,8 @@ class PetSkillPage extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     return Container(
-      margin: EdgeInsets.fromLTRB(DimenConfig.commonDimen, DimenConfig.subDimen,
-          DimenConfig.commonDimen, DimenConfig.subDimen),
+      margin: EdgeInsets.fromLTRB(DimenConfig.subDimen, DimenConfig.minDimen,
+          DimenConfig.subDimen, DimenConfig.minDimen),
       padding: EdgeInsets.only(
           top: DimenConfig.subDimen, bottom: DimenConfig.subDimen),
       child: Column(

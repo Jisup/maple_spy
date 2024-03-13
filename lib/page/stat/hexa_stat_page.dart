@@ -14,31 +14,34 @@ class HexaStatPage extends ConsumerWidget {
     final hexaMatrixStat = ref.watch(asyncHexaNotifier.hexaMatrixStatProvider);
 
     return hexaMatrixStat.characterClass != null
-        ? Container(
-            decoration: BoxDecoration(
-              image: DecorationImage(
-                image: AssetImage(
-                  'assets/space_background.png',
+        ? hexaMatrixStat.characterHexaStatCore!.isNotEmpty
+            ? Container(
+                decoration: BoxDecoration(
+                  image: DecorationImage(
+                    image: AssetImage(
+                      'assets/space_background.png',
+                    ),
+                    repeat: ImageRepeat.repeatY,
+                  ),
                 ),
-                repeat: ImageRepeat.repeatY,
-              ),
-            ),
-            child: Container(
-              margin: EdgeInsets.only(
-                top: DimenConfig.commonDimen,
-                bottom: DimenConfig.commonDimen,
-              ),
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: hexaMatrixStat.characterHexaStatCore!
-                    .map((hexaStatCore) => HexaDetailInfoPage(
-                          characterClass: hexaMatrixStat.characterClass!,
-                          hexaStatCore: hexaStatCore,
-                        ))
-                    .toList(),
-              ),
-            ),
-          )
-        : MainErrorPage(message: ErrorMessageConfig.hexaStatPageVariableError);
+                child: Container(
+                  margin: EdgeInsets.only(
+                    top: DimenConfig.commonDimen,
+                    bottom: DimenConfig.commonDimen,
+                  ),
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: hexaMatrixStat.characterHexaStatCore!
+                        .map((hexaStatCore) => HexaDetailInfoPage(
+                              characterClass: hexaMatrixStat.characterClass!,
+                              hexaStatCore: hexaStatCore,
+                            ))
+                        .toList(),
+                  ),
+                ),
+              )
+            : MainErrorPage(
+                message: ErrorMessageConfig.hexaStatPageVariableError)
+        : MainErrorPage(message: ErrorMessageConfig.hexaStatPageError);
   }
 }

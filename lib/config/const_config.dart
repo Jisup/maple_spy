@@ -59,7 +59,8 @@ class ErrorMessageConfig {
   static String statPageError = '스탯 페이지에\n문제가 발생했어요!ㅠㅠ';
   static String statPageRequestError = '스탯 정보를\n불러오는데 실패했어요!ㅠㅠ';
   static String abilityStatPageVaribaleError = 'ABILITY 스탯\n정보가 존재하지 않아요!';
-  static String hexaStatPageVariableError = 'HEXA 스탯\n정보가 존재하지 않아요!';
+  static String hexaStatPageError = 'HEXA 스탯\n정보가 존재하지 않아요!';
+  static String hexaStatPageVariableError = 'HEXA 스탯 능력치\n정보가 존재하지 않아요!';
 
   static String unionPageError = '유니온 페이지에\n문제가 발생했어요!ㅠㅠ';
   static String unionPageRequestError = '유니온 정보를\n불러오는데 실패했어요!ㅠㅠ';

@@ -146,6 +146,7 @@ class UnionRaider {
         for (var position in block.blockPosition!) {
           int py = -(position.y!) + 1 + 10;
           int px = position.x! + 12;
+          if (py == 0 || px == 0 || py == 21 || px == 23) continue;
           unionTable[py][px].isExist = true;
         }
       }

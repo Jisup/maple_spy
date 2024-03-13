@@ -92,15 +92,15 @@ class UnionDetailInfoPage extends ConsumerWidget {
           ),
         ),
         /**----- union grade icon */
-        Container(
-          margin: EdgeInsets.only(
-              top: DimenConfig.subDimen, bottom: DimenConfig.subDimen),
-          width: MediaQuery.of(context).size.width / 2,
-          child: Image.asset(
-            'assets/maplespy_icon.png',
-            fit: BoxFit.contain,
-          ),
-        ),
+        // Container(
+        //   margin: EdgeInsets.only(
+        //       top: DimenConfig.subDimen, bottom: DimenConfig.subDimen),
+        //   width: MediaQuery.of(context).size.width / 2,
+        //   child: Image.asset(
+        //     'assets/maplespy_icon.png',
+        //     fit: BoxFit.contain,
+        //   ),
+        // ),
         /**----- union level */
         Container(
           margin: EdgeInsets.only(

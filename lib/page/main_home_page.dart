@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter/widgets.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import 'package:maplespy/config/const_config.dart';
@@ -64,16 +65,24 @@ class _MainHomeState extends ConsumerState<MainHomePage> {
                 children: [
                   Expanded(
                     child: Column(children: [
+                      /**----- 긴급 공지 사항 */
                       Expanded(
-                        child: Container(
-                          alignment: Alignment.center,
-                          child: ref.watch(mainController.hasError)
-                              ? MainErrorPage(
-                                  message:
-                                      ref.watch(mainController.errorMessage))
-                              : SizedBox.shrink(),
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.spaceAround,
+                          children: [
+                            Container(
+                              alignment: Alignment.center,
+                              child: ref.watch(mainController.hasError)
+                                  ? MainErrorPage(
+                                      message: ref
+                                          .watch(mainController.errorMessage))
+                                  // : SizedBox.shrink(),
+                                  : Text('???'),
+                            ),
+                          ],
                         ),
                       ),
+                      /**----- 최근 검색 닉네임 리스트 */
                       Expanded(
                         child: Column(
                           children: [
@@ -175,74 +184,77 @@ class _MainHomeState extends ConsumerState<MainHomePage> {
                     ]),
                   ),
                   Expanded(
-                    child: Row(
-                      crossAxisAlignment: CrossAxisAlignment.start,
+                    child: Column(
                       children: [
-                        Expanded(
-                          child: Semantics(
-                            label: '닉네임 입력 칸',
-                            keyboardKey: true,
-                            focusable: true,
-                            child: Container(
-                              margin:
-                                  EdgeInsets.only(right: DimenConfig.subDimen),
-                              child: TextFormField(
-                                key: textFormFieldKey,
-                                focusNode: _focusNode,
-                                controller: _textFieldController,
-                                decoration: const InputDecoration(
-                                  border: OutlineInputBorder(),
-                                  labelText: '닉네임',
+                        Row(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Expanded(
+                              child: Semantics(
+                                label: '닉네임 입력 칸',
+                                keyboardKey: true,
+                                focusable: true,
+                                child: Container(
+                                  margin: EdgeInsets.only(
+                                      right: DimenConfig.subDimen),
+                                  child: TextFormField(
+                                    key: textFormFieldKey,
+                                    focusNode: _focusNode,
+                                    controller: _textFieldController,
+                                    decoration: const InputDecoration(
+                                      border: OutlineInputBorder(),
+                                      labelText: '닉네임',
+                                    ),
+                                    inputFormatters: [
+                                      TextInputFormatter.withFunction(
+                                          (oldValue, newValue) {
+                                        return newValue.text.contains(RegExp(
+                                                r'[^0-9a-zA-Zㆍᆞᆢㅏ-ㅣㄱ-ㅎ가-힣]'))
+                                            ? oldValue
+                                            : newValue;
+                                      })
+                                    ],
+                                    validator: (value) {
+                                      if (value == null || value.isEmpty) {
+                                        return '닉네임을 입력해주세요.';
+                                      } else if (value.contains(
+                                          RegExp(r'[^0-9a-zA-Z가-힣]'))) {
+                                        return '올바른 닉네임을 입력해주세요.';
+                                      } else if (value.contains(
+                                              RegExp(r'[0-9a-zA-Z]')) &&
+                                          !value.contains(RegExp(r'[가-힣]')) &&
+                                          value.characters.length < 4) {
+                                        return '영문과 숫자조합 닉네임은 4글자 이상 입력해주세요.';
+                                      } else if (value.contains(
+                                              RegExp(r'[0-9a-zA-Z]')) &&
+                                          value.contains(RegExp(r'[가-힣]')) &&
+                                          value.characters.length < 3) {
+                                        return '조합된 닉네임은 3글자 이상 입력해주세요.';
+                                      } else if (value.length < 2) {
+                                        return '닉네임은 2글자 이상 입력해주세요.';
+                                      }
+                                      return null;
+                                    },
+                                  ),
                                 ),
-                                inputFormatters: [
-                                  TextInputFormatter.withFunction(
-                                      (oldValue, newValue) {
-                                    return newValue.text.contains(
-                                            RegExp(r'[^0-9a-zA-Zㆍᆞᆢㅏ-ㅣㄱ-ㅎ가-힣]'))
-                                        ? oldValue
-                                        : newValue;
-                                  })
-                                ],
-                                validator: (value) {
-                                  if (value == null || value.isEmpty) {
-                                    return '닉네임을 입력해주세요.';
-                                  } else if (value
-                                      .contains(RegExp(r'[^0-9a-zA-Z가-힣]'))) {
-                                    return '올바른 닉네임을 입력해주세요.';
-                                  } else if (value
-                                          .contains(RegExp(r'[0-9a-zA-Z]')) &&
-                                      !value.contains(RegExp(r'[가-힣]')) &&
-                                      value.characters.length < 4) {
-                                    return '영문과 숫자조합 닉네임은 4글자 이상 입력해주세요.';
-                                  } else if (value
-                                          .contains(RegExp(r'[0-9a-zA-Z]')) &&
-                                      value.contains(RegExp(r'[가-힣]')) &&
-                                      value.characters.length < 3) {
-                                    return '조합된 닉네임은 3글자 이상 입력해주세요.';
-                                  } else if (value.length < 2) {
-                                    return '닉네임은 2글자 이상 입력해주세요.';
-                                  }
-                                  return null;
-                                },
                               ),
                             ),
-                          ),
-                        ),
-                        Semantics(
-                          label: '검색 버튼',
-                          button: true,
-                          child: Container(
-                            margin: EdgeInsets.only(left: DimenConfig.subDimen),
-                            decoration: BoxDecoration(
-                              color: colorScheme.primary,
-                              border: Border.all(width: 1),
-                              borderRadius:
-                                  BorderRadius.circular(RadiusConfig.subRadius),
-                            ),
-                            child: GestureDetector(
-                              behavior: HitTestBehavior.translucent,
-                              onTap: () =>
-                                  textFormFieldKey.currentState?.validate() ??
+                            Semantics(
+                              label: '검색 버튼',
+                              button: true,
+                              child: Container(
+                                margin:
+                                    EdgeInsets.only(left: DimenConfig.subDimen),
+                                decoration: BoxDecoration(
+                                  color: colorScheme.primary,
+                                  border: Border.all(width: 1),
+                                  borderRadius: BorderRadius.circular(
+                                      RadiusConfig.subRadius),
+                                ),
+                                child: GestureDetector(
+                                  behavior: HitTestBehavior.translucent,
+                                  onTap: () => textFormFieldKey.currentState
+                                              ?.validate() ??
                                           false
                                       ? {
                                           mainController.onClickSearchButton(
@@ -252,27 +264,41 @@ class _MainHomeState extends ConsumerState<MainHomePage> {
                                           FocusScope.of(context).unfocus()
                                         }
                                       : _focusNode.requestFocus(),
-                              child: Container(
-                                padding: EdgeInsets.only(
-                                  top: DimenConfig.commonDimen * 2,
-                                  bottom: DimenConfig.commonDimen * 2,
-                                  left: DimenConfig.commonDimen,
-                                  right: DimenConfig.commonDimen,
-                                ),
-                                child: Text(
-                                  '검색',
-                                  style: TextStyle(
-                                      color: colorScheme.onPrimary,
-                                      letterSpacing:
-                                          SpacingConfig.commonSpacing),
+                                  child: Container(
+                                    padding: EdgeInsets.only(
+                                      top: DimenConfig.commonDimen * 2,
+                                      bottom: DimenConfig.commonDimen * 2,
+                                      left: DimenConfig.commonDimen,
+                                      right: DimenConfig.commonDimen,
+                                    ),
+                                    child: Text(
+                                      '검색',
+                                      style: TextStyle(
+                                          color: colorScheme.onPrimary,
+                                          letterSpacing:
+                                              SpacingConfig.commonSpacing),
+                                    ),
+                                  ),
                                 ),
                               ),
                             ),
+                          ],
+                        ),
+                        /**----- 캐릭터 정보 검색 오류 메세지 */
+                        Expanded(
+                          child: Container(
+                            alignment: Alignment.center,
+                            child: ref.watch(mainController.hasError)
+                                ? MainErrorPage(
+                                    message:
+                                        ref.watch(mainController.errorMessage))
+                                : SizedBox.shrink(),
                           ),
                         ),
                       ],
                     ),
                   ),
+                  /**----- MapleSpy 서비스 안내 정보 */
                   GestureDetector(
                     onTap: () => context.push('/information'),
                     child: Container(
@@ -302,6 +328,7 @@ class _MainHomeState extends ConsumerState<MainHomePage> {
                       ),
                     ),
                   ),
+                  /**----- 필수 포함 문구 */
                   Container(
                     margin:
                         EdgeInsets.only(bottom: DimenConfig.commonDimen * 2),

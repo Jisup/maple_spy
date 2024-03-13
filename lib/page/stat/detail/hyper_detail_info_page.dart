@@ -21,6 +21,8 @@ class HyperDetailInfoPage extends ConsumerWidget {
           padding: EdgeInsets.only(
             left: DimenConfig.commonDimen * 2,
             right: DimenConfig.commonDimen * 2,
+            top: DimenConfig.subDimen,
+            bottom: DimenConfig.subDimen,
           ),
           color: colorScheme.primary,
           child: Row(

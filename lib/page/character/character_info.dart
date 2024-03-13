@@ -66,17 +66,17 @@ class CharacterInfo extends ConsumerWidget {
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
-                            SizedBox(
-                              height: FontConfig.middleSize,
-                              child: Container(
-                                margin: EdgeInsets.only(
-                                    right: DimenConfig.subDimen),
-                                child: Image.asset(
-                                  'assets/maplespy_icon.png',
-                                  fit: BoxFit.contain,
-                                ),
-                              ),
-                            ),
+                            // SizedBox(
+                            //   height: FontConfig.middleSize,
+                            //   child: Container(
+                            //     margin: EdgeInsets.only(
+                            //         right: DimenConfig.subDimen),
+                            //     child: Image.asset(
+                            //       'assets/maplespy_icon.png',
+                            //       fit: BoxFit.contain,
+                            //     ),
+                            //   ),
+                            // ),
                             Text(
                               character.basic!.characterName!,
                               style: TextStyle(

@@ -50,7 +50,7 @@ class CashPage extends ConsumerWidget {
                   children: [
                     Container(
                       margin: EdgeInsets.only(
-                        bottom: DimenConfig.subDimen,
+                        bottom: DimenConfig.commonDimen,
                         right: DimenConfig.commonDimen,
                       ),
                       child: Row(

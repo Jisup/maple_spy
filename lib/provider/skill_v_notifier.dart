@@ -20,8 +20,14 @@ class SkillVNotifier extends AsyncNotifier<void> {
   final vMatrixProvider = StateProvider(
     (ref) => VMatrix(),
   );
-  final vSkillProvider = StateProvider(
-    (ref) => Skill(),
+  final vSkillCoreProvider = StateProvider(
+    (ref) => [],
+  );
+  final vEnhanceCoreProvider = StateProvider(
+    (ref) => [],
+  );
+  final vEtcCoreProvider = StateProvider(
+    (ref) => [],
   );
   final vDetailProvider = StateProvider(
     (ref) => <String, VDetail>{},
@@ -113,7 +119,26 @@ class SkillVNotifier extends AsyncNotifier<void> {
       }
 
       ref.read(vMatrixProvider.notifier).update((state) => vMatrix);
-      ref.read(vSkillProvider.notifier).update((state) => vSkill);
+      if (vSkill.characterSkill != null && vSkill.characterSkill!.isNotEmpty) {
+        ref.read(vSkillCoreProvider.notifier).update((state) =>
+            vSkill.characterSkill
+                ?.where((element) =>
+                    vDetail[element.skillName]?.skillType == '스킬코어')
+                .toList() ??
+            []);
+        ref.read(vEnhanceCoreProvider.notifier).update((state) =>
+            vSkill.characterSkill
+                ?.where((element) =>
+                    vDetail[element.skillName]?.skillType == '강화코어')
+                .toList() ??
+            []);
+        ref.read(vEtcCoreProvider.notifier).update((state) =>
+            vSkill.characterSkill
+                ?.where(
+                    (element) => vDetail[element.skillName]?.skillType == null)
+                .toList() ??
+            []);
+      }
       ref.read(vDetailProvider.notifier).update((state) => vDetail);
     }
   }

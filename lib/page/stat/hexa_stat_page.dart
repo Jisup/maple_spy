@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:maplespy/config/const_config.dart';
 import 'package:maplespy/page/main_error_page.dart';
-import 'package:maplespy/page/stat/detail/hexa_detail_info_page.dart';
+import 'package:maplespy/page/stat/detail/hexa_stat_detail_info_page.dart';
 import 'package:maplespy/provider/stat_hexa_notifier.dart';
 
 class HexaStatPage extends ConsumerWidget {
@@ -32,7 +32,7 @@ class HexaStatPage extends ConsumerWidget {
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: hexaMatrixStat.characterHexaStatCore!
-                        .map((hexaStatCore) => HexaDetailInfoPage(
+                        .map((hexaStatCore) => HexaStatDetailInfoPage(
                               characterClass: hexaMatrixStat.characterClass!,
                               hexaStatCore: hexaStatCore,
                             ))

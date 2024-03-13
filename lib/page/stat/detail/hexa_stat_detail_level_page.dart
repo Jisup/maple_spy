@@ -5,8 +5,8 @@ import 'package:maplespy/config/color_config.dart';
 import 'package:maplespy/config/const_config.dart';
 import 'package:maplespy/widget/common/custom_text_widget.dart';
 
-class HexaDetailLevelPage extends ConsumerWidget {
-  const HexaDetailLevelPage({
+class HexaStatDetailLevelPage extends ConsumerWidget {
+  const HexaStatDetailLevelPage({
     super.key,
     required this.level,
   });

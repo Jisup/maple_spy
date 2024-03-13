@@ -1,6 +1,11 @@
 class HexaMatrix {
   String? date;
   List<CharacterHexaCoreEquipment>? characterHexaCoreEquipment;
+  List<CharacterHexaCoreEquipment>? hexaMasterlyCore;
+  List<CharacterHexaCoreEquipment>? hexaSkillCore;
+  List<CharacterHexaCoreEquipment>? hexaEnhanceCore;
+  List<CharacterHexaCoreEquipment>? hexaCommonCore;
+  List<CharacterHexaCoreEquipment>? hexaEtcCore;
 
   HexaMatrix({this.date, this.characterHexaCoreEquipment});
 
@@ -12,6 +17,34 @@ class HexaMatrix {
         characterHexaCoreEquipment!
             .add(new CharacterHexaCoreEquipment.fromJson(v));
       });
+    }
+
+    if (characterHexaCoreEquipment != null) {
+      hexaMasterlyCore = characterHexaCoreEquipment!
+          .where(
+            (element) => element.hexaCoreType == '마스터리 코어',
+          )
+          .toList();
+      hexaSkillCore = characterHexaCoreEquipment!
+          .where(
+            (element) => element.hexaCoreType == '스킬 코어',
+          )
+          .toList();
+      hexaEnhanceCore = characterHexaCoreEquipment!
+          .where(
+            (element) => element.hexaCoreType == '강화 코어',
+          )
+          .toList();
+      hexaCommonCore = characterHexaCoreEquipment!
+          .where(
+            (element) => element.hexaCoreType == '공용 코어',
+          )
+          .toList();
+      hexaEtcCore = characterHexaCoreEquipment!
+          .where(
+            (element) => element.hexaCoreType == null,
+          )
+          .toList();
     }
   }
 

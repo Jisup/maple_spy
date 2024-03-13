@@ -6,8 +6,8 @@ import 'package:maplespy/config/static_switch_config.dart';
 import 'package:maplespy/model/skill/v_matrix_model.dart';
 import 'package:maplespy/widget/common/custom_box_decoration_widget.dart';
 
-class VDetailImagePage extends ConsumerWidget {
-  const VDetailImagePage({
+class VSkillDetailImagePage extends ConsumerWidget {
+  const VSkillDetailImagePage({
     super.key,
     required this.skillDetail,
     required this.skillIcon,

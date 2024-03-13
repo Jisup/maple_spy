@@ -4,12 +4,12 @@ import 'package:maplespy/config/color_config.dart';
 import 'package:maplespy/config/const_config.dart';
 import 'package:maplespy/config/static_switch_config.dart';
 import 'package:maplespy/model/stat/hexa_matrix_stat_model.dart';
-import 'package:maplespy/page/stat/detail/hexa_detail_level_page.dart';
-import 'package:maplespy/page/stat/detail/hexa_detail_option_page.dart';
+import 'package:maplespy/page/stat/detail/hexa_stat_detail_level_page.dart';
+import 'package:maplespy/page/stat/detail/hexa_stat_detail_option_page.dart';
 import 'package:maplespy/widget/common/custom_text_widget.dart';
 
-class HexaDetailInfoPage extends ConsumerWidget {
-  const HexaDetailInfoPage({
+class HexaStatDetailInfoPage extends ConsumerWidget {
+  const HexaStatDetailInfoPage({
     super.key,
     required this.characterClass,
     required this.hexaStatCore,
@@ -53,11 +53,11 @@ class HexaDetailInfoPage extends ConsumerWidget {
           ),
           child: Row(
             children: [
-              HexaDetailLevelPage(
+              HexaStatDetailLevelPage(
                 level: hexaStatCore.mainStatLevel!,
               ),
               Expanded(
-                  child: HexaDetailOptionPage(
+                  child: HexaStatDetailOptionPage(
                 statName: hexaStatCore.mainStatName ?? '',
                 statValue: StaticSwitchConfig.switchHexaStatValueToString(
                     name: hexaStatCore.mainStatName,
@@ -87,11 +87,11 @@ class HexaDetailInfoPage extends ConsumerWidget {
           ),
           child: Row(
             children: [
-              HexaDetailLevelPage(
+              HexaStatDetailLevelPage(
                 level: hexaStatCore.subStatLevel1!,
               ),
               Expanded(
-                  child: HexaDetailOptionPage(
+                  child: HexaStatDetailOptionPage(
                 statName: hexaStatCore.subStatName1 ?? '',
                 statValue: StaticSwitchConfig.switchHexaStatValueToString(
                     name: hexaStatCore.subStatName1,
@@ -109,11 +109,11 @@ class HexaDetailInfoPage extends ConsumerWidget {
           ),
           child: Row(
             children: [
-              HexaDetailLevelPage(
+              HexaStatDetailLevelPage(
                 level: hexaStatCore.subStatLevel2!,
               ),
               Expanded(
-                  child: HexaDetailOptionPage(
+                  child: HexaStatDetailOptionPage(
                 statName: hexaStatCore.subStatName2 ?? '',
                 statValue: StaticSwitchConfig.switchHexaStatValueToString(
                     name: hexaStatCore.subStatName2,

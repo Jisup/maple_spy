@@ -3,8 +3,8 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:maplespy/config/const_config.dart';
 import 'package:maplespy/widget/common/custom_text_widget.dart';
 
-class HexaDetailOptionPage extends ConsumerWidget {
-  const HexaDetailOptionPage(
+class HexaStatDetailOptionPage extends ConsumerWidget {
+  const HexaStatDetailOptionPage(
       {super.key,
       required this.statName,
       required this.statValue,

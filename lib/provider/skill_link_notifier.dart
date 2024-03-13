@@ -38,16 +38,6 @@ class SkillLinkNotifier extends AsyncNotifier<void> {
       throw Error();
     }
 
-    /**-----link skill*/
-    if (linkSkill.characterOwnedLinkSkill != null) {
-      if (linkSkill.characterLinkSkill?.length != 0) {
-        linkSkill.characterLinkSkill!
-            .insert(0, linkSkill.characterOwnedLinkSkill!);
-      } else {
-        linkSkill.characterLinkSkill = [linkSkill.characterOwnedLinkSkill!];
-      }
-    }
-
     ref.read(linkSkillProvider.notifier).update((state) => linkSkill);
   }
 

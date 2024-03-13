@@ -15,8 +15,8 @@ class AsyncUnionCharacterPage extends ConsumerWidget {
 
     return switch (asyncUnionMainCharacter) {
       AsyncData() => UnionCharacterPage(),
-      AsyncError() =>
-        MainErrorPage(message: ErrorMessageConfig.unionPageRequestError),
+      AsyncError() => MainErrorPage(
+          message: ErrorMessageConfig.unionMainCharacterPageRequestError),
       _ => LoadingSpinner(),
     };
   }

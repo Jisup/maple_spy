@@ -22,7 +22,6 @@ class UnionCharacterPage extends ConsumerWidget {
 
     return Container(
       margin: EdgeInsets.only(
-        bottom: DimenConfig.commonDimen * 2,
         left: DimenConfig.commonDimen * 2,
         right: DimenConfig.commonDimen * 2,
       ),
@@ -35,53 +34,58 @@ class UnionCharacterPage extends ConsumerWidget {
               minHeight: viewportConstraints.maxHeight,
             ),
             child: SingleChildScrollView(
-              child: Column(
-                children: [
-                  Container(
-                    margin: EdgeInsets.only(bottom: DimenConfig.commonDimen),
-                    alignment: Alignment.centerLeft,
-                    child: CustomTextWidget(
-                      text: '본캐',
-                      size: FontConfig.middleDownSize,
-                      color: Colors.black,
+              child: Container(
+                margin: EdgeInsets.only(
+                  bottom: DimenConfig.commonDimen * 2,
+                ),
+                child: Column(
+                  children: [
+                    Container(
+                      margin: EdgeInsets.only(bottom: DimenConfig.commonDimen),
+                      alignment: Alignment.centerLeft,
+                      child: CustomTextWidget(
+                        text: '본캐',
+                        size: FontConfig.middleDownSize,
+                        color: Colors.black,
+                      ),
                     ),
-                  ),
-                  UnionDetailCharacter(
-                    character: unionMainCharacter,
-                  ),
-                  Semantics(
-                    label: '구분 선',
-                    readOnly: true,
-                    child: Container(
-                      margin: EdgeInsets.only(top: DimenConfig.commonDimen),
-                      child: Divider(
-                          height: DimenConfig.commonDimen * 2,
-                          thickness: 2,
-                          color: colorScheme.primary),
+                    UnionDetailCharacter(
+                      character: unionMainCharacter,
                     ),
-                  ),
-                  Container(
-                    margin: EdgeInsets.only(bottom: DimenConfig.commonDimen),
-                    alignment: Alignment.centerLeft,
-                    child: CustomTextWidget(
-                      text: '부캐',
-                      size: FontConfig.middleDownSize,
-                      color: Colors.black,
+                    Semantics(
+                      label: '구분 선',
+                      readOnly: true,
+                      child: Container(
+                        margin: EdgeInsets.only(top: DimenConfig.commonDimen),
+                        child: Divider(
+                            height: DimenConfig.commonDimen * 2,
+                            thickness: 2,
+                            color: colorScheme.primary),
+                      ),
                     ),
-                  ),
-                  unionSubCharacter.isNotEmpty
-                      ? Wrap(
-                          spacing: DimenConfig.commonDimen,
-                          runSpacing: DimenConfig.commonDimen,
-                          children: unionSubCharacter
-                              .map((subCharacter) =>
-                                  UnionDetailCharacter(character: subCharacter))
-                              .toList(),
-                        )
-                      : MainErrorPage(
-                          message: ErrorMessageConfig
-                              .unionSubCharacterVariableError),
-                ],
+                    Container(
+                      margin: EdgeInsets.only(bottom: DimenConfig.commonDimen),
+                      alignment: Alignment.centerLeft,
+                      child: CustomTextWidget(
+                        text: '부캐',
+                        size: FontConfig.middleDownSize,
+                        color: Colors.black,
+                      ),
+                    ),
+                    unionSubCharacter.isNotEmpty
+                        ? Wrap(
+                            spacing: DimenConfig.commonDimen,
+                            runSpacing: DimenConfig.commonDimen,
+                            children: unionSubCharacter
+                                .map((subCharacter) => UnionDetailCharacter(
+                                    character: subCharacter))
+                                .toList(),
+                          )
+                        : MainErrorPage(
+                            message: ErrorMessageConfig
+                                .unionSubCharacterVariableError),
+                  ],
+                ),
               ),
             ),
           );

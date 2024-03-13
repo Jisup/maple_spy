@@ -31,19 +31,15 @@ class UnionDetailRaiderEffect extends ConsumerWidget {
       color: colorScheme.onPrimary,
       child: Column(
         children: [
-          Semantics(
-            label: '구분 선',
-            readOnly: true,
-            child: Divider(
-                height: DimenConfig.commonDimen * 2,
-                thickness: 2,
-                indent: DimenConfig.commonDimen * 2,
-                endIndent: DimenConfig.commonDimen * 2,
-                color: colorScheme.primary),
-          ),
-          DetailSelectSubTab(
-            tabList: StaticListConfig.unionRadierTabList,
-            provider: unionRaiderSelectTabProvider,
+          Container(
+            margin: EdgeInsets.only(
+              left: DimenConfig.commonDimen,
+              right: DimenConfig.commonDimen,
+            ),
+            child: DetailSelectSubTab(
+              tabList: StaticListConfig.unionRadierTabList,
+              provider: unionRaiderSelectTabProvider,
+            ),
           ),
           switch (raiderSelectTab) {
             'occupied' =>

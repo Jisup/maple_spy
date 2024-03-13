@@ -25,8 +25,16 @@ class UnionDetailCharacter extends ConsumerWidget {
       width:
           (MediaQuery.of(context).size.width - DimenConfig.commonDimen) / 2.25,
       decoration: BoxDecoration(
+        gradient: LinearGradient(
+            begin: Alignment.topCenter,
+            end: Alignment.bottomCenter,
+            colors: [
+              // SkillColor.startBackground,
+              colorScheme.onPrimary,
+              SkillColor.endBackground,
+            ]),
         border: Border.all(
-          color: colorScheme.secondary,
+          color: colorScheme.primary,
           width: 0.25,
         ),
         borderRadius: BorderRadius.circular(RadiusConfig.commonRadius),

@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:maplespy/config/const_config.dart';
+import 'package:maplespy/page/main_error_page.dart';
+import 'package:maplespy/provider/common_provider.dart';
 
 class UnionDetailRaiderStat extends ConsumerWidget {
   const UnionDetailRaiderStat({
@@ -21,22 +23,31 @@ class UnionDetailRaiderStat extends ConsumerWidget {
       ),
       child: Wrap(
         runSpacing: DimenConfig.minDimen,
-        children: statList
-            .map((stat) => Row(
-                  children: [
-                    Text(
-                      '●',
-                      style: TextStyle(fontSize: FontConfig.minSize),
-                    ),
-                    Container(
-                        margin: EdgeInsets.only(left: DimenConfig.commonDimen),
-                        child: Text(
-                          stat,
-                          style: TextStyle(fontSize: FontConfig.commonSize),
-                        )),
-                  ],
-                ))
-            .toList(),
+        children: statList.isNotEmpty
+            ? statList
+                .map((stat) => Row(
+                      children: [
+                        Text(
+                          '●',
+                          style: TextStyle(fontSize: FontConfig.minSize),
+                        ),
+                        Container(
+                            margin:
+                                EdgeInsets.only(left: DimenConfig.commonDimen),
+                            child: Text(
+                              stat,
+                              style: TextStyle(fontSize: FontConfig.commonSize),
+                            )),
+                      ],
+                    ))
+                .toList()
+            : [
+                MainErrorPage(
+                    message: ref.watch(unionRaiderSelectTabProvider) ==
+                            'occupied'
+                        ? ErrorMessageConfig.unionRaiderPageWholeVariableError
+                        : ErrorMessageConfig.unionRaiderPageEachVariableError)
+              ],
       ),
     );
   }

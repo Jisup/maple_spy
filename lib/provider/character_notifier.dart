@@ -32,7 +32,8 @@ class CharacterNotifier extends AsyncNotifier {
     (ref) => '',
   );
 
-  Future<void> _fetchUnion({required Basic basic}) async {
+  Future<void> _fetchUnion(
+      {required String oldOcid, required Basic basic}) async {
     final dioInstance = DioInstance();
     final yesterday = DayInstance().yesterday;
 
@@ -40,6 +41,12 @@ class CharacterNotifier extends AsyncNotifier {
     final characterRef = db.collection('characters').withConverter(
         fromFirestore: Character.fromFirestore,
         toFirestore: (Character character, options) => character.toFirestore());
+
+    dioInstance.dio.options.queryParameters = {
+      'ocid': oldOcid,
+      'date': yesterday,
+      'world_name': basic.worldName,
+    };
 
     // 유니온 랭킹을 통해 메인 캐릭터 확인
     Response unionRankingResponse;
@@ -53,7 +60,7 @@ class CharacterNotifier extends AsyncNotifier {
     }
 
     // 정보가 없으면 등록하지 않음
-    if (unionRanking.ranking != null || unionRanking.ranking!.isNotEmpty) {
+    if (unionRanking.ranking != null && unionRanking.ranking!.isNotEmpty) {
       String newOcid = '';
       String newCharacterName = unionRanking.ranking!.first.characterName!;
 
@@ -63,7 +70,7 @@ class CharacterNotifier extends AsyncNotifier {
 
       // 현재 캐릭터 이름이 본 캐릭터와 같지 않으면
       String? newCharacterId;
-      // print('${basic.characterName} != ${newCharacterName}');
+      print('${basic.characterName} != ${newCharacterName}');
       if (basic.characterName != newCharacterName) {
         // 새로운 캐릭터의 정보를 등록하고
         final newCharacterQuery =
@@ -79,11 +86,11 @@ class CharacterNotifier extends AsyncNotifier {
           throw Error();
         }
 
-        // print('id 값이 존재해요!!!! ${newCharacterName} == ${newCharacterId}');
+        print('id 값이 존재해요!!!! ${newCharacterName} == ${newCharacterId}');
         // 근데 새로운 캐릭터의 정보가 존재한다면 id만 가져오면되고
         // 존재하지 않으면 캐릭터 정보를 추가할 수 있도록 캐릭터와 관련된 정보를 가져와야 한다
         if (newCharacterId == null) {
-          // print("id 값이 없어서 새로 추가해줘야 해요");
+          print("id 값이 없어서 새로 추가해줘야 해요");
           dioInstance.dio.options.queryParameters = {
             'character_name': newCharacterName
           };
@@ -146,7 +153,7 @@ class CharacterNotifier extends AsyncNotifier {
       }
 
       if (characterId == null) {
-        // print("캐릭터 정보 없으니까 걍 추간한당~~");
+        print("캐릭터 정보 없으니까 걍 추간한당~~");
         characterRef.add(Character(
           characterName: basic.characterName,
           characterImage: basic.characterImage,
@@ -156,7 +163,7 @@ class CharacterNotifier extends AsyncNotifier {
           mainCharacterId: newCharacterId,
         ));
       } else {
-        // print("캐릭터 정보 있으니까 업데이트할께~");
+        print("캐릭터 정보 있으니까 업데이트할께~");
         characterRef.doc(characterId).update({
           'characterName': basic.characterName,
           'characterImage': basic.characterImage,
@@ -242,7 +249,7 @@ class CharacterNotifier extends AsyncNotifier {
         .read(characterWorldProvider.notifier)
         .update((state) => basic.worldName!);
 
-    await _fetchUnion(basic: basic);
+    await _fetchUnion(oldOcid: ocid, basic: basic);
 
     ref.read(mainCharacterProvider.notifier).update(
           (state) => MainCharacter(

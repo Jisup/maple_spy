@@ -29,6 +29,7 @@ class DashedDividerWidget extends ConsumerWidget {
                 direction: Axis.horizontal,
                 children: List.generate(dashLenght, (_) {
                   return Column(
+                    mainAxisAlignment: MainAxisAlignment.end,
                     children: [
                       SizedBox(
                           width: dashWidth,

@@ -101,6 +101,7 @@ class ItemColor {
   static const Color etcDownOptionText = Color(0xFFff0066); // 능력치 감소 텍스트
   static const Color starforceOptionText = Color(0xFFffcc00); // 스타포스 옵션 텍스트
   static const Color soulOptionText = Color(0xFFffff44); // 소울 옵션 텍스트
+  static const Color specialRingText = Color(0xFFFFCC00); // 링 레벨 텍스트
 }
 
 class CashColor {

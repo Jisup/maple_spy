@@ -2,9 +2,11 @@ import 'package:flutter/material.dart' hide BoxDecoration, BoxShadow;
 import 'package:flutter_inset_box_shadow/flutter_inset_box_shadow.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
+import 'package:maplespy/config/color_config.dart';
 import 'package:maplespy/config/const_config.dart';
 import 'package:maplespy/config/static_switch_config.dart';
 import 'package:maplespy/model/equipment/item_model.dart';
+import 'package:maplespy/widget/common/custom_text_widget.dart';
 
 class ItemInfo extends ConsumerWidget {
   const ItemInfo({super.key, required this.name, required this.item});
@@ -84,6 +86,29 @@ class ItemInfo extends ConsumerWidget {
                       ),
                     )
                   : SizedBox.shrink(),
+              /**-----item ring level */
+              item?.specialRingLevel != null && item?.specialRingLevel != 0
+                  ? Positioned(
+                      left: 0,
+                      bottom: 0,
+                      child: ShaderMask(
+                        shaderCallback: (bounds) => LinearGradient(
+                            begin: Alignment.topCenter,
+                            end: Alignment.bottomCenter,
+                            colors: [
+                              ItemColor.specialRingText,
+                              Colors.white,
+                            ]).createShader(bounds),
+                        child: CustomTextWidget(
+                          text: 'Lv ${item!.specialRingLevel}',
+                          size: FontConfig.middleDownSize,
+                          color: Colors.white,
+                          subColor: Colors.black54,
+                          shadowSize: 2,
+                        ),
+                      ),
+                    )
+                  : SizedBox.shrink()
             ],
           ),
         ),

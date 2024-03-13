@@ -78,7 +78,8 @@ class EquipmentDetailImageWidget extends ConsumerWidget {
               Transform.rotate(
                   angle: pi / 4,
                   child: Transform.translate(
-                      offset: Offset(-MediaQuery.of(context).size.width / 5, 0),
+                      offset:
+                          Offset(-MediaQuery.of(context).size.width / 4.75, 0),
                       child: Container(
                         width: double.maxFinite,
                         decoration: BoxDecoration(

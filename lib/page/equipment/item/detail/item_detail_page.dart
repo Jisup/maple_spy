@@ -10,6 +10,7 @@ import 'package:maplespy/model/equipment/item/item_detail_option_model.dart';
 import 'package:maplespy/model/equipment/item/item_detail_potential_option_model.dart';
 import 'package:maplespy/model/equipment/item_model.dart';
 import 'package:maplespy/page/equipment/item/detail/item_detail_potential_option_page.dart';
+import 'package:maplespy/widget/common/custom_text_widget.dart';
 import 'package:maplespy/widget/common/dashed_divider_widget.dart';
 import 'package:maplespy/page/equipment/item/detail/item_detail_starforce_page.dart';
 import 'package:maplespy/page/equipment/item/detail/item_detail_option_page.dart';
@@ -165,30 +166,64 @@ class ItemDetailPage extends ConsumerWidget {
                           Container(
                             child: Stack(
                               children: [
-                                Positioned(
-                                  right: 0,
-                                  child: Transform.rotate(
-                                    angle: -pi / 2,
-                                    child: Transform.translate(
-                                      offset: Offset(-FontConfig.minSize + 3,
-                                          FontConfig.middleSize - 3),
-                                      child: Icon(Icons.bookmark_sharp,
-                                          size: FontConfig.middleSize,
-                                          shadows: [
-                                            BoxShadow(
-                                              offset: Offset(-2, 2),
-                                              color: Colors.black,
-                                            )
-                                          ],
-                                          color: StaticSwitchConfig
-                                                  .potentialGradeDetailColor[
-                                              item.potentialOptionGrade]!),
-                                    ),
-                                  ),
-                                ),
+                                item.potentialOptionGrade != null
+                                    ? Positioned(
+                                        right: 0,
+                                        child: Transform.rotate(
+                                          angle: -pi / 2,
+                                          child: Transform.translate(
+                                            offset: Offset(
+                                                -FontConfig.minSize + 3,
+                                                FontConfig.middleSize - 3),
+                                            child: Icon(Icons.bookmark_sharp,
+                                                size: FontConfig.middleSize,
+                                                shadows: [
+                                                  BoxShadow(
+                                                    offset: Offset(-2, 2),
+                                                    color: Colors.black,
+                                                  )
+                                                ],
+                                                color: StaticSwitchConfig
+                                                        .potentialGradeDetailColor[
+                                                    item.potentialOptionGrade]!),
+                                          ),
+                                        ),
+                                      )
+                                    : SizedBox.shrink(),
                                 EquipmentDetailImageWidget(
                                     imageUrl: item.itemIcon!,
                                     grade: item.potentialOptionGrade),
+                                item.specialRingLevel != null &&
+                                        item.specialRingLevel != 0
+                                    ? Positioned(
+                                        left: 0,
+                                        bottom: 0,
+                                        child: Container(
+                                          margin: EdgeInsets.only(
+                                            left: DimenConfig.subDimen,
+                                            bottom: DimenConfig.minDimen,
+                                          ),
+                                          child: ShaderMask(
+                                            shaderCallback: (bounds) =>
+                                                LinearGradient(
+                                                    begin: Alignment.topCenter,
+                                                    end: Alignment.bottomCenter,
+                                                    colors: [
+                                                  ItemColor.specialRingText,
+                                                  Colors.white,
+                                                ]).createShader(bounds),
+                                            child: CustomTextWidget(
+                                              text:
+                                                  'Lv ${item.specialRingLevel}',
+                                              size: FontConfig.maxSize,
+                                              color: Colors.white,
+                                              subColor: Colors.black54,
+                                              shadowSize: 2,
+                                            ),
+                                          ),
+                                        ),
+                                      )
+                                    : SizedBox.shrink()
                               ],
                             ),
                           ),
@@ -295,7 +330,42 @@ class ItemDetailPage extends ConsumerWidget {
                               ),
                             ),
                           )
-                        : SizedBox.shrink()
+                        : SizedBox.shrink(),
+                    item.specialRingLevel != null && item.specialRingLevel != 0
+                        ? FractionallySizedBox(
+                            widthFactor: 1,
+                            child: Container(
+                              margin: EdgeInsets.only(
+                                  left: DimenConfig.commonDimen * 2,
+                                  right: DimenConfig.commonDimen * 2),
+                              child: Text(
+                                '[특수 스킬 반지] ${item.itemName} ${item.specialRingLevel}레벨',
+                                style: TextStyle(
+                                  color: ItemColor.etcInfoText,
+                                ),
+                              ),
+                            ),
+                          )
+                        : SizedBox.shrink(),
+                    item.specialRingLevel != null && item.specialRingLevel != 0
+                        ? DashedDividerWidget()
+                        : SizedBox.shrink(),
+                    item.specialRingLevel != null && item.specialRingLevel != 0
+                        ? FractionallySizedBox(
+                            widthFactor: 1,
+                            child: Container(
+                              margin: EdgeInsets.only(
+                                  left: DimenConfig.commonDimen * 2,
+                                  right: DimenConfig.commonDimen * 2),
+                              child: Text(
+                                '특수 스킬 반지는 중복 착용이 불가능합니다.',
+                                style: TextStyle(
+                                  color: ItemColor.etcInfoText,
+                                ),
+                              ),
+                            ),
+                          )
+                        : SizedBox.shrink(),
                   ],
                 ),
               ),

@@ -14,7 +14,12 @@ class AbilityDetailOptionPage extends ConsumerWidget {
     return Container(
       margin: EdgeInsets.only(
           left: DimenConfig.commonDimen, right: DimenConfig.commonDimen),
-      padding: EdgeInsets.all(DimenConfig.minDimen),
+      padding: EdgeInsets.only(
+        top: DimenConfig.minDimen,
+        bottom: DimenConfig.minDimen,
+        left: DimenConfig.commonDimen,
+        right: DimenConfig.commonDimen,
+      ),
       alignment: Alignment.center,
       decoration: BoxDecoration(
         color: StaticSwitchConfig.statBackgroundColor[ability!.abilityGrade!],

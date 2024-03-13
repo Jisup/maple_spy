@@ -108,6 +108,12 @@ class LinkSkillPage extends ConsumerWidget {
                                                                   bottom: DimenConfig
                                                                       .subDimen,
                                                                 ),
+                                                                padding: EdgeInsets.only(
+                                                                  left: DimenConfig
+                                                                      .commonDimen,
+                                                                  right: DimenConfig
+                                                                      .commonDimen,
+                                                                ),
                                                                 decoration: BoxDecoration(
                                                                   color: SkillColor
                                                                       .background,

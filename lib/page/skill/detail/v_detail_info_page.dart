@@ -35,6 +35,10 @@ class VDetailInfoPage extends ConsumerWidget {
                 margin: EdgeInsets.only(
                   bottom: DimenConfig.subDimen,
                 ),
+                padding: EdgeInsets.only(
+                  left: DimenConfig.commonDimen,
+                  right: DimenConfig.commonDimen,
+                ),
                 decoration: skillDetail != null
                     ? customBoxDecoration(
                         type: 'skill_in_out_bar',

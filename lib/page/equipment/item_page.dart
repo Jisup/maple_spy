@@ -2,15 +2,22 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:maplespy/config/const_config.dart';
 import 'package:maplespy/config/static_list_config.dart';
+import 'package:maplespy/model/equipment/android_item_model.dart';
 import 'package:maplespy/model/equipment/item_model.dart';
+import 'package:maplespy/page/equipment/item/android_item_info.dart';
 import 'package:maplespy/page/equipment/item/item_info.dart';
 import 'package:maplespy/provider/common_provider.dart';
 import 'package:maplespy/widget/detail_page/detail_preset_tab.dart';
 
 class ItemPage extends ConsumerWidget {
-  const ItemPage({super.key, required this.item});
+  const ItemPage({
+    super.key,
+    required this.item,
+    required this.androidItem,
+  });
 
   final Item? item;
+  final AndroidItem? androidItem;
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
@@ -65,13 +72,18 @@ class ItemPage extends ConsumerWidget {
                             child: AspectRatio(
                               aspectRatio: 1 / 1,
                               child: slot['name'] != null
-                                  ? ItemInfo(
-                                      name: slot['name'],
-                                      item: itemList?.singleWhere(
-                                          (element) =>
-                                              element.itemEquipmentSlot ==
-                                              slot['slot'],
-                                          orElse: () => ItemEquipment()))
+                                  ? slot['name'] == 'ANDROID'
+                                      ? AndroidItemInfo(
+                                          name: slot['name'],
+                                          item: androidItem,
+                                        )
+                                      : ItemInfo(
+                                          name: slot['name'],
+                                          item: itemList?.singleWhere(
+                                              (element) =>
+                                                  element.itemEquipmentSlot ==
+                                                  slot['slot'],
+                                              orElse: () => ItemEquipment()))
                                   : null,
                             ),
                           );

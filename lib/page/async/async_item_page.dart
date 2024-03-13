@@ -14,7 +14,8 @@ class AsyncItemPage extends ConsumerWidget {
     final asyncItem = ref.watch(asyncEquipmentItemProvider);
 
     return switch (asyncItem) {
-      AsyncData(:final value) => ItemPage(item: value.item),
+      AsyncData(:final value) =>
+        ItemPage(item: value.item, androidItem: value.androidItem),
       AsyncError() =>
         MainErrorPage(message: ErrorMessageConfig.itemPageRequestError),
       _ => LoadingSpinner()

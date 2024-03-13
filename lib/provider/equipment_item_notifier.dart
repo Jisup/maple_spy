@@ -3,6 +3,7 @@ import 'dart:async';
 import 'package:dio/dio.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:maplespy/model/equipment/android_item_model.dart';
 import 'package:maplespy/model/equipment/item_model.dart';
 import 'package:maplespy/model/equipment/item_set_effect_model.dart';
 import 'package:maplespy/model/main_equipment_item_model.dart';
@@ -37,6 +38,16 @@ class EquipmentItemNotifier extends AsyncNotifier<MainEquipmentItem> {
     } on DioException catch (e) {
       throw Error();
     }
+    /**android equipment */
+    Response androidItemResponse;
+    AndroidItem androidItem;
+    try {
+      androidItemResponse =
+          await dioInstance.dio.get(dotenv.get('MAPLESTORY_ANDROID_PATH'));
+      androidItem = AndroidItem.fromJson(androidItemResponse.data);
+    } on DioException catch (e) {
+      throw Error();
+    }
     /**set effect equipment */
     Response itemSetEffectResponse;
     ItemSetEffect itemSetEffect;
@@ -50,6 +61,7 @@ class EquipmentItemNotifier extends AsyncNotifier<MainEquipmentItem> {
 
     return MainEquipmentItem(
       item: item,
+      androidItem: androidItem,
       setEffect: itemSetEffect,
     );
   }

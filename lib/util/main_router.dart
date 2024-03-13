@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:maplespy/model/equipment/android_item_model.dart';
 import 'package:maplespy/model/equipment/cash_item_model.dart';
 import 'package:maplespy/model/equipment/item_model.dart';
 import 'package:maplespy/model/equipment/pet/pet_detail_model.dart';
 import 'package:maplespy/model/equipment/pet_item_model.dart';
+import 'package:maplespy/page/equipment/item/detail/android_item_detail_page.dart';
 import 'package:maplespy/page/main_union_page.dart';
 import 'package:maplespy/page/equipment/cash/detail/cash_detail_page.dart';
 import 'package:maplespy/page/equipment/item/detail/item_detail_page.dart';
@@ -76,6 +78,14 @@ GoRouter mainRouter = GoRouter(
                 name: 'itemDetail',
                 pageBuilder: (context, state) => NoTransitionPage(
                   child: ItemDetailPage(item: state.extra as ItemEquipment),
+                ),
+              ),
+              GoRoute(
+                path: 'androidItem/detail',
+                name: 'androidItem',
+                pageBuilder: (context, state) => NoTransitionPage(
+                  child: AndroidItemDetailPage(
+                      androidItem: state.extra as AndroidItem),
                 ),
               ),
               GoRoute(

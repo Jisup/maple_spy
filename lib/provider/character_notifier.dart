@@ -70,7 +70,7 @@ class CharacterNotifier extends AsyncNotifier {
 
       // 현재 캐릭터 이름이 본 캐릭터와 같지 않으면
       String? newCharacterId;
-      print('${basic.characterName} != ${newCharacterName}');
+      // print('${basic.characterName} != ${newCharacterName}');
       if (basic.characterName != newCharacterName) {
         // 새로운 캐릭터의 정보를 등록하고
         final newCharacterQuery =
@@ -86,11 +86,11 @@ class CharacterNotifier extends AsyncNotifier {
           throw Error();
         }
 
-        print('id 값이 존재해요!!!! ${newCharacterName} == ${newCharacterId}');
+        // print('id 값이 존재해요!!!! ${newCharacterName} == ${newCharacterId}');
         // 근데 새로운 캐릭터의 정보가 존재한다면 id만 가져오면되고
         // 존재하지 않으면 캐릭터 정보를 추가할 수 있도록 캐릭터와 관련된 정보를 가져와야 한다
         if (newCharacterId == null) {
-          print("id 값이 없어서 새로 추가해줘야 해요");
+          // print("id 값이 없어서 새로 추가해줘야 해요");
           dioInstance.dio.options.queryParameters = {
             'character_name': newCharacterName
           };
@@ -153,7 +153,7 @@ class CharacterNotifier extends AsyncNotifier {
       }
 
       if (characterId == null) {
-        print("캐릭터 정보 없으니까 걍 추간한당~~");
+        // print("캐릭터 정보 없으니까 걍 추간한당~~");
         characterRef.add(Character(
           characterName: basic.characterName,
           characterImage: basic.characterImage,
@@ -163,7 +163,7 @@ class CharacterNotifier extends AsyncNotifier {
           mainCharacterId: newCharacterId,
         ));
       } else {
-        print("캐릭터 정보 있으니까 업데이트할께~");
+        // print("캐릭터 정보 있으니까 업데이트할께~");
         characterRef.doc(characterId).update({
           'characterName': basic.characterName,
           'characterImage': basic.characterImage,

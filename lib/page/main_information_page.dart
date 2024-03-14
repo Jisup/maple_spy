@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import 'package:maplespy/config/const_config.dart';
@@ -59,36 +60,50 @@ class MainInforMationPage extends ConsumerWidget {
                         thickness: 2,
                       ),
                     ),
-                    Text.rich(
-                      textAlign: TextAlign.center,
-                      TextSpan(children: [
-                        TextSpan(
-                          text: 'MapleSpy',
+                    FractionallySizedBox(
+                      widthFactor: 1,
+                      child: Text.rich(
+                        textAlign: TextAlign.center,
+                        TextSpan(children: [
+                          TextSpan(
+                            text: 'MapleSpy',
+                            style: TextStyle(
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                          TextSpan(
+                              text:
+                                  '는\n메이플스토리의 캐릭터의 다양한 정보를\n조회할 수 있는 애플리케이션입니다.'),
+                        ]),
+                      ),
+                    ),
+                    FractionallySizedBox(
+                      widthFactor: 1,
+                      child: Text(
+                        '2023년 12월 21일 데이터부터 조회할 수 있으며,\n매일 오전 1시를 기준으로 데이터가 갱신됩니다.',
+                        textAlign: TextAlign.center,
+                      ),
+                    ),
+                    FractionallySizedBox(
+                      widthFactor: 1,
+                      child: Text(
+                        '단, 일일 제한 요청량이 초과할 경우\n캐릭터 정보 조회가 불가능할 수 있습니다.',
+                        textAlign: TextAlign.center,
+                      ),
+                    ),
+                    FractionallySizedBox(
+                      widthFactor: 1,
+                      child: Container(
+                        margin: EdgeInsets.only(
+                            top:
+                                DimenConfig.maxDimen - DimenConfig.commonDimen),
+                        alignment: Alignment.center,
+                        child: Text(
+                          '[서비스 안내]',
                           style: TextStyle(
+                            fontSize: FontConfig.middleDownSize,
                             fontWeight: FontWeight.bold,
                           ),
-                        ),
-                        TextSpan(
-                            text:
-                                '는\n메이플스토리의 캐릭터의 다양한 정보를\n조회할 수 있는 애플리케이션입니다.'),
-                      ]),
-                    ),
-                    Text(
-                      '2023년 12월 21일 데이터부터 조회할 수 있으며,\n매일 오전 1시를 기준으로 데이터가 갱신됩니다.',
-                      textAlign: TextAlign.center,
-                    ),
-                    Text(
-                      '단, 일일 제한 요청량이 초과할 경우\n캐릭터 정보 조회가 불가능할 수 있습니다.',
-                      textAlign: TextAlign.center,
-                    ),
-                    Container(
-                      margin: EdgeInsets.only(
-                          top: DimenConfig.maxDimen - DimenConfig.commonDimen),
-                      child: Text(
-                        '[서비스 안내]',
-                        style: TextStyle(
-                          fontSize: FontConfig.middleDownSize,
-                          fontWeight: FontWeight.bold,
                         ),
                       ),
                     ),

@@ -108,7 +108,8 @@ class _MainHomeState extends ConsumerState<MainHomePage> {
                                           extra: emergencyNotice),
                                       child: Text.rich(
                                         style: TextStyle(
-                                            fontSize: FontConfig.commonSize),
+                                            fontSize:
+                                                FontConfig.middleDownSize),
                                         TextSpan(
                                           children: [
                                             TextSpan(
@@ -135,7 +136,7 @@ class _MainHomeState extends ConsumerState<MainHomePage> {
                               child: nickNameList.length != 0
                                   ? Text('최근 검색 닉네임',
                                       style: TextStyle(
-                                        fontSize: FontConfig.middleDownSize,
+                                        fontSize: FontConfig.commonSize,
                                         fontWeight: FontWeight.bold,
                                       ))
                                   : SizedBox.shrink(),
@@ -151,6 +152,7 @@ class _MainHomeState extends ConsumerState<MainHomePage> {
                                     return Container(
                                       alignment: Alignment.centerLeft,
                                       child: Container(
+                                        height: 30,
                                         margin: EdgeInsets.only(
                                           bottom: DimenConfig.commonDimen,
                                           right: DimenConfig.subDimen,

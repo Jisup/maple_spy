@@ -28,7 +28,7 @@ class _MainInsertPageState extends ConsumerState<MainInsertPage> {
     remoteConfig.setConfigSettings(RemoteConfigSettings(
       fetchTimeout: Duration(milliseconds: 1500),
       // minimumFetchInterval: Duration(milliseconds: 1),
-      minimumFetchInterval: Duration(hours: 12),
+      minimumFetchInterval: Duration(hours: 24),
     ));
     remoteConfig.setDefaults({
       'latest_version': '0.0.0',
@@ -37,14 +37,20 @@ class _MainInsertPageState extends ConsumerState<MainInsertPage> {
 
     var remoteLatestVersion = remoteConfig.getString('latest_version');
 
-    print(remoteLatestVersion);
+    // print(remoteLatestVersion);
 
     var doc = await rootBundle.loadString('pubspec.yaml');
 
     var originVersion = loadYaml(doc)['version'].toString().split('+')[0];
 
+    var latest =
+        remoteLatestVersion.split('.').map((e) => int.parse(e)).toList();
+    var origin = originVersion.split('.').map((e) => int.parse(e)).toList();
+
     Timer(Duration(milliseconds: 1500), () {
-      if (remoteLatestVersion == originVersion) {
+      if (latest[0] <= origin[0] &&
+          latest[1] <= origin[1] &&
+          latest[2] <= origin[2]) {
         // if (true) {
         // navigatior redirect
         ref.read(mainControllerProvider.notifier).getNickNameList();

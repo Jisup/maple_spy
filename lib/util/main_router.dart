@@ -5,7 +5,9 @@ import 'package:maplespy/model/equipment/cash_item_model.dart';
 import 'package:maplespy/model/equipment/item_model.dart';
 import 'package:maplespy/model/equipment/pet/pet_detail_model.dart';
 import 'package:maplespy/model/equipment/pet_item_model.dart';
+import 'package:maplespy/model/firestore/notice.dart';
 import 'package:maplespy/page/equipment/item/detail/android_item_detail_page.dart';
+import 'package:maplespy/page/main_notice_page.dart';
 import 'package:maplespy/page/main_union_page.dart';
 import 'package:maplespy/page/equipment/cash/detail/cash_detail_page.dart';
 import 'package:maplespy/page/equipment/item/detail/item_detail_page.dart';
@@ -39,6 +41,14 @@ GoRouter mainRouter = GoRouter(
           child: MainUpdatePage(
               oldVersion: (state.extra as dynamic)['oldVersion'],
               newVersion: (state.extra as dynamic)['newVersion'])),
+    ),
+    GoRoute(
+      path: '/notice',
+      name: 'notice',
+      pageBuilder: (context, state) => NoTransitionPage(
+          child: MainNoticePage(
+        notice: state.extra as Notice,
+      )),
     ),
     GoRoute(
       path: '/',

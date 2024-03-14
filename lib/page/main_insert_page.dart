@@ -27,15 +27,17 @@ class _MainInsertPageState extends ConsumerState<MainInsertPage> {
     final remoteConfig = FirebaseRemoteConfig.instance;
     remoteConfig.setConfigSettings(RemoteConfigSettings(
       fetchTimeout: Duration(milliseconds: 1500),
-      minimumFetchInterval: Duration(hours: 24),
+      // minimumFetchInterval: Duration(milliseconds: 1),
+      minimumFetchInterval: Duration(hours: 12),
     ));
     remoteConfig.setDefaults({
       'latest_version': '0.0.0',
     });
     await remoteConfig.fetchAndActivate();
 
-    var remoteLatestVersion =
-        remoteConfig.getString('latest_version').replaceAll("\"", '');
+    var remoteLatestVersion = remoteConfig.getString('latest_version');
+
+    print(remoteLatestVersion);
 
     var doc = await rootBundle.loadString('pubspec.yaml');
 

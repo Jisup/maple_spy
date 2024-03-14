@@ -1,3 +1,6 @@
+import 'dart:convert';
+
+import 'package:firebase_remote_config/firebase_remote_config.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter/widgets.dart';
@@ -6,6 +9,7 @@ import 'package:go_router/go_router.dart';
 import 'package:maplespy/config/const_config.dart';
 import 'package:maplespy/container/main_container.dart';
 import 'package:maplespy/controller/main_controller.dart';
+import 'package:maplespy/model/firestore/notice.dart';
 import 'package:maplespy/page/main_error_page.dart';
 import 'package:maplespy/provider/common_provider.dart';
 import 'package:maplespy/widget/common/loading_spinner.dart';
@@ -22,12 +26,36 @@ GlobalKey<FormFieldState> textFormFieldKey = GlobalKey<FormFieldState>();
 class _MainHomeState extends ConsumerState<MainHomePage> {
   late TextEditingController _textFieldController;
   late FocusNode _focusNode;
+  Notice? emergencyNotice;
 
   @override
   void initState() {
     super.initState();
     _textFieldController = TextEditingController();
     _focusNode = FocusNode();
+
+    getEmergencyNotice();
+  }
+
+  void getEmergencyNotice() async {
+    final remoteConfig = FirebaseRemoteConfig.instance;
+    remoteConfig.setConfigSettings(RemoteConfigSettings(
+      fetchTimeout: Duration(milliseconds: 3000),
+      minimumFetchInterval: Duration(hours: 1),
+    ));
+    remoteConfig.setDefaults({
+      'emergency_notice': Notice().toJson().toString(),
+    });
+    await remoteConfig.fetchAndActivate();
+
+    String remoteEmergencyNoticeData =
+        remoteConfig.getString('emergency_notice');
+    Map<String, dynamic> remoteEmergencyNoticeJsonData =
+        jsonDecode(remoteEmergencyNoticeData);
+
+    setState(() {
+      emergencyNotice = Notice.fromJson(remoteEmergencyNoticeJsonData);
+    });
   }
 
   @override
@@ -70,15 +98,31 @@ class _MainHomeState extends ConsumerState<MainHomePage> {
                         child: Column(
                           mainAxisAlignment: MainAxisAlignment.spaceAround,
                           children: [
-                            Container(
-                              alignment: Alignment.center,
-                              child: ref.watch(mainController.hasError)
-                                  ? MainErrorPage(
-                                      message: ref
-                                          .watch(mainController.errorMessage))
-                                  // : SizedBox.shrink(),
-                                  : Text('???'),
-                            ),
+                            emergencyNotice?.title != null
+                                ? Container(
+                                    alignment: Alignment.center,
+                                    child:
+                                        // Text('[공지] ${emergencyNotice!.title}'),
+                                        GestureDetector(
+                                      onTap: () => context.push('/notice',
+                                          extra: emergencyNotice),
+                                      child: Text.rich(
+                                        style: TextStyle(
+                                            fontSize: FontConfig.commonSize),
+                                        TextSpan(
+                                          children: [
+                                            TextSpan(
+                                                text: '[공지] ',
+                                                style: TextStyle(
+                                                    fontWeight:
+                                                        FontWeight.bold)),
+                                            TextSpan(
+                                                text: emergencyNotice!.title),
+                                          ],
+                                        ),
+                                      ),
+                                    ))
+                                : SizedBox.shrink(),
                           ],
                         ),
                       ),

@@ -1,3 +1,4 @@
+import 'dart:async';
 import 'dart:convert';
 
 import 'package:firebase_remote_config/firebase_remote_config.dart';
@@ -40,7 +41,7 @@ class _MainHomeState extends ConsumerState<MainHomePage> {
   void getEmergencyNotice() async {
     final remoteConfig = FirebaseRemoteConfig.instance;
     remoteConfig.setConfigSettings(RemoteConfigSettings(
-      fetchTimeout: Duration(milliseconds: 3000),
+      fetchTimeout: Duration(milliseconds: 1000),
       minimumFetchInterval: Duration(hours: 1),
     ));
     remoteConfig.setDefaults({
@@ -52,7 +53,6 @@ class _MainHomeState extends ConsumerState<MainHomePage> {
         remoteConfig.getString('emergency_notice');
     Map<String, dynamic> remoteEmergencyNoticeJsonData =
         jsonDecode(remoteEmergencyNoticeData);
-
     setState(() {
       emergencyNotice = Notice.fromJson(remoteEmergencyNoticeJsonData);
     });

@@ -26,7 +26,7 @@ class _MainInsertPageState extends ConsumerState<MainInsertPage> {
   void checkApplicationVersion() async {
     final remoteConfig = FirebaseRemoteConfig.instance;
     remoteConfig.setConfigSettings(RemoteConfigSettings(
-      fetchTimeout: Duration(milliseconds: 1500),
+      fetchTimeout: Duration(milliseconds: 2000),
       // minimumFetchInterval: Duration(milliseconds: 1),
       minimumFetchInterval: Duration(hours: 24),
     ));
@@ -47,7 +47,7 @@ class _MainInsertPageState extends ConsumerState<MainInsertPage> {
         remoteLatestVersion.split('.').map((e) => int.parse(e)).toList();
     var origin = originVersion.split('.').map((e) => int.parse(e)).toList();
 
-    Timer(Duration(milliseconds: 1500), () {
+    Timer(Duration(milliseconds: 2000), () {
       if (latest[0] <= origin[0] &&
           latest[1] <= origin[1] &&
           latest[2] <= origin[2]) {

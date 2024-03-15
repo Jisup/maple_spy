@@ -59,66 +59,69 @@ class SymbolImagePage extends ConsumerWidget {
           child: LayoutBuilder(
             builder: (BuildContext childContext,
                 BoxConstraints viewportConstraints) {
-              return Container(
-                width: viewportConstraints.maxWidth,
-                height: viewportConstraints.maxWidth * 2,
-                margin: EdgeInsets.only(
-                  top: DimenConfig.minDimen,
-                  bottom: DimenConfig.minDimen,
+              return ConstrainedBox(
+                constraints: BoxConstraints(
+                  minHeight: 105,
                 ),
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.spaceAround,
-                  children: [
-                    FractionallySizedBox(
-                      widthFactor: 1,
-                      child: AspectRatio(
-                        aspectRatio: 1,
-                        child: imageUrl != null
-                            ? Image.network(
-                                imageUrl!,
-                                fit: BoxFit.contain,
-                                semanticLabel: '심볼 이미지',
-                              )
-                            : null,
+                child: Container(
+                  margin: EdgeInsets.only(
+                    top: DimenConfig.minDimen,
+                    bottom: DimenConfig.minDimen,
+                  ),
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.spaceAround,
+                    children: [
+                      FractionallySizedBox(
+                        widthFactor: 1,
+                        child: AspectRatio(
+                          aspectRatio: 1,
+                          child: imageUrl != null
+                              ? Image.network(
+                                  imageUrl!,
+                                  fit: BoxFit.contain,
+                                  semanticLabel: '심볼 이미지',
+                                )
+                              : null,
+                        ),
                       ),
-                    ),
-                    level != null
-                        ? CustomTextWidget(
-                            text: 'Lv.${level}',
-                            size: FontConfig.commonSize,
-                            color: Colors.white,
-                            subColor: Colors.black26,
-                            shadowSize: 2,
-                          )
-                        : SizedBox.shrink(),
-                    level != null
-                        ? levelMax
-                            ? ShaderMask(
-                                shaderCallback: (bounds) => LinearGradient(
-                                    begin: Alignment.topCenter,
-                                    end: Alignment.bottomCenter,
-                                    stops: [
-                                      0.625,
-                                      0.825
-                                    ],
-                                    colors: [
-                                      Colors.white,
-                                      growthEnd,
-                                    ]).createShader(bounds),
-                                child: CustomTextWidget(
-                                  text: 'MAX',
-                                  size: FontConfig.commonSize - 1,
-                                  color: Colors.white,
-                                  subColor: growthStart,
-                                  shadowSize: 1.5,
-                                ),
-                              )
-                            : SymbolDetailGrowthPage(
-                                growth: growth,
-                                require_growth: require_growth,
-                              )
-                        : SizedBox.shrink(),
-                  ],
+                      level != null
+                          ? CustomTextWidget(
+                              text: 'Lv.${level}',
+                              size: FontConfig.commonSize,
+                              color: Colors.white,
+                              subColor: Colors.black26,
+                              shadowSize: 2,
+                            )
+                          : SizedBox.shrink(),
+                      level != null
+                          ? levelMax
+                              ? ShaderMask(
+                                  shaderCallback: (bounds) => LinearGradient(
+                                      begin: Alignment.topCenter,
+                                      end: Alignment.bottomCenter,
+                                      stops: [
+                                        0.625,
+                                        0.825
+                                      ],
+                                      colors: [
+                                        Colors.white,
+                                        growthEnd,
+                                      ]).createShader(bounds),
+                                  child: CustomTextWidget(
+                                    text: 'MAX',
+                                    size: FontConfig.commonSize - 1,
+                                    color: Colors.white,
+                                    subColor: growthStart,
+                                    shadowSize: 1.5,
+                                  ),
+                                )
+                              : SymbolDetailGrowthPage(
+                                  growth: growth,
+                                  require_growth: require_growth,
+                                )
+                          : SizedBox.shrink(),
+                    ],
+                  ),
                 ),
               );
             },

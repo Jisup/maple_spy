@@ -4,11 +4,9 @@ import 'dart:convert';
 import 'package:firebase_remote_config/firebase_remote_config.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter/widgets.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import 'package:maplespy/config/const_config.dart';
-import 'package:maplespy/container/main_container.dart';
 import 'package:maplespy/controller/main_controller.dart';
 import 'package:maplespy/model/firestore/notice.dart';
 import 'package:maplespy/page/main_error_page.dart';
@@ -211,6 +209,7 @@ class _MainHomeState extends ConsumerState<MainHomePage> {
                                                       nickNameList
                                                           .elementAt(index),
                                                       style: TextStyle(
+                                                        height: 1,
                                                         fontSize: FontConfig
                                                             .commonSize,
                                                       )),

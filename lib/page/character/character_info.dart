@@ -59,8 +59,8 @@ class CharacterInfo extends ConsumerWidget {
                         decoration: BoxDecoration(
                             color: CommonColor.infoMain,
                             borderRadius: BorderRadius.horizontal(
-                              left: Radius.circular(RadiusConfig.commonRadius),
-                              right: Radius.circular(RadiusConfig.commonRadius),
+                              left: Radius.circular(RadiusConfig.maxRadius),
+                              right: Radius.circular(RadiusConfig.maxRadius),
                             )),
                         alignment: Alignment.center,
                         child: Row(
@@ -80,7 +80,7 @@ class CharacterInfo extends ConsumerWidget {
                             Text(
                               character.basic!.characterName!,
                               style: TextStyle(
-                                fontSize: FontConfig.commonSize,
+                                fontSize: FontConfig.middleDownSize,
                                 fontWeight: FontWeight.bold,
                               ),
                             ),

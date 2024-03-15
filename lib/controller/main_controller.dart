@@ -90,9 +90,7 @@ class MainController extends AutoDisposeNotifier {
     /**----- 캐릭터 정보 업데이트 */
     ref.read(asyncCharacterProvider.notifier).getNewCharacter();
     /**----- 캐릭터 정보 페이지 이동 */
-    union != null && union
-        ? context.go('/character')
-        : context.push('/character');
+    context.go('/character');
 
     ref.read(isLoading.notifier).update((state) => false);
   }

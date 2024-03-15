@@ -1,23 +1,27 @@
 import 'package:flutter/material.dart';
-import 'package:maplespy/config/const_config.dart';
+import 'package:go_router/go_router.dart';
 
-AppBar mainAppBar({
+AppBar subAppBar({
   required BuildContext context,
+  required String characterName,
+  required String characterWorld,
 }) {
   ColorScheme colorScheme = Theme.of(context).colorScheme;
 
   return AppBar(
     leading: GestureDetector(
       behavior: HitTestBehavior.translucent,
+      onTap: () => context.go('/'),
       child: Container(
-          padding: EdgeInsets.all(DimenConfig.commonDimen),
-          child: Image(
-            image: AssetImage('assets/maplespy_icon.png'),
-            semanticLabel: 'MapleSpy 로고',
-          )),
+        child: Icon(
+          Icons.navigate_before_rounded,
+          color: Colors.white,
+          semanticLabel: '뒤로 가기 버튼',
+        ),
+      ),
     ),
     title: Text(
-      'MapleSpy',
+      '${characterName} (${characterWorld})',
       textAlign: TextAlign.center,
       style: TextStyle(color: colorScheme.onPrimary, fontFamily: 'Maplestory'),
     ),

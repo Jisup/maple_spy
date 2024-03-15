@@ -43,22 +43,22 @@ GoRouter mainRouter = GoRouter(
               newVersion: (state.extra as dynamic)['newVersion'])),
     ),
     GoRoute(
-      path: '/notice',
-      name: 'notice',
-      pageBuilder: (context, state) => NoTransitionPage(
-          child: MainNoticePage(
-        notice: state.extra as Notice,
-      )),
-    ),
-    GoRoute(
       path: '/',
       name: 'home',
       pageBuilder: (context, state) =>
           const NoTransitionPage(child: MainHomePage()),
       routes: [
         GoRoute(
+          path: 'notice',
+          name: 'notice',
+          pageBuilder: (context, state) => NoTransitionPage(
+              child: MainNoticePage(
+            notice: state.extra as Notice,
+          )),
+        ),
+        GoRoute(
           path: 'information',
-          name: 'homeInformation',
+          name: 'information',
           pageBuilder: (context, state) => NoTransitionPage(
             child: MainInforMationPage(),
           ),

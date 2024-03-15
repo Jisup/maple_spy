@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:maplespy/provider/common_provider.dart';
-import 'package:maplespy/widget/main_container/main_app_bar.dart';
 import 'package:maplespy/widget/main_container/main_bottom_navigation_bar.dart';
+import 'package:maplespy/widget/main_container/sub_app_bar.dart';
 
 class MainContainer extends ConsumerWidget {
   const MainContainer({super.key, required this.isHome, required this.body});
@@ -17,9 +17,8 @@ class MainContainer extends ConsumerWidget {
 
     return SafeArea(
       child: Scaffold(
-        appBar: mainAppBar(
+        appBar: subAppBar(
           context: context,
-          isHome: isHome,
           characterName: characterName,
           characterWorld: characterWorld,
         ),

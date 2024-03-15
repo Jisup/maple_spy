@@ -18,7 +18,7 @@ class MainNoticePage extends ConsumerWidget {
         appBar: AppBar(
           backgroundColor: colorScheme.primary,
           leading: GestureDetector(
-            onTap: () => context.pop(),
+            onTap: () => context.go('/'),
             child: Icon(
               Icons.navigate_before_rounded,
               color: Colors.white,

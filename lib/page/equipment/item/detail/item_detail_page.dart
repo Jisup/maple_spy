@@ -10,6 +10,7 @@ import 'package:maplespy/model/equipment/item/item_detail_option_model.dart';
 import 'package:maplespy/model/equipment/item/item_detail_potential_option_model.dart';
 import 'package:maplespy/model/equipment/item_model.dart';
 import 'package:maplespy/page/equipment/item/detail/item_detail_potential_option_page.dart';
+import 'package:maplespy/provider/common_provider.dart';
 import 'package:maplespy/widget/common/custom_text_widget.dart';
 import 'package:maplespy/widget/common/dashed_divider_widget.dart';
 import 'package:maplespy/page/equipment/item/detail/item_detail_starforce_page.dart';
@@ -44,6 +45,9 @@ class ItemDetailPage extends ConsumerWidget {
       cuttableCount: item.cuttableCount!,
     );
 
+    final characterName = ref.read(characterNameProvider);
+    final characterWorld = ref.read(characterWorldProvider);
+
     return SafeArea(
       child: Scaffold(
         appBar: AppBar(
@@ -55,6 +59,12 @@ class ItemDetailPage extends ConsumerWidget {
               color: Colors.white,
               semanticLabel: '뒤로 가기 버튼',
             ),
+          ),
+          title: Text(
+            '${characterName} (${characterWorld})',
+            textAlign: TextAlign.center,
+            style: TextStyle(
+                color: colorScheme.onPrimary, fontFamily: 'Maplestory'),
           ),
         ),
         body: LayoutBuilder(builder:

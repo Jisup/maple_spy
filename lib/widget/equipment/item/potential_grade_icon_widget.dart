@@ -37,7 +37,7 @@ class PotentialGradeIconWidget extends ConsumerWidget {
                   fontSize: FontConfig.minSize,
                   fontWeight: FontWeight.bold,
                   shadows: eightDirectionShadow(
-                      d: 2,
+                      d: 1.25,
                       color: StaticSwitchConfig
                           .potentialGradeIconTextShadowColor[potentialGrade]!)),
             ),

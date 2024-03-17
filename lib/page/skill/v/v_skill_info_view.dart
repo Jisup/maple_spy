@@ -7,8 +7,8 @@ import 'package:maplespy/model/skill/v_matrix_model.dart';
 import 'package:maplespy/widget/common/custom_box_decoration_widget.dart';
 import 'package:maplespy/widget/common/custom_text_widget.dart';
 
-class VDetailInfoPage extends ConsumerWidget {
-  const VDetailInfoPage(
+class VSkillInfoView extends ConsumerWidget {
+  const VSkillInfoView(
       {super.key,
       required this.skillDetail,
       required this.skillName,
@@ -31,9 +31,6 @@ class VDetailInfoPage extends ConsumerWidget {
               widthFactor: 1,
               child: Container(
                 alignment: Alignment.center,
-                margin: EdgeInsets.only(
-                  bottom: DimenConfig.subDimen,
-                ),
                 padding: EdgeInsets.only(
                   left: DimenConfig.commonDimen,
                   right: DimenConfig.commonDimen,
@@ -55,7 +52,7 @@ class VDetailInfoPage extends ConsumerWidget {
                 /**-----skill name */
                 child: CustomTextWidget(
                   text: skillName,
-                  size: FontConfig.commonSize,
+                  size: FontConfig.middleDownSize,
                   color: Colors.white,
                   subColor: colorScheme.primary,
                 ),
@@ -71,7 +68,7 @@ class VDetailInfoPage extends ConsumerWidget {
                   /**-----skill level */
                   CustomTextWidget(
                     text: skillLevel,
-                    size: FontConfig.middleSize,
+                    size: FontConfig.middleDownSize,
                     color: Colors.white,
                     subColor: colorScheme.primary,
                   ),
@@ -81,7 +78,7 @@ class VDetailInfoPage extends ConsumerWidget {
                     text: skillDetail == null || skillDetail!.slotLevel == 0
                         ? ''
                         : ' (+${skillDetail!.slotLevel})',
-                    size: FontConfig.middleSize,
+                    size: FontConfig.middleDownSize,
                     color: SkillColor.background,
                   ),
                 ],

@@ -8,8 +8,8 @@ import 'package:maplespy/provider/skill_hexa_notifier.dart';
 import 'package:maplespy/widget/common/custom_box_decoration_widget.dart';
 import 'package:maplespy/widget/common/custom_text_widget.dart';
 
-class HexaSkillDetailInfoPage extends ConsumerWidget {
-  const HexaSkillDetailInfoPage({super.key, required this.core});
+class HexaSkillWholeView extends ConsumerWidget {
+  const HexaSkillWholeView({super.key, required this.core});
 
   final CharacterHexaCoreEquipment core;
 
@@ -20,69 +20,65 @@ class HexaSkillDetailInfoPage extends ConsumerWidget {
     final asyncHexaNotifier = ref.read(asyncSkillHexaProvider.notifier);
     final hexaDetail = ref.watch(asyncHexaNotifier.hexaDetailProvider);
 
-    return Container(
-      decoration: BoxDecoration(
-        gradient: LinearGradient(
-            begin: Alignment.topCenter,
-            end: Alignment.bottomCenter,
-            colors: [
-              SkillColor.startBackground,
-              SkillColor.endBackground,
-            ]),
-        border: Border.all(
-          color: SkillColor.border,
-          width: 2,
-        ),
-        borderRadius: BorderRadius.circular(DimenConfig.commonDimen),
-      ),
-      child: Container(
-        padding: EdgeInsets.all(DimenConfig.commonDimen),
-        decoration: BoxDecoration(
-          border: Border.all(
-            color: Colors.white70,
+    return LayoutBuilder(
+      builder: (childContext, viewportConstraints) {
+        return Container(
+          decoration: BoxDecoration(
+            gradient: LinearGradient(
+                begin: Alignment.topCenter,
+                end: Alignment.bottomCenter,
+                colors: [
+                  SkillColor.startBackground,
+                  SkillColor.endBackground,
+                ]),
+            border: Border.all(
+              color: SkillColor.border,
+              width: 2,
+            ),
+            borderRadius: BorderRadius.circular(DimenConfig.commonDimen),
           ),
-          borderRadius: BorderRadius.circular(DimenConfig.commonDimen),
-        ),
-        child: FractionallySizedBox(
-          widthFactor: 1,
-          child: AspectRatio(
-            aspectRatio: 4 / 1,
+          child: Container(
+            height:
+                (viewportConstraints.maxWidth - DimenConfig.commonDimen * 3) /
+                        4 -
+                    DimenConfig.subDimen,
+            padding: EdgeInsets.all(DimenConfig.subDimen),
+            decoration: BoxDecoration(
+              border: Border.all(
+                color: Colors.white70,
+              ),
+              borderRadius: BorderRadius.circular(DimenConfig.commonDimen),
+            ),
             child: Row(
               children: [
-                Flexible(
-                  flex: 1,
-                  fit: FlexFit.tight,
-                  child: FractionallySizedBox(
-                    widthFactor: 1,
-                    child: Container(
-                      decoration: customBoxDecoration(
-                          type: 'skill_three_divide',
-                          startColor: StaticSwitchConfig
-                              .hexaCoreStartBackgroundColor[core.hexaCoreType]!,
-                          endColor: StaticSwitchConfig
-                              .hexaCoreEndBackgroundColor[core.hexaCoreType]!,
-                          borderColor: StaticSwitchConfig
-                              .hexaCoreBorderColor[core.hexaCoreType]!),
+                FractionallySizedBox(
+                  heightFactor: 1,
+                  child: Container(
+                    decoration: customBoxDecoration(
+                        type: 'skill_three_divide',
+                        startColor: StaticSwitchConfig
+                            .hexaCoreStartBackgroundColor[core.hexaCoreType]!,
+                        endColor: StaticSwitchConfig
+                            .hexaCoreEndBackgroundColor[core.hexaCoreType]!,
+                        borderColor: StaticSwitchConfig
+                            .hexaCoreBorderColor[core.hexaCoreType]!),
 
-                      /**-----heax skill icon */
-                      child: hexaDetail.containsKey(
-                                  core.linkedSkill![0].hexaSkillId) &&
-                              hexaDetail[core.linkedSkill![0].hexaSkillId] != ''
-                          ? Container(
-                              padding: EdgeInsets.all(DimenConfig.commonDimen),
-                              child: Image.network(
-                                hexaDetail[core.linkedSkill![0].hexaSkillId]!,
-                                fit: BoxFit.contain,
-                                semanticLabel: '헥사 코어 이미지',
-                              ),
-                            )
-                          : null,
-                    ),
+                    /**-----heax skill icon */
+                    child: hexaDetail.containsKey(
+                                core.linkedSkill![0].hexaSkillId) &&
+                            hexaDetail[core.linkedSkill![0].hexaSkillId] != ''
+                        ? Container(
+                            padding: EdgeInsets.all(DimenConfig.middleDimen),
+                            child: Image.network(
+                              hexaDetail[core.linkedSkill![0].hexaSkillId]!,
+                              fit: BoxFit.contain,
+                              semanticLabel: '헥사 코어 이미지',
+                            ),
+                          )
+                        : null,
                   ),
                 ),
-                Flexible(
-                  flex: 3,
-                  fit: FlexFit.tight,
+                Expanded(
                   child: Container(
                       margin: EdgeInsets.only(left: DimenConfig.commonDimen),
                       child: Column(
@@ -92,9 +88,6 @@ class HexaSkillDetailInfoPage extends ConsumerWidget {
                               widthFactor: 1,
                               child: Container(
                                 alignment: Alignment.center,
-                                margin: EdgeInsets.only(
-                                  bottom: DimenConfig.subDimen,
-                                ),
                                 padding: EdgeInsets.only(
                                   left: DimenConfig.commonDimen,
                                   right: DimenConfig.commonDimen,
@@ -112,7 +105,7 @@ class HexaSkillDetailInfoPage extends ConsumerWidget {
                                 ),
                                 child: CustomTextWidget(
                                   text: core.linkedSkill?[0].hexaSkillId ?? '',
-                                  size: FontConfig.commonSize,
+                                  size: FontConfig.middleDownSize,
                                   color: Colors.white,
                                   subColor: colorScheme.primary,
                                 ),
@@ -126,7 +119,7 @@ class HexaSkillDetailInfoPage extends ConsumerWidget {
                                 alignment: Alignment.center,
                                 child: CustomTextWidget(
                                   text: core.hexaCoreLevel!.toString(),
-                                  size: FontConfig.middleSize,
+                                  size: FontConfig.middleDownSize,
                                   color: Colors.white,
                                   subColor: colorScheme.primary,
                                 ),
@@ -139,8 +132,8 @@ class HexaSkillDetailInfoPage extends ConsumerWidget {
               ],
             ),
           ),
-        ),
-      ),
+        );
+      },
     );
   }
 }

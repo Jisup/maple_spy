@@ -2,7 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:maplespy/config/const_config.dart';
 import 'package:maplespy/model/skill/hexa_matrix_model.dart';
-import 'package:maplespy/page/skill/detail/hexa_skill_detail_info_page.dart';
+import 'package:maplespy/page/skill/hexa/hexa_skill_part_view.dart';
+import 'package:maplespy/page/skill/hexa/hexa_skill_whole_view.dart';
+import 'package:maplespy/provider/common_provider.dart';
 import 'package:maplespy/widget/common/custom_text_widget.dart';
 
 class HexaSkillCorePage extends ConsumerWidget {
@@ -17,6 +19,8 @@ class HexaSkillCorePage extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
+    final skillToggle = ref.watch(skillToggleProvider);
+
     return hexaSkillCore != null && hexaSkillCore!.isNotEmpty
         ? Column(
             children: [
@@ -29,13 +33,20 @@ class HexaSkillCorePage extends ConsumerWidget {
                   color: Colors.black,
                 ),
               ),
-              Container(
-                margin: EdgeInsets.only(bottom: DimenConfig.maxDimen / 2),
-                child: Wrap(
-                  runSpacing: DimenConfig.commonDimen,
-                  children: hexaSkillCore!.map((core) {
-                    return HexaSkillDetailInfoPage(core: core);
-                  }).toList(),
+              LayoutBuilder(
+                builder: (childContext, viewportConstraints) => Container(
+                  width: viewportConstraints.maxWidth,
+                  margin: EdgeInsets.only(bottom: DimenConfig.maxDimen / 2),
+                  child: Wrap(
+                    spacing: DimenConfig.commonDimen,
+                    runSpacing: DimenConfig.commonDimen + DimenConfig.subDimen,
+                    alignment: WrapAlignment.start,
+                    children: hexaSkillCore!.map((core) {
+                      return skillToggle
+                          ? HexaSkillWholeView(core: core)
+                          : HexaSkillPartView(core: core);
+                    }).toList(),
+                  ),
                 ),
               )
             ],

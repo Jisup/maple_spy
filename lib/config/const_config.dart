@@ -1,6 +1,7 @@
 /**-----padding margin */
 class DimenConfig {
   static double commonDimen = 10;
+  static double middleDimen = 7;
   static double subDimen = 5;
 
   static double maxDimen = 40;

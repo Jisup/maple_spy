@@ -20,3 +20,6 @@ final skillSelectTabProvider = StateProvider((_) => 'hexa');
 
 final unionSelectTabProvider = StateProvider((_) => 'raider');
 final unionRaiderSelectTabProvider = StateProvider((_) => 'occupied');
+
+/**----user setting */
+final skillToggleProvider = StateProvider((_) => false);

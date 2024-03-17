@@ -6,8 +6,8 @@ import 'package:maplespy/model/skill/link_skill_model.dart';
 import 'package:maplespy/widget/common/custom_box_decoration_widget.dart';
 import 'package:maplespy/widget/common/custom_text_widget.dart';
 
-class LinkSkillDetailInfoPage extends ConsumerWidget {
-  const LinkSkillDetailInfoPage({super.key, required this.skill});
+class LinkSkillWholeView extends ConsumerWidget {
+  const LinkSkillWholeView({super.key, required this.skill});
 
   final CharacterLinkSkill skill;
 
@@ -15,40 +15,41 @@ class LinkSkillDetailInfoPage extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     ColorScheme colorScheme = Theme.of(context).colorScheme;
 
-    return Container(
-      decoration: BoxDecoration(
-        gradient: LinearGradient(
-            begin: Alignment.topCenter,
-            end: Alignment.bottomCenter,
-            colors: [
-              SkillColor.startBackground,
-              SkillColor.endBackground,
-            ]),
-        border: Border.all(
-          color: SkillColor.border,
-          width: 2,
-        ),
-        borderRadius: BorderRadius.circular(DimenConfig.commonDimen),
-      ),
-      child: Container(
-        padding: EdgeInsets.all(DimenConfig.commonDimen),
-        decoration: BoxDecoration(
-          border: Border.all(
-            color: Colors.white70,
+    return LayoutBuilder(
+      builder: (childContext, viewportConstraints) {
+        return Container(
+          decoration: BoxDecoration(
+            gradient: LinearGradient(
+                begin: Alignment.topCenter,
+                end: Alignment.bottomCenter,
+                colors: [
+                  SkillColor.startBackground,
+                  SkillColor.endBackground,
+                ]),
+            border: Border.all(
+              color: SkillColor.border,
+              width: 2,
+            ),
+            borderRadius: BorderRadius.circular(DimenConfig.commonDimen),
           ),
-          borderRadius: BorderRadius.circular(DimenConfig.commonDimen),
-        ),
-        child: FractionallySizedBox(
-          widthFactor: 1,
-          child: AspectRatio(
-            aspectRatio: 4 / 1,
+          child: Container(
+            height:
+                (viewportConstraints.maxWidth - DimenConfig.commonDimen * 3) /
+                        4 -
+                    DimenConfig.subDimen,
+            padding: EdgeInsets.all(DimenConfig.subDimen),
+            decoration: BoxDecoration(
+              border: Border.all(
+                color: Colors.white70,
+              ),
+              borderRadius: BorderRadius.circular(DimenConfig.commonDimen),
+            ),
             child: Row(
               children: [
-                Flexible(
-                  flex: 1,
-                  fit: FlexFit.tight,
+                FractionallySizedBox(
+                  heightFactor: 1,
                   child: Container(
-                    padding: EdgeInsets.all(DimenConfig.commonDimen),
+                    padding: EdgeInsets.all(DimenConfig.middleDimen),
                     decoration: customBoxDecoration(
                       type: 'equipment_no',
                       startColor: SkillColor.background,
@@ -60,9 +61,7 @@ class LinkSkillDetailInfoPage extends ConsumerWidget {
                     ),
                   ),
                 ),
-                Flexible(
-                  flex: 3,
-                  fit: FlexFit.tight,
+                Expanded(
                   child: Container(
                     margin: EdgeInsets.only(left: DimenConfig.commonDimen),
                     child: Column(
@@ -72,9 +71,6 @@ class LinkSkillDetailInfoPage extends ConsumerWidget {
                                 widthFactor: 1,
                                 child: Container(
                                     alignment: Alignment.center,
-                                    margin: EdgeInsets.only(
-                                      bottom: DimenConfig.subDimen,
-                                    ),
                                     padding: EdgeInsets.only(
                                       left: DimenConfig.commonDimen,
                                       right: DimenConfig.commonDimen,
@@ -86,7 +82,7 @@ class LinkSkillDetailInfoPage extends ConsumerWidget {
                                     ),
                                     child: CustomTextWidget(
                                       text: skill.skillName!,
-                                      size: FontConfig.commonSize,
+                                      size: FontConfig.middleDownSize,
                                       color: Colors.white,
                                       subColor: colorScheme.primary,
                                     )))),
@@ -97,7 +93,7 @@ class LinkSkillDetailInfoPage extends ConsumerWidget {
                                     alignment: Alignment.center,
                                     child: CustomTextWidget(
                                       text: skill.skillLevel!.toString(),
-                                      size: FontConfig.middleSize,
+                                      size: FontConfig.middleDownSize,
                                       color: Colors.white,
                                       subColor: colorScheme.primary,
                                     )))),
@@ -108,9 +104,8 @@ class LinkSkillDetailInfoPage extends ConsumerWidget {
               ],
             ),
           ),
-        ),
-      ),
+        );
+      },
     );
-    ;
   }
 }

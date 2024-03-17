@@ -6,8 +6,8 @@ import 'package:maplespy/config/static_switch_config.dart';
 import 'package:maplespy/model/skill/v_matrix_model.dart';
 import 'package:maplespy/widget/common/custom_box_decoration_widget.dart';
 
-class VSkillDetailImagePage extends ConsumerWidget {
-  const VSkillDetailImagePage({
+class VSkillImageView extends ConsumerWidget {
+  const VSkillImageView({
     super.key,
     required this.skillDetail,
     required this.skillIcon,
@@ -19,7 +19,7 @@ class VSkillDetailImagePage extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     return Container(
-      padding: EdgeInsets.all(DimenConfig.commonDimen),
+      padding: EdgeInsets.all(DimenConfig.middleDimen),
       decoration: skillDetail != null
           ? customBoxDecoration(
               type: 'skill_in_out_square',

@@ -18,12 +18,17 @@ class MainController extends AutoDisposeNotifier {
   @override
   build() {}
 
-  void getNickNameList() async {
+  void getUserSetting() async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
     List<String>? nickNameList = prefs.getStringList('nickName');
     ref
         .read(characterNameListProvider.notifier)
         .update((state) => [...?nickNameList]);
+
+    bool? skillToggle = prefs.getBool('skillToggle');
+    ref
+        .read(skillToggleProvider.notifier)
+        .update((state) => skillToggle ?? false);
   }
 
   void onClickSearchButton({required String characterName, bool? union}) async {

@@ -6,6 +6,7 @@ import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import 'package:maplespy/controller/main_controller.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import 'package:yaml/yaml.dart';
 
 class MainInsertPage extends ConsumerStatefulWidget {
@@ -20,7 +21,12 @@ class _MainInsertPageState extends ConsumerState<MainInsertPage> {
   void initState() {
     super.initState();
 
+    getUserSetting();
     checkApplicationVersion();
+  }
+
+  void getUserSetting() {
+    ref.read(mainControllerProvider.notifier).getUserSetting();
   }
 
   void checkApplicationVersion() async {
@@ -53,7 +59,7 @@ class _MainInsertPageState extends ConsumerState<MainInsertPage> {
           latest[2] <= origin[2]) {
         // if (true) {
         // navigatior redirect
-        ref.read(mainControllerProvider.notifier).getNickNameList();
+        getUserSetting();
         context.go('/');
       } else {
         // store redirect

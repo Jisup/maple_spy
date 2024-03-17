@@ -136,6 +136,7 @@ class _MainHomeState extends ConsumerState<MainHomePage> {
                         /**----- 최근 검색 닉네임 리스트 */
                         Expanded(
                           child: Column(
+                            mainAxisAlignment: MainAxisAlignment.center,
                             children: [
                               Container(
                                 alignment: Alignment.centerLeft,
@@ -147,7 +148,12 @@ class _MainHomeState extends ConsumerState<MainHomePage> {
                                         ))
                                     : SizedBox.shrink(),
                               ),
-                              Expanded(
+                              Container(
+                                height: 30,
+                                margin: EdgeInsets.only(
+                                  top: DimenConfig.subDimen,
+                                ),
+                                alignment: Alignment.center,
                                 child: Container(
                                   alignment: Alignment.centerLeft,
                                   child: ListView.builder(
@@ -156,79 +162,76 @@ class _MainHomeState extends ConsumerState<MainHomePage> {
                                     itemCount: nickNameList.length,
                                     itemBuilder: (context, index) {
                                       return Container(
+                                        height: 30,
                                         alignment: Alignment.centerLeft,
-                                        child: Container(
-                                          height: 30,
-                                          margin: EdgeInsets.only(
-                                            bottom: DimenConfig.commonDimen,
-                                            right: DimenConfig.subDimen,
-                                          ),
-                                          padding: EdgeInsets.only(
-                                            top: DimenConfig.subDimen,
-                                            bottom: DimenConfig.subDimen,
-                                            left: DimenConfig.commonDimen,
-                                            right: DimenConfig.subDimen,
-                                          ),
-                                          decoration: BoxDecoration(
-                                            color: colorScheme.onSecondary,
-                                            borderRadius: BorderRadius.circular(
-                                                RadiusConfig.maxRadius),
-                                          ),
-                                          child: Row(
-                                            children: [
-                                              // GestureDetector(
-                                              //   onTap: () => null,
-                                              //   child: Container(
-                                              //     margin: EdgeInsets.only(
-                                              //       right: DimenConfig.minDimen,
-                                              //     ),
-                                              //     child: Icon(Icons.star_outline,
-                                              //         size: FontConfig
-                                              //             .middleDownSize,
-                                              //         color: colorScheme.primary),
-                                              //   ),
-                                              //   // child: Image.asset(
-                                              //   //     'assets/star_deactive_icon.png'),
-                                              // ),
-                                              GestureDetector(
-                                                onTap: () {
-                                                  if (_focusNode.hasFocus)
-                                                    _focusNode.unfocus();
-                                                  mainController
-                                                      .onClickSearchButton(
-                                                          characterName:
-                                                              nickNameList
-                                                                  .elementAt(
-                                                                      index));
-                                                },
-                                                child: Container(
-                                                  margin: EdgeInsets.only(
-                                                    right: DimenConfig.minDimen,
-                                                  ),
-                                                  child: Text(
-                                                      nickNameList
-                                                          .elementAt(index),
-                                                      style: TextStyle(
-                                                        height: 1,
-                                                        fontSize: FontConfig
-                                                            .commonSize,
-                                                      )),
-                                                ),
-                                              ),
-                                              GestureDetector(
-                                                onTap: () => mainController
-                                                    .onclickDeleteButton(
+                                        margin: EdgeInsets.only(
+                                          right: DimenConfig.subDimen,
+                                        ),
+                                        padding: EdgeInsets.only(
+                                          top: DimenConfig.subDimen,
+                                          bottom: DimenConfig.subDimen,
+                                          left: DimenConfig.commonDimen,
+                                          right: DimenConfig.subDimen,
+                                        ),
+                                        decoration: BoxDecoration(
+                                          color: colorScheme.onSecondary,
+                                          borderRadius: BorderRadius.circular(
+                                              RadiusConfig.maxRadius),
+                                        ),
+                                        child: Row(
+                                          children: [
+                                            // GestureDetector(
+                                            //   onTap: () => null,
+                                            //   child: Container(
+                                            //     margin: EdgeInsets.only(
+                                            //       right: DimenConfig.minDimen,
+                                            //     ),
+                                            //     child: Icon(Icons.star_outline,
+                                            //         size: FontConfig
+                                            //             .middleDownSize,
+                                            //         color: colorScheme.primary),
+                                            //   ),
+                                            //   // child: Image.asset(
+                                            //   //     'assets/star_deactive_icon.png'),
+                                            // ),
+                                            GestureDetector(
+                                              onTap: () {
+                                                if (_focusNode.hasFocus)
+                                                  _focusNode.unfocus();
+                                                mainController
+                                                    .onClickSearchButton(
                                                         characterName:
                                                             nickNameList
                                                                 .elementAt(
-                                                                    index)),
-                                                child: Icon(Icons.close,
-                                                    size: FontConfig
-                                                        .middleDownSize,
-                                                    color: colorScheme.primary),
+                                                                    index));
+                                              },
+                                              child: Container(
+                                                margin: EdgeInsets.only(
+                                                  right: DimenConfig.minDimen,
+                                                ),
+                                                child: Text(
+                                                    nickNameList
+                                                        .elementAt(index),
+                                                    style: TextStyle(
+                                                      height: 1,
+                                                      fontSize:
+                                                          FontConfig.commonSize,
+                                                    )),
                                               ),
-                                            ],
-                                          ),
+                                            ),
+                                            GestureDetector(
+                                              onTap: () => mainController
+                                                  .onclickDeleteButton(
+                                                      characterName:
+                                                          nickNameList
+                                                              .elementAt(
+                                                                  index)),
+                                              child: Icon(Icons.close,
+                                                  size:
+                                                      FontConfig.middleDownSize,
+                                                  color: colorScheme.primary),
+                                            ),
+                                          ],
                                         ),
                                       );
                                     },
@@ -247,13 +250,13 @@ class _MainHomeState extends ConsumerState<MainHomePage> {
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
                               Expanded(
-                                child: Semantics(
-                                  label: '닉네임 입력 칸',
-                                  keyboardKey: true,
-                                  focusable: true,
-                                  child: Container(
-                                    margin: EdgeInsets.only(
-                                        right: DimenConfig.subDimen),
+                                child: Container(
+                                  margin: EdgeInsets.only(
+                                      right: DimenConfig.subDimen),
+                                  child: Semantics(
+                                    label: '닉네임 입력 칸',
+                                    keyboardKey: true,
+                                    focusable: true,
                                     child: TextFormField(
                                       key: textFormFieldKey,
                                       focusNode: _focusNode,

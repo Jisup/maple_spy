@@ -4,7 +4,6 @@ import 'package:maplespy/config/color_config.dart';
 import 'package:maplespy/config/const_config.dart';
 import 'package:maplespy/config/static_switch_config.dart';
 import 'package:maplespy/page/main_error_page.dart';
-import 'package:maplespy/provider/common_provider.dart';
 import 'package:maplespy/provider/union_raider_notifier.dart';
 import 'package:maplespy/widget/common/custom_text_widget.dart';
 

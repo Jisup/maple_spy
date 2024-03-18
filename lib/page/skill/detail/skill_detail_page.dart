@@ -5,6 +5,7 @@ import 'package:maplespy/config/const_config.dart';
 import 'package:maplespy/config/static_switch_config.dart';
 import 'package:maplespy/model/skill/skill_info_model.dart';
 import 'package:maplespy/provider/common_provider.dart';
+import 'package:maplespy/util/make_list.dart';
 import 'package:maplespy/widget/common/custom_paint_text_widget.dart';
 import 'package:maplespy/widget/common/dashed_divider_widget.dart';
 import 'package:maplespy/widget/main_container/detail_app_bar.dart';
@@ -120,11 +121,17 @@ class SkillDetailPage extends ConsumerWidget {
                             width: MediaQuery.of(context).size.width / 4,
                             height: MediaQuery.of(context).size.width / 4,
                             decoration: BoxDecoration(
-                              border:
-                                  Border.all(color: SkillColor.commonInfoText),
-                              borderRadius: BorderRadius.circular(
-                                  RadiusConfig.commonRadius),
-                            ),
+                                borderRadius: BorderRadius.circular(
+                                    RadiusConfig.commonRadius +
+                                        RadiusConfig.littleRadius),
+                                boxShadow: fourDirectionBoxShadow(
+                                    d: 1,
+                                    blurRadius: 1,
+                                    color:
+                                        StaticSwitchConfig.switchSkillIsOrigin(
+                                                name: skillInfo.name!)
+                                            ? SkillColor.originStartBorder
+                                            : SkillColor.commonInfoText)),
                             child: Image.network(
                               skillInfo.icon!,
                               fit: BoxFit.contain,

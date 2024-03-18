@@ -5,8 +5,8 @@ import 'package:maplespy/config/const_config.dart';
 import 'package:maplespy/model/skill/link_skill_model.dart';
 import 'package:maplespy/widget/common/custom_box_decoration_widget.dart';
 
-class LinkSkillInfoView extends ConsumerWidget {
-  const LinkSkillInfoView({super.key, required this.skill});
+class LinkSkillPartView extends ConsumerWidget {
+  const LinkSkillPartView({super.key, required this.skill});
 
   final CharacterLinkSkill skill;
 
@@ -17,6 +17,8 @@ class LinkSkillInfoView extends ConsumerWidget {
     return LayoutBuilder(
       builder: (childContext, viewportConstraints) {
         return Container(
+          width:
+              (viewportConstraints.maxWidth - DimenConfig.commonDimen * 3) / 4,
           decoration: BoxDecoration(
             gradient: LinearGradient(
                 begin: Alignment.topCenter,
@@ -35,10 +37,6 @@ class LinkSkillInfoView extends ConsumerWidget {
             alignment: Alignment.center,
             children: [
               Container(
-                height: (viewportConstraints.maxWidth -
-                            DimenConfig.commonDimen * 3) /
-                        4 -
-                    DimenConfig.subDimen,
                 padding: EdgeInsets.all(DimenConfig.subDimen),
                 decoration: BoxDecoration(
                   border: Border.all(
@@ -46,8 +44,8 @@ class LinkSkillInfoView extends ConsumerWidget {
                   ),
                   borderRadius: BorderRadius.circular(DimenConfig.commonDimen),
                 ),
-                child: FractionallySizedBox(
-                  heightFactor: 1,
+                child: AspectRatio(
+                  aspectRatio: 1,
                   child: Container(
                     padding: EdgeInsets.all(DimenConfig.middleDimen),
                     decoration: customBoxDecoration(

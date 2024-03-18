@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:go_router/go_router.dart';
 import 'package:maplespy/config/const_config.dart';
 import 'package:maplespy/controller/skill_controller.dart';
+import 'package:maplespy/model/skill/skill_info_model.dart';
 import 'package:maplespy/page/main_error_page.dart';
-import 'package:maplespy/page/skill/link/link_skill_info_view.dart';
+import 'package:maplespy/page/skill/link/link_skill_part_view.dart';
 import 'package:maplespy/page/skill/link/link_skill_whole_view.dart';
 import 'package:maplespy/provider/common_provider.dart';
 import 'package:maplespy/provider/skill_link_notifier.dart';
@@ -54,11 +56,41 @@ class LinkSkillPage extends ConsumerWidget {
                         Container(
                           margin:
                               EdgeInsets.only(bottom: DimenConfig.maxDimen / 2),
-                          child: skillToggle
-                              ? LinkSkillWholeView(
-                                  skill: linkSkill.characterOwnedLinkSkill!)
-                              : LinkSkillInfoView(
-                                  skill: linkSkill.characterOwnedLinkSkill!),
+                          alignment: Alignment.centerLeft,
+                          child: GestureDetector(
+                              onTap: () => context.push('/skill/detail',
+                                  extra: SkillInfo(
+                                    name: linkSkill
+                                        .characterOwnedLinkSkill?.skillName,
+                                    icon: linkSkill
+                                        .characterOwnedLinkSkill?.skillIcon,
+                                    level: linkSkill
+                                        .characterOwnedLinkSkill?.skillLevel,
+                                    description: linkSkill
+                                        .characterOwnedLinkSkill
+                                        ?.skillDescription
+                                        ?.split('\n\n')
+                                        .first,
+                                    subDescription: (linkSkill
+                                                    .characterOwnedLinkSkill
+                                                    ?.skillDescription ??
+                                                '')
+                                            .contains('\n\n')
+                                        ? linkSkill.characterOwnedLinkSkill
+                                            ?.skillDescription
+                                            ?.split('\n\n')
+                                            .last
+                                        : null,
+                                    effect: linkSkill
+                                        .characterOwnedLinkSkill?.skillEffect,
+                                  )),
+                              behavior: HitTestBehavior.translucent,
+                              child: skillToggle
+                                  ? LinkSkillWholeView(
+                                      skill: linkSkill.characterOwnedLinkSkill!)
+                                  : LinkSkillPartView(
+                                      skill:
+                                          linkSkill.characterOwnedLinkSkill!)),
                         ),
                         linkSkill.characterLinkSkill != null &&
                                 linkSkill.characterLinkSkill!.isNotEmpty
@@ -84,9 +116,37 @@ class LinkSkillPage extends ConsumerWidget {
                                       alignment: WrapAlignment.start,
                                       children: linkSkill.characterLinkSkill!
                                           .map((skill) {
-                                        return skillToggle
-                                            ? LinkSkillWholeView(skill: skill)
-                                            : LinkSkillInfoView(skill: skill);
+                                        return GestureDetector(
+                                            onTap: () =>
+                                                context.push('/skill/detail',
+                                                    extra: SkillInfo(
+                                                      name: skill.skillName,
+                                                      icon: skill.skillIcon,
+                                                      level: skill.skillLevel,
+                                                      description: skill
+                                                          .skillDescription
+                                                          ?.split('\n\n')
+                                                          .first,
+                                                      subDescription: (linkSkill
+                                                                      .characterOwnedLinkSkill
+                                                                      ?.skillDescription ??
+                                                                  '')
+                                                              .contains('\n\n')
+                                                          ? linkSkill
+                                                              .characterOwnedLinkSkill
+                                                              ?.skillDescription
+                                                              ?.split('\n\n')
+                                                              .last
+                                                          : null,
+                                                      effect: skill.skillEffect,
+                                                    )),
+                                            behavior:
+                                                HitTestBehavior.translucent,
+                                            child: skillToggle
+                                                ? LinkSkillWholeView(
+                                                    skill: skill)
+                                                : LinkSkillPartView(
+                                                    skill: skill));
                                       }).toList(),
                                     ),
                                   )

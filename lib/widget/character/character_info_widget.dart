@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:maplespy/config/const_config.dart';
 import 'package:maplespy/controller/nav_controller.dart';
-import 'package:maplespy/util/make_list.dart';
 import 'package:stroke_text/stroke_text.dart';
 
 class CharacterInfoWidget extends ConsumerWidget {

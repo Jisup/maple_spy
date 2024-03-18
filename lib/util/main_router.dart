@@ -6,6 +6,7 @@ import 'package:maplespy/model/equipment/item_model.dart';
 import 'package:maplespy/model/equipment/pet/pet_detail_model.dart';
 import 'package:maplespy/model/equipment/pet_item_model.dart';
 import 'package:maplespy/model/firestore/notice.dart';
+import 'package:maplespy/model/skill/skill_info_model.dart';
 import 'package:maplespy/page/equipment/item/detail/android_item_detail_page.dart';
 import 'package:maplespy/page/main_notice_page.dart';
 import 'package:maplespy/page/main_union_page.dart';
@@ -21,6 +22,7 @@ import 'package:maplespy/page/main_insert_page.dart';
 import 'package:maplespy/page/main_skill_page.dart';
 import 'package:maplespy/page/main_stat_page.dart';
 import 'package:maplespy/page/main_update_page.dart';
+import 'package:maplespy/page/skill/detail/skill_detail_page.dart';
 
 GlobalKey<NavigatorState> navigatorkey = GlobalKey<NavigatorState>();
 
@@ -129,11 +131,19 @@ GoRouter mainRouter = GoRouter(
               const NoTransitionPage(child: MainStatPage()),
         ),
         GoRoute(
-          path: 'skill',
-          name: 'skill',
-          pageBuilder: (context, state) =>
-              const NoTransitionPage(child: MainSkillPage()),
-        ),
+            path: 'skill',
+            name: 'skill',
+            pageBuilder: (context, state) =>
+                const NoTransitionPage(child: MainSkillPage()),
+            routes: [
+              GoRoute(
+                path: 'detail',
+                name: 'skillDetail',
+                pageBuilder: (context, state) => NoTransitionPage(
+                  child: SkillDetailPage(skillInfo: state.extra as SkillInfo),
+                ),
+              ),
+            ]),
       ],
     ),
   ],

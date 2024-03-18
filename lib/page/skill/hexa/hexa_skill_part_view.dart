@@ -3,14 +3,20 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:maplespy/config/color_config.dart';
 import 'package:maplespy/config/const_config.dart';
 import 'package:maplespy/config/static_switch_config.dart';
-import 'package:maplespy/model/skill/hexa_matrix_model.dart';
 import 'package:maplespy/provider/skill_hexa_notifier.dart';
 import 'package:maplespy/widget/common/custom_box_decoration_widget.dart';
 
 class HexaSkillPartView extends ConsumerWidget {
-  const HexaSkillPartView({super.key, required this.core});
+  const HexaSkillPartView({
+    super.key,
+    required this.name,
+    required this.level,
+    required this.type,
+  });
 
-  final CharacterHexaCoreEquipment core;
+  final String name;
+  final int level;
+  final String type;
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
@@ -62,26 +68,20 @@ class HexaSkillPartView extends ConsumerWidget {
                             decoration: customBoxDecoration(
                                 type: 'skill_three_divide',
                                 startColor: StaticSwitchConfig
-                                        .hexaCoreStartBackgroundColor[
-                                    core.hexaCoreType]!,
+                                    .hexaCoreStartBackgroundColor[type]!,
                                 endColor: StaticSwitchConfig
-                                        .hexaCoreEndBackgroundColor[
-                                    core.hexaCoreType]!,
+                                    .hexaCoreEndBackgroundColor[type]!,
                                 borderColor: StaticSwitchConfig
-                                    .hexaCoreBorderColor[core.hexaCoreType]!),
+                                    .hexaCoreBorderColor[type]!),
 
                             /**-----heax skill icon */
-                            child: hexaDetail.containsKey(
-                                        core.linkedSkill![0].hexaSkillId) &&
-                                    hexaDetail[
-                                            core.linkedSkill![0].hexaSkillId] !=
-                                        ''
+                            child: hexaDetail.containsKey(name) &&
+                                    hexaDetail[name] != ''
                                 ? Container(
                                     padding:
                                         EdgeInsets.all(DimenConfig.middleDimen),
                                     child: Image.network(
-                                      hexaDetail[
-                                          core.linkedSkill![0].hexaSkillId]!,
+                                      hexaDetail[name]!,
                                       fit: BoxFit.contain,
                                       semanticLabel: '헥사 코어 이미지',
                                     ),
@@ -112,7 +112,7 @@ class HexaSkillPartView extends ConsumerWidget {
                     ),
                     alignment: Alignment.center,
                     child: Text(
-                      core.hexaCoreLevel.toString(),
+                      level.toString(),
                       textAlign: TextAlign.center,
                       style: TextStyle(
                         fontSize: FontConfig.commonSize,

@@ -5,6 +5,7 @@ import 'package:dio/dio.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:maplespy/model/skill/hexa_matrix_model.dart';
+import 'package:maplespy/model/skill/skill_info_model.dart';
 import 'package:maplespy/model/skill/skill_model.dart';
 import 'package:maplespy/provider/common_provider.dart';
 import 'package:maplespy/util/day_instance.dart';
@@ -34,7 +35,6 @@ class SkillHexaNotifier extends AsyncNotifier<void> {
     final yesterday = DayInstance().yesterday;
 
     dioInstance.dio.options.queryParameters = {'ocid': ocid, 'date': yesterday};
-
     /**-----hexa matrix */
     Response hexaMatrixResponse;
     HexaMatrix hexaMatrix;
@@ -63,15 +63,38 @@ class SkillHexaNotifier extends AsyncNotifier<void> {
     }
 
     /**-----hexa matrix core icon*/
+    // 솔 야누스에 새벽인지 황혼인지 잇으면 hexaSkillId에 추가하기
     Map<String, String> hexaDetail = HashMap();
-    for (CharacterHexaCoreEquipment hexaCore
-        in hexaMatrix.characterHexaCoreEquipment ?? []) {
-      String coreIcon = hexaSkill.characterSkill
-              ?.singleWhere((element) =>
-                  element.skillName == hexaCore.linkedSkill![0].hexaSkillId)
-              .skillIcon ??
-          '';
-      hexaDetail[hexaCore.linkedSkill![0].hexaSkillId!] = coreIcon;
+    if (hexaMatrix.characterHexaCoreEquipment != null) {
+      for (var i = 0; i < hexaMatrix.characterHexaCoreEquipment!.length; i++) {
+        CharacterHexaCoreEquipment hexaCore =
+            hexaMatrix.characterHexaCoreEquipment![i];
+
+        if (hexaCore.hexaCoreName == '솔 야누스') {
+          if (hexaSkill.characterSkill
+                  ?.singleWhere((element) => element.skillName == '솔 야누스 : 새벽',
+                      orElse: () => CharacterSkill())
+                  .skillName !=
+              null) {
+            // 솔 야누스 새벽 추가
+            hexaMatrix.characterHexaCoreEquipment![i].linkedSkill!
+                .add(LinkedSkill(hexaSkillId: '솔 야누스 : 새벽'));
+          } else {
+            // 솔 야누스 황혼 추가
+            hexaMatrix.characterHexaCoreEquipment![i].linkedSkill!
+                .add(LinkedSkill(hexaSkillId: '솔 야누스 : 황혼'));
+          }
+        }
+
+        for (LinkedSkill skill in hexaCore.linkedSkill ?? []) {
+          String coreIcon = hexaSkill.characterSkill
+                  ?.singleWhere(
+                      (element) => element.skillName == skill.hexaSkillId!)
+                  .skillIcon ??
+              '';
+          hexaDetail[skill.hexaSkillId!] = coreIcon;
+        }
+      }
     }
 
     ref.read(hexaMatrixProvider.notifier).update((state) => hexaMatrix);
@@ -96,5 +119,25 @@ class SkillHexaNotifier extends AsyncNotifier<void> {
 
     state = AsyncValue.loading();
     state = await AsyncValue.guard(() async => await _fetchHexaSkill());
+  }
+
+  SkillInfo getHexaSkillInfo({required String coreName}) {
+    CharacterSkill skill = ref
+        .read(hexaSkillProvider)
+        .characterSkill!
+        .where(
+          (element) => element.skillName == coreName,
+        )
+        .first;
+    return SkillInfo(
+      name: skill.skillName,
+      icon: skill.skillIcon,
+      level: skill.skillLevel,
+      description: skill.skillDescription?.split('\n\n').first,
+      subDescription: (skill.skillDescription ?? '').contains('\n\n')
+          ? skill.skillDescription?.split('\n\n').last
+          : null,
+      effect: skill.skillEffect,
+    );
   }
 }

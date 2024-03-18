@@ -200,6 +200,10 @@ class SymbolColor {
 }
 
 class SkillColor {
+  static const Color commonInfoText = Color(0xFFffffff); // 공통 텍스트: 흰색
+  static const Color subInfoText = Color(0xFFffcc00); // 공통 서브 텍스트: 노란색
+  static const Color etcInfoText = Color(0xFFffaa00); // 공통 예외 텍스트
+
   static const Color startBackground = Color(0xFFd2d5d7); // 공통 시작 배경
   static const Color endBackground = Color(0xFFbec5c9); // 공통 끝 배경
   static const Color background = Color(0xFF9099a3); // 공통 배경
@@ -240,6 +244,12 @@ class SkillColor {
       Color(0xFF334444); // 강화(4차) 코어 배경 시작 색상
   static const Color vMasteryCoreEndBackground =
       Color(0xFF556677); // 강화(4차) 코어 배경 끝 색상
+
+  static const Color originTextShadow = Color(0xFF331188);
+  static const Color originStartBackground = Color(0xFF7744BB);
+  static const Color originEndBackground = Color(0xFF5533AA);
+  static const Color originStartBorder = Color(0xFFBB77EE);
+  static const Color originEndBorder = Color(0xFF6644BB);
 }
 
 class StatColor {

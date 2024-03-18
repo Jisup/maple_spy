@@ -24,8 +24,8 @@ class SkillFloatingActionButton extends ConsumerWidget {
         ref.read(skillControllerProvider.notifier).changeSkillToggle();
       },
       child: Container(
-        width: MediaQuery.of(context).size.width / 5.625,
-        height: MediaQuery.of(context).size.width / 5.625,
+        width: MediaQuery.of(context).size.width / 4 - 30,
+        height: MediaQuery.of(context).size.width / 4 - 30,
         alignment: Alignment.center,
         decoration: BoxDecoration(
             color: colorScheme.primary,

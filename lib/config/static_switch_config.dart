@@ -406,4 +406,11 @@ class StaticSwitchConfig {
     }
     return cardGrade;
   }
+
+  static bool switchSkillIsOrigin({required String name}) {
+    return switch (name) {
+      '슈퍼 캐논 익스플로젼' => true,
+      _ => false,
+    };
+  }
 }

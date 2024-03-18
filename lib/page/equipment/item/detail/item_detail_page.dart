@@ -2,7 +2,6 @@ import 'dart:math';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:go_router/go_router.dart';
 import 'package:maplespy/config/color_config.dart';
 import 'package:maplespy/config/const_config.dart';
 import 'package:maplespy/config/static_switch_config.dart';
@@ -19,6 +18,7 @@ import 'package:maplespy/widget/equipment/detail/equipment_detail_image_widget.d
 import 'package:maplespy/widget/equipment/detail/equipment_detail_required_class_widget.dart';
 import 'package:maplespy/widget/equipment/detail/equipment_detail_required_level_widget.dart';
 import 'package:maplespy/widget/equipment/item/exceptional_enhance_widget.dart';
+import 'package:maplespy/widget/main_container/detail_app_bar.dart';
 
 class ItemDetailPage extends ConsumerWidget {
   const ItemDetailPage({super.key, required this.item});
@@ -27,8 +27,6 @@ class ItemDetailPage extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    ColorScheme colorScheme = Theme.of(context).colorScheme;
-
     double imageSize = MediaQuery.of(context).size.width * 0.3;
 
     final ItemDetailOption detailOption = ItemDetailOption(
@@ -50,23 +48,10 @@ class ItemDetailPage extends ConsumerWidget {
 
     return SafeArea(
       child: Scaffold(
-        appBar: AppBar(
-          backgroundColor: colorScheme.primary,
-          leading: GestureDetector(
-            onTap: () => context.pop(),
-            child: Icon(
-              Icons.navigate_before_rounded,
-              color: Colors.white,
-              semanticLabel: '뒤로 가기 버튼',
-            ),
-          ),
-          title: Text(
-            '${characterName} (${characterWorld})',
-            textAlign: TextAlign.center,
-            style: TextStyle(
-                color: colorScheme.onPrimary, fontFamily: 'Maplestory'),
-          ),
-        ),
+        appBar: detailAppBar(
+            context: context,
+            characterName: characterName,
+            characterWorld: characterWorld),
         body: LayoutBuilder(builder:
             (BuildContext context, BoxConstraints viewportConstraints) {
           return SingleChildScrollView(

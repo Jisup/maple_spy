@@ -3,20 +3,18 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:maplespy/config/color_config.dart';
 import 'package:maplespy/config/const_config.dart';
 import 'package:maplespy/model/skill/skill_model.dart';
+import 'package:maplespy/model/skill/v_matrix_model.dart';
 import 'package:maplespy/page/skill/v/v_skill_image_view.dart';
 import 'package:maplespy/page/skill/v/v_skill_info_view.dart';
-import 'package:maplespy/provider/skill_v_notifier.dart';
 
 class VSkillWholeView extends ConsumerWidget {
-  const VSkillWholeView({super.key, required this.core});
+  const VSkillWholeView({super.key, required this.core, required this.vDetail});
 
   final CharacterSkill core;
+  final Map<String, VDetail> vDetail;
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final asyncVNotifier = ref.read(asyncSkillVProvider.notifier);
-    final vDetail = ref.watch(asyncVNotifier.vDetailProvider);
-
     return LayoutBuilder(
       builder: (childContext, viewportConstraints) {
         return Container(

@@ -39,11 +39,11 @@ class HexaSkillPage extends ConsumerWidget {
                     child: Column(
                       children: [
                         HexaSkillCorePage(
-                            type: '마스터리 코어',
-                            hexaSkillCore: hexaMatrix.hexaMasterlyCore),
-                        HexaSkillCorePage(
                             type: '스킬 코어',
                             hexaSkillCore: hexaMatrix.hexaSkillCore),
+                        HexaSkillCorePage(
+                            type: '마스터리 코어',
+                            hexaSkillCore: hexaMatrix.hexaMasterlyCore),
                         HexaSkillCorePage(
                             type: '강화 코어',
                             hexaSkillCore: hexaMatrix.hexaEnhanceCore),

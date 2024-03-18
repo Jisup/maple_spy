@@ -27,6 +27,14 @@
   - 캐릭터가 사용 및 적용 중인 스킬 정보를 확인할 수 있습니다.
   -Hexa, V 코어 및 Link 스킬의 이름, 이미지, 업그레이드 레벨 정보를 제공합니다.
 
+- 적용 코어 및 스킬 세부 정보 제공
+  - 코어 및 스킬 이미지를 클릭하여 세부정보를 추가적으로 확인할 수 있습니다.
+  - 스킬 이름, 타입, 이미지, 레벨, 설명, 효과 등의 정보를 제공합니다. (단, 세부정보에 대한 내용은 각 코어 및 스킬마다 상이합니다.)
+
+- 캐릭터 유니온 정보 제공
+  - 캐릭터에게 적용 중인 유니온 정보를 확인할 수 있습니다.
+  - 캐릭터의 유니온 배치도, 공격대원, 공격대 효과, 아티팩트, 본캐/부캐 정보를 제공합니다.
+
 - 오류 정보 제공
   - 위 모든 사항에 대한 오류를 각 페이지에서 직관적으로 확인할 수 있습니다.
 
@@ -41,13 +49,13 @@
 
 - 캐릭터 닉네임을 입력하여 기본/아이템/스탯/스킬 정보를 확인할 수 있습니다.
 
-<Image width="30%" src="https://github.com/Jisup/maple_spy/assets/49368118/de2ca0a6-dcfc-48a0-a169-e736adfa29fd">
+<Image width="30%" src="https://github.com/Jisup/maple_spy/assets/49368118/4e57a95b-9f14-46ef-8e0b-73e3672e9fb1">
 
 #### ● 캐릭터 전체 정보 조회
 
 - 캐릭터 네비게이션 탭을 통해, 캐릭터의 기본 정보를 확인할 수 있습니다.
 
-<Image width="30%" src="https://github.com/Jisup/maple_spy/assets/49368118/1bbd62ac-4aeb-46a9-b225-cf16be616318">
+<Image width="30%" src="https://github.com/Jisup/maple_spy/assets/49368118/9f2a7ed3-5ecc-4dc7-9d1d-15fd061552be">
 
 #### ● 캐릭터 아이템 정보 조회
 
@@ -55,31 +63,32 @@
 - 아이템이 존재하는 경우, 슬릇을 클릭하여 아이템의 세부 정보를 확인할 수 있습니다.
 - 캐시 아이템의 경우, 숫자 버튼을 통해 사용자가 설정한 프리셋 아이템 정보를 확인할 수 있습니다.
 
-<Image width="30%" src="https://github.com/Jisup/maple_spy/assets/49368118/9a640e33-781e-42f5-ab2d-f7fe9c61ee1b">
-<Image width="30%" src="https://github.com/Jisup/maple_spy/assets/49368118/04ede375-3f8f-4f00-b002-c062d30fe277">
-
-</br>
-  
-<Image width="30%" src="https://github.com/Jisup/maple_spy/assets/49368118/f26c4aca-bdfc-46d4-af26-e6527d98b7b3">
-<Image width="30%" src="https://github.com/Jisup/maple_spy/assets/49368118/aa0062ca-3965-425f-9909-f8569586a37f">
+<Image width="30%" src="https://github.com/Jisup/maple_spy/assets/49368118/bc1e4446-9216-456f-87c4-ecba84f20916">
+<Image width="30%" src="https://github.com/Jisup/maple_spy/assets/49368118/f60f08f6-7378-4820-8bf6-bd0a3b325a96">
+<Image width="30%" src="https://github.com/Jisup/maple_spy/assets/49368118/17db753c-d2b7-4323-88fa-00450b9a473e">
 
 #### ● 캐릭터 스탯 정보 조회
 
 - 스탯 네비게이션 탭을 통해, 캐릭터에게 적용 중인 스탯 정보를 확인할 수 있습니다.
 - 하이퍼 스탯의 경우, 숫자 버튼을 통해 사용자가 설정한 프리셋 하이퍼 스탯 정보를 확인할 수 있습니다.
 
-<Image width="30%" src="https://github.com/Jisup/maple_spy/assets/49368118/2db67a3c-3ff1-4d9a-900c-022c41e8d85a">
-<Image width="30%" src="https://github.com/Jisup/maple_spy/assets/49368118/4c6fd238-2e3a-4f68-8e12-770b0849b16e">
-<Image width="30%" src="https://github.com/Jisup/maple_spy/assets/49368118/f3054e57-b438-4628-9617-fb9dd488bc87">
+<Image width="30%" src="https://github.com/Jisup/maple_spy/assets/49368118/58c28681-263b-4803-9628-e26c0841a37e">
 
 #### ● 캐릭터 스킬 정보 조회
 
 - 스킬 네비게이션 탭을 통해, 캐릭터에게 적용 중인 스킬 정보를 확인할 수 있습니다.
 
-<Image width="30%" src="https://github.com/Jisup/maple_spy/assets/49368118/02961533-309b-4a31-b310-2da0600ef087">
-<Image width="30%" src="https://github.com/Jisup/maple_spy/assets/49368118/518d38db-9b57-45a5-ae90-808c6d544dc7">
-<Image width="30%" src="https://github.com/Jisup/maple_spy/assets/49368118/f67760d7-3a67-4b65-958a-4dfe3b429c02">
+<Image width="30%" src="https://github.com/Jisup/maple_spy/assets/49368118/4c29f71d-b546-46f6-af3d-b9eedb6c60b6">
+<Image width="30%" src="https://github.com/Jisup/maple_spy/assets/49368118/5ea15e12-3b9d-4c76-b131-d621e528af06">
 
+#### ● 캐릭터 유니온 정보 조회
+
+- 캐릭터 정보 페이지에서 유니온 바로가기 버튼을 통해, 캐릭터의 유니온 정보를 확인할 수 있습니다.
+
+<Image width="30%" src="https://github.com/Jisup/maple_spy/assets/49368118/4f2e23da-f5c8-4a2e-a9d9-3e194fb26834">
+<Image width="30%" src="https://github.com/Jisup/maple_spy/assets/49368118/0b44185c-5281-441f-8393-0ddde10a38dc">
+
+  
 </br>
 
 # < 이용 안내 >

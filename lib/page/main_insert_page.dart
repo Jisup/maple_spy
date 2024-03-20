@@ -54,8 +54,10 @@ class _MainInsertPageState extends ConsumerState<MainInsertPage> {
 
     Timer(Duration(milliseconds: 2000), () {
       if (latest[0] <= origin[0] &&
-          latest[1] <= origin[1] &&
-          latest[2] <= origin[2]) {
+              latest[1] <= origin[1] &&
+              latest[2] <= origin[2] ||
+          latest[0] <= origin[0] && latest[1] <= origin[1] ||
+          latest[0] <= origin[0]) {
         // if (true) {
         // navigatior redirect
         getUserSetting();

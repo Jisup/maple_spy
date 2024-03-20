@@ -12,7 +12,8 @@ class DioInstance {
     dio.options.baseUrl = dotenv.get('NEXON_API_URL');
     dio.options.headers = {
       'accept': 'application/json',
-      'x-nxopen-api-key': dotenv.get('NEXON_API_KEY'),
+      // 'x-nxopen-api-key': dotenv.get('NEXON_API_TEST_KEY'),
+      'x-nxopen-api-key': dotenv.get('NEXON_API_LIVE_KEY'),
     };
     dio.options.validateStatus = (status) => status != null;
     dio.interceptors.addAll([

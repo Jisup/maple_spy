@@ -8,7 +8,6 @@ import 'package:maplespy/model/skill/hexa_matrix_model.dart';
 import 'package:maplespy/model/skill/skill_info_model.dart';
 import 'package:maplespy/model/skill/skill_model.dart';
 import 'package:maplespy/provider/common_provider.dart';
-import 'package:maplespy/util/day_instance.dart';
 import 'package:maplespy/util/dio_instance.dart';
 
 final asyncSkillHexaProvider = AsyncNotifierProvider(SkillHexaNotifier.new);
@@ -32,9 +31,8 @@ class SkillHexaNotifier extends AsyncNotifier<void> {
     final dioInstance = DioInstance();
 
     final ocid = ref.read(ocidProvider);
-    final yesterday = DayInstance().yesterday;
 
-    dioInstance.dio.options.queryParameters = {'ocid': ocid, 'date': yesterday};
+    dioInstance.dio.options.queryParameters = {'ocid': ocid};
     /**-----hexa matrix */
     Response hexaMatrixResponse;
     HexaMatrix hexaMatrix;
@@ -42,14 +40,13 @@ class SkillHexaNotifier extends AsyncNotifier<void> {
       hexaMatrixResponse =
           await dioInstance.dio.get(dotenv.get('MAPLESTORY_HEXAMATRIX_PATH'));
       hexaMatrix = HexaMatrix.fromJson(hexaMatrixResponse.data);
-    } on DioException catch (e) {
+    } on DioException {
       throw Error();
     }
 
     /**-----hexa skill */
     dioInstance.dio.options.queryParameters = {
       'ocid': ocid,
-      'date': yesterday,
       'character_skill_grade': 6
     };
     Response hexaSkillResponse;
@@ -58,7 +55,7 @@ class SkillHexaNotifier extends AsyncNotifier<void> {
       hexaSkillResponse =
           await dioInstance.dio.get(dotenv.get('MAPLESTORY_SKILL_PATH'));
       hexaSkill = Skill.fromJson(hexaSkillResponse.data);
-    } on DioException catch (e) {
+    } on DioException {
       throw Error();
     }
 

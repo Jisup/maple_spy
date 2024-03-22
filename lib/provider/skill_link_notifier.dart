@@ -5,7 +5,6 @@ import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:maplespy/model/skill/link_skill_model.dart';
 import 'package:maplespy/provider/common_provider.dart';
-import 'package:maplespy/util/day_instance.dart';
 import 'package:maplespy/util/dio_instance.dart';
 
 final asyncSkillLinkProvider = AsyncNotifierProvider(SkillLinkNotifier.new);
@@ -23,9 +22,8 @@ class SkillLinkNotifier extends AsyncNotifier<void> {
     final dioInstance = DioInstance();
 
     final ocid = ref.read(ocidProvider);
-    final yesterday = DayInstance().yesterday;
 
-    dioInstance.dio.options.queryParameters = {'ocid': ocid, 'date': yesterday};
+    dioInstance.dio.options.queryParameters = {'ocid': ocid};
 
     /**-----link skill */
     Response linkSkillResponse;
@@ -34,7 +32,7 @@ class SkillLinkNotifier extends AsyncNotifier<void> {
       linkSkillResponse =
           await dioInstance.dio.get(dotenv.get('MAPLESTORY_LINKSKILL_PATH'));
       linkSkill = LinkSkill.fromJson(linkSkillResponse.data);
-    } on DioException catch (e) {
+    } on DioException {
       throw Error();
     }
 

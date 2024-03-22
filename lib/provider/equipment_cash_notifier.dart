@@ -8,7 +8,6 @@ import 'package:maplespy/model/equipment/beauty_item_model.dart';
 import 'package:maplespy/model/equipment/cash_item_model.dart';
 import 'package:maplespy/model/main_equipment_cash_model.dart';
 import 'package:maplespy/provider/common_provider.dart';
-import 'package:maplespy/util/day_instance.dart';
 import 'package:maplespy/util/dio_instance.dart';
 
 final asyncEquipmentCashProvider =
@@ -24,9 +23,8 @@ class EquipmentCashNotifier extends AsyncNotifier<MainEquipmentCash> {
     final dioInstance = DioInstance();
 
     final ocid = ref.read(ocidProvider);
-    final yesterday = DayInstance().yesterday;
 
-    dioInstance.dio.options.queryParameters = {'ocid': ocid, 'date': yesterday};
+    dioInstance.dio.options.queryParameters = {'ocid': ocid};
 
     /**cash item equipment */
     Response cashItemResponse;
@@ -35,7 +33,7 @@ class EquipmentCashNotifier extends AsyncNotifier<MainEquipmentCash> {
       cashItemResponse =
           await dioInstance.dio.get(dotenv.get('MAPLESTORY_CASHITEM_PATH'));
       cashItem = CashItem.fromJson(cashItemResponse.data);
-    } on DioException catch (e) {
+    } on DioException {
       throw Error();
     }
     /**android equipment */
@@ -45,7 +43,7 @@ class EquipmentCashNotifier extends AsyncNotifier<MainEquipmentCash> {
       androidItemResponse =
           await dioInstance.dio.get(dotenv.get('MAPLESTORY_ANDROID_PATH'));
       androidItem = AndroidItem.fromJson(androidItemResponse.data);
-    } on DioException catch (e) {
+    } on DioException {
       throw Error();
     }
     /**beauty equipment */
@@ -55,7 +53,7 @@ class EquipmentCashNotifier extends AsyncNotifier<MainEquipmentCash> {
       beautyItemResponse =
           await dioInstance.dio.get(dotenv.get('MAPLESTORY_BEAUTY_PATH'));
       beautyItem = BeautyItem.fromJson(beautyItemResponse.data);
-    } on DioException catch (e) {
+    } on DioException {
       throw Error();
     }
 

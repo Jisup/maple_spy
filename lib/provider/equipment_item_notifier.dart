@@ -8,7 +8,6 @@ import 'package:maplespy/model/equipment/item_model.dart';
 import 'package:maplespy/model/equipment/item_set_effect_model.dart';
 import 'package:maplespy/model/main_equipment_item_model.dart';
 import 'package:maplespy/provider/common_provider.dart';
-import 'package:maplespy/util/day_instance.dart';
 import 'package:maplespy/util/dio_instance.dart';
 
 final asyncEquipmentItemProvider =
@@ -24,9 +23,8 @@ class EquipmentItemNotifier extends AsyncNotifier<MainEquipmentItem> {
     final dioInstance = DioInstance();
 
     final ocid = ref.read(ocidProvider);
-    final yesterday = DayInstance().yesterday;
 
-    dioInstance.dio.options.queryParameters = {'ocid': ocid, 'date': yesterday};
+    dioInstance.dio.options.queryParameters = {'ocid': ocid};
 
     /**item equipment */
     Response itemResponse;
@@ -35,7 +33,7 @@ class EquipmentItemNotifier extends AsyncNotifier<MainEquipmentItem> {
       itemResponse =
           await dioInstance.dio.get(dotenv.get('MAPLESTORY_ITEM_PATH'));
       item = Item.fromJson(itemResponse.data);
-    } on DioException catch (e) {
+    } on DioException {
       throw Error();
     }
     /**android equipment */
@@ -45,7 +43,7 @@ class EquipmentItemNotifier extends AsyncNotifier<MainEquipmentItem> {
       androidItemResponse =
           await dioInstance.dio.get(dotenv.get('MAPLESTORY_ANDROID_PATH'));
       androidItem = AndroidItem.fromJson(androidItemResponse.data);
-    } on DioException catch (e) {
+    } on DioException {
       throw Error();
     }
     /**set effect equipment */
@@ -55,7 +53,7 @@ class EquipmentItemNotifier extends AsyncNotifier<MainEquipmentItem> {
       itemSetEffectResponse =
           await dioInstance.dio.get(dotenv.get('MAPLESTORY_SETEFFECT_PATH'));
       itemSetEffect = ItemSetEffect.fromJson(itemSetEffectResponse.data);
-    } on DioException catch (e) {
+    } on DioException {
       throw Error();
     }
 

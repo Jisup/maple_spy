@@ -6,7 +6,6 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:maplespy/model/union/union_model.dart';
 import 'package:maplespy/model/union/union_raider_model.dart';
 import 'package:maplespy/provider/common_provider.dart';
-import 'package:maplespy/util/day_instance.dart';
 import 'package:maplespy/util/dio_instance.dart';
 
 final asyncUnionRaiderProvider = AsyncNotifierProvider(UnionRaiderNotifier.new);
@@ -26,9 +25,8 @@ class UnionRaiderNotifier extends AsyncNotifier {
     DioInstance dioInstance = DioInstance();
 
     final ocid = ref.read(ocidProvider);
-    final yesterday = DayInstance().yesterday;
 
-    dioInstance.dio.options.queryParameters = {'ocid': ocid, 'date': yesterday};
+    dioInstance.dio.options.queryParameters = {'ocid': ocid};
     /**-----basic */
     Response unionResponse;
     Union union;
@@ -36,7 +34,7 @@ class UnionRaiderNotifier extends AsyncNotifier {
       unionResponse =
           await dioInstance.dio.get(dotenv.get('MAPLESTORY_UNION_PATH'));
       union = Union.fromJson(unionResponse.data);
-    } on DioException catch (e) {
+    } on DioException {
       throw Error();
     }
     /**-----raider */
@@ -46,7 +44,7 @@ class UnionRaiderNotifier extends AsyncNotifier {
       unionRadierResponse =
           await dioInstance.dio.get(dotenv.get('MAPLESTORY_UNION_RAIDER_PATH'));
       unionRaider = UnionRaider.fromJson(unionRadierResponse.data);
-    } on DioException catch (e) {
+    } on DioException {
       throw Error();
     }
 

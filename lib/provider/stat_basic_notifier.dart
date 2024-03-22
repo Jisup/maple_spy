@@ -6,7 +6,6 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:maplespy/config/static_switch_config.dart';
 import 'package:maplespy/model/stat/stat_model.dart';
 import 'package:maplespy/provider/common_provider.dart';
-import 'package:maplespy/util/day_instance.dart';
 import 'package:maplespy/util/dio_instance.dart';
 
 final asyncStatBasicProvider =
@@ -25,9 +24,8 @@ class StatBasicNotifier extends AsyncNotifier<void> {
     DioInstance dioInstance = DioInstance();
 
     final ocid = ref.read(ocidProvider);
-    final yesterday = DayInstance().yesterday;
 
-    dioInstance.dio.options.queryParameters = {'ocid': ocid, 'date': yesterday};
+    dioInstance.dio.options.queryParameters = {'ocid': ocid};
 
     /**-----basic stat */
     Response basicResponse;
@@ -36,7 +34,7 @@ class StatBasicNotifier extends AsyncNotifier<void> {
       basicResponse =
           await dioInstance.dio.get(dotenv.get('MAPLESTORY_STAT_PATH'));
       basicStat = Stat.fromJson(basicResponse.data);
-    } on DioException catch (e) {
+    } on DioException {
       throw Error();
     }
 

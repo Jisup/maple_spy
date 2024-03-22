@@ -47,7 +47,7 @@ class MainController extends AutoDisposeNotifier {
       final ocidResponse =
           await dioInstance.dio.get(dotenv.get('MAPLESTORY_OCID_PATH'));
       ocid = ocidResponse.data['ocid'];
-    } on DioException catch (e) {
+    } on DioException {
       ref.read(hasError.notifier).update((state) => true);
       ref
           .read(errorMessage.notifier)

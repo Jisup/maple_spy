@@ -7,7 +7,6 @@ import 'package:maplespy/model/equipment/pet_item_model.dart';
 import 'package:maplespy/model/equipment/symbol_item_model.dart';
 import 'package:maplespy/model/main_equipment_pet_symbol_model.dart';
 import 'package:maplespy/provider/common_provider.dart';
-import 'package:maplespy/util/day_instance.dart';
 import 'package:maplespy/util/dio_instance.dart';
 
 final asyncEquipmentPetSymbolProvider =
@@ -23,9 +22,8 @@ class EquipmentPetSymbolNotifier extends AsyncNotifier<MainEquipmentPetSymbol> {
     final dioInstance = DioInstance();
 
     final ocid = ref.read(ocidProvider);
-    final yesterday = DayInstance().yesterday;
 
-    dioInstance.dio.options.queryParameters = {'ocid': ocid, 'date': yesterday};
+    dioInstance.dio.options.queryParameters = {'ocid': ocid};
 
     /**pet equipment */
     Response petItemResponse;
@@ -34,7 +32,7 @@ class EquipmentPetSymbolNotifier extends AsyncNotifier<MainEquipmentPetSymbol> {
       petItemResponse =
           await dioInstance.dio.get(dotenv.get('MAPLESTORY_PET_PATH'));
       petItem = PetItem.fromJson(petItemResponse.data);
-    } on DioException catch (e) {
+    } on DioException {
       throw Error();
     }
     /**symbol equipment */
@@ -44,7 +42,7 @@ class EquipmentPetSymbolNotifier extends AsyncNotifier<MainEquipmentPetSymbol> {
       symbolItemResponse =
           await dioInstance.dio.get(dotenv.get('MAPLESTORY_SYMBOL_PATH'));
       symbolItem = SymbolItem.fromJson(symbolItemResponse.data);
-    } on DioException catch (e) {
+    } on DioException {
       throw Error();
     }
 

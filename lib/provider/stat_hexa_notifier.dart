@@ -5,7 +5,6 @@ import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:maplespy/model/stat/hexa_matrix_stat_model.dart';
 import 'package:maplespy/provider/common_provider.dart';
-import 'package:maplespy/util/day_instance.dart';
 import 'package:maplespy/util/dio_instance.dart';
 
 final asyncStatHexaProvider =
@@ -24,9 +23,8 @@ class StatHexaNotifier extends AsyncNotifier<void> {
     DioInstance dioInstance = DioInstance();
 
     final ocid = ref.read(ocidProvider);
-    final yesterday = DayInstance().yesterday;
 
-    dioInstance.dio.options.queryParameters = {'ocid': ocid, 'date': yesterday};
+    dioInstance.dio.options.queryParameters = {'ocid': ocid};
 
     /**-----hexa matrix stat */
     Response hexaMatrixResponse;
@@ -35,7 +33,7 @@ class StatHexaNotifier extends AsyncNotifier<void> {
       hexaMatrixResponse = await dioInstance.dio
           .get(dotenv.get('MAPLESTORY_HEXAMATRIXSTAT_PATH'));
       hexaMatrixStat = HexaMatrixStat.fromJson(hexaMatrixResponse.data);
-    } on DioException catch (e) {
+    } on DioException {
       throw Error();
     }
 

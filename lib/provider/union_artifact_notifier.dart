@@ -5,7 +5,6 @@ import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:maplespy/model/union/union_artifact_model.dart';
 import 'package:maplespy/provider/common_provider.dart';
-import 'package:maplespy/util/day_instance.dart';
 import 'package:maplespy/util/dio_instance.dart';
 
 final asyncUnionArtifactProvider =
@@ -23,9 +22,8 @@ class UnionArtifactNotifier extends AsyncNotifier {
     DioInstance dioInstance = DioInstance();
 
     final ocid = ref.read(ocidProvider);
-    final yesterday = DayInstance().yesterday;
 
-    dioInstance.dio.options.queryParameters = {'ocid': ocid, 'date': yesterday};
+    dioInstance.dio.options.queryParameters = {'ocid': ocid};
     /**-----artifact */
     Response unionArtifactResponse;
     UnionArtifact unionArtifact;
@@ -33,7 +31,7 @@ class UnionArtifactNotifier extends AsyncNotifier {
       unionArtifactResponse = await dioInstance.dio
           .get(dotenv.get('MAPLESTORY_UNION_ARTIFACT_PATH'));
       unionArtifact = UnionArtifact.fromJson(unionArtifactResponse.data);
-    } on DioException catch (e) {
+    } on DioException {
       throw Error();
     }
     ref.read(unionArtifactProvider.notifier).update((state) => unionArtifact);

@@ -7,7 +7,6 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:maplespy/model/skill/skill_model.dart';
 import 'package:maplespy/model/skill/v_matrix_model.dart';
 import 'package:maplespy/provider/common_provider.dart';
-import 'package:maplespy/util/day_instance.dart';
 import 'package:maplespy/util/dio_instance.dart';
 
 final asyncSkillVProvider = AsyncNotifierProvider(SkillVNotifier.new);
@@ -37,9 +36,8 @@ class SkillVNotifier extends AsyncNotifier<void> {
     final dioInstance = DioInstance();
 
     final ocid = ref.read(ocidProvider);
-    final yesterday = DayInstance().yesterday;
 
-    dioInstance.dio.options.queryParameters = {'ocid': ocid, 'date': yesterday};
+    dioInstance.dio.options.queryParameters = {'ocid': ocid};
 
     /**-----v matrix */
     Response vMatrixResponse;
@@ -48,14 +46,13 @@ class SkillVNotifier extends AsyncNotifier<void> {
       vMatrixResponse =
           await dioInstance.dio.get(dotenv.get('MAPLESTORY_VMATRIX_PATH'));
       vMatrix = VMatrix.fromJson(vMatrixResponse.data);
-    } on DioException catch (e) {
+    } on DioException {
       throw Error();
     }
 
     /**-----v skill */
     dioInstance.dio.options.queryParameters = {
       'ocid': ocid,
-      'date': yesterday,
       'character_skill_grade': 5
     };
     Response vSkillResponse;
@@ -64,7 +61,7 @@ class SkillVNotifier extends AsyncNotifier<void> {
       vSkillResponse =
           await dioInstance.dio.get(dotenv.get('MAPLESTORY_SKILL_PATH'));
       vSkill = Skill.fromJson(vSkillResponse.data);
-    } on DioException catch (e) {
+    } on DioException {
       throw Error();
     }
 

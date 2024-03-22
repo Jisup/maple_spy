@@ -1,16 +1,11 @@
 import 'dart:async';
 
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:dio/dio.dart';
-import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:maplespy/model/character/basic_model.dart';
 import 'package:maplespy/model/firestore/character.dart';
 import 'package:maplespy/model/union/union_ranking_model.dart';
 import 'package:maplespy/provider/character_notifier.dart';
 import 'package:maplespy/provider/common_provider.dart';
-import 'package:maplespy/util/day_instance.dart';
-import 'package:maplespy/util/dio_instance.dart';
 
 final asyncUnionCharacterProvider =
     AsyncNotifierProvider(UnionCharacterNotifier.new);

@@ -14,7 +14,6 @@ import 'package:maplespy/model/stat/stat_model.dart';
 import 'package:maplespy/model/union/union_model.dart';
 import 'package:maplespy/model/union/union_ranking_model.dart';
 import 'package:maplespy/provider/common_provider.dart';
-import 'package:maplespy/util/day_instance.dart';
 import 'package:maplespy/util/dio_instance.dart';
 
 final asyncCharacterProvider = AsyncNotifierProvider(() {
@@ -35,7 +34,6 @@ class CharacterNotifier extends AsyncNotifier {
   Future<void> _fetchUnion(
       {required String oldOcid, required Basic basic}) async {
     final dioInstance = DioInstance();
-    final yesterday = DayInstance().yesterday;
 
     final db = FirebaseFirestore.instance;
     final characterRef = db.collection('characters').withConverter(
@@ -44,7 +42,6 @@ class CharacterNotifier extends AsyncNotifier {
 
     dioInstance.dio.options.queryParameters = {
       'ocid': oldOcid,
-      'date': yesterday,
       'world_name': basic.worldName,
     };
 
@@ -55,7 +52,7 @@ class CharacterNotifier extends AsyncNotifier {
       unionRankingResponse = await dioInstance.dio
           .get(dotenv.get('MAPLESTORY_UNION_RANKING_PATH'));
       unionRanking = UnionRanking.fromJson(unionRankingResponse.data);
-    } on DioException catch (e) {
+    } on DioException {
       throw Error();
     }
 
@@ -99,14 +96,11 @@ class CharacterNotifier extends AsyncNotifier {
             final ocidResponse =
                 await dioInstance.dio.get(dotenv.get('MAPLESTORY_OCID_PATH'));
             newOcid = ocidResponse.data['ocid'];
-          } on DioException catch (e) {
+          } on DioException {
             throw Error();
           }
 
-          dioInstance.dio.options.queryParameters = {
-            'ocid': newOcid,
-            'date': yesterday
-          };
+          dioInstance.dio.options.queryParameters = {'ocid': newOcid};
 
           /**-----basic*/
           Response newBasicResponse;
@@ -115,7 +109,7 @@ class CharacterNotifier extends AsyncNotifier {
             newBasicResponse =
                 await dioInstance.dio.get(dotenv.get('MAPLESTORY_BASIC_PATH'));
             newBasic = Basic.fromJson(newBasicResponse.data);
-          } on DioException catch (e) {
+          } on DioException {
             throw Error();
           }
           // 메인 캐릭터의 정보를 가져왔다면, 그 정보를 등록하고 id를 받아오자
@@ -178,11 +172,10 @@ class CharacterNotifier extends AsyncNotifier {
 
   Future<void> _fetchCharacter() async {
     final dioInstance = DioInstance();
-    final yesterday = DayInstance().yesterday;
 
     final ocid = ref.read(ocidProvider);
 
-    dioInstance.dio.options.queryParameters = {'ocid': ocid, 'date': yesterday};
+    dioInstance.dio.options.queryParameters = {'ocid': ocid};
     /**-----basic*/
     Response basicResponse;
     Basic basic;
@@ -190,7 +183,7 @@ class CharacterNotifier extends AsyncNotifier {
       basicResponse =
           await dioInstance.dio.get(dotenv.get('MAPLESTORY_BASIC_PATH'));
       basic = Basic.fromJson(basicResponse.data);
-    } on DioException catch (e) {
+    } on DioException {
       throw Error();
     }
 
@@ -201,7 +194,7 @@ class CharacterNotifier extends AsyncNotifier {
       dojangResponse =
           await dioInstance.dio.get(dotenv.get('MAPLESTORY_DOJANG_PATH'));
       dojang = Dojang.fromJson(dojangResponse.data);
-    } on DioException catch (e) {
+    } on DioException {
       throw Error();
     }
     /**-----popularity*/
@@ -231,7 +224,7 @@ class CharacterNotifier extends AsyncNotifier {
       statResponse =
           await dioInstance.dio.get(dotenv.get('MAPLESTORY_STAT_PATH'));
       stat = Stat.fromJson(statResponse.data);
-    } on DioException catch (e) {
+    } on DioException {
       throw Error();
     }
     /**-----union */
@@ -241,7 +234,7 @@ class CharacterNotifier extends AsyncNotifier {
       unionResponse =
           await dioInstance.dio.get(dotenv.get('MAPLESTORY_UNION_PATH'));
       union = Union.fromJson(unionResponse.data);
-    } on DioException catch (e) {
+    } on DioException {
       throw Error();
     }
 

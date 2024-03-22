@@ -73,21 +73,21 @@ class MainInforMationPage extends ConsumerWidget {
                           ),
                           TextSpan(
                               text:
-                                  '는\n메이플스토리의 캐릭터의 다양한 정보를\n조회할 수 있는 애플리케이션입니다.'),
+                                  '는\n메이플스토리 캐릭터의 다양한 정보를\n조회할 수 있는 애플리케이션입니다.'),
                         ]),
                       ),
                     ),
                     FractionallySizedBox(
                       widthFactor: 1,
                       child: Text(
-                        '2023년 12월 21일 데이터부터 조회할 수 있으며,\n매일 오전 1시를 기준으로 데이터가 갱신됩니다.',
+                        '2023년 12월 21일 데이터 부터\n실시간으로 조회할 수 있으며,\n평균 15분의 데이터 갱신 시간이 필요합니다.',
                         textAlign: TextAlign.center,
                       ),
                     ),
                     FractionallySizedBox(
                       widthFactor: 1,
                       child: Text(
-                        '단, 일일 제한 요청량이 초과할 경우\n캐릭터 정보 조회가 불가능할 수 있습니다.',
+                        '단, 일일 제한 요청량이 초과할 경우\n서비스 이용이 불가능할 수 있습니다.',
                         textAlign: TextAlign.center,
                       ),
                     ),

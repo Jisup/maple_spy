@@ -6,7 +6,6 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:maplespy/model/stat/ability_stat_model.dart';
 import 'package:maplespy/model/stat/hyper_stat_model.dart';
 import 'package:maplespy/provider/common_provider.dart';
-import 'package:maplespy/util/day_instance.dart';
 import 'package:maplespy/util/dio_instance.dart';
 
 final asyncStatAbilityHyperProvider =
@@ -29,9 +28,8 @@ class StatAbilityHyperNotifier extends AsyncNotifier<void> {
     DioInstance dioInstance = DioInstance();
 
     final ocid = ref.read(ocidProvider);
-    final yesterday = DayInstance().yesterday;
 
-    dioInstance.dio.options.queryParameters = {'ocid': ocid, 'date': yesterday};
+    dioInstance.dio.options.queryParameters = {'ocid': ocid};
 
     /**-----ability stat */
     Response abilityResponse;
@@ -40,7 +38,7 @@ class StatAbilityHyperNotifier extends AsyncNotifier<void> {
       abilityResponse =
           await dioInstance.dio.get(dotenv.get('MAPLESTORY_ABILITY_PATH'));
       abilityStat = AbilityStat.fromJson(abilityResponse.data);
-    } on DioException catch (e) {
+    } on DioException {
       throw Error();
     }
 
@@ -51,7 +49,7 @@ class StatAbilityHyperNotifier extends AsyncNotifier<void> {
       hyperResponse =
           await dioInstance.dio.get(dotenv.get('MAPLESTORY_HYPERSTAT_PATH'));
       hyperStat = HyperStat.fromJson(hyperResponse.data);
-    } on DioException catch (e) {
+    } on DioException {
       throw Error();
     }
 

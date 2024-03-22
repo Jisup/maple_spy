@@ -14,6 +14,7 @@ import 'package:maplespy/model/stat/stat_model.dart';
 import 'package:maplespy/model/union/union_model.dart';
 import 'package:maplespy/model/union/union_ranking_model.dart';
 import 'package:maplespy/provider/common_provider.dart';
+import 'package:maplespy/util/day_instance.dart';
 import 'package:maplespy/util/dio_instance.dart';
 
 final asyncCharacterProvider = AsyncNotifierProvider(() {
@@ -34,6 +35,7 @@ class CharacterNotifier extends AsyncNotifier {
   Future<void> _fetchUnion(
       {required String oldOcid, required Basic basic}) async {
     final dioInstance = DioInstance();
+    final yesterday = DayInstance().yesterday;
 
     final db = FirebaseFirestore.instance;
     final characterRef = db.collection('characters').withConverter(
@@ -42,6 +44,7 @@ class CharacterNotifier extends AsyncNotifier {
 
     dioInstance.dio.options.queryParameters = {
       'ocid': oldOcid,
+      'date': yesterday,
       'world_name': basic.worldName,
     };
 
@@ -100,7 +103,10 @@ class CharacterNotifier extends AsyncNotifier {
             throw Error();
           }
 
-          dioInstance.dio.options.queryParameters = {'ocid': newOcid};
+          dioInstance.dio.options.queryParameters = {
+            'ocid': newOcid,
+            'date': yesterday
+          };
 
           /**-----basic*/
           Response newBasicResponse;

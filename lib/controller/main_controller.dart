@@ -87,6 +87,7 @@ class MainController extends AutoDisposeNotifier {
 
     ref.read(skillSelectTabProvider.notifier).update((state) => 'hexa');
 
+    ref.read(unionRaiderPresetProvider.notifier).update((state) => 'main');
     ref.read(unionSelectTabProvider.notifier).update((state) => 'raider');
     ref
         .read(unionRaiderSelectTabProvider.notifier)

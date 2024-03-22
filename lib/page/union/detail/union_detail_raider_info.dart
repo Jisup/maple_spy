@@ -3,24 +3,26 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:maplespy/config/color_config.dart';
 import 'package:maplespy/config/const_config.dart';
 import 'package:maplespy/config/static_switch_config.dart';
+import 'package:maplespy/model/union/union_raider_model.dart';
 import 'package:maplespy/page/main_error_page.dart';
-import 'package:maplespy/provider/union_raider_notifier.dart';
 import 'package:maplespy/widget/common/custom_text_widget.dart';
 
 class UnionDetailRaiderInfo extends ConsumerWidget {
-  const UnionDetailRaiderInfo({super.key});
+  const UnionDetailRaiderInfo({super.key, required this.raiderInfo});
+
+  final List<UnionInfo> raiderInfo;
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final unionRaiderNotifier = ref.read(asyncUnionRaiderProvider.notifier);
-    final raiderInfo =
-        ref.watch(unionRaiderNotifier.unionRaiderProvider).unionInfo;
+    ColorScheme colorScheme = Theme.of(context).colorScheme;
 
     return Container(
-      margin: EdgeInsets.only(
+      padding: EdgeInsets.only(
         left: DimenConfig.commonDimen * 2,
         right: DimenConfig.commonDimen * 2,
+        bottom: DimenConfig.commonDimen * 2,
       ),
+      color: colorScheme.onPrimary,
       child: Column(
         children: [
           Container(

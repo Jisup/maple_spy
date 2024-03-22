@@ -80,6 +80,7 @@ class NavController extends AutoDisposeNotifier {
         ref.read(skillSelectTabProvider.notifier).update((state) => 'hexa');
         break;
       case '유니온':
+        ref.read(unionRaiderPresetProvider.notifier).update((state) => 'main');
         ref.read(unionSelectTabProvider.notifier).update((state) => 'raider');
         ref
             .read(unionRaiderSelectTabProvider.notifier)

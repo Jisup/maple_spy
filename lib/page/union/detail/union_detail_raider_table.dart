@@ -2,18 +2,17 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:maplespy/config/color_config.dart';
 import 'package:maplespy/config/const_config.dart';
-import 'package:maplespy/provider/union_raider_notifier.dart';
+import 'package:maplespy/model/union/union_raider_model.dart';
 import 'package:maplespy/widget/common/custom_text_widget.dart';
 
 class UnionDetailRaiderTable extends ConsumerWidget {
-  const UnionDetailRaiderTable({super.key});
+  const UnionDetailRaiderTable({super.key, required this.unionRaider});
+
+  final UnionRaiderPreset? unionRaider;
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     ColorScheme colorScheme = Theme.of(context).colorScheme;
-
-    final unionRaiderNotifier = ref.read(asyncUnionRaiderProvider.notifier);
-    final unionRaider = ref.watch(unionRaiderNotifier.unionRaiderProvider);
 
     return Container(
       margin: EdgeInsets.only(
@@ -64,31 +63,36 @@ class UnionDetailRaiderTable extends ConsumerWidget {
                                   child: Container(
                                     decoration: BoxDecoration(
                                         border: setBlockBorder(
-                                      borderList: unionRaider
-                                          .unionTableBorder[column][row],
+                                      borderList: unionRaider != null
+                                          ? unionRaider!
+                                              .unionTableBorder[column][row]
+                                          : [],
                                       trueType: Colors.white,
                                     )),
                                     child: Container(
-                                      decoration: unionRaider
-                                              .unionTable[column][row].isExist
-                                          ? BoxDecoration(
-                                              // color: UnionColor.unionBackground,
-                                              color: UnionColor
-                                                  .unionBlockBackground,
-                                              border: setBlockBorder(
-                                                  borderList: unionRaider
-                                                      .unionTable[column][row]
-                                                      .border,
-                                                  falseType: UnionColor
-                                                      .unionBlockBackground),
-                                            )
-                                          : setBoxDecoration(
-                                              column: column,
-                                              row: row,
-                                              startColor:
-                                                  UnionColor.unionBackground,
-                                              endColor: colorScheme.primary,
-                                            ),
+                                      decoration: unionRaider != null
+                                          ? unionRaider!.unionTable[column][row]
+                                                  .isExist
+                                              ? BoxDecoration(
+                                                  // color: UnionColor.unionBackground,
+                                                  color: UnionColor
+                                                      .unionBlockBackground,
+                                                  border: setBlockBorder(
+                                                      borderList: unionRaider!
+                                                          .unionTable[column]
+                                                              [row]
+                                                          .border,
+                                                      falseType: UnionColor
+                                                          .unionBlockBackground),
+                                                )
+                                              : setBoxDecoration(
+                                                  column: column,
+                                                  row: row,
+                                                  startColor: UnionColor
+                                                      .unionBackground,
+                                                  endColor: colorScheme.primary,
+                                                )
+                                          : null,
                                       child: Text(''),
                                     ),
                                   ),
@@ -105,7 +109,7 @@ class UnionDetailRaiderTable extends ConsumerWidget {
                     offset: Offset(innerFieldX * fieldType[i][1],
                         innerFieldY * fieldType[i][0]),
                     child: CustomTextWidget(
-                      text: unionRaider.unionInnerField[i],
+                      text: unionRaider!.unionInnerField[i],
                       textAlign: TextAlign.center,
                       size: FontConfig.subSize,
                       color: Colors.white,
@@ -117,7 +121,7 @@ class UnionDetailRaiderTable extends ConsumerWidget {
                     offset: Offset(outerFieldX * fieldType[i][1],
                         outerFieldY * fieldType[i][0]),
                     child: CustomTextWidget(
-                      text: unionRaider.unionOuterField[i],
+                      text: unionRaider!.unionOuterField[i],
                       textAlign: TextAlign.center,
                       size: FontConfig.subSize,
                       color: Colors.white,

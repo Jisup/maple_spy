@@ -6,21 +6,193 @@ class UnionRaider {
   List<String>? unionOccupiedStat;
   List<UnionInnerStat>? unionInnerStat;
   List<UnionBlock>? unionBlock;
-  late List<List<List<bool>>> unionTableBorder;
-  late List<List<UnionDetail>> unionTable;
-  late List<UnionInfo> unionInfo;
-  late List<String> unionInnerField;
-  late List<String> unionOuterField;
+  int? usePresetNo;
+  UnionRaiderPreset? unionRaiderPreset1;
+  UnionRaiderPreset? unionRaiderPreset2;
+  UnionRaiderPreset? unionRaiderPreset3;
+  UnionRaiderPreset? unionRaiderPreset4;
+  UnionRaiderPreset? unionRaiderPreset5;
 
   UnionRaider(
       {this.date,
       this.unionRaiderStat,
       this.unionOccupiedStat,
       this.unionInnerStat,
-      this.unionBlock});
+      this.unionBlock,
+      this.usePresetNo,
+      this.unionRaiderPreset1,
+      this.unionRaiderPreset2,
+      this.unionRaiderPreset3,
+      this.unionRaiderPreset4,
+      this.unionRaiderPreset5});
 
   UnionRaider.fromJson(Map<String, dynamic> json) {
     date = json['date'];
+    unionRaiderStat = json['union_raider_stat'].cast<String>();
+    unionOccupiedStat = json['union_occupied_stat'].cast<String>();
+    if (json['union_inner_stat'] != null) {
+      unionInnerStat = <UnionInnerStat>[];
+      json['union_inner_stat'].forEach((v) {
+        unionInnerStat!.add(new UnionInnerStat.fromJson(v));
+      });
+    }
+    if (json['union_block'] != null) {
+      unionBlock = <UnionBlock>[];
+      json['union_block'].forEach((v) {
+        unionBlock!.add(new UnionBlock.fromJson(v));
+      });
+    }
+    usePresetNo = json['use_preset_no'];
+    unionRaiderPreset1 = json['union_raider_preset_1'] != null
+        ? new UnionRaiderPreset.fromJson(json['union_raider_preset_1'])
+        : null;
+    unionRaiderPreset2 = json['union_raider_preset_2'] != null
+        ? new UnionRaiderPreset.fromJson(json['union_raider_preset_2'])
+        : null;
+    unionRaiderPreset3 = json['union_raider_preset_3'] != null
+        ? new UnionRaiderPreset.fromJson(json['union_raider_preset_3'])
+        : null;
+    unionRaiderPreset4 = json['union_raider_preset_4'] != null
+        ? new UnionRaiderPreset.fromJson(json['union_raider_preset_4'])
+        : null;
+    unionRaiderPreset5 = json['union_raider_preset_5'] != null
+        ? new UnionRaiderPreset.fromJson(json['union_raider_preset_5'])
+        : null;
+  }
+
+  Map<String, dynamic> toJson() {
+    final Map<String, dynamic> data = new Map<String, dynamic>();
+    data['date'] = this.date;
+    data['union_raider_stat'] = this.unionRaiderStat;
+    data['union_occupied_stat'] = this.unionOccupiedStat;
+    if (this.unionInnerStat != null) {
+      data['union_inner_stat'] =
+          this.unionInnerStat!.map((v) => v.toJson()).toList();
+    }
+    if (this.unionBlock != null) {
+      data['union_block'] = this.unionBlock!.map((v) => v.toJson()).toList();
+    }
+    data['use_preset_no'] = this.usePresetNo;
+    if (this.unionRaiderPreset1 != null) {
+      data['union_raider_preset_1'] = this.unionRaiderPreset1!.toJson();
+    }
+    if (this.unionRaiderPreset2 != null) {
+      data['union_raider_preset_2'] = this.unionRaiderPreset2!.toJson();
+    }
+    if (this.unionRaiderPreset3 != null) {
+      data['union_raider_preset_3'] = this.unionRaiderPreset3!.toJson();
+    }
+    if (this.unionRaiderPreset4 != null) {
+      data['union_raider_preset_4'] = this.unionRaiderPreset4!.toJson();
+    }
+    if (this.unionRaiderPreset5 != null) {
+      data['union_raider_preset_5'] = this.unionRaiderPreset5!.toJson();
+    }
+    return data;
+  }
+}
+
+class UnionInnerStat {
+  String? statFieldId;
+  String? statFieldEffect;
+
+  UnionInnerStat({this.statFieldId, this.statFieldEffect});
+
+  UnionInnerStat.fromJson(Map<String, dynamic> json) {
+    statFieldId = json['stat_field_id'];
+    statFieldEffect = json['stat_field_effect'];
+  }
+
+  Map<String, dynamic> toJson() {
+    final Map<String, dynamic> data = new Map<String, dynamic>();
+    data['stat_field_id'] = this.statFieldId;
+    data['stat_field_effect'] = this.statFieldEffect;
+    return data;
+  }
+}
+
+class UnionBlock {
+  String? blockType;
+  String? blockClass;
+  String? blockLevel;
+  BlockControlPoint? blockControlPoint;
+  List<BlockPosition>? blockPosition;
+
+  UnionBlock(
+      {this.blockType,
+      this.blockClass,
+      this.blockLevel,
+      this.blockControlPoint,
+      this.blockPosition});
+
+  UnionBlock.fromJson(Map<String, dynamic> json) {
+    blockType = json['block_type'];
+    blockClass = json['block_class'];
+    blockLevel = json['block_level'];
+    blockControlPoint = json['block_control_point'] != null
+        ? new BlockControlPoint.fromJson(json['block_control_point'])
+        : null;
+    if (json['block_position'] != null) {
+      blockPosition = <BlockPosition>[];
+      json['block_position'].forEach((v) {
+        blockPosition!.add(new BlockPosition.fromJson(v));
+      });
+    }
+  }
+
+  Map<String, dynamic> toJson() {
+    final Map<String, dynamic> data = new Map<String, dynamic>();
+    data['block_type'] = this.blockType;
+    data['block_class'] = this.blockClass;
+    data['block_level'] = this.blockLevel;
+    if (this.blockControlPoint != null) {
+      data['block_control_point'] = this.blockControlPoint!.toJson();
+    }
+    if (this.blockPosition != null) {
+      data['block_position'] =
+          this.blockPosition!.map((v) => v.toJson()).toList();
+    }
+    return data;
+  }
+}
+
+class BlockControlPoint {
+  int? x;
+  int? y;
+
+  BlockControlPoint({this.x, this.y});
+
+  BlockControlPoint.fromJson(Map<String, dynamic> json) {
+    x = json['x'];
+    y = json['y'];
+  }
+
+  Map<String, dynamic> toJson() {
+    final Map<String, dynamic> data = new Map<String, dynamic>();
+    data['x'] = this.x;
+    data['y'] = this.y;
+    return data;
+  }
+}
+
+class UnionRaiderPreset {
+  List<String>? unionRaiderStat;
+  List<String>? unionOccupiedStat;
+  List<UnionInnerStat>? unionInnerStat;
+  List<UnionBlock>? unionBlock;
+  late List<List<List<bool>>> unionTableBorder;
+  late List<List<UnionDetail>> unionTable;
+  late List<UnionInfo> unionInfo;
+  late List<String> unionInnerField;
+  late List<String> unionOuterField;
+
+  UnionRaiderPreset(
+      {this.unionRaiderStat,
+      this.unionOccupiedStat,
+      this.unionInnerStat,
+      this.unionBlock});
+
+  UnionRaiderPreset.fromJson(Map<String, dynamic> json) {
     unionRaiderStat = json['union_raider_stat'].cast<String>();
     unionOccupiedStat = json['union_occupied_stat'].cast<String>();
     if (json['union_inner_stat'] != null) {
@@ -174,24 +346,25 @@ class UnionRaider {
     }
 
     /**----- 유니온 캐릭터 정보 정렬 */
-    unionInfo.sort((a, b) {
-      var a_result = StaticSwitchConfig.switchUnionCharacter(
-          characterClass: a.characterClass);
-      var b_result = StaticSwitchConfig.switchUnionCharacter(
-          characterClass: b.characterClass);
-      if (a.characterLevel == b.characterLevel) {
-        if (a_result == b_result) {
-          return a.characterClass.compareTo(b.characterClass);
+    if (unionInfo.isNotEmpty) {
+      unionInfo.sort((a, b) {
+        var a_result = StaticSwitchConfig.switchUnionCharacter(
+            characterClass: a.characterClass);
+        var b_result = StaticSwitchConfig.switchUnionCharacter(
+            characterClass: b.characterClass);
+        if (a.characterLevel == b.characterLevel) {
+          if (a_result == b_result) {
+            return a.characterClass.compareTo(b.characterClass);
+          }
+          return a_result - b_result;
         }
-        return a_result - b_result;
-      }
-      return int.parse(b.characterLevel) - int.parse(a.characterLevel);
-    });
+        return int.parse(b.characterLevel) - int.parse(a.characterLevel);
+      });
+    }
   }
 
   Map<String, dynamic> toJson() {
     final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['date'] = this.date;
     data['union_raider_stat'] = this.unionRaiderStat;
     data['union_occupied_stat'] = this.unionOccupiedStat;
     if (this.unionInnerStat != null) {
@@ -201,89 +374,6 @@ class UnionRaider {
     if (this.unionBlock != null) {
       data['union_block'] = this.unionBlock!.map((v) => v.toJson()).toList();
     }
-    return data;
-  }
-}
-
-class UnionInnerStat {
-  String? statFieldId;
-  String? statFieldEffect;
-
-  UnionInnerStat({this.statFieldId, this.statFieldEffect});
-
-  UnionInnerStat.fromJson(Map<String, dynamic> json) {
-    statFieldId = json['stat_field_id'];
-    statFieldEffect = json['stat_field_effect'];
-  }
-
-  Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['stat_field_id'] = this.statFieldId;
-    data['stat_field_effect'] = this.statFieldEffect;
-    return data;
-  }
-}
-
-class UnionBlock {
-  String? blockType;
-  String? blockClass;
-  String? blockLevel;
-  BlockControlPoint? blockControlPoint;
-  List<BlockPosition>? blockPosition;
-
-  UnionBlock(
-      {this.blockType,
-      this.blockClass,
-      this.blockLevel,
-      this.blockControlPoint,
-      this.blockPosition});
-
-  UnionBlock.fromJson(Map<String, dynamic> json) {
-    blockType = json['block_type'];
-    blockClass = json['block_class'];
-    blockLevel = json['block_level'];
-    blockControlPoint = json['block_control_point'] != null
-        ? new BlockControlPoint.fromJson(json['block_control_point'])
-        : null;
-    if (json['block_position'] != null) {
-      blockPosition = <BlockPosition>[];
-      json['block_position'].forEach((v) {
-        blockPosition!.add(new BlockPosition.fromJson(v));
-      });
-    }
-  }
-
-  Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['block_type'] = this.blockType;
-    data['block_class'] = this.blockClass;
-    data['block_level'] = this.blockLevel;
-    if (this.blockControlPoint != null) {
-      data['block_control_point'] = this.blockControlPoint!.toJson();
-    }
-    if (this.blockPosition != null) {
-      data['block_position'] =
-          this.blockPosition!.map((v) => v.toJson()).toList();
-    }
-    return data;
-  }
-}
-
-class BlockControlPoint {
-  int? x;
-  int? y;
-
-  BlockControlPoint({this.x, this.y});
-
-  BlockControlPoint.fromJson(Map<String, dynamic> json) {
-    x = json['x'];
-    y = json['y'];
-  }
-
-  Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['x'] = this.x;
-    data['y'] = this.y;
     return data;
   }
 }

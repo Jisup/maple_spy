@@ -283,6 +283,38 @@ class StaticListConfig {
       'fontSize': FontConfig.commonSize,
     },
   ];
+  static final List<dynamic> unionRaiderPresetTabList = [
+    {
+      'name': 'main',
+      'text': 'M',
+      'fontSize': FontConfig.commonSize,
+    },
+    {
+      'name': 'preset1',
+      'text': '1',
+      'fontSize': FontConfig.commonSize,
+    },
+    {
+      'name': 'preset2',
+      'text': '2',
+      'fontSize': FontConfig.commonSize,
+    },
+    {
+      'name': 'preset3',
+      'text': '3',
+      'fontSize': FontConfig.commonSize,
+    },
+    {
+      'name': 'preset4',
+      'text': '4',
+      'fontSize': FontConfig.commonSize,
+    },
+    {
+      'name': 'preset5',
+      'text': '5',
+      'fontSize': FontConfig.commonSize,
+    },
+  ];
   /**-----part */
   static final List<dynamic> equipmentItemList = [
     {

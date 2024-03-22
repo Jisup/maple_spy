@@ -24,6 +24,7 @@ class UnionArtifactPage extends ConsumerWidget {
             margin: EdgeInsets.only(
               left: DimenConfig.commonDimen * 2,
               right: DimenConfig.commonDimen * 2,
+              bottom: DimenConfig.commonDimen * 2,
             ),
             child: Column(
               children: [

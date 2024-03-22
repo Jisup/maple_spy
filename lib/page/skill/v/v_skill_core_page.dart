@@ -41,9 +41,11 @@ class VSkillCorePage extends ConsumerWidget {
               ),
               Container(
                 margin: EdgeInsets.only(bottom: DimenConfig.maxDimen / 2),
+                alignment: Alignment.centerLeft,
                 child: Wrap(
                   spacing: DimenConfig.commonDimen,
                   runSpacing: DimenConfig.commonDimen + DimenConfig.subDimen,
+                  alignment: WrapAlignment.start,
                   children: vSkillCore!.reversed.map(
                     (core) {
                       return GestureDetector(

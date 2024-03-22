@@ -33,7 +33,7 @@ class _MainInsertPageState extends ConsumerState<MainInsertPage> {
     remoteConfig.setConfigSettings(RemoteConfigSettings(
       fetchTimeout: Duration(milliseconds: 2000),
       // minimumFetchInterval: Duration(milliseconds: 1),
-      minimumFetchInterval: Duration(hours: 24),
+      minimumFetchInterval: Duration(hours: 12),
     ));
     remoteConfig.setDefaults({
       'latest_version': '0.0.0',

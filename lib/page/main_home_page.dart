@@ -52,11 +52,14 @@ class _MainHomeState extends ConsumerState<MainHomePage> {
 
     String remoteEmergencyNoticeData =
         remoteConfig.getString('emergency_notice');
-    Map<String, dynamic> remoteEmergencyNoticeJsonData =
-        jsonDecode(remoteEmergencyNoticeData);
-    setState(() {
-      emergencyNotice = Notice.fromJson(remoteEmergencyNoticeJsonData);
-    });
+
+    if (remoteEmergencyNoticeData != '') {
+      Map<String, dynamic> remoteEmergencyNoticeJsonData =
+          jsonDecode(remoteEmergencyNoticeData);
+      setState(() {
+        emergencyNotice = Notice.fromJson(remoteEmergencyNoticeJsonData);
+      });
+    }
   }
 
   @override
@@ -106,29 +109,30 @@ class _MainHomeState extends ConsumerState<MainHomePage> {
                                       child:
                                           // Text('[공지] ${emergencyNotice!.title}'),
                                           GestureDetector(
-                                        onTap: () {
-                                          if (_focusNode.hasFocus)
-                                            _focusNode.unfocus();
-                                          context.go('/notice',
-                                              extra: emergencyNotice);
-                                        },
-                                        child: Text.rich(
-                                          style: TextStyle(
-                                              fontSize:
-                                                  FontConfig.middleDownSize),
-                                          TextSpan(
-                                            children: [
-                                              TextSpan(
-                                                  text: '[공지] ',
-                                                  style: TextStyle(
-                                                      fontWeight:
-                                                          FontWeight.bold)),
-                                              TextSpan(
-                                                  text: emergencyNotice!.title),
-                                            ],
-                                          ),
-                                        ),
-                                      ))
+                                              onTap: () {
+                                                if (_focusNode.hasFocus)
+                                                  _focusNode.unfocus();
+                                                context.go('/notice',
+                                                    extra: emergencyNotice);
+                                              },
+                                              child: Text.rich(
+                                                style: TextStyle(
+                                                    fontSize: FontConfig
+                                                        .middleDownSize),
+                                                TextSpan(
+                                                  children: [
+                                                    TextSpan(
+                                                        text: '[공지] ',
+                                                        style: TextStyle(
+                                                            fontWeight:
+                                                                FontWeight
+                                                                    .bold)),
+                                                    TextSpan(
+                                                        text: emergencyNotice!
+                                                            .title),
+                                                  ],
+                                                ),
+                                              )))
                                   : SizedBox.shrink(),
                             ],
                           ),

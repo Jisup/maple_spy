@@ -49,7 +49,7 @@ class _MainEquipmentPageState extends ConsumerState<MainEquipmentPage> {
                 ref.read(equipmentSelectTabProvider.notifier).update((state) =>
                     (StaticListConfig.detailEquipmentTabList[value]['name']));
               },
-              children: [
+              children: const [
                 AsyncItemPage(),
                 AsyncCashPage(),
                 AsyncPetSymbolPage(),

@@ -72,14 +72,14 @@ class CharacterInfoWidget extends ConsumerWidget {
                                     size: FontConfig.middleDownSize,
                                     color: type ? Colors.white : Colors.black,
                                   )
-                                : SizedBox.shrink(),
+                                : const SizedBox.shrink(),
                           ],
                         ),
                       ),
                     ),
                   ),
                 )
-              : SizedBox.shrink(),
+              : const SizedBox.shrink(),
           Expanded(
             child: Container(
               padding: EdgeInsets.all(title != null

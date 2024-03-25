@@ -31,7 +31,7 @@ class AbilityDetailGradePage extends ConsumerWidget {
         boxShadow: [
           BoxShadow(
             blurStyle: BlurStyle.solid,
-            offset: Offset(0, 2),
+            offset: const Offset(0, 2),
             color: StaticSwitchConfig.statBackgroundColor[grade]!,
           )
         ],
@@ -56,7 +56,7 @@ class AbilityDetailGradePage extends ConsumerWidget {
               color: Colors.white,
               shadows: [
                 Shadow(
-                  offset: Offset(0, -1),
+                  offset: const Offset(0, -1),
                   color: StaticSwitchConfig.statBorderColor[grade]!,
                 )
               ],

@@ -14,10 +14,10 @@ class AsyncUnionCharacterPage extends ConsumerWidget {
     final asyncUnionMainCharacter = ref.watch(asyncUnionCharacterProvider);
 
     return switch (asyncUnionMainCharacter) {
-      AsyncData() => UnionCharacterPage(),
+      AsyncData() => const UnionCharacterPage(),
       AsyncError() => MainErrorPage(
           message: ErrorMessageConfig.unionMainCharacterPageRequestError),
-      _ => LoadingSpinner(),
+      _ => const LoadingSpinner(),
     };
   }
 }

@@ -32,7 +32,7 @@ class UnionDetailCrystalInfo extends ConsumerWidget {
             Container(
               alignment: Alignment.center,
               decoration: BoxDecoration(
-                gradient: LinearGradient(
+                gradient: const LinearGradient(
                     begin: Alignment.topCenter,
                     end: Alignment.bottomCenter,
                     colors: [
@@ -72,7 +72,7 @@ class UnionDetailCrystalInfo extends ConsumerWidget {
                         ],
                       ),
                     ))
-                : SizedBox.shrink(),
+                : const SizedBox.shrink(),
           ],
         ),
       ),

@@ -62,9 +62,9 @@ class SkillDetailPage extends ConsumerWidget {
                           ? Container(
                               width: MediaQuery.of(context).size.width / 4,
                               height: 24,
-                              padding: EdgeInsets.all(1),
+                              padding: const EdgeInsets.all(1),
                               decoration: BoxDecoration(
-                                  gradient: LinearGradient(
+                                  gradient: const LinearGradient(
                                       begin: Alignment.topCenter,
                                       end: Alignment.bottomCenter,
                                       colors: [
@@ -73,7 +73,7 @@ class SkillDetailPage extends ConsumerWidget {
                                       ]),
                                   borderRadius: BorderRadius.circular(
                                       RadiusConfig.maxRadius),
-                                  boxShadow: [
+                                  boxShadow: const [
                                     BoxShadow(
                                       offset: Offset(1, 1),
                                       color: Colors.black,
@@ -81,7 +81,7 @@ class SkillDetailPage extends ConsumerWidget {
                                   ]),
                               child: Container(
                                 decoration: BoxDecoration(
-                                    gradient: LinearGradient(
+                                    gradient: const LinearGradient(
                                         begin: Alignment.topCenter,
                                         end: Alignment.bottomCenter,
                                         colors: [
@@ -98,7 +98,7 @@ class SkillDetailPage extends ConsumerWidget {
                                       color: SkillColor.commonInfoText,
                                       fontSize: FontConfig.subSize,
                                       fontWeight: FontWeight.bold,
-                                      shadows: [
+                                      shadows: const [
                                         Shadow(
                                           offset: Offset(0, -2),
                                           color: SkillColor.originTextShadow,
@@ -107,7 +107,7 @@ class SkillDetailPage extends ConsumerWidget {
                                 ),
                               ),
                             )
-                          : SizedBox.shrink(),
+                          : const SizedBox.shrink(),
                     ),
                     Container(
                       margin: EdgeInsets.only(
@@ -161,17 +161,17 @@ class SkillDetailPage extends ConsumerWidget {
                                     children: [
                                       Text(
                                         '[마스터 레벨 : ${masterLevel}${skillInfo.slotLevel != null ? ' + ${skillInfo.slotLevel}' : ''}]',
-                                        style: TextStyle(
+                                        style: const TextStyle(
                                             color: SkillColor.commonInfoText),
                                       ),
                                       skillInfo.slotLevel != null
                                           ? Text(
                                               '(슬릇 강화 효과 + ${skillInfo.slotLevel})',
-                                              style: TextStyle(
+                                              style: const TextStyle(
                                                   color:
                                                       SkillColor.subInfoText),
                                             )
-                                          : SizedBox.shrink(),
+                                          : const SizedBox.shrink(),
                                     ],
                                   ),
                                 ],
@@ -194,8 +194,8 @@ class SkillDetailPage extends ConsumerWidget {
                           children: [
                             Text(
                               description,
-                              style:
-                                  TextStyle(color: SkillColor.commonInfoText),
+                              style: const TextStyle(
+                                  color: SkillColor.commonInfoText),
                             ),
                             skillInfo.subDescription != null
                                 ? Container(
@@ -203,15 +203,15 @@ class SkillDetailPage extends ConsumerWidget {
                                         top: DimenConfig.commonDimen * 2),
                                     child: Text(
                                       skillInfo.subDescription!,
-                                      style: TextStyle(
+                                      style: const TextStyle(
                                           color: SkillColor.subInfoText),
                                     ))
-                                : SizedBox.shrink(),
+                                : const SizedBox.shrink(),
                           ],
                         ),
                       ),
                     ),
-                    DashedDividerWidget(),
+                    const DashedDividerWidget(),
                     FractionallySizedBox(
                       widthFactor: 1,
                       child: Container(
@@ -225,8 +225,8 @@ class SkillDetailPage extends ConsumerWidget {
                             children: [
                               Text(
                                 '[현재레벨 ${skillInfo.level}]',
-                                style:
-                                    TextStyle(color: SkillColor.commonInfoText),
+                                style: const TextStyle(
+                                    color: SkillColor.commonInfoText),
                               ),
                               Column(
                                 crossAxisAlignment: CrossAxisAlignment.start,

@@ -9,11 +9,11 @@ class SymbolDetailGrowthPage extends ConsumerWidget {
   const SymbolDetailGrowthPage({
     super.key,
     required this.growth,
-    required this.require_growth,
+    required this.requireGrowth,
   });
 
   final int growth;
-  final int require_growth;
+  final int requireGrowth;
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
@@ -35,26 +35,26 @@ class SymbolDetailGrowthPage extends ConsumerWidget {
         left: DimenConfig.minDimen,
         right: DimenConfig.minDimen,
       ),
-      padding: EdgeInsets.fromLTRB(3, 1, 3, 1),
+      padding: const EdgeInsets.fromLTRB(3, 1, 3, 1),
       decoration: BoxDecoration(
           color: colorScheme.onSecondary,
           borderRadius: BorderRadius.circular(RadiusConfig.subRadius),
           boxShadow: [
             BoxShadow(
                 blurRadius: RadiusConfig.subRadius,
-                offset: Offset(1, 1),
+                offset: const Offset(1, 1),
                 color: Colors.black,
                 inset: true),
             BoxShadow(
                 blurRadius: RadiusConfig.subRadius,
-                offset: Offset(0, 0),
+                offset: const Offset(0, 0),
                 color: growthBackground,
                 inset: true)
           ]),
       child: LayoutBuilder(
         builder:
             (BuildContext childContext, BoxConstraints viewportConstraints) {
-          var width = viewportConstraints.maxWidth * (growth / require_growth);
+          var width = viewportConstraints.maxWidth * (growth / requireGrowth);
 
           return Row(
             children: [

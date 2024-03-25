@@ -22,13 +22,14 @@ class CustomPaintTextWidget extends ConsumerWidget {
     return head == tail || head == '재사용 대기시간 '
         ? Text(
             content,
-            style: TextStyle(color: Colors.white),
+            style: const TextStyle(color: Colors.white),
           )
         : Text.rich(
             TextSpan(children: [
               TextSpan(text: head, style: TextStyle(color: color)),
-              TextSpan(text: ' : ', style: TextStyle(color: Colors.white)),
-              TextSpan(text: tail, style: TextStyle(color: Colors.white)),
+              const TextSpan(
+                  text: ' : ', style: TextStyle(color: Colors.white)),
+              TextSpan(text: tail, style: const TextStyle(color: Colors.white)),
             ]),
           );
   }

@@ -130,7 +130,7 @@ class _MainUpdatePageState extends ConsumerState<MainUpdatePage> {
                       Platform.isAndroid
                           ? 'Google PlayStore 이동'
                           : 'App Store 이동',
-                      style: TextStyle(
+                      style: const TextStyle(
                         color: Colors.white,
                         fontWeight: FontWeight.bold,
                       )),

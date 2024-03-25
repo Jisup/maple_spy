@@ -33,7 +33,7 @@ class SkillFloatingActionButton extends ConsumerWidget {
             boxShadow: [
               BoxShadow(
                 blurRadius: RadiusConfig.minRadius,
-                offset: Offset(2, 2),
+                offset: const Offset(2, 2),
                 color: Colors.black,
               )
             ]),

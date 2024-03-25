@@ -41,7 +41,7 @@ class VSkillPage extends ConsumerWidget {
             child: vMatrix.characterVCoreEquipment != null &&
                     vMatrix.characterVCoreEquipment!.isNotEmpty
                 ? Container(
-                    margin: EdgeInsets.only(bottom: 85),
+                    margin: const EdgeInsets.only(bottom: 85),
                     child: Column(
                       children: [
                         VSkillCorePage(

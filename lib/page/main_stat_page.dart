@@ -48,7 +48,7 @@ class _MainStatPageState extends ConsumerState<MainStatPage> {
                 ref.read(statSelectTabProvider.notifier).update((state) =>
                     (StaticListConfig.detailStatTabList[value]['name']));
               },
-              children: [
+              children: const [
                 AsyncBasicStatPage(),
                 AsyncHexaStatPage(),
                 AsyncAbilityHyperStatPage(),

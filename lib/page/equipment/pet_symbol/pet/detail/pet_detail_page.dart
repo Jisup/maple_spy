@@ -27,7 +27,7 @@ class PetDetailPage extends ConsumerWidget {
           backgroundColor: colorScheme.primary,
           leading: GestureDetector(
               onTap: () => context.pop(),
-              child: Icon(
+              child: const Icon(
                 Icons.navigate_before_rounded,
                 color: Colors.white,
                 semanticLabel: '뒤로 가기 버튼',
@@ -69,7 +69,7 @@ class PetDetailPage extends ConsumerWidget {
                                           .petLabelTextColor[pet.petPetType],
                                       fontSize: FontConfig.middleDownSize,
                                     )))
-                            : SizedBox.shrink(),
+                            : const SizedBox.shrink(),
                         /**-----pet expire */
                         pet.petDateExpire != null
                             ? Container(
@@ -80,7 +80,7 @@ class PetDetailPage extends ConsumerWidget {
                                       color: Colors.white,
                                       fontSize: FontConfig.middleDownSize,
                                     )))
-                            : SizedBox.shrink(),
+                            : const SizedBox.shrink(),
                         /**-----pet image */
                         Container(
                           margin: EdgeInsets.only(

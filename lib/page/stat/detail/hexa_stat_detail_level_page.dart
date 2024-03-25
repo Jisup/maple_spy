@@ -23,7 +23,7 @@ class HexaStatDetailLevelPage extends ConsumerWidget {
           child: HexagonWidget.flat(
             width: MediaQuery.of(context).size.width / 4,
             child: Container(
-              decoration: BoxDecoration(
+              decoration: const BoxDecoration(
                 gradient: LinearGradient(
                   begin: Alignment.topLeft,
                   end: Alignment.bottomRight,
@@ -39,7 +39,7 @@ class HexaStatDetailLevelPage extends ConsumerWidget {
                     width: MediaQuery.of(context).size.width / 4 -
                         (DimenConfig.subDimen * 3),
                     child: Container(
-                      decoration: BoxDecoration(
+                      decoration: const BoxDecoration(
                         gradient: LinearGradient(
                           begin: Alignment.topLeft,
                           end: Alignment.bottomRight,
@@ -55,7 +55,7 @@ class HexaStatDetailLevelPage extends ConsumerWidget {
                         child: FractionallySizedBox(
                           child: Container(
                             alignment: Alignment.center,
-                            decoration: BoxDecoration(
+                            decoration: const BoxDecoration(
                               gradient: LinearGradient(
                                 begin: Alignment.topCenter,
                                 end: Alignment.bottomCenter,
@@ -95,7 +95,7 @@ class HexaStatDetailLevelPage extends ConsumerWidget {
         Positioned(
           bottom: 0,
           child: ShaderMask(
-            shaderCallback: (Rect bounds) => LinearGradient(
+            shaderCallback: (Rect bounds) => const LinearGradient(
                 begin: Alignment.topCenter,
                 end: Alignment.bottomCenter,
                 colors: [

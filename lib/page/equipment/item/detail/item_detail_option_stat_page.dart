@@ -42,13 +42,13 @@ class ItemDetailOptionStatPage extends ConsumerWidget {
                         (detailStat.etc != null || detailStat.etc != '0') &&
                         (detailStat.starforce != null ||
                             detailStat.starforce != '0')
-                    ? TextSpan(children: [
+                    ? const TextSpan(children: [
                         TextSpan(text: ' '),
                         TextSpan(
                             text: '(',
                             style: TextStyle(color: ItemColor.commonInfoText)),
                       ])
-                    : TextSpan(),
+                    : const TextSpan(),
 
                 /**-----base */
                 detailStat.total != detailStat.base && (percentOption ?? true)
@@ -58,23 +58,23 @@ class ItemDetailOptionStatPage extends ConsumerWidget {
                                 '${detailStat.base}${detailStat.percent! ? '%' : ''}',
                             style: TextStyle(color: ItemColor.baseOptionText)),
                       ])
-                    : TextSpan(),
+                    : const TextSpan(),
 
                 /**-----add */
                 detailStat.add != null && detailStat.add != '0'
                     ? TextSpan(children: [
-                        TextSpan(text: ' '),
+                        const TextSpan(text: ' '),
                         TextSpan(
                             text:
                                 '+${detailStat.add}${detailStat.percent! ? '%' : ''}',
                             style: TextStyle(color: ItemColor.addOptionText))
                       ])
-                    : TextSpan(),
+                    : const TextSpan(),
 
                 /**-----etc */
                 detailStat.etc != null && detailStat.etc != '0'
                     ? TextSpan(children: [
-                        TextSpan(text: ' '),
+                        const TextSpan(text: ' '),
                         TextSpan(
                             text:
                                 '${int.parse(detailStat.etc!) > 0 ? '+' : ''}${detailStat.etc}',
@@ -83,18 +83,18 @@ class ItemDetailOptionStatPage extends ConsumerWidget {
                                     ? ItemColor.etcOptionText
                                     : ItemColor.etcDownOptionText))
                       ])
-                    : TextSpan(),
+                    : const TextSpan(),
 
                 /**-----starforce */
                 detailStat.starforce != null && detailStat.starforce != '0'
                     ? TextSpan(children: [
-                        TextSpan(text: ' '),
+                        const TextSpan(text: ' '),
                         TextSpan(
                             text: '+${detailStat.starforce}',
                             style:
                                 TextStyle(color: ItemColor.starforceOptionText))
                       ])
-                    : TextSpan(),
+                    : const TextSpan(),
 
                 /**-----close bracket */
                 detailStat.total != detailStat.base &&
@@ -103,12 +103,12 @@ class ItemDetailOptionStatPage extends ConsumerWidget {
                         (detailStat.etc != null || detailStat.etc != '0') &&
                         (detailStat.starforce != null ||
                             detailStat.starforce != '0')
-                    ? TextSpan(children: [
+                    ? const TextSpan(children: [
                         TextSpan(
                             text: ')',
                             style: TextStyle(color: ItemColor.commonInfoText)),
                       ])
-                    : TextSpan(),
+                    : const TextSpan(),
               ],
             ),
           )

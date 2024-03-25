@@ -58,11 +58,11 @@ class UnionDetailArtifactCrystalOption extends ConsumerWidget {
                                               MainAxisAlignment.spaceBetween,
                                           children: [
                                             Text('${crystal.name}',
-                                                style: TextStyle(
+                                                style: const TextStyle(
                                                   overflow:
                                                       TextOverflow.ellipsis,
                                                 )),
-                                            Text('|'),
+                                            const Text('|'),
                                           ],
                                         )),
                                     SizedBox(

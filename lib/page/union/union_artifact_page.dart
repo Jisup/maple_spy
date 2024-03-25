@@ -28,7 +28,7 @@ class UnionArtifactPage extends ConsumerWidget {
             ),
             child: Column(
               children: [
-                UnionDetailArtifactCrystal(),
+                const UnionDetailArtifactCrystal(),
                 Semantics(
                   label: '구분 선',
                   readOnly: true,
@@ -37,7 +37,7 @@ class UnionArtifactPage extends ConsumerWidget {
                       thickness: 2,
                       color: colorScheme.primary),
                 ),
-                UnionDetailArtifactEffect(),
+                const UnionDetailArtifactEffect(),
                 Semantics(
                   label: '구분 선',
                   readOnly: true,
@@ -46,7 +46,7 @@ class UnionArtifactPage extends ConsumerWidget {
                       thickness: 2,
                       color: colorScheme.primary),
                 ),
-                UnionDetailArtifactCrystalOption(),
+                const UnionDetailArtifactCrystalOption(),
               ],
             ),
           ),

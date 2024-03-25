@@ -28,7 +28,7 @@ class AndroidItemDetailPage extends ConsumerWidget {
           backgroundColor: colorScheme.primary,
           leading: GestureDetector(
             onTap: () => context.pop(),
-            child: Icon(
+            child: const Icon(
               Icons.navigate_before_rounded,
               color: Colors.white,
               semanticLabel: '뒤로 가기 버튼',
@@ -80,7 +80,7 @@ class AndroidItemDetailPage extends ConsumerWidget {
                     ),
 
                     /**-----item required */
-                    DashedDividerWidget(),
+                    const DashedDividerWidget(),
                     Container(
                       height: imageSize,
                       margin: EdgeInsets.only(
@@ -98,14 +98,14 @@ class AndroidItemDetailPage extends ConsumerWidget {
                               ],
                             ),
                           ),
-                          EquipmentDetailRequiredLevelWidget(level: '10')
+                          const EquipmentDetailRequiredLevelWidget(level: '10')
                         ],
                       ),
                     ),
-                    EquipmentDetailRequiredClassWidget(),
+                    const EquipmentDetailRequiredClassWidget(),
 
                     /**-----item detail option with stat */
-                    DashedDividerWidget(),
+                    const DashedDividerWidget(),
                     FractionallySizedBox(
                       widthFactor: 1,
                       child: Container(
@@ -115,12 +115,12 @@ class AndroidItemDetailPage extends ConsumerWidget {
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            Text('장비분류 : 안드로이드',
+                            const Text('장비분류 : 안드로이드',
                                 style: TextStyle(
                                   color: ItemColor.commonInfoText,
                                 )),
                             Text('등급 : ${presetItem.androidGrade}',
-                                style: TextStyle(
+                                style: const TextStyle(
                                   color: ItemColor.commonInfoText,
                                 )),
                           ],
@@ -128,8 +128,8 @@ class AndroidItemDetailPage extends ConsumerWidget {
                       ),
                     ),
                     presetItem.androidDescription != null
-                        ? DashedDividerWidget()
-                        : SizedBox(),
+                        ? const DashedDividerWidget()
+                        : const SizedBox(),
                     presetItem.androidDescription != null
                         ? FractionallySizedBox(
                             widthFactor: 1,
@@ -139,13 +139,13 @@ class AndroidItemDetailPage extends ConsumerWidget {
                                   right: DimenConfig.commonDimen * 2),
                               child: Text(
                                 presetItem.androidDescription!,
-                                style: TextStyle(
+                                style: const TextStyle(
                                   color: ItemColor.commonInfoText,
                                 ),
                               ),
                             ),
                           )
-                        : SizedBox.shrink(),
+                        : const SizedBox.shrink(),
                   ],
                 ),
               ),

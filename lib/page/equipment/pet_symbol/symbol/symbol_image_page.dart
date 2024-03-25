@@ -13,13 +13,13 @@ class SymbolImagePage extends ConsumerWidget {
     required this.imageUrl,
     required this.level,
     required this.growth,
-    required this.require_growth,
+    required this.requireGrowth,
   });
 
   final String? imageUrl;
   final int? level;
   final int growth;
-  final int require_growth;
+  final int requireGrowth;
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
@@ -37,7 +37,7 @@ class SymbolImagePage extends ConsumerWidget {
       widthFactor: 0.25,
       child: Container(
         decoration: BoxDecoration(
-          border: GradientBoxBorder(
+          border: const GradientBoxBorder(
               gradient: LinearGradient(
                   begin: Alignment.topCenter,
                   end: Alignment.bottomCenter,
@@ -60,7 +60,7 @@ class SymbolImagePage extends ConsumerWidget {
             builder: (BuildContext childContext,
                 BoxConstraints viewportConstraints) {
               return ConstrainedBox(
-                constraints: BoxConstraints(
+                constraints: const BoxConstraints(
                   minHeight: 105,
                 ),
                 child: Container(
@@ -92,14 +92,14 @@ class SymbolImagePage extends ConsumerWidget {
                               subColor: Colors.black26,
                               shadowSize: 2,
                             )
-                          : SizedBox.shrink(),
+                          : const SizedBox.shrink(),
                       level != null
                           ? levelMax
                               ? ShaderMask(
                                   shaderCallback: (bounds) => LinearGradient(
                                       begin: Alignment.topCenter,
                                       end: Alignment.bottomCenter,
-                                      stops: [
+                                      stops: const [
                                         0.625,
                                         0.825
                                       ],
@@ -117,9 +117,9 @@ class SymbolImagePage extends ConsumerWidget {
                                 )
                               : SymbolDetailGrowthPage(
                                   growth: growth,
-                                  require_growth: require_growth,
+                                  requireGrowth: requireGrowth,
                                 )
-                          : SizedBox.shrink(),
+                          : const SizedBox.shrink(),
                     ],
                   ),
                 ),

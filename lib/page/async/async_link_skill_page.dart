@@ -14,10 +14,10 @@ class AsyncLinkSkillPage extends ConsumerWidget {
     final asyncLinkSkill = ref.watch(asyncSkillLinkProvider);
 
     return switch (asyncLinkSkill) {
-      AsyncData() => LinkSkillPage(),
+      AsyncData() => const LinkSkillPage(),
       AsyncError() =>
         MainErrorPage(message: ErrorMessageConfig.skillPageRequestError),
-      _ => LoadingSpinner(),
+      _ => const LoadingSpinner(),
     };
   }
 }

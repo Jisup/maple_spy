@@ -56,7 +56,7 @@ class AbilityDetailInfoPage extends ConsumerWidget {
                                 ))
                             .toList(),
                       )
-                    : SizedBox.shrink(),
+                    : const SizedBox.shrink(),
               ],
             ),
           ),
@@ -69,7 +69,7 @@ class AbilityDetailInfoPage extends ConsumerWidget {
             color: colorScheme.onPrimary,
             borderRadius: BorderRadius.circular(RadiusConfig.subRadius),
           ),
-          child: AbilityDetailPresetPage(),
+          child: const AbilityDetailPresetPage(),
         )
       ],
     );

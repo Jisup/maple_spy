@@ -51,7 +51,7 @@ class HyperDetailInfoPage extends ConsumerWidget {
             ],
           ),
         ),
-        HyperDetailOptionPage(),
+        const HyperDetailOptionPage(),
       ],
     );
   }

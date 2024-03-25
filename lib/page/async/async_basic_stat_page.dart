@@ -14,10 +14,10 @@ class AsyncBasicStatPage extends ConsumerWidget {
     final asyncBasicStat = ref.watch(asyncStatBasicProvider);
 
     return switch (asyncBasicStat) {
-      AsyncData() => BasicStatPage(),
+      AsyncData() => const BasicStatPage(),
       AsyncError() =>
         MainErrorPage(message: ErrorMessageConfig.statPageRequestError),
-      _ => LoadingSpinner(),
+      _ => const LoadingSpinner(),
     };
   }
 }

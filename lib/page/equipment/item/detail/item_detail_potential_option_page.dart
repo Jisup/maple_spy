@@ -36,16 +36,16 @@ class ItemDetailPotentialOptionPage extends ConsumerWidget {
             ),
             potentialOption.option1 != null
                 ? Text(potentialOption.option1!,
-                    style: TextStyle(color: ItemColor.commonInfoText))
-                : SizedBox.shrink(),
+                    style: const TextStyle(color: ItemColor.commonInfoText))
+                : const SizedBox.shrink(),
             potentialOption.option2 != null
                 ? Text(potentialOption.option2!,
-                    style: TextStyle(color: ItemColor.commonInfoText))
-                : SizedBox.shrink(),
+                    style: const TextStyle(color: ItemColor.commonInfoText))
+                : const SizedBox.shrink(),
             potentialOption.option3 != null
                 ? Text(potentialOption.option3!,
-                    style: TextStyle(color: ItemColor.commonInfoText))
-                : SizedBox.shrink(),
+                    style: const TextStyle(color: ItemColor.commonInfoText))
+                : const SizedBox.shrink(),
           ],
         ),
       ),

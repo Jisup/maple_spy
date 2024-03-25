@@ -22,7 +22,7 @@ class VSkillPartView extends ConsumerWidget {
           width:
               (viewportConstraints.maxWidth - DimenConfig.commonDimen * 3) / 4,
           decoration: BoxDecoration(
-            gradient: LinearGradient(
+            gradient: const LinearGradient(
                 begin: Alignment.topCenter,
                 end: Alignment.bottomCenter,
                 colors: [

@@ -18,7 +18,7 @@ class AsyncPetSymbolPage extends ConsumerWidget {
         PetSymbolPage(petItem: value.pet!, symbolItem: value.symbol!),
       AsyncError() =>
         MainErrorPage(message: ErrorMessageConfig.petSymbolRequestPageError),
-      _ => LoadingSpinner(),
+      _ => const LoadingSpinner(),
     };
   }
 }

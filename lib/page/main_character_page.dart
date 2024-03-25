@@ -9,7 +9,7 @@ class MainCharacterPage extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     // print("메인 캐릭터 페이지 접근");
-    return MainContainer(
+    return const MainContainer(
       isHome: false,
       body: AsyncCharacterPage(),
     );

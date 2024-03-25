@@ -30,12 +30,12 @@ class CashInfo extends ConsumerWidget {
               boxShadow: [
                 BoxShadow(
                     blurRadius: RadiusConfig.subRadius,
-                    offset: Offset(-3, -3),
+                    offset: const Offset(-3, -3),
                     color: Colors.white,
                     inset: true),
                 BoxShadow(
                     blurRadius: RadiusConfig.subRadius,
-                    offset: Offset(3, 3),
+                    offset: const Offset(3, 3),
                     color: Colors.black87,
                     inset: true)
               ]),
@@ -59,7 +59,7 @@ class CashInfo extends ConsumerWidget {
                         semanticLabel: '${cashItem.cashItemName} 이미지',
                       ),
                     )
-                  : SizedBox.shrink(),
+                  : const SizedBox.shrink(),
             ],
           ),
         ),

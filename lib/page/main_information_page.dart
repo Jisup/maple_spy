@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import 'package:maplespy/config/const_config.dart';
@@ -18,7 +17,7 @@ class MainInforMationPage extends ConsumerWidget {
           backgroundColor: colorScheme.primary,
           leading: GestureDetector(
             onTap: () => context.go('/'),
-            child: Icon(
+            child: const Icon(
               Icons.navigate_before_rounded,
               color: Colors.white,
               semanticLabel: '뒤로 가기 버튼',
@@ -60,7 +59,7 @@ class MainInforMationPage extends ConsumerWidget {
                         thickness: 2,
                       ),
                     ),
-                    FractionallySizedBox(
+                    const FractionallySizedBox(
                       widthFactor: 1,
                       child: Text.rich(
                         textAlign: TextAlign.center,
@@ -77,14 +76,14 @@ class MainInforMationPage extends ConsumerWidget {
                         ]),
                       ),
                     ),
-                    FractionallySizedBox(
+                    const FractionallySizedBox(
                       widthFactor: 1,
                       child: Text(
                         '2023년 12월 21일 데이터 부터\n실시간으로 조회할 수 있으며,\n평균 15분의 데이터 갱신 시간이 필요합니다.',
                         textAlign: TextAlign.center,
                       ),
                     ),
-                    FractionallySizedBox(
+                    const FractionallySizedBox(
                       widthFactor: 1,
                       child: Text(
                         '단, 일일 제한 요청량이 초과할 경우\n서비스 이용이 불가능할 수 있습니다.',
@@ -124,7 +123,7 @@ class MainInforMationPage extends ConsumerWidget {
                                   TextSpan(text: info['header']),
                                   TextSpan(
                                     text: info['main'],
-                                    style: TextStyle(
+                                    style: const TextStyle(
                                       fontWeight: FontWeight.bold,
                                       decoration: TextDecoration.underline,
                                     ),

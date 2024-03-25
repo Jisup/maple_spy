@@ -44,7 +44,7 @@ class _MainUnionPageState extends ConsumerState<MainUnionPage> {
           backgroundColor: colorScheme.primary,
           leading: GestureDetector(
             onTap: () => context.pop(),
-            child: Icon(
+            child: const Icon(
               Icons.navigate_before_rounded,
               color: Colors.white,
               semanticLabel: '뒤로 가기 버튼',
@@ -71,7 +71,7 @@ class _MainUnionPageState extends ConsumerState<MainUnionPage> {
                   ref.read(unionSelectTabProvider.notifier).update((state) =>
                       (StaticListConfig.detailUnionTabList[value]['name']));
                 },
-                children: [
+                children: const [
                   AsyncUnionRaiderPage(),
                   AsyncUnionArtifactPage(),
                   AsyncUnionCharacterPage(),

@@ -41,6 +41,6 @@ class AbilityDetailPresetPage extends ConsumerWidget {
                           .toList())
             ],
           )
-        : AbilityDetailLockPage();
+        : const AbilityDetailLockPage();
   }
 }

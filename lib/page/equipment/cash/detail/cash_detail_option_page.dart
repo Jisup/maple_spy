@@ -21,8 +21,8 @@ class CashDetailOptionPage extends ConsumerWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Text('장비분류 : ${part}', style: TextStyle(color: Colors.white)),
-        label ?? false ? DashedDividerWidget() : SizedBox.shrink(),
+        Text('장비분류 : ${part}', style: const TextStyle(color: Colors.white)),
+        label ?? false ? const DashedDividerWidget() : const SizedBox.shrink(),
         options != null
             ? Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
@@ -30,26 +30,28 @@ class CashDetailOptionPage extends ConsumerWidget {
                   return label ?? false
                       ? Text(
                           '${option.optionType} : +${option.optionValue}',
-                          style: TextStyle(color: CashColor.masterLabelOption),
+                          style: const TextStyle(
+                              color: CashColor.masterLabelOption),
                         )
                       : Text.rich(TextSpan(children: [
                           TextSpan(
                               text:
                                   '${option.optionType} : +${option.optionValue}',
-                              style:
-                                  TextStyle(color: ItemColor.totalOptionText)),
-                          TextSpan(
+                              style: const TextStyle(
+                                  color: ItemColor.totalOptionText)),
+                          const TextSpan(
                               text: ' (0 ',
                               style: TextStyle(color: Colors.white)),
                           TextSpan(
                               text: '+${option.optionValue}',
-                              style: TextStyle(color: ItemColor.etcOptionText)),
-                          TextSpan(
+                              style: const TextStyle(
+                                  color: ItemColor.etcOptionText)),
+                          const TextSpan(
                               text: ')', style: TextStyle(color: Colors.white)),
                         ]));
                 }).toList(),
               )
-            : SizedBox.shrink(),
+            : const SizedBox.shrink(),
       ],
     );
   }

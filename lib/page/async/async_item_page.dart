@@ -18,7 +18,7 @@ class AsyncItemPage extends ConsumerWidget {
         ItemPage(item: value.item, androidItem: value.androidItem),
       AsyncError() =>
         MainErrorPage(message: ErrorMessageConfig.itemPageRequestError),
-      _ => LoadingSpinner()
+      _ => const LoadingSpinner()
     };
   }
 }

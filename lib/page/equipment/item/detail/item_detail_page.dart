@@ -80,7 +80,7 @@ class ItemDetailPage extends ConsumerWidget {
                                       .toInt(),
                                   starforce: int.parse(item.starforce!),
                                 )
-                              : SizedBox.shrink(),
+                              : const SizedBox.shrink(),
 
                           /**-----soul */
                           item.soulName != null
@@ -97,7 +97,7 @@ class ItemDetailPage extends ConsumerWidget {
                                         fontSize: FontConfig.middleSize,
                                         fontWeight: FontWeight.bold),
                                   ))
-                              : SizedBox.shrink(),
+                              : const SizedBox.shrink(),
 
                           /**-----item name + scroll upgrade */
                           Container(
@@ -124,7 +124,7 @@ class ItemDetailPage extends ConsumerWidget {
                                       text: item.scrollUpgrade! != '0'
                                           ? ' (+${item.scrollUpgrade})'
                                           : '',
-                                      style: TextStyle(
+                                      style: const TextStyle(
                                           color: ItemColor.upgradeOptionText)),
                                 ],
                               ),
@@ -139,9 +139,9 @@ class ItemDetailPage extends ConsumerWidget {
                                   ),
                                   child: Text(
                                       '(${item.potentialOptionGrade} 아이템)',
-                                      style: TextStyle(
+                                      style: const TextStyle(
                                           color: ItemColor.commonInfoText)))
-                              : SizedBox.shrink(),
+                              : const SizedBox.shrink(),
 
                           /**-----item etc info, ex) 교환 불가, 고유 장착 아이템 */
                         ],
@@ -149,7 +149,7 @@ class ItemDetailPage extends ConsumerWidget {
                     ),
 
                     /**-----item required */
-                    DashedDividerWidget(),
+                    const DashedDividerWidget(),
                     Container(
                       height: imageSize,
                       margin: EdgeInsets.only(
@@ -172,7 +172,7 @@ class ItemDetailPage extends ConsumerWidget {
                                                 FontConfig.middleSize - 3),
                                             child: Icon(Icons.bookmark_sharp,
                                                 size: FontConfig.middleSize,
-                                                shadows: [
+                                                shadows: const [
                                                   BoxShadow(
                                                     offset: Offset(-2, 2),
                                                     color: Colors.black,
@@ -184,7 +184,7 @@ class ItemDetailPage extends ConsumerWidget {
                                           ),
                                         ),
                                       )
-                                    : SizedBox.shrink(),
+                                    : const SizedBox.shrink(),
                                 EquipmentDetailImageWidget(
                                     imageUrl: item.itemIcon!,
                                     grade: item.potentialOptionGrade),
@@ -200,7 +200,7 @@ class ItemDetailPage extends ConsumerWidget {
                                           ),
                                           child: ShaderMask(
                                             shaderCallback: (bounds) =>
-                                                LinearGradient(
+                                                const LinearGradient(
                                                     begin: Alignment.topCenter,
                                                     end: Alignment.bottomCenter,
                                                     colors: [
@@ -218,7 +218,7 @@ class ItemDetailPage extends ConsumerWidget {
                                           ),
                                         ),
                                       )
-                                    : SizedBox.shrink()
+                                    : const SizedBox.shrink()
                               ],
                             ),
                           ),
@@ -229,10 +229,10 @@ class ItemDetailPage extends ConsumerWidget {
                         ],
                       ),
                     ),
-                    EquipmentDetailRequiredClassWidget(),
+                    const EquipmentDetailRequiredClassWidget(),
 
                     /**-----item detail option with stat */
-                    DashedDividerWidget(),
+                    const DashedDividerWidget(),
                     FractionallySizedBox(
                       widthFactor: 1,
                       child: Container(
@@ -245,8 +245,8 @@ class ItemDetailPage extends ConsumerWidget {
 
                     /**-----item potential option */
                     item.potentialOptionGrade != null
-                        ? DashedDividerWidget()
-                        : SizedBox.shrink(),
+                        ? const DashedDividerWidget()
+                        : const SizedBox.shrink(),
                     item.potentialOptionGrade != null
                         ? ItemDetailPotentialOptionPage(
                             type: true,
@@ -257,12 +257,12 @@ class ItemDetailPage extends ConsumerWidget {
                               option3: item.potentialOption3,
                             ),
                           )
-                        : SizedBox.shrink(),
+                        : const SizedBox.shrink(),
 
                     /**-----item additional potential option */
                     item.additionalPotentialOptionGrade != null
-                        ? DashedDividerWidget()
-                        : SizedBox.shrink(),
+                        ? const DashedDividerWidget()
+                        : const SizedBox.shrink(),
                     item.additionalPotentialOptionGrade != null
                         ? ItemDetailPotentialOptionPage(
                             type: false,
@@ -273,19 +273,21 @@ class ItemDetailPage extends ConsumerWidget {
                               option3: item.additionalPotentialOption3,
                             ),
                           )
-                        : SizedBox.shrink(),
+                        : const SizedBox.shrink(),
 
                     /**-----item exceptional potential option */
                     item.itemExceptionalOption?.str != '0'
-                        ? DashedDividerWidget()
-                        : SizedBox.shrink(),
+                        ? const DashedDividerWidget()
+                        : const SizedBox.shrink(),
                     item.itemExceptionalOption?.str != '0'
                         ? ExceptionalEnhanceWidget(
                             exceptionalOprion: item.itemExceptionalOption!)
-                        : SizedBox.shrink(),
+                        : const SizedBox.shrink(),
 
                     /**-----item soul */
-                    item.soulName != null ? DashedDividerWidget() : SizedBox(),
+                    item.soulName != null
+                        ? const DashedDividerWidget()
+                        : const SizedBox(),
                     item.soulName != null
                         ? FractionallySizedBox(
                             widthFactor: 1,
@@ -301,15 +303,15 @@ class ItemDetailPage extends ConsumerWidget {
                                             color: ItemColor.soulOptionText,
                                             fontSize: FontConfig.commonSize)),
                                     Text(item.soulOption!,
-                                        style: TextStyle(
+                                        style: const TextStyle(
                                             color: ItemColor.commonInfoText)),
                                   ]),
                             ),
                           )
-                        : SizedBox.shrink(),
+                        : const SizedBox.shrink(),
                     item.itemDescription != null
-                        ? DashedDividerWidget()
-                        : SizedBox(),
+                        ? const DashedDividerWidget()
+                        : const SizedBox(),
                     item.itemDescription != null
                         ? FractionallySizedBox(
                             widthFactor: 1,
@@ -319,13 +321,13 @@ class ItemDetailPage extends ConsumerWidget {
                                   right: DimenConfig.commonDimen * 2),
                               child: Text(
                                 item.itemDescription!,
-                                style: TextStyle(
+                                style: const TextStyle(
                                   color: ItemColor.commonInfoText,
                                 ),
                               ),
                             ),
                           )
-                        : SizedBox.shrink(),
+                        : const SizedBox.shrink(),
                     item.specialRingLevel != null && item.specialRingLevel != 0
                         ? FractionallySizedBox(
                             widthFactor: 1,
@@ -335,16 +337,16 @@ class ItemDetailPage extends ConsumerWidget {
                                   right: DimenConfig.commonDimen * 2),
                               child: Text(
                                 '[특수 스킬 반지] ${item.itemName} ${item.specialRingLevel}레벨',
-                                style: TextStyle(
+                                style: const TextStyle(
                                   color: ItemColor.etcInfoText,
                                 ),
                               ),
                             ),
                           )
-                        : SizedBox.shrink(),
+                        : const SizedBox.shrink(),
                     item.specialRingLevel != null && item.specialRingLevel != 0
-                        ? DashedDividerWidget()
-                        : SizedBox.shrink(),
+                        ? const DashedDividerWidget()
+                        : const SizedBox.shrink(),
                     item.specialRingLevel != null && item.specialRingLevel != 0
                         ? FractionallySizedBox(
                             widthFactor: 1,
@@ -352,7 +354,7 @@ class ItemDetailPage extends ConsumerWidget {
                               margin: EdgeInsets.only(
                                   left: DimenConfig.commonDimen * 2,
                                   right: DimenConfig.commonDimen * 2),
-                              child: Text(
+                              child: const Text(
                                 '특수 스킬 반지는 중복 착용이 불가능합니다.',
                                 style: TextStyle(
                                   color: ItemColor.etcInfoText,
@@ -360,7 +362,7 @@ class ItemDetailPage extends ConsumerWidget {
                               ),
                             ),
                           )
-                        : SizedBox.shrink(),
+                        : const SizedBox.shrink(),
                   ],
                 ),
               ),

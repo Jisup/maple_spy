@@ -31,7 +31,7 @@ class EquipmentDetailRequiredClassWidget extends ConsumerWidget {
             children: StaticListConfig.equipmentClassList.map(
               (className) {
                 return Text(className,
-                    style: TextStyle(color: ItemColor.commonInfoText));
+                    style: const TextStyle(color: ItemColor.commonInfoText));
               },
             ).toList()));
   }

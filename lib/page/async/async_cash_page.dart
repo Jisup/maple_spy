@@ -21,7 +21,7 @@ class AsyncCashPage extends ConsumerWidget {
         ),
       AsyncError() =>
         MainErrorPage(message: ErrorMessageConfig.cashPageRequestError),
-      _ => LoadingSpinner()
+      _ => const LoadingSpinner()
     };
   }
 }

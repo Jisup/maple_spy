@@ -152,7 +152,7 @@ class LinkSkillPage extends ConsumerWidget {
                                   )
                                 ],
                               )
-                            : SizedBox.shrink(),
+                            : const SizedBox.shrink(),
                       ],
                     ),
                   )

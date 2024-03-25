@@ -24,7 +24,7 @@ class AbilityHyperStatPage extends ConsumerWidget {
         builder: (BuildContext context, BoxConstraints viewportConstraints) =>
             ConstrainedBox(
           constraints: BoxConstraints(minHeight: viewportConstraints.maxHeight),
-          child: SingleChildScrollView(
+          child: const SingleChildScrollView(
             child: Column(
               children: [
                 AbilityDetailInfoPage(),

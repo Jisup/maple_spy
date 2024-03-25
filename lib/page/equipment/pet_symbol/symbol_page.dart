@@ -119,7 +119,7 @@ class SymbolPage extends ConsumerWidget {
                       imageUrl: symbol.symbolIcon,
                       level: symbol.symbolLevel,
                       growth: symbol.symbolGrowthCount ?? 0,
-                      require_growth: symbol.symbolRequireGrowthCount ?? 1,
+                      requireGrowth: symbol.symbolRequireGrowthCount ?? 1,
                     ),
                   );
                 }).toList(),

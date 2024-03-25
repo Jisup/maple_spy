@@ -14,10 +14,10 @@ class AsyncVSkillPage extends ConsumerWidget {
     final asyncVSkill = ref.watch(asyncSkillVProvider);
 
     return switch (asyncVSkill) {
-      AsyncData() => VSkillPage(),
+      AsyncData() => const VSkillPage(),
       AsyncError() =>
         MainErrorPage(message: ErrorMessageConfig.skillPageRequestError),
-      _ => LoadingSpinner(),
+      _ => const LoadingSpinner(),
     };
   }
 }

@@ -41,7 +41,7 @@ class AbilityDetailLockPage extends ConsumerWidget {
             children: [
               Container(
                   margin: EdgeInsets.only(right: DimenConfig.subDimen),
-                  child: Icon(
+                  child: const Icon(
                     Icons.lock,
                     color: Colors.white,
                   )),

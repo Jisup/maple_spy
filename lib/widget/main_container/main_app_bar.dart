@@ -11,7 +11,7 @@ AppBar mainAppBar({
       behavior: HitTestBehavior.translucent,
       child: Container(
           padding: EdgeInsets.all(DimenConfig.commonDimen),
-          child: Image(
+          child: const Image(
             image: AssetImage('assets/maplespy_icon.png'),
             semanticLabel: 'MapleSpy 로고',
           )),

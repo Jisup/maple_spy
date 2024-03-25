@@ -5,7 +5,7 @@ import 'package:maplespy/config/const_config.dart';
 class MainErrorPage extends ConsumerWidget {
   const MainErrorPage({super.key, required this.message});
 
-  final message;
+  final String message;
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {

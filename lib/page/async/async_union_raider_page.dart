@@ -14,10 +14,10 @@ class AsyncUnionRaiderPage extends ConsumerWidget {
     final asyncUnionRaider = ref.watch(asyncUnionRaiderProvider);
 
     return switch (asyncUnionRaider) {
-      AsyncData() => UnionRaiderPage(),
+      AsyncData() => const UnionRaiderPage(),
       AsyncError() =>
         MainErrorPage(message: ErrorMessageConfig.unionPageRequestError),
-      _ => LoadingSpinner(),
+      _ => const LoadingSpinner(),
     };
   }
 }

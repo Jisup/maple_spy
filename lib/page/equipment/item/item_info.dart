@@ -46,12 +46,12 @@ class ItemInfo extends ConsumerWidget {
               boxShadow: [
                 BoxShadow(
                     blurRadius: RadiusConfig.subRadius,
-                    offset: Offset(-3, -3),
+                    offset: const Offset(-3, -3),
                     color: Colors.white,
                     inset: true),
                 BoxShadow(
                     blurRadius: RadiusConfig.subRadius,
-                    offset: Offset(3, 3),
+                    offset: const Offset(3, 3),
                     color: Colors.black87,
                     inset: true),
                 /**-----potential option grade */
@@ -62,7 +62,7 @@ class ItemInfo extends ConsumerWidget {
                             .potentialGradeColor[item?.potentialOptionGrade]!,
                         blurStyle: BlurStyle.outer,
                       )
-                    : BoxShadow(),
+                    : const BoxShadow(),
               ]),
           child: Stack(
             children: [
@@ -85,14 +85,14 @@ class ItemInfo extends ConsumerWidget {
                         semanticLabel: '${item!.itemName!} 이미지',
                       ),
                     )
-                  : SizedBox.shrink(),
+                  : const SizedBox.shrink(),
               /**-----item ring level */
               item?.specialRingLevel != null && item?.specialRingLevel != 0
                   ? Positioned(
                       left: 0,
                       bottom: 0,
                       child: ShaderMask(
-                        shaderCallback: (bounds) => LinearGradient(
+                        shaderCallback: (bounds) => const LinearGradient(
                             begin: Alignment.topCenter,
                             end: Alignment.bottomCenter,
                             colors: [
@@ -108,7 +108,7 @@ class ItemInfo extends ConsumerWidget {
                         ),
                       ),
                     )
-                  : SizedBox.shrink()
+                  : const SizedBox.shrink()
             ],
           ),
         ),

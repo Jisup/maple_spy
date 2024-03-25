@@ -14,10 +14,10 @@ class AsyncHexaStatPage extends ConsumerWidget {
     final asyncHexaStat = ref.watch(asyncStatHexaProvider);
 
     return switch (asyncHexaStat) {
-      AsyncData() => HexaStatPage(),
+      AsyncData() => const HexaStatPage(),
       AsyncError() =>
         MainErrorPage(message: ErrorMessageConfig.statPageRequestError),
-      _ => LoadingSpinner(),
+      _ => const LoadingSpinner(),
     };
   }
 }

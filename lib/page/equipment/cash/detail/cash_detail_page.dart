@@ -31,7 +31,7 @@ class CashDetailPage extends ConsumerWidget {
           backgroundColor: colorScheme.primary,
           leading: GestureDetector(
               onTap: () => context.pop(),
-              child: Icon(
+              child: const Icon(
                 Icons.navigate_before_rounded,
                 color: Colors.white,
                 semanticLabel: '뒤로 가기 버튼',
@@ -76,7 +76,7 @@ class CashDetailPage extends ConsumerWidget {
                                 ),
                               ),
                             )
-                          : SizedBox.shrink(),
+                          : const SizedBox.shrink(),
                       /**-----cash exfire */
                       cashItem.dateOptionExpire != null
                           ? Container(
@@ -92,10 +92,10 @@ class CashDetailPage extends ConsumerWidget {
                                 ),
                               ),
                             )
-                          : SizedBox.shrink(),
+                          : const SizedBox.shrink(),
 
                       /**-----cash image + required */
-                      DashedDividerWidget(),
+                      const DashedDividerWidget(),
                       Container(
                         height: imageSize,
                         margin: EdgeInsets.only(
@@ -108,13 +108,13 @@ class CashDetailPage extends ConsumerWidget {
                               imageUrl: cashItem.cashItemIcon!,
                               label: cashItem.cashItemLabel ?? '캐시',
                             ),
-                            EquipmentDetailRequiredLevelWidget(),
+                            const EquipmentDetailRequiredLevelWidget(),
                           ],
                         ),
                       ),
-                      EquipmentDetailRequiredClassWidget(),
+                      const EquipmentDetailRequiredClassWidget(),
                       /**-----cash detail option */
-                      DashedDividerWidget(),
+                      const DashedDividerWidget(),
                       FractionallySizedBox(
                         widthFactor: 1,
                         child: Container(
@@ -131,8 +131,8 @@ class CashDetailPage extends ConsumerWidget {
 
                       /**-----cash description */
                       cashItem.cashItemDescription != null
-                          ? DashedDividerWidget()
-                          : SizedBox.shrink(),
+                          ? const DashedDividerWidget()
+                          : const SizedBox.shrink(),
                       cashItem.cashItemDescription != null
                           ? FractionallySizedBox(
                               widthFactor: 1,
@@ -141,10 +141,10 @@ class CashDetailPage extends ConsumerWidget {
                                       left: DimenConfig.commonDimen * 2,
                                       right: DimenConfig.commonDimen * 2),
                                   child: Text(cashItem.cashItemDescription!,
-                                      style: TextStyle(
+                                      style: const TextStyle(
                                         color: Colors.white,
                                       ))))
-                          : SizedBox.shrink(),
+                          : const SizedBox.shrink(),
                     ],
                   ),
                 ),

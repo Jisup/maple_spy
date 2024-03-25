@@ -15,7 +15,7 @@ class ItemDetailOptionPage extends ConsumerWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Text('장비분류 : ${detailOption.part!}',
-            style: TextStyle(color: ItemColor.commonInfoText)),
+            style: const TextStyle(color: ItemColor.commonInfoText)),
         ItemDetailOptionStatPage(detailStat: detailOption.str!),
         ItemDetailOptionStatPage(detailStat: detailOption.dex!),
         ItemDetailOptionStatPage(detailStat: detailOption.int!),
@@ -49,8 +49,9 @@ class ItemDetailOptionPage extends ConsumerWidget {
                     TextSpan(
                         text:
                             '업그레이드 가능 횟수 : ${detailOption.scrollUpgradeableCount!}',
-                        style: TextStyle(color: ItemColor.commonInfoText)),
-                    TextSpan(text: ' '),
+                        style:
+                            const TextStyle(color: ItemColor.commonInfoText)),
+                    const TextSpan(text: ' '),
                     TextSpan(
                         text:
                             '(복구 가능 횟수 : ${detailOption.scrollResilienceCount!})',
@@ -58,17 +59,17 @@ class ItemDetailOptionPage extends ConsumerWidget {
                   ],
                 ),
               )
-            : SizedBox.shrink(),
+            : const SizedBox.shrink(),
         detailOption.goldenHammerFlag != '미적용'
-            ? Text.rich(TextSpan(
+            ? const Text.rich(TextSpan(
                 text: '황금망치 재련 적용',
                 style: TextStyle(color: ItemColor.commonInfoText)))
-            : SizedBox.shrink(),
+            : const SizedBox.shrink(),
         detailOption.cuttableCount != '255'
             ? Text.rich(TextSpan(
                 text: '가위 사용 가능 횟수 : ${detailOption.cuttableCount!}회',
                 style: TextStyle(color: ItemColor.subInfoText)))
-            : SizedBox.shrink(),
+            : const SizedBox.shrink(),
       ],
     );
   }

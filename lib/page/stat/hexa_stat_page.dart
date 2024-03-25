@@ -16,7 +16,7 @@ class HexaStatPage extends ConsumerWidget {
     return hexaMatrixStat.characterClass != null
         ? hexaMatrixStat.characterHexaStatCore!.isNotEmpty
             ? Container(
-                decoration: BoxDecoration(
+                decoration: const BoxDecoration(
                   image: DecorationImage(
                     image: AssetImage(
                       'assets/space_background.png',

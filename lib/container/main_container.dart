@@ -27,7 +27,7 @@ class MainContainer extends ConsumerWidget {
         body: body,
         bottomNavigationBar: isHome ? null : const MainBottomNavigationBar(),
         floatingActionButton: GoRouterState.of(context).name == 'skill'
-            ? SkillFloatingActionButton()
+            ? const SkillFloatingActionButton()
             : null,
       ),
     );

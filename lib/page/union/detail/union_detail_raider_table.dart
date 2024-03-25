@@ -93,7 +93,7 @@ class UnionDetailRaiderTable extends ConsumerWidget {
                                                   endColor: colorScheme.primary,
                                                 )
                                           : null,
-                                      child: Text(''),
+                                      child: const Text(''),
                                     ),
                                   ),
                                 );

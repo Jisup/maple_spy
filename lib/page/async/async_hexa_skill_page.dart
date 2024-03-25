@@ -14,10 +14,10 @@ class AsyncHexaSkillPage extends ConsumerWidget {
     final asyncHexaSkill = ref.watch(asyncSkillHexaProvider);
 
     return switch (asyncHexaSkill) {
-      AsyncData() => HexaSkillPage(),
+      AsyncData() => const HexaSkillPage(),
       AsyncError() =>
         MainErrorPage(message: ErrorMessageConfig.skillPageRequestError),
-      _ => LoadingSpinner(),
+      _ => const LoadingSpinner(),
     };
   }
 }

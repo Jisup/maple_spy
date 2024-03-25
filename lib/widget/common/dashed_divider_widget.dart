@@ -34,13 +34,13 @@ class DashedDividerWidget extends ConsumerWidget {
                       SizedBox(
                           width: dashWidth,
                           height: dashHeight / 2,
-                          child: DecoratedBox(
+                          child: const DecoratedBox(
                             decoration: BoxDecoration(color: Colors.black),
                           )),
                       SizedBox(
                           width: dashWidth,
                           height: dashHeight / 2,
-                          child: DecoratedBox(
+                          child: const DecoratedBox(
                             decoration: BoxDecoration(
                                 color: ItemColor.deactiveOptionText),
                           )),

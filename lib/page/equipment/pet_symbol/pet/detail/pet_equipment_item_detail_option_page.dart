@@ -34,15 +34,15 @@ class PetEquipmentItemDetailOptionPage extends ConsumerWidget {
               ? TextSpan(children: [
                   TextSpan(
                       text: ' (${basicOption}',
-                      style: TextStyle(color: ItemColor.commonInfoText)),
+                      style: const TextStyle(color: ItemColor.commonInfoText)),
                   TextSpan(
                       text: ' +${etcOption}',
-                      style: TextStyle(color: ItemColor.etcOptionText)),
-                  TextSpan(
+                      style: const TextStyle(color: ItemColor.etcOptionText)),
+                  const TextSpan(
                       text: ')',
                       style: TextStyle(color: ItemColor.commonInfoText)),
                 ])
-              : TextSpan(),
+              : const TextSpan(),
         ]));
       }).toList(),
     );

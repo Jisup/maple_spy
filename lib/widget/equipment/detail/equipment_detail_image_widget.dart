@@ -52,7 +52,7 @@ class EquipmentDetailImageWidget extends ConsumerWidget {
         child: Container(
           padding: EdgeInsets.all(DimenConfig.minDimen),
           decoration: BoxDecoration(
-            gradient: LinearGradient(
+            gradient: const LinearGradient(
                 begin: Alignment.topCenter,
                 end: Alignment.bottomCenter,
                 colors: [
@@ -82,7 +82,7 @@ class EquipmentDetailImageWidget extends ConsumerWidget {
                           Offset(-MediaQuery.of(context).size.width / 4.75, 0),
                       child: Container(
                         width: double.maxFinite,
-                        decoration: BoxDecoration(
+                        decoration: const BoxDecoration(
                             gradient: LinearGradient(
                                 begin: Alignment.topCenter,
                                 end: Alignment.bottomCenter,
@@ -126,19 +126,19 @@ class EquipmentDetailImageWidget extends ConsumerWidget {
                                   Shadow(
                                     color: StaticSwitchConfig
                                         .labelInitialShadowColor[label]!,
-                                    offset: Offset(-1, 0),
+                                    offset: const Offset(-1, 0),
                                   ),
                                   Shadow(
                                     color: StaticSwitchConfig
                                         .labelInitialShadowColor[label]!,
-                                    offset: Offset(1, 0),
+                                    offset: const Offset(1, 0),
                                   )
                                 ]),
                           ),
                         ),
                       ),
                     )
-                  : SizedBox.shrink(),
+                  : const SizedBox.shrink(),
               petLabel != null
                   ? Positioned(
                       bottom: 0,
@@ -160,7 +160,7 @@ class EquipmentDetailImageWidget extends ConsumerWidget {
                                       alignment: Alignment.center,
                                       children: [
                                         Container(
-                                          decoration: BoxDecoration(
+                                          decoration: const BoxDecoration(
                                               gradient: RadialGradient(
                                                   radius: 0.625,
                                                   colors: [
@@ -232,7 +232,7 @@ class EquipmentDetailImageWidget extends ConsumerWidget {
                               ),
                             ),
                     )
-                  : SizedBox.shrink(),
+                  : const SizedBox.shrink(),
             ],
           ),
         ),

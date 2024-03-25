@@ -19,7 +19,7 @@ class LinkSkillWholeView extends ConsumerWidget {
       builder: (childContext, viewportConstraints) {
         return Container(
           decoration: BoxDecoration(
-            gradient: LinearGradient(
+            gradient: const LinearGradient(
                 begin: Alignment.topCenter,
                 end: Alignment.bottomCenter,
                 colors: [

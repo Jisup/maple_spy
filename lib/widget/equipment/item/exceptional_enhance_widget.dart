@@ -57,29 +57,29 @@ class ExceptionalEnhanceWidget extends ConsumerWidget {
                     ),
                   ),
                 ),
-                Text('익셉셔널 강화',
+                const Text('익셉셔널 강화',
                     style: TextStyle(color: ItemColor.exceptionalPotentialText))
               ],
             ),
             Text(
               '올스탯 : +${exceptionalOprion.str}',
-              style: TextStyle(
+              style: const TextStyle(
                 color: Colors.white,
               ),
             ),
             Text(
               '최대 HP / 최대 MP : +${exceptionalOprion.maxHp}',
-              style: TextStyle(
+              style: const TextStyle(
                 color: Colors.white,
               ),
             ),
             Text(
               '공격력 / 마력 : +${exceptionalOprion.attackPower}',
-              style: TextStyle(
+              style: const TextStyle(
                 color: Colors.white,
               ),
             ),
-            Text(
+            const Text(
               '익셉셔널 강화 1회 적용 (최대 1회 강화 가능)',
               style: TextStyle(
                 color: Colors.white,

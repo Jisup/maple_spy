@@ -14,10 +14,10 @@ class AsyncUnionArtifactPage extends ConsumerWidget {
     final asyncUnionArtifact = ref.watch(asyncUnionArtifactProvider);
 
     return switch (asyncUnionArtifact) {
-      AsyncData() => UnionArtifactPage(),
+      AsyncData() => const UnionArtifactPage(),
       AsyncError() =>
         MainErrorPage(message: ErrorMessageConfig.unionPageRequestError),
-      _ => LoadingSpinner(),
+      _ => const LoadingSpinner(),
     };
   }
 }

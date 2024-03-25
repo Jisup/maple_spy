@@ -57,7 +57,7 @@ class _MainSkillPageState extends ConsumerState<MainSkillPage> {
                 ref.read(skillSelectTabProvider.notifier).update((state) =>
                     (StaticListConfig.detailSkillTabList[value]['name']));
               },
-              children: [
+              children: const [
                 AsyncHexaSkillPage(),
                 AsyncVSkillPage(),
                 AsyncLinkSkillPage(),

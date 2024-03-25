@@ -14,10 +14,10 @@ class AsyncAbilityHyperStatPage extends ConsumerWidget {
     final asyncAbilityHyperStat = ref.watch(asyncStatAbilityHyperProvider);
 
     return switch (asyncAbilityHyperStat) {
-      AsyncData() => AbilityHyperStatPage(),
+      AsyncData() => const AbilityHyperStatPage(),
       AsyncError() =>
         MainErrorPage(message: ErrorMessageConfig.statPageRequestError),
-      _ => LoadingSpinner(),
+      _ => const LoadingSpinner(),
     };
   }
 }

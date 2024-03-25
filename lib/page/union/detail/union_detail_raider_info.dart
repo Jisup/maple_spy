@@ -75,7 +75,7 @@ class UnionDetailRaiderInfo extends ConsumerWidget {
                                             ),
                                             child: ShaderMask(
                                               shaderCallback: (bounds) =>
-                                                  LinearGradient(
+                                                  const LinearGradient(
                                                       begin:
                                                           Alignment.topCenter,
                                                       end: Alignment

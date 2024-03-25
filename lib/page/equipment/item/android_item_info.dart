@@ -32,12 +32,12 @@ class AndroidItemInfo extends ConsumerWidget {
                     boxShadow: [
                       BoxShadow(
                           blurRadius: RadiusConfig.subRadius,
-                          offset: Offset(-3, -3),
+                          offset: const Offset(-3, -3),
                           color: Colors.white,
                           inset: true),
                       BoxShadow(
                           blurRadius: RadiusConfig.subRadius,
-                          offset: Offset(3, 3),
+                          offset: const Offset(3, 3),
                           color: Colors.black87,
                           inset: true),
                     ]),
@@ -62,12 +62,12 @@ class AndroidItemInfo extends ConsumerWidget {
                               semanticLabel: '${item!.androidName!} 이미지',
                             ),
                           )
-                        : SizedBox.shrink(),
+                        : const SizedBox.shrink(),
                   ],
                 ),
               ),
             ),
           )
-        : SizedBox.shrink();
+        : const SizedBox.shrink();
   }
 }

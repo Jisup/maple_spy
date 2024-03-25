@@ -29,7 +29,7 @@ class PetEquipmentItemDetailPage extends ConsumerWidget {
           backgroundColor: colorScheme.primary,
           leading: GestureDetector(
               onTap: () => context.pop(),
-              child: Icon(
+              child: const Icon(
                 Icons.navigate_before_rounded,
                 color: Colors.white,
                 semanticLabel: '뒤로 가기 버튼',
@@ -70,13 +70,13 @@ class PetEquipmentItemDetailPage extends ConsumerWidget {
                                   text: equipment.scrollUpgrade! != '0'
                                       ? ' (+${equipment.scrollUpgrade})'
                                       : '',
-                                  style:
-                                      TextStyle(color: ItemColor.etcInfoText)),
+                                  style: const TextStyle(
+                                      color: ItemColor.etcInfoText)),
                             ],
                           ),
                         ),
                         /**-----image + required */
-                        DashedDividerWidget(),
+                        const DashedDividerWidget(),
                         Container(
                           height: imageSize,
                           margin: EdgeInsets.only(
@@ -89,15 +89,15 @@ class PetEquipmentItemDetailPage extends ConsumerWidget {
                                 imageUrl: equipment.itemIcon!,
                                 label: '캐시',
                               ),
-                              EquipmentDetailRequiredLevelWidget()
+                              const EquipmentDetailRequiredLevelWidget()
                             ],
                           ),
                         ),
-                        EquipmentDetailRequiredClassWidget(),
+                        const EquipmentDetailRequiredClassWidget(),
                         /**-----options */
                         equipment.itemOption?.length != 0
-                            ? DashedDividerWidget()
-                            : SizedBox.shrink(),
+                            ? const DashedDividerWidget()
+                            : const SizedBox.shrink(),
                         equipment.itemOption?.length != 0
                             ? FractionallySizedBox(
                                 widthFactor: 1,
@@ -109,7 +109,7 @@ class PetEquipmentItemDetailPage extends ConsumerWidget {
                                     crossAxisAlignment:
                                         CrossAxisAlignment.start,
                                     children: [
-                                      Text('장비분류 : 펫장비',
+                                      const Text('장비분류 : 펫장비',
                                           style:
                                               TextStyle(color: Colors.white)),
                                       PetEquipmentItemDetailOptionPage(
@@ -119,7 +119,7 @@ class PetEquipmentItemDetailPage extends ConsumerWidget {
                                     ],
                                   ),
                                 ))
-                            : SizedBox.shrink(),
+                            : const SizedBox.shrink(),
                         FractionallySizedBox(
                           widthFactor: 1,
                           child: Container(
@@ -129,14 +129,14 @@ class PetEquipmentItemDetailPage extends ConsumerWidget {
                             ),
                             child: Text(
                               '업그레이드 가능 횟수 : ${equipment.scrollUpgradable}',
-                              style: TextStyle(color: Colors.white),
+                              style: const TextStyle(color: Colors.white),
                             ),
                           ),
                         ),
                         /**-----description */
                         equipment.itemDescription != null
-                            ? DashedDividerWidget()
-                            : SizedBox.shrink(),
+                            ? const DashedDividerWidget()
+                            : const SizedBox.shrink(),
                         equipment.itemDescription != null
                             ? FractionallySizedBox(
                                 widthFactor: 1,
@@ -147,9 +147,10 @@ class PetEquipmentItemDetailPage extends ConsumerWidget {
                                     ),
                                     child: Text(
                                       equipment.itemDescription!,
-                                      style: TextStyle(color: Colors.white),
+                                      style:
+                                          const TextStyle(color: Colors.white),
                                     )))
-                            : SizedBox.shrink()
+                            : const SizedBox.shrink()
                       ],
                     )),
               ),

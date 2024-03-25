@@ -80,6 +80,6 @@ class VSkillCorePage extends ConsumerWidget {
               )
             ],
           )
-        : SizedBox.shrink();
+        : const SizedBox.shrink();
   }
 }

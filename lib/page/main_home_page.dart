@@ -40,15 +40,15 @@ class _MainHomeState extends ConsumerState<MainHomePage> {
   void getEmergencyNotice() async {
     final remoteConfig = FirebaseRemoteConfig.instance;
     remoteConfig.setConfigSettings(RemoteConfigSettings(
-      fetchTimeout: Duration(milliseconds: 1000),
-      minimumFetchInterval: Duration(hours: 1),
+      fetchTimeout: const Duration(milliseconds: 1000),
+      minimumFetchInterval: const Duration(hours: 1),
     ));
     remoteConfig.setDefaults({
       'emergency_notice': Notice().toJson().toString(),
     });
     await remoteConfig.fetchAndActivate();
 
-    Timer(Duration(milliseconds: 1000), () {});
+    Timer(const Duration(milliseconds: 1000), () {});
 
     String remoteEmergencyNoticeData =
         remoteConfig.getString('emergency_notice');
@@ -110,8 +110,9 @@ class _MainHomeState extends ConsumerState<MainHomePage> {
                                           // Text('[공지] ${emergencyNotice!.title}'),
                                           GestureDetector(
                                               onTap: () {
-                                                if (_focusNode.hasFocus)
+                                                if (_focusNode.hasFocus) {
                                                   _focusNode.unfocus();
+                                                }
                                                 context.go('/notice',
                                                     extra: emergencyNotice);
                                               },
@@ -121,7 +122,7 @@ class _MainHomeState extends ConsumerState<MainHomePage> {
                                                         .middleDownSize),
                                                 TextSpan(
                                                   children: [
-                                                    TextSpan(
+                                                    const TextSpan(
                                                         text: '[공지] ',
                                                         style: TextStyle(
                                                             fontWeight:
@@ -150,7 +151,7 @@ class _MainHomeState extends ConsumerState<MainHomePage> {
                                           fontSize: FontConfig.commonSize,
                                           fontWeight: FontWeight.bold,
                                         ))
-                                    : SizedBox.shrink(),
+                                    : const SizedBox.shrink(),
                               ),
                               Container(
                                 height: 30,
@@ -200,8 +201,9 @@ class _MainHomeState extends ConsumerState<MainHomePage> {
                                             // ),
                                             GestureDetector(
                                               onTap: () {
-                                                if (_focusNode.hasFocus)
+                                                if (_focusNode.hasFocus) {
                                                   _focusNode.unfocus();
+                                                }
                                                 mainController
                                                     .onClickSearchButton(
                                                         characterName:
@@ -357,7 +359,7 @@ class _MainHomeState extends ConsumerState<MainHomePage> {
                                   ? MainErrorPage(
                                       message: ref
                                           .watch(mainController.errorMessage))
-                                  : SizedBox.shrink(),
+                                  : const SizedBox.shrink(),
                             ),
                           ),
                         ],
@@ -400,21 +402,25 @@ class _MainHomeState extends ConsumerState<MainHomePage> {
                     Container(
                       margin:
                           EdgeInsets.only(bottom: DimenConfig.commonDimen * 2),
-                      child: Text.rich(TextSpan(children: [
-                        TextSpan(text: 'Data based on '),
+                      child: const Text.rich(
                         TextSpan(
-                            text: 'NEXON OPEN API',
-                            style: TextStyle(
-                                color: Colors.blue,
-                                fontWeight: FontWeight.bold))
-                      ])),
+                          children: [
+                            TextSpan(text: 'Data based on '),
+                            TextSpan(
+                                text: 'NEXON OPEN API',
+                                style: TextStyle(
+                                    color: Colors.blue,
+                                    fontWeight: FontWeight.bold))
+                          ],
+                        ),
+                      ),
                     )
                   ],
                 ),
               ),
               ref.watch(mainController.isLoading)
-                  ? LoadingSpinner()
-                  : SizedBox.shrink(),
+                  ? const LoadingSpinner()
+                  : const SizedBox.shrink(),
             ],
           ),
         ),

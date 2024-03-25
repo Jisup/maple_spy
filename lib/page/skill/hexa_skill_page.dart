@@ -35,7 +35,7 @@ class HexaSkillPage extends ConsumerWidget {
             child: hexaMatrix.characterHexaCoreEquipment != null &&
                     hexaMatrix.characterHexaCoreEquipment?.length != 0
                 ? Container(
-                    margin: EdgeInsets.only(bottom: 85),
+                    margin: const EdgeInsets.only(bottom: 85),
                     child: Column(
                       children: [
                         HexaSkillCorePage(

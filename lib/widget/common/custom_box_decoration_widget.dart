@@ -39,12 +39,12 @@ BoxDecoration? customBoxDecoration({
           boxShadow: [
             BoxShadow(
                 blurRadius: RadiusConfig.subRadius,
-                offset: Offset(-3, -3),
+                offset: const Offset(-3, -3),
                 color: Colors.white70,
                 inset: true),
             BoxShadow(
                 blurRadius: RadiusConfig.subRadius,
-                offset: Offset(3, 3),
+                offset: const Offset(3, 3),
                 color: Colors.black87,
                 inset: true)
           ]),
@@ -101,7 +101,7 @@ BoxDecoration? customBoxDecoration({
     /**-----skill */
     'skill_in_out_bar' => BoxDecoration(
         gradient: RadialGradient(
-          transform: GradientRotation(pi + pi / 2),
+          transform: const GradientRotation(pi + pi / 2),
           radius: RadiusConfig.minRadius,
           colors: [
             startColor ?? mainColor,
@@ -116,7 +116,7 @@ BoxDecoration? customBoxDecoration({
       ),
     'skill_in_out_square' => BoxDecoration(
           gradient: RadialGradient(
-            transform: GradientRotation(pi + pi / 2),
+            transform: const GradientRotation(pi + pi / 2),
             radius: 0.5,
             colors: [
               startColor ?? mainColor,
@@ -127,18 +127,18 @@ BoxDecoration? customBoxDecoration({
           boxShadow: [
             BoxShadow(
                 blurRadius: RadiusConfig.subRadius,
-                offset: Offset(-3, -3),
+                offset: const Offset(-3, -3),
                 color: Colors.white70,
                 inset: true),
             BoxShadow(
                 blurRadius: RadiusConfig.subRadius,
-                offset: Offset(3, 3),
+                offset: const Offset(3, 3),
                 color: Colors.black87,
                 inset: true)
           ]),
     'skill_three_divide' => BoxDecoration(
         gradient: SweepGradient(
-          transform: GradientRotation(pi + pi / 2),
+          transform: const GradientRotation(pi + pi / 2),
           colors: [
             startColor ?? mainColor,
             endColor ?? mainColor,
@@ -156,12 +156,12 @@ BoxDecoration? customBoxDecoration({
         boxShadow: [
           BoxShadow(
               blurRadius: RadiusConfig.subRadius,
-              offset: Offset(-3, -3),
+              offset: const Offset(-3, -3),
               color: Colors.white70,
               inset: true),
           BoxShadow(
               blurRadius: RadiusConfig.subRadius,
-              offset: Offset(3, 3),
+              offset: const Offset(3, 3),
               color: Colors.black87,
               inset: true)
         ],
@@ -190,7 +190,7 @@ List<BoxShadow> basicBoxShadowList({
       color: color,
     ),
     BoxShadow(
-      offset: Offset(0, 0),
+      offset: const Offset(0, 0),
       color: color,
     ),
     BoxShadow(
@@ -215,12 +215,12 @@ List<BoxShadow> basicBoxShadowList({
     ),
     BoxShadow(
         blurRadius: RadiusConfig.subRadius,
-        offset: Offset(3, 3),
+        offset: const Offset(3, 3),
         color: insetTop ?? Colors.black87,
         inset: true),
     BoxShadow(
         blurRadius: RadiusConfig.subRadius,
-        offset: Offset(-3, -3),
+        offset: const Offset(-3, -3),
         color: insetBottom ?? Colors.white54,
         inset: true),
   ];
